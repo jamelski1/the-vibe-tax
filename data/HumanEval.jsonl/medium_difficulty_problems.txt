@@ -1,0 +1,2059 @@
+================================================================================
+HUMANEVAL MEDIUM-DIFFICULTY PROBLEMS (50 Selected)
+================================================================================
+
+
+################################################################################
+# STRING MANIPULATION & PATTERN MATCHING
+################################################################################
+
+
+================================================================================
+HumanEval/1
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    """ Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+    separate those group into separate strings and return the list of those.
+    Separate groups are balanced (each open brace is properly closed) and not nested within each other
+    Ignore any spaces in the input string.
+    >>> separate_paren_groups('( ) (( )) (( )( ))')
+    ['()', '(())', '(()())']
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate('(()()) ((())) () ((())()())') == [
+        '(()())', '((()))', '()', '((())()())'
+    ]
+    assert candidate('() (()) ((())) (((())))') == [
+        '()', '(())', '((()))', '(((())))'
+    ]
+    assert candidate('(()(())((())))') == [
+        '(()(())((())))'
+    ]
+    assert candidate('( ) (( )) (( )( ))') == ['()', '(())', '(()())']
+
+
+--- ENTRY POINT ---
+Function name: separate_paren_groups
+
+
+================================================================================
+HumanEval/6
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    """ Input to this function is a string represented multiple groups for nested parentheses separated by spaces.
+    For each of the group, output the deepest level of nesting of parentheses.
+    E.g. (()()) has maximum two levels of nesting while ((())) has three.
+
+    >>> parse_nested_parens('(()()) ((())) () ((())()())')
+    [2, 3, 1, 3]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate('(()()) ((())) () ((())()())') == [2, 3, 1, 3]
+    assert candidate('() (()) ((())) (((())))') == [1, 2, 3, 4]
+    assert candidate('(()(())((())))') == [4]
+
+
+--- ENTRY POINT ---
+Function name: parse_nested_parens
+
+
+================================================================================
+HumanEval/10
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def is_palindrome(string: str) -> bool:
+    """ Test if given string is a palindrome """
+    return string == string[::-1]
+
+
+def make_palindrome(string: str) -> str:
+    """ Find the shortest palindrome that begins with a supplied string.
+    Algorithm idea is simple:
+    - Find the longest postfix of supplied string that is a palindrome.
+    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate('') == ''
+    assert candidate('x') == 'x'
+    assert candidate('xyz') == 'xyzyx'
+    assert candidate('xyx') == 'xyx'
+    assert candidate('jerry') == 'jerryrrej'
+
+
+--- ENTRY POINT ---
+Function name: make_palindrome
+
+
+================================================================================
+HumanEval/22
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List, Any
+
+
+def filter_integers(values: List[Any]) -> List[int]:
+    """ Filter given list of any python values only for integers
+    >>> filter_integers(['a', 3.14, 5])
+    [5]
+    >>> filter_integers([1, 2, 3, 'abc', {}, []])
+    [1, 2, 3]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate([]) == []
+    assert candidate([4, {}, [], 23.2, 9, 'adasd']) == [4, 9]
+    assert candidate([3, 'c', 3, 3, 'a', 'b']) == [3, 3, 3]
+
+
+--- ENTRY POINT ---
+Function name: filter_integers
+
+
+================================================================================
+HumanEval/28
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def concatenate(strings: List[str]) -> str:
+    """ Concatenate list of strings into a single string
+    >>> concatenate([])
+    ''
+    >>> concatenate(['a', 'b', 'c'])
+    'abc'
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate([]) == ''
+    assert candidate(['x', 'y', 'z']) == 'xyz'
+    assert candidate(['x', 'y', 'z', 'w', 'k']) == 'xyzwk'
+
+
+--- ENTRY POINT ---
+Function name: concatenate
+
+
+================================================================================
+HumanEval/41
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def car_race_collision(n: int):
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the number of such collisions.
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(2) == 4
+    assert candidate(3) == 9
+    assert candidate(4) == 16
+    assert candidate(8) == 64
+    assert candidate(10) == 100
+
+
+
+--- ENTRY POINT ---
+Function name: car_race_collision
+
+
+================================================================================
+HumanEval/43
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def pairs_sum_to_zero(l):
+    """
+    pairs_sum_to_zero takes a list of integers as an input.
+    it returns True if there are two distinct elements in the list that
+    sum to zero, and False otherwise.
+    >>> pairs_sum_to_zero([1, 3, 5, 0])
+    False
+    >>> pairs_sum_to_zero([1, 3, -2, 1])
+    False
+    >>> pairs_sum_to_zero([1, 2, 3, 7])
+    False
+    >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])
+    True
+    >>> pairs_sum_to_zero([1])
+    False
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([1, 3, 5, 0]) == False
+    assert candidate([1, 3, -2, 1]) == False
+    assert candidate([1, 2, 3, 7]) == False
+    assert candidate([2, 4, -5, 3, 5, 7]) == True
+    assert candidate([1]) == False
+
+    assert candidate([-3, 9, -1, 3, 2, 30]) == True
+    assert candidate([-3, 9, -1, 3, 2, 31]) == True
+    assert candidate([-3, 9, -1, 4, 2, 30]) == False
+    assert candidate([-3, 9, -1, 4, 2, 31]) == False
+
+
+
+--- ENTRY POINT ---
+Function name: pairs_sum_to_zero
+
+
+================================================================================
+HumanEval/58
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def common(l1: list, l2: list):
+    """Return sorted unique common elements for two lists.
+    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])
+    [1, 5, 653]
+    >>> common([5, 3, 2, 8], [3, 2])
+    [2, 3]
+
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121]) == [1, 5, 653]
+    assert candidate([5, 3, 2, 8], [3, 2]) == [2, 3]
+    assert candidate([4, 3, 2, 8], [3, 2, 4]) == [2, 3, 4]
+    assert candidate([4, 3, 2, 8], []) == []
+
+
+
+--- ENTRY POINT ---
+Function name: common
+
+
+================================================================================
+HumanEval/67
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def fruit_distribution(s,n):
+    """
+    In this task, you will be given a string that represents a number of apples and oranges 
+    that are distributed in a basket of fruit this basket contains 
+    apples, oranges, and mango fruits. Given the string that represents the total number of 
+    the oranges and apples and an integer that represent the total number of the fruits 
+    in the basket return the number of the mango fruits in the basket.
+    for examble:
+    fruit_distribution("5 apples and 6 oranges", 19) ->19 - 5 - 6 = 8
+    fruit_distribution("0 apples and 1 oranges",3) -> 3 - 0 - 1 = 2
+    fruit_distribution("2 apples and 3 oranges", 100) -> 100 - 2 - 3 = 95
+    fruit_distribution("100 apples and 1 oranges",120) -> 120 - 100 - 1 = 19
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate("5 apples and 6 oranges",19) == 8
+    assert candidate("5 apples and 6 oranges",21) == 10
+    assert candidate("0 apples and 1 oranges",3) == 2
+    assert candidate("1 apples and 0 oranges",3) == 2
+    assert candidate("2 apples and 3 oranges",100) == 95
+    assert candidate("2 apples and 3 oranges",5) == 0
+    assert candidate("1 apples and 100 oranges",120) == 19
+
+
+--- ENTRY POINT ---
+Function name: fruit_distribution
+
+
+================================================================================
+HumanEval/153
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def Strongest_Extension(class_name, extensions):
+    """You will be given the name of a class (a string) and a list of extensions.
+    The extensions are to be used to load additional classes to the class. The
+    strength of the extension is as follows: Let CAP be the number of the uppercase
+    letters in the extension's name, and let SM be the number of lowercase letters 
+    in the extension's name, the strength is given by the fraction CAP - SM. 
+    You should find the strongest extension and return a string in this 
+    format: ClassName.StrongestExtensionName.
+    If there are two or more extensions with the same strength, you should
+    choose the one that comes first in the list.
+    For example, if you are given "Slices" as the class and a list of the
+    extensions: ['SErviNGSliCes', 'Cheese', 'StuFfed'] then you should
+    return 'Slices.SErviNGSliCes' since 'SErviNGSliCes' is the strongest extension 
+    (its strength is -1).
+    Example:
+    for Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate('Watashi', ['tEN', 'niNE', 'eIGHt8OKe']) == 'Watashi.eIGHt8OKe'
+    assert candidate('Boku123', ['nani', 'NazeDa', 'YEs.WeCaNe', '32145tggg']) == 'Boku123.YEs.WeCaNe'
+    assert candidate('__YESIMHERE', ['t', 'eMptY', 'nothing', 'zeR00', 'NuLl__', '123NoooneB321']) == '__YESIMHERE.NuLl__'
+    assert candidate('K', ['Ta', 'TAR', 't234An', 'cosSo']) == 'K.TAR'
+    assert candidate('__HAHA', ['Tab', '123', '781345', '-_-']) == '__HAHA.123'
+    assert candidate('YameRore', ['HhAas', 'okIWILL123', 'WorkOut', 'Fails', '-_-']) == 'YameRore.okIWILL123'
+    assert candidate('finNNalLLly', ['Die', 'NowW', 'Wow', 'WoW']) == 'finNNalLLly.WoW'
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate('_', ['Bb', '91245']) == '_.Bb'
+    assert candidate('Sp', ['671235', 'Bb']) == 'Sp.671235'
+    
+
+
+--- ENTRY POINT ---
+Function name: Strongest_Extension
+
+
+################################################################################
+# LIST PROCESSING & TRANSFORMATIONS
+################################################################################
+
+
+================================================================================
+HumanEval/0
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    """ Check if in given list of numbers, are any two numbers closer to each other than
+    given threshold.
+    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)
+    False
+    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)
+    True
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.3) == True
+    assert candidate([1.0, 2.0, 3.9, 4.0, 5.0, 2.2], 0.05) == False
+    assert candidate([1.0, 2.0, 5.9, 4.0, 5.0], 0.95) == True
+    assert candidate([1.0, 2.0, 5.9, 4.0, 5.0], 0.8) == False
+    assert candidate([1.0, 2.0, 3.0, 4.0, 5.0, 2.0], 0.1) == True
+    assert candidate([1.1, 2.2, 3.1, 4.1, 5.1], 1.0) == True
+    assert candidate([1.1, 2.2, 3.1, 4.1, 5.1], 0.5) == False
+
+
+
+--- ENTRY POINT ---
+Function name: has_close_elements
+
+
+================================================================================
+HumanEval/4
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    """ For a given list of input numbers, calculate Mean Absolute Deviation
+    around the mean of this dataset.
+    Mean Absolute Deviation is the average absolute difference between each
+    element and a centerpoint (mean in this case):
+    MAD = average | x - x_mean |
+    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])
+    1.0
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert abs(candidate([1.0, 2.0, 3.0]) - 2.0/3.0) < 1e-6
+    assert abs(candidate([1.0, 2.0, 3.0, 4.0]) - 1.0) < 1e-6
+    assert abs(candidate([1.0, 2.0, 3.0, 4.0, 5.0]) - 6.0/5.0) < 1e-6
+
+
+
+--- ENTRY POINT ---
+Function name: mean_absolute_deviation
+
+
+================================================================================
+HumanEval/9
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List, Tuple
+
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    """ From a given list of integers, generate a list of rolling maximum element found until given moment
+    in the sequence.
+    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])
+    [1, 2, 3, 3, 3, 4, 4]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate([]) == []
+    assert candidate([1, 2, 3, 4]) == [1, 2, 3, 4]
+    assert candidate([4, 3, 2, 1]) == [4, 4, 4, 4]
+    assert candidate([3, 2, 3, 100, 3]) == [3, 3, 3, 100, 100]
+
+
+--- ENTRY POINT ---
+Function name: rolling_max
+
+
+================================================================================
+HumanEval/18
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def how_many_times(string: str, substring: str) -> int:
+    """ Find how many times a given substring can be found in the original string. Count overlaping cases.
+    >>> how_many_times('', 'a')
+    0
+    >>> how_many_times('aaa', 'a')
+    3
+    >>> how_many_times('aaaa', 'aa')
+    3
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate('', 'x') == 0
+    assert candidate('xyxyxyx', 'x') == 4
+    assert candidate('cacacacac', 'cac') == 4
+    assert candidate('john doe', 'john') == 1
+
+
+--- ENTRY POINT ---
+Function name: how_many_times
+
+
+================================================================================
+HumanEval/25
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+from typing import List
+
+
+def factorize(n: int) -> List[int]:
+    """ Return list of prime factors of given integer in the order from smallest to largest.
+    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.
+    Input number should be equal to the product of all factors
+    >>> factorize(8)
+    [2, 2, 2]
+    >>> factorize(25)
+    [5, 5]
+    >>> factorize(70)
+    [2, 5, 7]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate(2) == [2]
+    assert candidate(4) == [2, 2]
+    assert candidate(8) == [2, 2, 2]
+    assert candidate(3 * 19) == [3, 19]
+    assert candidate(3 * 19 * 3 * 19) == [3, 3, 19, 19]
+    assert candidate(3 * 19 * 3 * 19 * 3 * 19) == [3, 3, 3, 19, 19, 19]
+    assert candidate(3 * 19 * 19 * 19) == [3, 19, 19, 19]
+    assert candidate(3 * 2 * 3) == [2, 3, 3]
+
+
+--- ENTRY POINT ---
+Function name: factorize
+
+
+================================================================================
+HumanEval/33
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def sort_third(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal
+    to the values of the corresponding indicies of l, but sorted.
+    >>> sort_third([1, 2, 3])
+    [1, 2, 3]
+    >>> sort_third([5, 6, 3, 4, 8, 9, 2])
+    [2, 6, 3, 4, 8, 9, 5]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert tuple(candidate([1, 2, 3])) == tuple(sort_third([1, 2, 3]))
+    assert tuple(candidate([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])) == tuple(sort_third([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10]))
+    assert tuple(candidate([5, 8, -12, 4, 23, 2, 3, 11, 12, -10])) == tuple(sort_third([5, 8, -12, 4, 23, 2, 3, 11, 12, -10]))
+    assert tuple(candidate([5, 6, 3, 4, 8, 9, 2])) == tuple([2, 6, 3, 4, 8, 9, 5])
+    assert tuple(candidate([5, 8, 3, 4, 6, 9, 2])) == tuple([2, 8, 3, 4, 6, 9, 5])
+    assert tuple(candidate([5, 6, 9, 4, 8, 3, 2])) == tuple([2, 6, 9, 4, 8, 3, 5])
+    assert tuple(candidate([5, 6, 3, 4, 8, 9, 2, 1])) == tuple([2, 6, 3, 4, 8, 9, 5, 1])
+
+
+
+--- ENTRY POINT ---
+Function name: sort_third
+
+
+================================================================================
+HumanEval/34
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def unique(l: list):
+    """Return sorted unique elements in a list
+    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])
+    [0, 2, 3, 5, 9, 123]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([5, 3, 5, 2, 3, 3, 9, 0, 123]) == [0, 2, 3, 5, 9, 123]
+
+
+
+--- ENTRY POINT ---
+Function name: unique
+
+
+================================================================================
+HumanEval/35
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def max_element(l: list):
+    """Return maximum element in the list.
+    >>> max_element([1, 2, 3])
+    3
+    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])
+    123
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([1, 2, 3]) == 3
+    assert candidate([5, 3, -5, 2, -3, 3, 9, 0, 124, 1, -10]) == 124
+
+
+--- ENTRY POINT ---
+Function name: max_element
+
+
+================================================================================
+HumanEval/54
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def same_chars(s0: str, s1: str):
+    """
+    Check if two words have the same characters.
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')
+    True
+    >>> same_chars('abcd', 'dddddddabc')
+    True
+    >>> same_chars('dddddddabc', 'abcd')
+    True
+    >>> same_chars('eabcd', 'dddddddabc')
+    False
+    >>> same_chars('abcd', 'dddddddabce')
+    False
+    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')
+    False
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate('eabcdzzzz', 'dddzzzzzzzddeddabc') == True
+    assert candidate('abcd', 'dddddddabc') == True
+    assert candidate('dddddddabc', 'abcd') == True
+    assert candidate('eabcd', 'dddddddabc') == False
+    assert candidate('abcd', 'dddddddabcf') == False
+    assert candidate('eabcdzzzz', 'dddzzzzzzzddddabc') == False
+    assert candidate('aabb', 'aaccc') == False
+
+
+
+--- ENTRY POINT ---
+Function name: same_chars
+
+
+================================================================================
+HumanEval/68
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def pluck(arr):
+    """
+    "Given an array representing a branch of a tree that has non-negative integer nodes
+    your task is to pluck one of the nodes and return it.
+    The plucked node should be the node with the smallest even value.
+    If multiple nodes with the same smallest even value are found return the node that has smallest index.
+
+    The plucked node should be returned in a list, [ smalest_value, its index ],
+    If there are no even values or the given array is empty, return [].
+
+    Example 1:
+        Input: [4,2,3]
+        Output: [2, 1]
+        Explanation: 2 has the smallest even value, and 2 has the smallest index.
+
+    Example 2:
+        Input: [1,2,3]
+        Output: [2, 1]
+        Explanation: 2 has the smallest even value, and 2 has the smallest index. 
+
+    Example 3:
+        Input: []
+        Output: []
+    
+    Example 4:
+        Input: [5, 0, 3, 0, 4, 2]
+        Output: [0, 1]
+        Explanation: 0 is the smallest value, but  there are two zeros,
+                     so we will choose the first zero, which has the smallest index.
+
+    Constraints:
+        * 1 <= nodes.length <= 10000
+        * 0 <= node.value
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert True, "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate([4,2,3]) == [2, 1], "Error"
+    assert candidate([1,2,3]) == [2, 1], "Error"
+    assert candidate([]) == [], "Error"
+    assert candidate([5, 0, 3, 0, 4, 2]) == [0, 1], "Error"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True, "This prints if this assert fails 2 (also good for debugging!)"
+    assert candidate([1, 2, 3, 0, 5, 3]) == [0, 3], "Error"
+    assert candidate([5, 4, 8, 4 ,8]) == [4, 1], "Error"
+    assert candidate([7, 6, 7, 1]) == [6, 1], "Error"
+    assert candidate([7, 9, 7, 1]) == [], "Error"
+
+
+
+--- ENTRY POINT ---
+Function name: pluck
+
+
+################################################################################
+# MATHEMATICAL & NUMERICAL
+################################################################################
+
+
+================================================================================
+HumanEval/13
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def greatest_common_divisor(a: int, b: int) -> int:
+    """ Return a greatest common divisor of two integers a and b
+    >>> greatest_common_divisor(3, 5)
+    1
+    >>> greatest_common_divisor(25, 15)
+    5
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate(3, 7) == 1
+    assert candidate(10, 15) == 5
+    assert candidate(49, 14) == 7
+    assert candidate(144, 60) == 12
+
+
+--- ENTRY POINT ---
+Function name: greatest_common_divisor
+
+
+================================================================================
+HumanEval/30
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def get_positive(l: list):
+    """Return only positive numbers in the list.
+    >>> get_positive([-1, 2, -4, 5, 6])
+    [2, 5, 6]
+    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])
+    [5, 3, 2, 3, 9, 123, 1]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([-1, -2, 4, 5, 6]) == [4, 5, 6]
+    assert candidate([5, 3, -5, 2, 3, 3, 9, 0, 123, 1, -10]) == [5, 3, 2, 3, 3, 9, 123, 1]
+    assert candidate([-1, -2]) == []
+    assert candidate([]) == []
+
+
+
+--- ENTRY POINT ---
+Function name: get_positive
+
+
+================================================================================
+HumanEval/32
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+import math
+
+
+def poly(xs: list, x: float):
+    """
+    Evaluates polynomial with coefficients xs at point x.
+    return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n
+    """
+    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])
+
+
+def find_zero(xs: list):
+    """ xs are coefficients of a polynomial.
+    find_zero find x such that poly(x) = 0.
+    find_zero returns only only zero point, even if there are many.
+    Moreover, find_zero only takes list xs having even number of coefficients
+    and largest non zero coefficient as it guarantees
+    a solution.
+    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x
+    -0.5
+    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3
+    1.0
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    import math
+    import random
+    rng = random.Random(42)
+    import copy
+    for _ in range(100):
+        ncoeff = 2 * rng.randint(1, 4)
+        coeffs = []
+        for _ in range(ncoeff):
+            coeff = rng.randint(-10, 10)
+            if coeff == 0:
+                coeff = 1
+            coeffs.append(coeff)
+        solution = candidate(copy.deepcopy(coeffs))
+        assert math.fabs(poly(coeffs, solution)) < 1e-4
+
+
+
+--- ENTRY POINT ---
+Function name: find_zero
+
+
+================================================================================
+HumanEval/37
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def sort_even(l: list):
+    """This function takes a list l and returns a list l' such that
+    l' is identical to l in the odd indicies, while its values at the even indicies are equal
+    to the values of the even indicies of l, but sorted.
+    >>> sort_even([1, 2, 3])
+    [1, 2, 3]
+    >>> sort_even([5, 6, 3, 4])
+    [3, 6, 5, 4]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert tuple(candidate([1, 2, 3])) == tuple([1, 2, 3])
+    assert tuple(candidate([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])) == tuple([-10, 3, -5, 2, -3, 3, 5, 0, 9, 1, 123])
+    assert tuple(candidate([5, 8, -12, 4, 23, 2, 3, 11, 12, -10])) == tuple([-12, 8, 3, 4, 5, 2, 12, 11, 23, -10])
+
+
+
+--- ENTRY POINT ---
+Function name: sort_even
+
+
+================================================================================
+HumanEval/48
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def is_palindrome(text: str):
+    """
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate('') == True
+    assert candidate('aba') == True
+    assert candidate('aaaaa') == True
+    assert candidate('zbcd') == False
+    assert candidate('xywyx') == True
+    assert candidate('xywyz') == False
+    assert candidate('xywzx') == False
+
+
+
+--- ENTRY POINT ---
+Function name: is_palindrome
+
+
+================================================================================
+HumanEval/49
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def modp(n: int, p: int):
+    """Return 2^n modulo p (be aware of numerics).
+    >>> modp(3, 5)
+    3
+    >>> modp(1101, 101)
+    2
+    >>> modp(0, 101)
+    1
+    >>> modp(3, 11)
+    8
+    >>> modp(100, 101)
+    1
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(3, 5) == 3
+    assert candidate(1101, 101) == 2
+    assert candidate(0, 101) == 1
+    assert candidate(3, 11) == 8
+    assert candidate(100, 101) == 1
+    assert candidate(30, 5) == 4
+    assert candidate(31, 5) == 3
+
+
+
+--- ENTRY POINT ---
+Function name: modp
+
+
+================================================================================
+HumanEval/60
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def sum_to_n(n: int):
+    """sum_to_n is a function that sums numbers from 1 to n.
+    >>> sum_to_n(30)
+    465
+    >>> sum_to_n(100)
+    5050
+    >>> sum_to_n(5)
+    15
+    >>> sum_to_n(10)
+    55
+    >>> sum_to_n(1)
+    1
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(1) == 1
+    assert candidate(6) == 21
+    assert candidate(11) == 66
+    assert candidate(30) == 465
+    assert candidate(100) == 5050
+
+
+
+--- ENTRY POINT ---
+Function name: sum_to_n
+
+
+================================================================================
+HumanEval/63
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def fibfib(n: int):
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    >>> fibfib(1)
+    0
+    >>> fibfib(5)
+    4
+    >>> fibfib(8)
+    24
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(2) == 1
+    assert candidate(1) == 0
+    assert candidate(5) == 4
+    assert candidate(8) == 24
+    assert candidate(10) == 81
+    assert candidate(12) == 274
+    assert candidate(14) == 927
+
+
+
+--- ENTRY POINT ---
+Function name: fibfib
+
+
+================================================================================
+HumanEval/66
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def digitSum(s):
+    """Task
+    Write a function that takes a string as input and returns the sum of the upper characters only'
+    ASCII codes.
+
+    Examples:
+        digitSum("") => 0
+        digitSum("abAB") => 131
+        digitSum("abcCd") => 67
+        digitSum("helloE") => 69
+        digitSum("woArBld") => 131
+        digitSum("aAaaaXa") => 153
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert True, "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate("") == 0, "Error"
+    assert candidate("abAB") == 131, "Error"
+    assert candidate("abcCd") == 67, "Error"
+    assert candidate("helloE") == 69, "Error"
+    assert candidate("woArBld") == 131, "Error"
+    assert candidate("aAaaaXa") == 153, "Error"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True, "This prints if this assert fails 2 (also good for debugging!)"
+    assert candidate(" How are yOu?") == 151, "Error"
+    assert candidate("You arE Very Smart") == 327, "Error"
+
+
+
+--- ENTRY POINT ---
+Function name: digitSum
+
+
+================================================================================
+HumanEval/157
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def right_angle_triangle(a, b, c):
+    '''
+    Given the lengths of the three sides of a triangle. Return True if the three
+    sides form a right-angled triangle, False otherwise.
+    A right-angled triangle is a triangle in which one angle is right angle or 
+    90 degree.
+    Example:
+    right_angle_triangle(3, 4, 5) == True
+    right_angle_triangle(1, 2, 3) == False
+    '''
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(3, 4, 5) == True, "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate(1, 2, 3) == False
+    assert candidate(10, 6, 8) == True
+    assert candidate(2, 2, 2) == False
+    assert candidate(7, 24, 25) == True
+    assert candidate(10, 5, 7) == False
+    assert candidate(5, 12, 13) == True
+    assert candidate(15, 8, 17) == True
+    assert candidate(48, 55, 73) == True
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate(1, 1, 1) == False, "This prints if this assert fails 2 (also good for debugging!)"
+    assert candidate(2, 2, 10) == False
+
+
+
+--- ENTRY POINT ---
+Function name: right_angle_triangle
+
+
+################################################################################
+# LOGIC & CONDITIONALS
+################################################################################
+
+
+================================================================================
+HumanEval/24
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def largest_divisor(n: int) -> int:
+    """ For a given number n, find the largest number that divides n evenly, smaller than n
+    >>> largest_divisor(15)
+    5
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {
+    'author': 'jt',
+    'dataset': 'test'
+}
+
+
+def check(candidate):
+    assert candidate(3) == 1
+    assert candidate(7) == 1
+    assert candidate(10) == 5
+    assert candidate(100) == 50
+    assert candidate(49) == 7
+
+
+--- ENTRY POINT ---
+Function name: largest_divisor
+
+
+================================================================================
+HumanEval/36
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def fizz_buzz(n: int):
+    """Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.
+    >>> fizz_buzz(50)
+    0
+    >>> fizz_buzz(78)
+    2
+    >>> fizz_buzz(79)
+    3
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(50) == 0
+    assert candidate(78) == 2
+    assert candidate(79) == 3
+    assert candidate(100) == 3
+    assert candidate(200) == 6
+    assert candidate(4000) == 192
+    assert candidate(10000) == 639
+    assert candidate(100000) == 8026
+
+
+
+--- ENTRY POINT ---
+Function name: fizz_buzz
+
+
+================================================================================
+HumanEval/39
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def prime_fib(n: int):
+    """
+    prime_fib returns n-th number that is a Fibonacci number and it's also prime.
+    >>> prime_fib(1)
+    2
+    >>> prime_fib(2)
+    3
+    >>> prime_fib(3)
+    5
+    >>> prime_fib(4)
+    13
+    >>> prime_fib(5)
+    89
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(1) == 2
+    assert candidate(2) == 3
+    assert candidate(3) == 5
+    assert candidate(4) == 13
+    assert candidate(5) == 89
+    assert candidate(6) == 233
+    assert candidate(7) == 1597
+    assert candidate(8) == 28657
+    assert candidate(9) == 514229
+    assert candidate(10) == 433494437
+
+
+
+--- ENTRY POINT ---
+Function name: prime_fib
+
+
+================================================================================
+HumanEval/40
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def triples_sum_to_zero(l: list):
+    """
+    triples_sum_to_zero takes a list of integers as an input.
+    it returns True if there are three distinct elements in the list that
+    sum to zero, and False otherwise.
+
+    >>> triples_sum_to_zero([1, 3, 5, 0])
+    False
+    >>> triples_sum_to_zero([1, 3, -2, 1])
+    True
+    >>> triples_sum_to_zero([1, 2, 3, 7])
+    False
+    >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])
+    True
+    >>> triples_sum_to_zero([1])
+    False
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([1, 3, 5, 0]) == False
+    assert candidate([1, 3, 5, -1]) == False
+    assert candidate([1, 3, -2, 1]) == True
+    assert candidate([1, 2, 3, 7]) == False
+    assert candidate([1, 2, 5, 7]) == False
+    assert candidate([2, 4, -5, 3, 9, 7]) == True
+    assert candidate([1]) == False
+    assert candidate([1, 3, 5, -100]) == False
+    assert candidate([100, 3, 5, -100]) == False
+
+
+
+--- ENTRY POINT ---
+Function name: triples_sum_to_zero
+
+
+================================================================================
+HumanEval/42
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def incr_list(l: list):
+    """Return list with elements incremented by 1.
+    >>> incr_list([1, 2, 3])
+    [2, 3, 4]
+    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])
+    [6, 4, 6, 3, 4, 4, 10, 1, 124]
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([]) == []
+    assert candidate([3, 2, 1]) == [4, 3, 2]
+    assert candidate([5, 2, 5, 2, 3, 3, 9, 0, 123]) == [6, 3, 6, 3, 4, 4, 10, 1, 124]
+
+
+
+--- ENTRY POINT ---
+Function name: incr_list
+
+
+================================================================================
+HumanEval/55
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def fib(n: int):
+    """Return n-th Fibonacci number.
+    >>> fib(10)
+    55
+    >>> fib(1)
+    1
+    >>> fib(8)
+    21
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(10) == 55
+    assert candidate(1) == 1
+    assert candidate(8) == 21
+    assert candidate(11) == 89
+    assert candidate(12) == 144
+
+
+
+--- ENTRY POINT ---
+Function name: fib
+
+
+================================================================================
+HumanEval/64
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+FIX = """
+Add more test cases.
+"""
+
+def vowels_count(s):
+    """Write a function vowels_count which takes a string representing
+    a word as input and returns the number of vowels in the string.
+    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a
+    vowel, but only when it is at the end of the given word.
+
+    Example:
+    >>> vowels_count("abcde")
+    2
+    >>> vowels_count("ACEDY")
+    3
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate("abcde") == 2, "Test 1"
+    assert candidate("Alone") == 3, "Test 2"
+    assert candidate("key") == 2, "Test 3"
+    assert candidate("bye") == 1, "Test 4"
+    assert candidate("keY") == 2, "Test 5"
+    assert candidate("bYe") == 1, "Test 6"
+    assert candidate("ACEDY") == 3, "Test 7"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True, "This prints if this assert fails 2 (also good for debugging!)"
+
+
+
+--- ENTRY POINT ---
+Function name: vowels_count
+
+
+================================================================================
+HumanEval/75
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def is_multiply_prime(a):
+    """Write a function that returns true if the given number is the multiplication of 3 prime numbers
+    and false otherwise.
+    Knowing that (a) is less then 100. 
+    Example:
+    is_multiply_prime(30) == True
+    30 = 2 * 3 * 5
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    assert candidate(5) == False
+    assert candidate(30) == True
+    assert candidate(8) == True
+    assert candidate(10) == False
+    assert candidate(125) == True
+    assert candidate(3 * 5 * 7) == True
+    assert candidate(3 * 6 * 7) == False
+    assert candidate(9 * 9 * 9) == False
+    assert candidate(11 * 9 * 9) == False
+    assert candidate(11 * 13 * 7) == True
+
+
+
+--- ENTRY POINT ---
+Function name: is_multiply_prime
+
+
+================================================================================
+HumanEval/77
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def iscube(a):
+    '''
+    Write a function that takes an integer a and returns True 
+    if this ingeger is a cube of some integer number.
+    Note: you may assume the input is always valid.
+    Examples:
+    iscube(1) ==> True
+    iscube(2) ==> False
+    iscube(-1) ==> True
+    iscube(64) ==> True
+    iscube(0) ==> True
+    iscube(180) ==> False
+    '''
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(1) == True, "First test error: " + str(candidate(1))
+    assert candidate(2) == False, "Second test error: " + str(candidate(2))
+    assert candidate(-1) == True, "Third test error: " + str(candidate(-1))
+    assert candidate(64) == True, "Fourth test error: " + str(candidate(64))
+    assert candidate(180) == False, "Fifth test error: " + str(candidate(180))
+    assert candidate(1000) == True, "Sixth test error: " + str(candidate(1000))
+
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate(0) == True, "1st edge test error: " + str(candidate(0))
+    assert candidate(1729) == False, "2nd edge test error: " + str(candidate(1728))
+
+
+
+--- ENTRY POINT ---
+Function name: iscube
+
+
+================================================================================
+HumanEval/80
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def is_happy(s):
+    """You are given a string s.
+    Your task is to check if the string is happy or not.
+    A string is happy if its length is at least 3 and every 3 consecutive letters are distinct
+    For example:
+    is_happy(a) => False
+    is_happy(aa) => False
+    is_happy(abcd) => True
+    is_happy(aabb) => False
+    is_happy(adb) => True
+    is_happy(xyy) => False
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate("a") == False , "a"
+    assert candidate("aa") == False , "aa"
+    assert candidate("abcd") == True , "abcd"
+    assert candidate("aabb") == False , "aabb"
+    assert candidate("adb") == True , "adb"
+    assert candidate("xyy") == False , "xyy"
+    assert candidate("iopaxpoi") == True , "iopaxpoi"
+    assert candidate("iopaxioi") == False , "iopaxioi"
+
+
+--- ENTRY POINT ---
+Function name: is_happy
+
+
+################################################################################
+# DATA STRUCTURES & COMPARISON
+################################################################################
+
+
+================================================================================
+HumanEval/52
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def below_threshold(l: list, t: int):
+    """Return True if all numbers in the list l are below threshold t.
+    >>> below_threshold([1, 2, 4, 10], 100)
+    True
+    >>> below_threshold([1, 20, 4, 10], 5)
+    False
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate([1, 2, 4, 10], 100)
+    assert not candidate([1, 20, 4, 10], 5)
+    assert candidate([1, 20, 4, 10], 21)
+    assert candidate([1, 20, 4, 10], 22)
+    assert candidate([1, 8, 4, 10], 11)
+    assert not candidate([1, 8, 4, 10], 10)
+
+
+
+--- ENTRY POINT ---
+Function name: below_threshold
+
+
+================================================================================
+HumanEval/59
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+
+def largest_prime_factor(n: int):
+    """Return the largest prime factor of n. Assume n > 1 and is not a prime.
+    >>> largest_prime_factor(13195)
+    29
+    >>> largest_prime_factor(2048)
+    2
+    """
+
+
+--- UNIT TESTS ---
+
+
+METADATA = {}
+
+
+def check(candidate):
+    assert candidate(15) == 5
+    assert candidate(27) == 3
+    assert candidate(63) == 7
+    assert candidate(330) == 11
+    assert candidate(13195) == 29
+
+
+
+--- ENTRY POINT ---
+Function name: largest_prime_factor
+
+
+================================================================================
+HumanEval/65
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def circular_shift(x, shift):
+    """Circular shift the digits of the integer x, shift the digits right by shift
+    and return the result as a string.
+    If shift > number of digits, return digits reversed.
+    >>> circular_shift(12, 1)
+    "21"
+    >>> circular_shift(12, 2)
+    "12"
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(100, 2) == "001"
+    assert candidate(12, 2) == "12"
+    assert candidate(97, 8) == "79"
+    assert candidate(12, 1) == "21", "This prints if this assert fails 1 (good for debugging!)"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate(11, 101) == "11", "This prints if this assert fails 2 (also good for debugging!)"
+
+
+
+--- ENTRY POINT ---
+Function name: circular_shift
+
+
+================================================================================
+HumanEval/71
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def triangle_area(a, b, c):
+    '''
+    Given the lengths of the three sides of a triangle. Return the area of
+    the triangle rounded to 2 decimal points if the three sides form a valid triangle. 
+    Otherwise return -1
+    Three sides make a valid triangle when the sum of any two sides is greater 
+    than the third side.
+    Example:
+    triangle_area(3, 4, 5) == 6.00
+    triangle_area(1, 2, 10) == -1
+    '''
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(3, 4, 5) == 6.00, "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate(1, 2, 10) == -1
+    assert candidate(4, 8, 5) == 8.18
+    assert candidate(2, 2, 2) == 1.73
+    assert candidate(1, 2, 3) == -1
+    assert candidate(10, 5, 7) == 16.25
+    assert candidate(2, 6, 3) == -1
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate(1, 1, 1) == 0.43, "This prints if this assert fails 2 (also good for debugging!)"
+    assert candidate(2, 2, 10) == -1
+
+
+
+--- ENTRY POINT ---
+Function name: triangle_area
+
+
+================================================================================
+HumanEval/78
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def hex_key(num):
+    """You have been tasked to write a function that receives 
+    a hexadecimal number as a string and counts the number of hexadecimal 
+    digits that are primes (prime number, or a prime, is a natural number 
+    greater than 1 that is not a product of two smaller natural numbers).
+    Hexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
+    Prime numbers are 2, 3, 5, 7, 11, 13, 17,...
+    So you have to determine a number of the following digits: 2, 3, 5, 7, 
+    B (=decimal 11), D (=decimal 13).
+    Note: you may assume the input is always correct or empty string, 
+    and symbols A,B,C,D,E,F are always uppercase.
+    Examples:
+    For num = "AB" the output should be 1.
+    For num = "1077E" the output should be 2.
+    For num = "ABED1A33" the output should be 4.
+    For num = "123456789ABCDEF0" the output should be 6.
+    For num = "2020" the output should be 2.
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate("AB") == 1, "First test error: " + str(candidate("AB"))      
+    assert candidate("1077E") == 2, "Second test error: " + str(candidate("1077E"))  
+    assert candidate("ABED1A33") == 4, "Third test error: " + str(candidate("ABED1A33"))      
+    assert candidate("2020") == 2, "Fourth test error: " + str(candidate("2020"))  
+    assert candidate("123456789ABCDEF0") == 6, "Fifth test error: " + str(candidate("123456789ABCDEF0"))      
+    assert candidate("112233445566778899AABBCCDDEEFF00") == 12, "Sixth test error: " + str(candidate("112233445566778899AABBCCDDEEFF00"))  
+
+
+    # Check some edge cases that are easy to work out by hand.
+    assert candidate([]) == 0
+
+
+
+--- ENTRY POINT ---
+Function name: hex_key
+
+
+================================================================================
+HumanEval/96
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def count_up_to(n):
+    """Implement a function that takes an non-negative integer and returns an array of the first n
+    integers that are prime numbers and less than n.
+    for example:
+    count_up_to(5) => [2,3]
+    count_up_to(11) => [2,3,5,7]
+    count_up_to(0) => []
+    count_up_to(20) => [2,3,5,7,11,13,17,19]
+    count_up_to(1) => []
+    count_up_to(18) => [2,3,5,7,11,13,17]
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    assert candidate(5) == [2,3]
+    assert candidate(6) == [2,3,5]
+    assert candidate(7) == [2,3,5]
+    assert candidate(10) == [2,3,5,7]
+    assert candidate(0) == []
+    assert candidate(22) == [2,3,5,7,11,13,17,19]
+    assert candidate(1) == []
+    assert candidate(18) == [2,3,5,7,11,13,17]
+    assert candidate(47) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
+    assert candidate(101) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+
+
+--- ENTRY POINT ---
+Function name: count_up_to
+
+
+================================================================================
+HumanEval/152
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def compare(game,guess):
+    """I think we all remember that feeling when the result of some long-awaited
+    event is finally known. The feelings and thoughts you have at that moment are
+    definitely worth noting down and comparing.
+    Your task is to determine if a person correctly guessed the results of a number of matches.
+    You are given two arrays of scores and guesses of equal length, where each index shows a match. 
+    Return an array of the same length denoting how far off each guess was. If they have guessed correctly,
+    the value is 0, and if not, the value is the absolute difference between the guess and the score.
+    
+    
+    example:
+
+    compare([1,2,3,4,5,1],[1,2,3,4,2,-2]) -> [0,0,0,0,3,3]
+    compare([0,5,0,0,0,4],[4,1,1,0,0,-2]) -> [4,4,1,0,0,6]
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate([1,2,3,4,5,1],[1,2,3,4,2,-2])==[0,0,0,0,3,3], "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate([0,0,0,0,0,0],[0,0,0,0,0,0])==[0,0,0,0,0,0], "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate([1,2,3],[-1,-2,-3])==[2,4,6], "This prints if this assert fails 1 (good for debugging!)"
+    assert candidate([1,2,3,5],[-1,2,3,4])==[2,0,0,1], "This prints if this assert fails 1 (good for debugging!)"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True, "This prints if this assert fails 2 (also good for debugging!)"
+
+
+
+--- ENTRY POINT ---
+Function name: compare
+
+
+================================================================================
+HumanEval/155
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def even_odd_count(num):
+    """Given an integer. return a tuple that has the number of even and odd digits respectively.
+
+     Example:
+        even_odd_count(-12) ==> (1, 1)
+        even_odd_count(123) ==> (1, 2)
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(7) == (0, 1)
+    assert candidate(-78) == (1, 1)
+    assert candidate(3452) == (2, 2)
+    assert candidate(346211) == (3, 3)
+    assert candidate(-345821) == (3, 3)
+    assert candidate(-2) == (1, 0)
+    assert candidate(-45347) == (2, 3)
+    assert candidate(0) == (1, 0)
+
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True
+
+
+
+--- ENTRY POINT ---
+Function name: even_odd_count
+
+
+================================================================================
+HumanEval/158
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def find_max(words):
+    """Write a function that accepts a list of strings.
+    The list contains different words. Return the word with maximum number
+    of unique characters. If multiple strings have maximum number of unique
+    characters, return the one which comes first in lexicographical order.
+
+    find_max(["name", "of", "string"]) == "string"
+    find_max(["name", "enam", "game"]) == "enam"
+    find_max(["aaaaaaa", "bb" ,"cc"]) == ""aaaaaaa"
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert (candidate(["name", "of", "string"]) == "string"), "t1"
+    assert (candidate(["name", "enam", "game"]) == "enam"), 't2'
+    assert (candidate(["aaaaaaa", "bb", "cc"]) == "aaaaaaa"), 't3'
+    assert (candidate(["abc", "cba"]) == "abc"), 't4'
+    assert (candidate(["play", "this", "game", "of","footbott"]) == "footbott"), 't5'
+    assert (candidate(["we", "are", "gonna", "rock"]) == "gonna"), 't6'
+    assert (candidate(["we", "are", "a", "mad", "nation"]) == "nation"), 't7'
+    assert (candidate(["this", "is", "a", "prrk"]) == "this"), 't8'
+
+    # Check some edge cases that are easy to work out by hand.
+    assert (candidate(["b"]) == "b"), 't9'
+    assert (candidate(["play", "play", "play"]) == "play"), 't10'
+
+
+
+--- ENTRY POINT ---
+Function name: find_max
+
+
+================================================================================
+HumanEval/163
+================================================================================
+
+--- FUNCTION SIGNATURE & DOCSTRING ---
+
+def generate_integers(a, b):
+    """
+    Given two positive integers a and b, return the even digits between a
+    and b, in ascending order.
+
+    For example:
+    generate_integers(2, 8) => [2, 4, 6, 8]
+    generate_integers(8, 2) => [2, 4, 6, 8]
+    generate_integers(10, 14) => []
+    """
+
+
+--- UNIT TESTS ---
+def check(candidate):
+
+    # Check some simple cases
+    assert candidate(2, 10) == [2, 4, 6, 8], "Test 1"
+    assert candidate(10, 2) == [2, 4, 6, 8], "Test 2"
+    assert candidate(132, 2) == [2, 4, 6, 8], "Test 3"
+    assert candidate(17,89) == [], "Test 4"
+
+    # Check some edge cases that are easy to work out by hand.
+    assert True, "This prints if this assert fails 2 (also good for debugging!)"
+
+
+
+--- ENTRY POINT ---
+Function name: generate_integers
+

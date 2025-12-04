@@ -1,0 +1,502 @@
+[
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level_1_formal": "from typing import List\n\n\ndef separate_paren_groups(paren_string: str) -> List[str]:\n    \"\"\" Input to this function is a string containing multiple groups of nested parentheses. Your goal is to\n    separate those group into separate strings and return the list of those.\n    Separate groups are balanced (each open brace is properly closed) and not nested within each other\n    Ignore any spaces in the input string.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"\n",
+    "level_2": "\"\"\" This function takes a string with multiple groups of nested parentheses and separates them into individual strings, returning them as a list.\n    Each group is balanced (every open parenthesis has a matching close) and the groups don't nest inside each other.\n    Any spaces in the input string are ignored.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"",
+    "level_3": "\"\"\" Takes a string with multiple groups of parentheses and splits them into separate strings.\n\nEach group is balanced (every opening parenthesis has a matching closing one) and the groups don't overlap with each other. Any spaces in the input get ignored.\n\n>>> separate_paren_groups('( ) (( )) (( )( ))')\n['()', '(())', '(()())']\n\"\"\"",
+    "level_4": "\"\"\" So you've got a string with a bunch of parentheses groups mixed together, and you wanna split 'em up into separate strings. Each group is properly balanced (no hanging open or close parens) and they're not nested inside each other. Just ignore any spaces that show up.\n    >>> separate_paren_groups('( ) (( )) (( )( ))')\n    ['()', '(())', '(()())']\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, you got this messy string with a bunch of parentheses all over the place right? this thing just splits them up into their own little groups and gives you back a list. each group is like properly matched up (no hanging opens or closes) and they're not like nested inside each other or whatever. spaces? nah we don't care about those, just ignore em.\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level_1_formal": "from typing import List\n\n\ndef parse_nested_parens(paren_string: str) -> List[int]:\n    \"\"\" Input to this function is a string represented multiple groups for nested parentheses separated by spaces.\n    For each of the group, output the deepest level of nesting of parentheses.\n    E.g. (()()) has maximum two levels of nesting while ((())) has three.\n\n    >>> parse_nested_parens('(()()) ((())) () ((())()())')\n    [2, 3, 1, 3]\n    \"\"\"\n",
+    "level_2": "\"\"\" This function takes a string with multiple groups of nested parentheses separated by spaces.\n    For each group, it returns the deepest level of nesting of parentheses.\n    For example, (()()) has a maximum of two levels of nesting while ((())) has three.\n\n    >>> parse_nested_parens('(()()) ((())) () ((())()())')\n    [2, 3, 1, 3]\n    \"\"\"",
+    "level_3": "\"\"\" Takes a string with groups of nested parentheses separated by spaces and returns how deep the nesting goes in each group.\n    For each group, we find the maximum nesting level - like (()()) maxes out at 2 levels deep, while ((())) goes 3 levels deep.\n\n    >>> parse_nested_parens('(()()) ((())) () ((())()())')\n    [2, 3, 1, 3]\n    \"\"\"",
+    "level_4": "\"\"\" So you've got a string with different groups of nested parentheses split by spaces, and you wanna find out how deep the nesting goes in each group.\n\nLike (()()) maxes out at 2 levels deep, but ((())) goes 3 levels deep.\n\n>>> parse_nested_parens('(()()) ((())) () ((())()())')\n[2, 3, 1, 3]\n\"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, you give this thing a string with a bunch of parentheses groups split by spaces and it tells you how deep each group goes. like if you got some nested parens it counts how many layers deep they go in each chunk. pretty straightforward tbh \"\"\""
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level_1_formal": "\n\ndef is_palindrome(string: str) -> bool:\n    \"\"\" Test if given string is a palindrome \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" Find the shortest palindrome that begins with a supplied string.\n    Algorithm idea is simple:\n    - Find the longest postfix of supplied string that is a palindrome.\n    - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.\n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"\n",
+    "level_2": "def is_palindrome(string: str) -> bool:\n    \"\"\" Check if the given string is a palindrome \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" Find the shortest palindrome that starts with the given string.\n    The algorithm works like this:\n    - Find the longest suffix of the input string that's already a palindrome.\n    - Add the reverse of the remaining prefix to the end of the string.\n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"",
+    "level_3": "def is_palindrome(string: str) -> bool:\n    \"\"\" Checks if the given string reads the same forwards and backwards \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" Creates the shortest palindrome that starts with the given string.\n    Here's how it works:\n    - Finds the longest ending part of the string that's already a palindrome.\n    - Takes the beginning part (before that palindromic ending) and adds its reverse to the end.\n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"",
+    "level_4": "def is_palindrome(string: str) -> bool:\n    \"\"\" checks if a string reads the same forwards and backwards \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" makes the shortest palindrome starting with your string.\n    here's how it works:\n    - finds the longest ending part that's already a palindrome\n    - adds the reverse of the beginning part to make it complete\n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"",
+    "level_5_vibe": "```python\ndef is_palindrome(string: str) -> bool:\n    \"\"\" checks if ur string reads the same backwards, ya know? \"\"\"\n    return string == string[::-1]\n\n\ndef make_palindrome(string: str) -> str:\n    \"\"\" takes whatever string u give it and makes it into a palindrome by adding stuff to the end\n    \n    basically it finds the biggest chunk at the end that's already palindrome-y, then slaps on \n    the reverse of whatever's left at the beginning. pretty neat trick tbh\n    \n    >>> make_palindrome('')\n    ''\n    >>> make_palindrome('cat')\n    'catac'\n    >>> make_palindrome('cata')\n    'catac'\n    \"\"\"\n```"
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level_1_formal": "from typing import List, Any\n\n\ndef filter_integers(values: List[Any]) -> List[int]:\n    \"\"\" Filter given list of any python values only for integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"\n",
+    "level_2": "\"\"\" Filters a list of mixed Python values to return only the integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"",
+    "level_3": "\"\"\" Takes a list with mixed types and pulls out just the integers\n    >>> filter_integers(['a', 3.14, 5])\n    [5]\n    >>> filter_integers([1, 2, 3, 'abc', {}, []])\n    [1, 2, 3]\n    \"\"\"",
+    "level_4": "\"\"\" Yo! This function takes a list of random stuff and just keeps the integers - tosses everything else out\n\n>>> filter_integers(['a', 3.14, 5])\n[5]\n>>> filter_integers([1, 2, 3, 'abc', {}, []])\n[1, 2, 3]\n\"\"\"",
+    "level_5_vibe": "\"\"\" yo so like this thing just grabs all the actual whole numbers from whatever random stuff you throw at it and tosses the rest lol \"\"\""
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level_1_formal": "from typing import List\n\n\ndef concatenate(strings: List[str]) -> str:\n    \"\"\" Concatenate list of strings into a single string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"\n",
+    "level_2": "\"\"\" Takes a list of strings and joins them together into one string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"",
+    "level_3": "\"\"\" Takes a list of strings and joins them all together into one string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"",
+    "level_4": "\"\"\" Takes a bunch of strings and smooshes them all together into one big string\n    >>> concatenate([])\n    ''\n    >>> concatenate(['a', 'b', 'c'])\n    'abc'\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo just smush all the strings together into one big string lol\n\nlike if you got nothing it gives you nothing, if you got some letters it just sticks em all together ya know \"\"\""
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level_1_formal": "\n\ndef car_race_collision(n: int):\n    \"\"\"\n    Imagine a road that's a perfectly straight infinitely long line.\n    n cars are driving left to right;  simultaneously, a different set of n cars\n    are driving right to left.   The two sets of cars start out being very far from\n    each other.  All cars move in the same speed.  Two cars are said to collide\n    when a car that's moving left to right hits a car that's moving right to left.\n    However, the cars are infinitely sturdy and strong; as a result, they continue moving\n    in their trajectory as if they did not collide.\n\n    This function outputs the number of such collisions.\n    \"\"\"\n",
+    "level_2": "```python\ndef car_race_collision(n: int):\n    \"\"\"\n    Picture a perfectly straight road that goes on forever in both directions.\n    You've got n cars driving from left to right, and at the same time, another \n    n cars are driving from right to left. These two groups start really far \n    apart from each other. All the cars move at the same speed. We say two cars \n    collide when a left-to-right car meets a right-to-left car.\n    \n    Here's the thing though - these cars are super tough and indestructible, so \n    when they hit each other, they just keep going like nothing happened.\n\n    This function returns how many of these collisions happen.\n    \"\"\"\n```",
+    "level_3": "\"\"\"\nPicture a straight road that goes on forever in both directions.\nYou've got n cars driving from left to right, and at the same time, \nn different cars driving from right to left. They start really far \napart from each other. All the cars are going the same speed. \n\nA collision happens when a left-to-right car meets a right-to-left car.\nBut here's the thing - these cars are super tough, so they just keep \ngoing like nothing happened after they hit each other.\n\nThis function figures out how many of these collisions will happen.\n\"\"\"",
+    "level_4": "\"\"\"\nSo picture this - you've got this super long straight road, like infinitely long.\nThere's n cars cruising left to right, and at the same time, another n cars \ngoing right to left. They start way far apart from each other. All the cars \nare going the same speed. When a left-going car smacks into a right-going car, \nthat's a collision. But here's the thing - these cars are like indestructible, \nso they just keep on trucking like nothing happened.\n\nThis function just tells you how many times cars are gonna crash into each other.\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo so like... you got some cars going one way and some going the other way on this road that goes on forever or whatever. they're gonna bump into each other but they're like super tough cars so they just keep going. this thing tells you how many times they crash into each other lol\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level_1_formal": "\n\ndef pairs_sum_to_zero(l):\n    \"\"\"\n    pairs_sum_to_zero takes a list of integers as an input.\n    it returns True if there are two distinct elements in the list that\n    sum to zero, and False otherwise.\n    >>> pairs_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> pairs_sum_to_zero([1, 3, -2, 1])\n    False\n    >>> pairs_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])\n    True\n    >>> pairs_sum_to_zero([1])\n    False\n    \"\"\"\n",
+    "level_2": "\"\"\"\nTakes a list of integers and checks if any two different elements add up to zero.\nReturns True if such a pair exists, False otherwise.\n>>> pairs_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> pairs_sum_to_zero([1, 3, -2, 1])\nFalse\n>>> pairs_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])\nTrue\n>>> pairs_sum_to_zero([1])\nFalse\n\"\"\"",
+    "level_3": "\"\"\"\nThis function takes a list of integers and checks if any two different elements add up to zero.\n\nReturns True if it finds such a pair, False if it doesn't.\n\n>>> pairs_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> pairs_sum_to_zero([1, 3, -2, 1])\nFalse\n>>> pairs_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])\nTrue\n>>> pairs_sum_to_zero([1])\nFalse\n\"\"\"",
+    "level_4": "```python\ndef pairs_sum_to_zero(l):\n    \"\"\"\n    yo this function takes a list of integers and checks if any two different \n    numbers in there add up to zero. returns True if it finds a pair, False if not.\n    \n    >>> pairs_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> pairs_sum_to_zero([1, 3, -2, 1])\n    False\n    >>> pairs_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> pairs_sum_to_zero([2, 4, -5, 3, 5, 7])\n    True\n    >>> pairs_sum_to_zero([1])\n    False\n    \"\"\"\n```",
+    "level_5_vibe": "```python\ndef pairs_sum_to_zero(l):\n    \"\"\"\n    yo so like this thing takes a bunch of numbers and checks if any two of them \n    add up to zero ya know? like if you got some positive number and its negative \n    buddy in there it'll be like \"yep found em\" otherwise it's like \"nah fam\"\n    \n    basically just vibing through the list looking for math that cancels out\n    \"\"\"\n```"
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level_1_formal": "\n\ndef common(l1: list, l2: list):\n    \"\"\"Return sorted unique common elements for two lists.\n    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n    [1, 5, 653]\n    >>> common([5, 3, 2, 8], [3, 2])\n    [2, 3]\n\n    \"\"\"\n",
+    "level_2": "\"\"\"Find and return the common elements between two lists, sorted and without duplicates.\n    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n    [1, 5, 653]\n    >>> common([5, 3, 2, 8], [3, 2])\n    [2, 3]\n\n    \"\"\"",
+    "level_3": "\"\"\"Finds the elements that appear in both lists and returns them sorted without duplicates.\n    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n    [1, 5, 653]\n    >>> common([5, 3, 2, 8], [3, 2])\n    [2, 3]\n\n    \"\"\"",
+    "level_4": "\"\"\"Finds the stuff that's in both lists and gives it back sorted with no dupes.\n    >>> common([1, 4, 3, 34, 653, 2, 5], [5, 7, 1, 5, 9, 653, 121])\n    [1, 5, 653]\n    >>> common([5, 3, 2, 8], [3, 2])\n    [2, 3]\n\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo so like, this thing takes two lists and finds whatever stuff shows up in both of them, then sorts it and gets rid of duplicates or whatever\"\"\""
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level_1_formal": "\ndef fruit_distribution(s,n):\n    \"\"\"\n    In this task, you will be given a string that represents a number of apples and oranges \n    that are distributed in a basket of fruit this basket contains \n    apples, oranges, and mango fruits. Given the string that represents the total number of \n    the oranges and apples and an integer that represent the total number of the fruits \n    in the basket return the number of the mango fruits in the basket.\n    for examble:\n    fruit_distribution(\"5 apples and 6 oranges\", 19) ->19 - 5 - 6 = 8\n    fruit_distribution(\"0 apples and 1 oranges\",3) -> 3 - 0 - 1 = 2\n    fruit_distribution(\"2 apples and 3 oranges\", 100) -> 100 - 2 - 3 = 95\n    fruit_distribution(\"100 apples and 1 oranges\",120) -> 120 - 100 - 1 = 19\n    \"\"\"\n",
+    "level_2": "\"\"\"\nThis function takes a string describing how many apples and oranges are in a fruit basket, \nplus the total number of fruits in the basket. It returns how many mangoes must be in there.\n\nThe basket contains apples, oranges, and mangoes. You get a string telling you the apple \nand orange counts, and a number for the total fruit count. Just subtract the apples and \noranges from the total to get the mango count.\n\nExamples:\nfruit_distribution(\"5 apples and 6 oranges\", 19) -> 19 - 5 - 6 = 8\nfruit_distribution(\"0 apples and 1 oranges\", 3) -> 3 - 0 - 1 = 2\nfruit_distribution(\"2 apples and 3 oranges\", 100) -> 100 - 2 - 3 = 95\nfruit_distribution(\"100 apples and 1 oranges\", 120) -> 120 - 100 - 1 = 19\n\"\"\"",
+    "level_3": "\"\"\"\nSo you've got a string telling you how many apples and oranges are in a fruit basket, \nand you know the total number of fruits (apples, oranges, and mangos). Just figure out \nhow many mangos there are by subtracting the apples and oranges from the total.\n\nExamples:\nfruit_distribution(\"5 apples and 6 oranges\", 19) -> 19 - 5 - 6 = 8\nfruit_distribution(\"0 apples and 1 oranges\", 3) -> 3 - 0 - 1 = 2\nfruit_distribution(\"2 apples and 3 oranges\", 100) -> 100 - 2 - 3 = 95\nfruit_distribution(\"100 apples and 1 oranges\", 120) -> 120 - 100 - 1 = 19\n\"\"\"",
+    "level_4": "\"\"\"\nHey! So this function takes a string telling you how many apples and oranges you've got, plus the total number of fruits in the basket. It'll figure out how many mangos are left over.\n\nLike if you pass in \"5 apples and 6 oranges\" with 19 total fruits, you get 19 - 5 - 6 = 8 mangos.\n\nSome examples:\n- fruit_distribution(\"5 apples and 6 oranges\", 19) -> 8\n- fruit_distribution(\"0 apples and 1 oranges\", 3) -> 2  \n- fruit_distribution(\"2 apples and 3 oranges\", 100) -> 95\n- fruit_distribution(\"100 apples and 1 oranges\", 120) -> 19\n\nPretty straightforward - just basic subtraction to find what's left!\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo so like... you got this string that tells you how many apples and oranges are in some fruit basket, and you also know the total fruits in there. just figure out how many mangos are left lol. basically just subtract the apples and oranges from the total and boom, that's your mangos.\n\nlike if it says \"5 apples and 6 oranges\" and there's 19 total fruits, then 19 - 5 - 6 = 8 mangos, ya feel me?\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level_1_formal": "\ndef Strongest_Extension(class_name, extensions):\n    \"\"\"You will be given the name of a class (a string) and a list of extensions.\n    The extensions are to be used to load additional classes to the class. The\n    strength of the extension is as follows: Let CAP be the number of the uppercase\n    letters in the extension's name, and let SM be the number of lowercase letters \n    in the extension's name, the strength is given by the fraction CAP - SM. \n    You should find the strongest extension and return a string in this \n    format: ClassName.StrongestExtensionName.\n    If there are two or more extensions with the same strength, you should\n    choose the one that comes first in the list.\n    For example, if you are given \"Slices\" as the class and a list of the\n    extensions: ['SErviNGSliCes', 'Cheese', 'StuFfed'] then you should\n    return 'Slices.SErviNGSliCes' since 'SErviNGSliCes' is the strongest extension \n    (its strength is -1).\n    Example:\n    for Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'\n    \"\"\"\n",
+    "level_2": "\"\"\"You'll get a class name (as a string) and a list of extensions.\nThe extensions are used to load additional classes to the class. Here's how\nextension strength works: Let CAP be the number of uppercase letters in the \nextension's name, and let SM be the number of lowercase letters in the \nextension's name. The strength is calculated as CAP - SM.\nYou need to find the strongest extension and return a string in this \nformat: ClassName.StrongestExtensionName.\nIf two or more extensions have the same strength, just pick the one that \nappears first in the list.\nFor example, if you get \"Slices\" as the class and extensions: \n['SErviNGSliCes', 'Cheese', 'StuFfed'], you should return 'Slices.SErviNGSliCes' \nsince 'SErviNGSliCes' is the strongest extension (its strength is -1).\nExample:\nfor Strongest_Extension('my_class', ['AA', 'Be', 'CC']) == 'my_class.AA'\n\"\"\"",
+    "level_3": "\"\"\"You'll get a class name (string) and a list of extensions that can be loaded into that class. \n\nHere's how extension strength works: count the uppercase letters (CAP) and lowercase letters (SM) in each extension name, then calculate strength as CAP - SM.\n\nFind the strongest extension and return it formatted as: ClassName.StrongestExtensionName.\n\nIf multiple extensions tie for strongest, pick the first one in the list.\n\nExample: Given class \"Slices\" with extensions ['SErviNGSliCes', 'Cheese', 'StuFfed'], you'd return 'Slices.SErviNGSliCes' since it has strength -1 (the strongest).\n\nAnother example:\nStrongest_Extension('my_class', ['AA', 'Be', 'CC']) returns 'my_class.AA'\n\"\"\"",
+    "level_4": "\"\"\"Hey! So you've got a class name (just a string) and a list of extensions to work with.\n\nThese extensions are gonna load extra classes to your main class. Here's how we figure out which one's the strongest: count the uppercase letters (call it CAP) and lowercase letters (call it SM) in each extension name, then the strength = CAP - SM.\n\nJust find whichever extension has the highest strength and return it like: ClassName.StrongestExtensionName.\n\nOh and if there's a tie? Just pick the first one in the list.\n\nLike if you've got \"Slices\" as your class and extensions ['SErviNGSliCes', 'Cheese', 'StuFfed'], you'd return 'Slices.SErviNGSliCes' since that one's got strength -1 (strongest of the bunch).\n\nExample:\nStrongest_Extension('my_class', ['AA', 'Be', 'CC']) returns 'my_class.AA'\n\"\"\"",
+    "level_5_vibe": "\"\"\"Yo so like, you got this class name thing and a bunch of extensions right? And you gotta figure out which extension is the most \"strong\" or whatever. \n\nThe strength is basically just counting uppercase letters minus lowercase letters in the extension name. Higher number = stronger, you feel me?\n\nJust find whichever one has the best score and slap it together with the class name using a dot. If there's a tie, just pick the first one that shows up.\n\nLike if you got 'Slices' and some extensions, you'd return something like 'Slices.WhateverIsStrongest' - pretty straightforward tbh.\"\"\""
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level_1_formal": "from typing import List\n\n\ndef has_close_elements(numbers: List[float], threshold: float) -> bool:\n    \"\"\" Check if in given list of numbers, are any two numbers closer to each other than\n    given threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"\n",
+    "level_2": "\"\"\" Check if any two numbers in the given list are closer to each other than\n    the specified threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"",
+    "level_3": "\"\"\" Checks if any two numbers in the list are closer together than the threshold.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"",
+    "level_4": "\"\"\" Checks if any two numbers in the list are closer together than the threshold you give it.\n    >>> has_close_elements([1.0, 2.0, 3.0], 0.5)\n    False\n    >>> has_close_elements([1.0, 2.8, 3.0, 4.0, 5.0, 2.0], 0.3)\n    True\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, this thing checks if any numbers in your list are super close to each other or whatever. like if you got some numbers and you're wondering if any of them are basically touching within some distance you care about, this'll tell you if that's happening or nah \"\"\""
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level_1_formal": "from typing import List\n\n\ndef mean_absolute_deviation(numbers: List[float]) -> float:\n    \"\"\" For a given list of input numbers, calculate Mean Absolute Deviation\n    around the mean of this dataset.\n    Mean Absolute Deviation is the average absolute difference between each\n    element and a centerpoint (mean in this case):\n    MAD = average | x - x_mean |\n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"\n",
+    "level_2": "\"\"\" For a given list of input numbers, this calculates the Mean Absolute Deviation\n    around the mean of the dataset.\n    Mean Absolute Deviation is basically the average absolute difference between each\n    element and the centerpoint (which is the mean in this case):\n    MAD = average | x - x_mean |\n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"",
+    "level_3": "\"\"\" Takes a list of numbers and calculates the Mean Absolute Deviation around the mean.\n\n    Basically, it finds how far each number is from the average, takes the absolute value \n    of those differences, then averages those differences out.\n    \n    The formula is: MAD = average | x - x_mean |\n    \n    >>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n    1.0\n    \"\"\"",
+    "level_4": "\"\"\" Hey! So this function takes a list of numbers and calculates the Mean Absolute Deviation around the mean - basically how spread out your data is from the average.\n\nMAD is just the average of how far each number is from the mean:\nMAD = average | x - x_mean |\n\n>>> mean_absolute_deviation([1.0, 2.0, 3.0, 4.0])\n1.0\n\"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, you give this thing a bunch of numbers and it figures out how spread out they are from the average, ya know? like it takes each number, sees how far it is from the middle, and then averages all those distances. pretty neat for seeing if your data is all over the place or kinda tight together \"\"\""
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level_1_formal": "from typing import List, Tuple\n\n\ndef rolling_max(numbers: List[int]) -> List[int]:\n    \"\"\" From a given list of integers, generate a list of rolling maximum element found until given moment\n    in the sequence.\n    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])\n    [1, 2, 3, 3, 3, 4, 4]\n    \"\"\"\n",
+    "level_2": "\"\"\" Takes a list of integers and returns a list where each element is the maximum value seen so far in the sequence.\n    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])\n    [1, 2, 3, 3, 3, 4, 4]\n    \"\"\"",
+    "level_3": "\"\"\" Takes a list of integers and returns a new list where each position shows the maximum value seen so far up to that point in the original sequence.\n    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])\n    [1, 2, 3, 3, 3, 4, 4]\n    \"\"\"",
+    "level_4": "\"\"\" Takes a list of ints and gives you back a list where each spot shows the biggest number you've seen so far in the original list.\n    >>> rolling_max([1, 2, 3, 2, 3, 4, 2])\n    [1, 2, 3, 3, 3, 4, 4]\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, you give this thing a bunch of numbers and it spits back another list where each spot shows the biggest number it's seen so far, you know? like it keeps track of the max as it goes through your list \"\"\""
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level_1_formal": "\n\ndef how_many_times(string: str, substring: str) -> int:\n    \"\"\" Find how many times a given substring can be found in the original string. Count overlaping cases.\n    >>> how_many_times('', 'a')\n    0\n    >>> how_many_times('aaa', 'a')\n    3\n    >>> how_many_times('aaaa', 'aa')\n    3\n    \"\"\"\n",
+    "level_2": "\"\"\" Finds how many times a given substring appears in the original string. This includes overlapping cases.\n    >>> how_many_times('', 'a')\n    0\n    >>> how_many_times('aaa', 'a')\n    3\n    >>> how_many_times('aaaa', 'aa')\n    3\n    \"\"\"",
+    "level_3": "\"\"\" Counts how many times a substring appears in a string, including overlapping matches.\n    >>> how_many_times('', 'a')\n    0\n    >>> how_many_times('aaa', 'a')\n    3\n    >>> how_many_times('aaaa', 'aa')\n    3\n    \"\"\"",
+    "level_4": "\"\"\" Counts how many times you can find a substring in a string. Yep, overlapping ones count too!\n    >>> how_many_times('', 'a')\n    0\n    >>> how_many_times('aaa', 'a')\n    3\n    >>> how_many_times('aaaa', 'aa')\n    3\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo so like, this thing just counts how many times some smaller text shows up in a bigger text, and it doesn't care if they overlap or whatever\n\nlike if you got 'aaa' and you're looking for 'a', it'll find 3 of them\nor if you got 'aaaa' and want 'aa', it finds 3 because they can overlap and stuff\n\nif there's nothing there it just gives you 0, obviously \"\"\""
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level_1_formal": "from typing import List\n\n\ndef factorize(n: int) -> List[int]:\n    \"\"\" Return list of prime factors of given integer in the order from smallest to largest.\n    Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.\n    Input number should be equal to the product of all factors\n    >>> factorize(8)\n    [2, 2, 2]\n    >>> factorize(25)\n    [5, 5]\n    >>> factorize(70)\n    [2, 5, 7]\n    \"\"\"\n",
+    "level_2": "\"\"\" Returns a list of prime factors for the given integer, ordered from smallest to largest.\n    Each factor appears in the list as many times as it shows up in the factorization.\n    The input number equals the product of all the returned factors.\n    >>> factorize(8)\n    [2, 2, 2]\n    >>> factorize(25)\n    [5, 5]\n    >>> factorize(70)\n    [2, 5, 7]\n    \"\"\"",
+    "level_3": "\"\"\" Takes an integer and gives you back all its prime factors as a list, sorted from smallest to biggest.\n    If a prime factor shows up multiple times, it'll appear that many times in the list.\n    When you multiply all the factors together, you should get back your original number.\n    >>> factorize(8)\n    [2, 2, 2]\n    >>> factorize(25)\n    [5, 5]\n    >>> factorize(70)\n    [2, 5, 7]\n    \"\"\"",
+    "level_4": "\"\"\" Yo! This function breaks down a number into its prime factors and gives you back a list.\n\nSo like, if you pass in 8, you'll get [2, 2, 2] because 2×2×2 = 8. The factors are sorted from smallest to biggest, and if a prime shows up multiple times in the factorization, it'll appear that many times in the list.\n\nBasically, if you multiply all the numbers in the returned list together, you should get back your original number!\n\n>>> factorize(8)\n[2, 2, 2]\n>>> factorize(25)\n[5, 5]\n>>> factorize(70)\n[2, 5, 7]\n\"\"\"",
+    "level_5_vibe": "\"\"\" yo so like this thing takes a number and breaks it down into all the tiny prime pieces that multiply together to make it, ya know? like if you give it 8 it's gonna spit back [2, 2, 2] cuz that's what makes 8 when you multiply em all. basically finds all the prime building blocks and lists em out smallest to biggest, repeating however many times they show up \"\"\""
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level_1_formal": "\n\ndef sort_third(l: list):\n    \"\"\"This function takes a list l and returns a list l' such that\n    l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal\n    to the values of the corresponding indicies of l, but sorted.\n    >>> sort_third([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_third([5, 6, 3, 4, 8, 9, 2])\n    [2, 6, 3, 4, 8, 9, 5]\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a list l and returns a list l' that's identical to l at indices not divisible by three, while the values at indices divisible by three are sorted among themselves.\n    >>> sort_third([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_third([5, 6, 3, 4, 8, 9, 2])\n    [2, 6, 3, 4, 8, 9, 5]\n    \"\"\"",
+    "level_3": "\"\"\"Takes a list and returns a new list where elements at positions divisible by 3 (0, 3, 6, etc.) are sorted among themselves, while everything else stays in the same spot.\n    >>> sort_third([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_third([5, 6, 3, 4, 8, 9, 2])\n    [2, 6, 3, 4, 8, 9, 5]\n    \"\"\"",
+    "level_4": "\"\"\"Hey! So this function takes your list and keeps everything the same EXCEPT for positions 0, 3, 6, 9, etc. (basically every 3rd spot starting from 0). It grabs the values from those spots, sorts 'em, and puts them back in those same positions. Everything else stays put!\n\n>>> sort_third([1, 2, 3])\n[1, 2, 3]\n>>> sort_third([5, 6, 3, 4, 8, 9, 2])\n[2, 6, 3, 4, 8, 9, 5]\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like this thing takes your list and keeps most of it the same but grabs every third spot (like 0, 3, 6 whatever) and sorts just those values among themselves while leaving everything else alone. pretty neat for when you want partial sorting vibes\"\"\""
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level_1_formal": "\n\ndef unique(l: list):\n    \"\"\"Return sorted unique elements in a list\n    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [0, 2, 3, 5, 9, 123]\n    \"\"\"\n",
+    "level_2": "\"\"\"Returns a sorted list of unique elements from the input list\n    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [0, 2, 3, 5, 9, 123]\n    \"\"\"",
+    "level_3": "\"\"\"Takes a list and gives you back all the unique elements sorted in order\n    >>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [0, 2, 3, 5, 9, 123]\n    \"\"\"",
+    "level_4": "\"\"\"Gets all the unique stuff from a list and sorts it for ya\n>>> unique([5, 3, 5, 2, 3, 3, 9, 0, 123])\n[0, 2, 3, 5, 9, 123]\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo this thing just takes whatever messy list you got and gives you back all the different stuff in it, but like, cleaned up and in order. no duplicates or whatever\"\"\""
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level_1_formal": "\n\ndef max_element(l: list):\n    \"\"\"Return maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"\n",
+    "level_2": "\"\"\"Returns the maximum element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"",
+    "level_3": "\"\"\"Finds and returns the biggest element in the list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"",
+    "level_4": "\"\"\"Finds the biggest number in your list.\n    >>> max_element([1, 2, 3])\n    3\n    >>> max_element([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    123\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo just grab the biggest number from whatever list you throw at it lol\"\"\""
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level_1_formal": "\n\ndef same_chars(s0: str, s1: str):\n    \"\"\"\n    Check if two words have the same characters.\n    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\n    True\n    >>> same_chars('abcd', 'dddddddabc')\n    True\n    >>> same_chars('dddddddabc', 'abcd')\n    True\n    >>> same_chars('eabcd', 'dddddddabc')\n    False\n    >>> same_chars('abcd', 'dddddddabce')\n    False\n    >>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\n    False\n    \"\"\"\n",
+    "level_2": "\"\"\"\nCheck if two words have the same characters.\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\nTrue\n>>> same_chars('abcd', 'dddddddabc')\nTrue\n>>> same_chars('dddddddabc', 'abcd')\nTrue\n>>> same_chars('eabcd', 'dddddddabc')\nFalse\n>>> same_chars('abcd', 'dddddddabce')\nFalse\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\nFalse\n\"\"\"",
+    "level_3": "\"\"\"\nChecks if two words contain the same set of characters (ignoring duplicates and order).\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\nTrue\n>>> same_chars('abcd', 'dddddddabc')\nTrue\n>>> same_chars('dddddddabc', 'abcd')\nTrue\n>>> same_chars('eabcd', 'dddddddabc')\nFalse\n>>> same_chars('abcd', 'dddddddabce')\nFalse\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\nFalse\n\"\"\"",
+    "level_4": "\"\"\"\nChecks if two words got the same chars in 'em.\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddeddabc')\nTrue\n>>> same_chars('abcd', 'dddddddabc')\nTrue\n>>> same_chars('dddddddabc', 'abcd')\nTrue\n>>> same_chars('eabcd', 'dddddddabc')\nFalse\n>>> same_chars('abcd', 'dddddddabce')\nFalse\n>>> same_chars('eabcdzzzz', 'dddzzzzzzzddddabc')\nFalse\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo so like... this thing just checks if two strings have the same letters in them, doesn't matter how many times or whatever order\n\nbasically if you can make one word using all the letters from the other word (and vice versa) then it's true, otherwise nah\n\nlike 'abc' and 'cccbbbaaaa' would be the same vibe since they both just have a, b, and c\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level_1_formal": "\ndef pluck(arr):\n    \"\"\"\n    \"Given an array representing a branch of a tree that has non-negative integer nodes\n    your task is to pluck one of the nodes and return it.\n    The plucked node should be the node with the smallest even value.\n    If multiple nodes with the same smallest even value are found return the node that has smallest index.\n\n    The plucked node should be returned in a list, [ smalest_value, its index ],\n    If there are no even values or the given array is empty, return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but  there are two zeros,\n                     so we will choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    \"\"\"\n",
+    "level_2": "```python\ndef pluck(arr):\n    \"\"\"\n    Given an array representing a branch of a tree with non-negative integer nodes,\n    your job is to pluck one node and return it.\n    \n    You want to pick the node with the smallest even value. If there are multiple \n    nodes with the same smallest even value, go with the one that has the smallest index.\n\n    Return the plucked node as a list: [smallest_value, its_index].\n    If there are no even values or the array is empty, just return [].\n\n    Example 1:\n        Input: [4,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index.\n\n    Example 2:\n        Input: [1,2,3]\n        Output: [2, 1]\n        Explanation: 2 has the smallest even value, and 2 has the smallest index. \n\n    Example 3:\n        Input: []\n        Output: []\n    \n    Example 4:\n        Input: [5, 0, 3, 0, 4, 2]\n        Output: [0, 1]\n        Explanation: 0 is the smallest value, but there are two zeros,\n                     so we'll choose the first zero, which has the smallest index.\n\n    Constraints:\n        * 1 <= nodes.length <= 10000\n        * 0 <= node.value\n    \"\"\"\n```",
+    "level_3": "\"\"\"\nTakes an array representing tree nodes with non-negative integers and finds the smallest even value.\n\nYou need to pick the node with the smallest even number. If there are multiple nodes with the same smallest even value, go with the one that appears first (has the lower index).\n\nReturns a list with [smallest_even_value, its_index]. If there are no even numbers or the array is empty, just return an empty list.\n\nExamples:\n    [4,2,3] → [2, 1] (2 is smallest even, at index 1)\n    [1,2,3] → [2, 1] (2 is the only even number)\n    [] → [] (empty array)\n    [5, 0, 3, 0, 4, 2] → [0, 1] (0 is smallest, pick first occurrence)\n\nConstraints:\n    * Array length: 1 to 10000\n    * Node values: 0 or positive\n\"\"\"",
+    "level_4": "```python\ndef pluck(arr):\n    \"\"\"\n    Hey! So you've got this array that's like a tree branch with non-negative integers,\n    and you need to \"pluck\" one node from it.\n    \n    Here's the deal - find the smallest even number in there. If there's a tie (multiple \n    nodes with the same smallest even value), just grab the one that shows up first \n    (smallest index).\n    \n    Return it as [value, index]. If there's no even numbers or the array's empty, \n    just return [].\n    \n    Examples:\n        [4,2,3] → [2, 1] (2 is smallest even, at index 1)\n        [1,2,3] → [2, 1] (same deal)\n        [] → [] (empty array, nothing to pluck)\n        [5, 0, 3, 0, 4, 2] → [0, 1] (0 is smallest, first one's at index 1)\n    \n    FYI: Arrays can be up to 10k elements, all values are >= 0\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"\nyo so like... you got this list of numbers right? and you wanna grab the smallest even one. if there's like multiple of the same smallest even number, just pick whichever one shows up first.\n\nreturn it as [the number, where you found it] or just [] if there's no even numbers or the list is empty or whatever.\n\nbasically find the tiniest even number and tell me where it was lol\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level_1_formal": "\n\ndef greatest_common_divisor(a: int, b: int) -> int:\n    \"\"\" Return a greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    \"\"\"\n",
+    "level_2": "\"\"\" Find the greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    \"\"\"",
+    "level_3": "\"\"\" Finds the greatest common divisor of two integers a and b\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    \"\"\"",
+    "level_4": "\"\"\" Finds the GCD of two numbers a and b - you know, the biggest number that divides both of them evenly\n    >>> greatest_common_divisor(3, 5)\n    1\n    >>> greatest_common_divisor(25, 15)\n    5\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo this thing just finds like the biggest number that goes into both your numbers evenly, you know? like if you got 25 and 15, it'll give you 5 cuz that's the biggest one that works for both \"\"\""
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level_1_formal": "\n\ndef get_positive(l: list):\n    \"\"\"Return only positive numbers in the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"\n",
+    "level_2": "\"\"\"Get only the positive numbers from the list.\n>>> get_positive([-1, 2, -4, 5, 6])\n[2, 5, 6]\n>>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n[5, 3, 2, 3, 9, 123, 1]\n\"\"\"",
+    "level_3": "\"\"\"Filters out and returns just the positive numbers from the list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"",
+    "level_4": "\"\"\"Grabs just the positive numbers from your list.\n    >>> get_positive([-1, 2, -4, 5, 6])\n    [2, 5, 6]\n    >>> get_positive([5, 3, -5, 2, -3, 3, 9, 0, 123, 1, -10])\n    [5, 3, 2, 3, 9, 123, 1]\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo just grab all the good numbers from your list, you know the ones that aren't negative or whatever. basically filter out the sad numbers and keep the happy ones lol\"\"\""
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level_1_formal": "import math\n\n\ndef poly(xs: list, x: float):\n    \"\"\"\n    Evaluates polynomial with coefficients xs at point x.\n    return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n\n    \"\"\"\n    return sum([coeff * math.pow(x, i) for i, coeff in enumerate(xs)])\n\n\ndef find_zero(xs: list):\n    \"\"\" xs are coefficients of a polynomial.\n    find_zero find x such that poly(x) = 0.\n    find_zero returns only only zero point, even if there are many.\n    Moreover, find_zero only takes list xs having even number of coefficients\n    and largest non zero coefficient as it guarantees\n    a solution.\n    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x\n    -0.5\n    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0\n    \"\"\"\n",
+    "level_2": "\"\"\" xs are coefficients of a polynomial.\n    find_zero finds x such that poly(x) = 0.\n    find_zero returns only one zero point, even if there are many.\n    Moreover, find_zero only takes list xs having even number of coefficients\n    and largest non zero coefficient as it guarantees\n    a solution.\n    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x\n    -0.5\n    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0\n    \"\"\"",
+    "level_3": "```python\ndef find_zero(xs: list):\n    \"\"\" Takes polynomial coefficients and finds where it equals zero.\n    Just returns one zero point - doesn't worry about finding all of them.\n    Only works with coefficient lists that have an even number of elements\n    and where the biggest coefficient isn't zero (this makes sure we'll \n    actually find a solution).\n    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x\n    -0.5\n    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0\n    \"\"\"\n```",
+    "level_4": "```python\ndef find_zero(xs: list):\n    \"\"\" So you've got coefficients for a polynomial in xs.\n    This finds an x where poly(x) = 0 - basically where it crosses the x-axis.\n    Just returns one zero even if there's more (we're not greedy here lol).\n    Oh and btw, only works with lists that have an even number of coefficients\n    and the biggest non-zero coefficient - that's how we know there's definitely \n    gonna be a solution.\n    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x\n    -0.5\n    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0\n    \"\"\"\n```",
+    "level_5_vibe": "```python\ndef find_zero(xs: list):\n    \"\"\" yo so like you got this list of numbers that make up some polynomial thingy, and this finds where it hits zero or whatever. only gives you one answer even if there's more lol. oh and make sure your list has an even number of stuff in it and the biggest coefficient isn't zero otherwise it might not work idk\n    >>> round(find_zero([1, 2]), 2) # f(x) = 1 + 2x\n    -0.5\n    >>> round(find_zero([-6, 11, -6, 1]), 2) # (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3\n    1.0\n    \"\"\"\n```"
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level_1_formal": "\n\ndef sort_even(l: list):\n    \"\"\"This function takes a list l and returns a list l' such that\n    l' is identical to l in the odd indicies, while its values at the even indicies are equal\n    to the values of the even indicies of l, but sorted.\n    >>> sort_even([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_even([5, 6, 3, 4])\n    [3, 6, 5, 4]\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a list l and returns a list l' that keeps the same values at odd indices,\n    but sorts the values at even indices while keeping them in even positions.\n    >>> sort_even([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_even([5, 6, 3, 4])\n    [3, 6, 5, 4]\n    \"\"\"",
+    "level_3": "\"\"\"Takes a list and returns a new list where the odd positions stay the same,\nbut the even positions get sorted among themselves.\n>>> sort_even([1, 2, 3])\n[1, 2, 3]\n>>> sort_even([5, 6, 3, 4])\n[3, 6, 5, 4]\n\"\"\"",
+    "level_4": "\"\"\"Takes a list and returns a new one where the odd positions stay the same, but the even positions get sorted among themselves.\n    >>> sort_even([1, 2, 3])\n    [1, 2, 3]\n    >>> sort_even([5, 6, 3, 4])\n    [3, 6, 5, 4]\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo so like this thing takes your list and keeps all the odd spots exactly where they are but grabs all the even position stuff, sorts that mess out, then puts it back in the even spots. basically odd indices stay put, even indices get their values sorted amongst themselves\"\"\""
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level_1_formal": "\n\ndef is_palindrome(text: str):\n    \"\"\"\n    Checks if given string is a palindrome\n    >>> is_palindrome('')\n    True\n    >>> is_palindrome('aba')\n    True\n    >>> is_palindrome('aaaaa')\n    True\n    >>> is_palindrome('zbcd')\n    False\n    \"\"\"\n",
+    "level_2": "\"\"\"\nChecks if the given string is a palindrome (reads the same forwards and backwards)\n>>> is_palindrome('')\nTrue\n>>> is_palindrome('aba')\nTrue\n>>> is_palindrome('aaaaa')\nTrue\n>>> is_palindrome('zbcd')\nFalse\n\"\"\"",
+    "level_3": "\"\"\"\nChecks if the given string reads the same forwards and backwards\n>>> is_palindrome('')\nTrue\n>>> is_palindrome('aba')\nTrue\n>>> is_palindrome('aaaaa')\nTrue\n>>> is_palindrome('zbcd')\nFalse\n\"\"\"",
+    "level_4": "\"\"\"\nyo, this checks if a string reads the same forwards and backwards lol\n>>> is_palindrome('')\nTrue\n>>> is_palindrome('aba')\nTrue\n>>> is_palindrome('aaaaa')\nTrue\n>>> is_palindrome('zbcd')\nFalse\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo this thing just checks if your string reads the same backwards and forwards, you know like racecar or whatever. empty string counts as palindrome too i guess. basically if it's the same flipped around then it's good\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level_1_formal": "\n\ndef modp(n: int, p: int):\n    \"\"\"Return 2^n modulo p (be aware of numerics).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"\n",
+    "level_2": "\"\"\"Calculate 2^n modulo p (watch out for numeric issues).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"",
+    "level_3": "\"\"\"Calculates 2^n modulo p (watch out for numeric issues).\n    >>> modp(3, 5)\n    3\n    >>> modp(1101, 101)\n    2\n    >>> modp(0, 101)\n    1\n    >>> modp(3, 11)\n    8\n    >>> modp(100, 101)\n    1\n    \"\"\"",
+    "level_4": "\"\"\"Yo! This calculates 2^n mod p - just watch out for those tricky numbers lol\n\n>>> modp(3, 5)\n3\n>>> modp(1101, 101)\n2\n>>> modp(0, 101)\n1\n>>> modp(3, 11)\n8\n>>> modp(100, 101)\n1\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like... this thing takes some number n and another number p, then it does that 2 to the power of n thing but keeps it chill with modulo p or whatever. basically just math stuff that doesn't blow up your computer lol\"\"\""
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level_1_formal": "\n\ndef sum_to_n(n: int):\n    \"\"\"sum_to_n is a function that sums numbers from 1 to n.\n    >>> sum_to_n(30)\n    465\n    >>> sum_to_n(100)\n    5050\n    >>> sum_to_n(5)\n    15\n    >>> sum_to_n(10)\n    55\n    >>> sum_to_n(1)\n    1\n    \"\"\"\n",
+    "level_2": "\"\"\"This function calculates the sum of all numbers from 1 to n.\n    >>> sum_to_n(30)\n    465\n    >>> sum_to_n(100)\n    5050\n    >>> sum_to_n(5)\n    15\n    >>> sum_to_n(10)\n    55\n    >>> sum_to_n(1)\n    1\n    \"\"\"",
+    "level_3": "\"\"\"This function adds up all the numbers from 1 to n.\n    >>> sum_to_n(30)\n    465\n    >>> sum_to_n(100)\n    5050\n    >>> sum_to_n(5)\n    15\n    >>> sum_to_n(10)\n    55\n    >>> sum_to_n(1)\n    1\n    \"\"\"",
+    "level_4": "\"\"\"yo this function just adds up all the numbers from 1 to whatever n you give it lol\n    >>> sum_to_n(30)\n    465\n    >>> sum_to_n(100)\n    5050\n    >>> sum_to_n(5)\n    15\n    >>> sum_to_n(10)\n    55\n    >>> sum_to_n(1)\n    1\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo this thing just adds up all the numbers from 1 to whatever you throw at it, pretty straightforward stuff\"\"\""
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level_1_formal": "\n\ndef fibfib(n: int):\n    \"\"\"The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:\n    fibfib(0) == 0\n    fibfib(1) == 0\n    fibfib(2) == 1\n    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n    Please write a function to efficiently compute the n-th element of the fibfib number sequence.\n    >>> fibfib(1)\n    0\n    >>> fibfib(5)\n    4\n    >>> fibfib(8)\n    24\n    \"\"\"\n",
+    "level_2": "\"\"\"The FibFib number sequence works like the Fibonacci sequence, but with a twist - it uses the sum of the previous three numbers instead of two.\n\nHere's how it's defined:\nfibfib(0) == 0\nfibfib(1) == 0\nfibfib(2) == 1\nfibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\n\nThis function efficiently computes the n-th element of the fibfib sequence.\n\n>>> fibfib(1)\n0\n>>> fibfib(5)\n4\n>>> fibfib(8)\n24\n\"\"\"",
+    "level_3": "\"\"\"Hey, so this FibFib thing is like Fibonacci but with a twist - instead of adding the last 2 numbers, you add the last 3. Here's how it works:\nfibfib(0) == 0\nfibfib(1) == 0\nfibfib(2) == 1\nfibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).\nJust write a function that can efficiently calculate the n-th FibFib number.\n>>> fibfib(1)\n0\n>>> fibfib(5)\n4\n>>> fibfib(8)\n24\n\"\"\"",
+    "level_4": "```python\ndef fibfib(n: int):\n    \"\"\"Hey! So this is like Fibonacci but with a twist - it's called FibFib and it's pretty cool.\n    \n    Here's how it works:\n    - fibfib(0) = 0\n    - fibfib(1) = 0  \n    - fibfib(2) = 1\n    - For anything else: fibfib(n) = fibfib(n-1) + fibfib(n-2) + fibfib(n-3)\n    \n    Basically you're adding the previous THREE numbers instead of just two like regular Fibonacci.\n    \n    Just make sure it runs fast - nobody wants to wait forever for big numbers!\n    \n    >>> fibfib(1)\n    0\n    >>> fibfib(5) \n    4\n    >>> fibfib(8)\n    24\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"yo so like this fibfib thing is basically fibonacci but with a twist - instead of adding just the last 2 numbers you add the last 3. starts with 0, 0, 1 and then each new number is just the sum of the previous 3. need it to run fast tho so don't do the recursive thing that'll take forever lol\"\"\""
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level_1_formal": "\ndef digitSum(s):\n    \"\"\"Task\n    Write a function that takes a string as input and returns the sum of the upper characters only'\n    ASCII codes.\n\n    Examples:\n        digitSum(\"\") => 0\n        digitSum(\"abAB\") => 131\n        digitSum(\"abcCd\") => 67\n        digitSum(\"helloE\") => 69\n        digitSum(\"woArBld\") => 131\n        digitSum(\"aAaaaXa\") => 153\n    \"\"\"\n",
+    "level_2": "\"\"\"\nWrite a function that takes a string as input and returns the sum of the upper characters only'\nASCII codes.\n\nExamples:\n    digitSum(\"\") => 0\n    digitSum(\"abAB\") => 131\n    digitSum(\"abcCd\") => 67\n    digitSum(\"helloE\") => 69\n    digitSum(\"woArBld\") => 131\n    digitSum(\"aAaaaXa\") => 153\n\"\"\"",
+    "level_3": "\"\"\"\nTakes a string and adds up the ASCII values of just the uppercase letters.\n\nExamples:\n    digitSum(\"\") => 0\n    digitSum(\"abAB\") => 131\n    digitSum(\"abcCd\") => 67\n    digitSum(\"helloE\") => 69\n    digitSum(\"woArBld\") => 131\n    digitSum(\"aAaaaXa\") => 153\n\"\"\"",
+    "level_4": "```python\ndef digitSum(s):\n    \"\"\"\n    hey so this function takes a string and adds up all the ASCII values \n    but only for the uppercase letters - lowercase ones get ignored\n    \n    some examples:\n        digitSum(\"\") => 0  # empty string = 0\n        digitSum(\"abAB\") => 131  # just A + B\n        digitSum(\"abcCd\") => 67  # just the C\n        digitSum(\"helloE\") => 69  # just the E\n        digitSum(\"woArBld\") => 131  # A + B again\n        digitSum(\"aAaaaXa\") => 153  # A + X\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"\nyo so like... you got this string right? and you wanna add up all the ASCII numbers but ONLY for the big letters (uppercase ones). lowercase letters? nah we don't care about those. empty string gives you 0 obviously. basically just grab the caps and sum their ASCII values, that's it\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level_1_formal": "\ndef right_angle_triangle(a, b, c):\n    '''\n    Given the lengths of the three sides of a triangle. Return True if the three\n    sides form a right-angled triangle, False otherwise.\n    A right-angled triangle is a triangle in which one angle is right angle or \n    90 degree.\n    Example:\n    right_angle_triangle(3, 4, 5) == True\n    right_angle_triangle(1, 2, 3) == False\n    '''\n",
+    "level_2": "'''\nGiven the lengths of the three sides of a triangle, this function returns True if they form a right-angled triangle, False otherwise.\nA right-angled triangle has one angle that's exactly 90 degrees.\nExample:\nright_angle_triangle(3, 4, 5) == True\nright_angle_triangle(1, 2, 3) == False\n'''",
+    "level_3": "'''\nTakes three side lengths of a triangle and checks if they make a right triangle.\nReturns True if it's a right triangle, False if not.\nA right triangle has one 90-degree angle.\nExample:\nright_angle_triangle(3, 4, 5) == True\nright_angle_triangle(1, 2, 3) == False\n'''",
+    "level_4": "'''\nHey! So you've got 3 side lengths of a triangle, and you wanna know if it's a right triangle or not. Just returns True if it is, False if it ain't.\n\nYou know how right triangles work - one of those angles is exactly 90 degrees (the corner of a square basically).\n\nExamples:\nright_angle_triangle(3, 4, 5) == True\nright_angle_triangle(1, 2, 3) == False\n'''",
+    "level_5_vibe": "'''\nyo so like... you got these 3 sides of a triangle right? and you wanna know if it's one of those triangles with the 90 degree corner thingy. just checks if it's a right triangle or whatever. returns true if it is, false if it's not. you know like 3-4-5 triangle? that one works. but 1-2-3? nah that's not gonna work lol\n'''"
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level_1_formal": "\n\ndef largest_divisor(n: int) -> int:\n    \"\"\" For a given number n, find the largest number that divides n evenly, smaller than n\n    >>> largest_divisor(15)\n    5\n    \"\"\"\n",
+    "level_2": "\"\"\" For a given number n, finds the largest number that divides n evenly, smaller than n\n    >>> largest_divisor(15)\n    5\n    \"\"\"",
+    "level_3": "\"\"\" Find the biggest number that goes into n evenly, but has to be smaller than n itself\n    >>> largest_divisor(15)\n    5\n    \"\"\"",
+    "level_4": "\"\"\" So you've got some number n, and you wanna find the biggest number that goes into it evenly (but not n itself, obviously)\n    >>> largest_divisor(15)\n    5\n    \"\"\"",
+    "level_5_vibe": "\"\"\" yo just find the biggest number that goes into n without any leftovers, but like, not n itself obviously \"\"\""
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level_1_formal": "\n\ndef fizz_buzz(n: int):\n    \"\"\"Return the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.\n    >>> fizz_buzz(50)\n    0\n    >>> fizz_buzz(78)\n    2\n    >>> fizz_buzz(79)\n    3\n    \"\"\"\n",
+    "level_2": "\"\"\"Returns how many times the digit 7 appears in integers less than n that are divisible by 11 or 13.\n    >>> fizz_buzz(50)\n    0\n    >>> fizz_buzz(78)\n    2\n    >>> fizz_buzz(79)\n    3\n    \"\"\"",
+    "level_3": "\"\"\"Counts how many times the digit 7 shows up in numbers below n that can be divided by 11 or 13.\n    >>> fizz_buzz(50)\n    0\n    >>> fizz_buzz(78)\n    2\n    >>> fizz_buzz(79)\n    3\n    \"\"\"",
+    "level_4": "\"\"\"Counts how many times the digit 7 shows up in numbers less than n that are divisible by 11 or 13.\n    >>> fizz_buzz(50)\n    0\n    >>> fizz_buzz(78)\n    2\n    >>> fizz_buzz(79)\n    3\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo so like, you give this thing a number and it's gonna count how many 7s show up in numbers that are smaller than your number BUT only if those numbers can be divided by 11 or 13 without any leftovers, you feel me?\"\"\""
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level_1_formal": "\n\ndef prime_fib(n: int):\n    \"\"\"\n    prime_fib returns n-th number that is a Fibonacci number and it's also prime.\n    >>> prime_fib(1)\n    2\n    >>> prime_fib(2)\n    3\n    >>> prime_fib(3)\n    5\n    >>> prime_fib(4)\n    13\n    >>> prime_fib(5)\n    89\n    \"\"\"\n",
+    "level_2": "\"\"\"\nReturns the n-th number that's both a Fibonacci number and prime.\n>>> prime_fib(1)\n2\n>>> prime_fib(2)\n3\n>>> prime_fib(3)\n5\n>>> prime_fib(4)\n13\n>>> prime_fib(5)\n89\n\"\"\"",
+    "level_3": "\"\"\"\nFinds the n-th number that's both a Fibonacci number and prime.\n>>> prime_fib(1)\n2\n>>> prime_fib(2)\n3\n>>> prime_fib(3)\n5\n>>> prime_fib(4)\n13\n>>> prime_fib(5)\n89\n\"\"\"",
+    "level_4": "\"\"\"\nyo! this function finds the n-th number that's both a fibonacci number AND prime. pretty cool right?\n\n>>> prime_fib(1)\n2\n>>> prime_fib(2)\n3\n>>> prime_fib(3)\n5\n>>> prime_fib(4)\n13\n>>> prime_fib(5)\n89\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo so like this thing finds fibonacci numbers that are also prime numbers and gives you the nth one. like if you want the first one it's 2, second is 3, third is 5, you get the vibe. basically mashing together two math-y sequences into one\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level_1_formal": "\n\ndef triples_sum_to_zero(l: list):\n    \"\"\"\n    triples_sum_to_zero takes a list of integers as an input.\n    it returns True if there are three distinct elements in the list that\n    sum to zero, and False otherwise.\n\n    >>> triples_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> triples_sum_to_zero([1, 3, -2, 1])\n    True\n    >>> triples_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\n    True\n    >>> triples_sum_to_zero([1])\n    False\n    \"\"\"\n",
+    "level_2": "\"\"\"\nTakes a list of integers and checks if there are three distinct elements that add up to zero.\n\nReturns True if such a triple exists, False otherwise.\n\n>>> triples_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> triples_sum_to_zero([1, 3, -2, 1])\nTrue\n>>> triples_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\nTrue\n>>> triples_sum_to_zero([1])\nFalse\n\"\"\"",
+    "level_3": "\"\"\"\nTakes a list of integers and checks if you can find three different elements that add up to zero.\n\nReturns True if such a triple exists, False if not.\n\n>>> triples_sum_to_zero([1, 3, 5, 0])\nFalse\n>>> triples_sum_to_zero([1, 3, -2, 1])\nTrue\n>>> triples_sum_to_zero([1, 2, 3, 7])\nFalse\n>>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\nTrue\n>>> triples_sum_to_zero([1])\nFalse\n\"\"\"",
+    "level_4": "```python\ndef triples_sum_to_zero(l: list):\n    \"\"\"\n    yo this function takes a list of integers and checks if there's any combo of 3 different numbers that add up to zero\n    \n    returns True if it finds em, False if not\n    \n    >>> triples_sum_to_zero([1, 3, 5, 0])\n    False\n    >>> triples_sum_to_zero([1, 3, -2, 1])\n    True\n    >>> triples_sum_to_zero([1, 2, 3, 7])\n    False\n    >>> triples_sum_to_zero([2, 4, -5, 3, 9, 7])\n    True\n    >>> triples_sum_to_zero([1])\n    False\n    \"\"\"\n```",
+    "level_5_vibe": "```python\ndef triples_sum_to_zero(l: list):\n    \"\"\"\n    yo so like... this thing takes your list of numbers and checks if you can grab any 3 different ones that add up to zero. pretty straightforward tbh - just returns true if you can find em, false if nah\n    \"\"\"\n```"
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level_1_formal": "\n\ndef incr_list(l: list):\n    \"\"\"Return list with elements incremented by 1.\n    >>> incr_list([1, 2, 3])\n    [2, 3, 4]\n    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [6, 4, 6, 3, 4, 4, 10, 1, 124]\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a list and returns a new list with each element incremented by 1.\n    >>> incr_list([1, 2, 3])\n    [2, 3, 4]\n    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [6, 4, 6, 3, 4, 4, 10, 1, 124]\n    \"\"\"",
+    "level_3": "\"\"\"Takes a list and bumps each number up by 1.\n    >>> incr_list([1, 2, 3])\n    [2, 3, 4]\n    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [6, 4, 6, 3, 4, 4, 10, 1, 124]\n    \"\"\"",
+    "level_4": "\"\"\"Takes a list and bumps each number up by 1.\n    >>> incr_list([1, 2, 3])\n    [2, 3, 4]\n    >>> incr_list([5, 3, 5, 2, 3, 3, 9, 0, 123])\n    [6, 4, 6, 3, 4, 4, 10, 1, 124]\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo this thing just takes your list and bumps every number up by one, pretty straightforward stuff\"\"\""
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level_1_formal": "\n\ndef fib(n: int):\n    \"\"\"Return n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"\n",
+    "level_2": "\"\"\"Returns the n-th Fibonacci number.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"",
+    "level_3": "\"\"\"Gets the n-th Fibonacci number for you.\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"",
+    "level_4": "\"\"\"Gets you the n-th Fibonacci number - you know, that sequence where each number is the sum of the two before it!\n    >>> fib(10)\n    55\n    >>> fib(1)\n    1\n    >>> fib(8)\n    21\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo just gimme that fibonacci number at whatever spot you want, like if you want the 10th one you'll get 55 or whatever\"\"\""
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level_1_formal": "\nFIX = \"\"\"\nAdd more test cases.\n\"\"\"\n\ndef vowels_count(s):\n    \"\"\"Write a function vowels_count which takes a string representing\n    a word as input and returns the number of vowels in the string.\n    Vowels in this case are 'a', 'e', 'i', 'o', 'u'. Here, 'y' is also a\n    vowel, but only when it is at the end of the given word.\n\n    Example:\n    >>> vowels_count(\"abcde\")\n    2\n    >>> vowels_count(\"ACEDY\")\n    3\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a string representing a word and returns the number of vowels in it.\n    Vowels are 'a', 'e', 'i', 'o', 'u'. The letter 'y' also counts as a\n    vowel, but only when it's at the end of the word.\n\n    Example:\n    >>> vowels_count(\"abcde\")\n    2\n    >>> vowels_count(\"ACEDY\")\n    3\n    \"\"\"",
+    "level_3": "\"\"\"Takes a string (a word) and counts how many vowels are in it.\nThe vowels we're looking for are 'a', 'e', 'i', 'o', 'u'. Also counts 'y' \nbut only if it's at the end of the word.\n\nExample:\n>>> vowels_count(\"abcde\")\n2\n>>> vowels_count(\"ACEDY\")\n3\n\"\"\"",
+    "level_4": "```python\ndef vowels_count(s):\n    \"\"\"Hey! So this function counts vowels in a word you give it.\n    \n    It'll count a, e, i, o, u as vowels (duh), but here's the catch - \n    'y' only counts if it's at the very end of the word.\n    \n    Like:\n    >>> vowels_count(\"abcde\")\n    2\n    >>> vowels_count(\"ACEDY\") \n    3\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"yo so like... make a thing that counts vowels in a word or whatever. the usual suspects - a, e, i, o, u - plus y but only if it's chillin at the end. just return how many you found, pretty straightforward tbh\"\"\""
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level_1_formal": "\ndef is_multiply_prime(a):\n    \"\"\"Write a function that returns true if the given number is the multiplication of 3 prime numbers\n    and false otherwise.\n    Knowing that (a) is less then 100. \n    Example:\n    is_multiply_prime(30) == True\n    30 = 2 * 3 * 5\n    \"\"\"\n",
+    "level_2": "\"\"\"Returns true if the given number is the multiplication of 3 prime numbers, false otherwise.\nNote that (a) is less than 100.\nExample:\nis_multiply_prime(30) == True\n30 = 2 * 3 * 5\n\"\"\"",
+    "level_3": "\"\"\"Checks if a number is the product of exactly 3 prime numbers.\nReturns True if the number can be written as the multiplication of 3 primes, False otherwise.\nNote: the input (a) is less than 100.\nExample:\nis_multiply_prime(30) == True\n30 = 2 * 3 * 5\n\"\"\"",
+    "level_4": "\"\"\"yo so basically you gotta check if a number is made by multiplying exactly 3 prime numbers together, return true if it is, false if it's not. the number's gonna be less than 100 btw.\n\nlike is_multiply_prime(30) should return True cuz 30 = 2 * 3 * 5 (that's 3 primes multiplied together)\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like... you need to check if some number is basically 3 prime numbers multiplied together or whatever. the number's gonna be under 100 so don't worry about huge stuff. like if you get 30, that's 2*3*5 which are all primes so that works\"\"\""
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level_1_formal": "\ndef iscube(a):\n    '''\n    Write a function that takes an integer a and returns True \n    if this ingeger is a cube of some integer number.\n    Note: you may assume the input is always valid.\n    Examples:\n    iscube(1) ==> True\n    iscube(2) ==> False\n    iscube(-1) ==> True\n    iscube(64) ==> True\n    iscube(0) ==> True\n    iscube(180) ==> False\n    '''\n",
+    "level_2": "```python\ndef iscube(a):\n    '''\n    Takes an integer and checks if it's a perfect cube of some integer.\n    You can assume the input will always be valid.\n    \n    Examples:\n    iscube(1) ==> True\n    iscube(2) ==> False\n    iscube(-1) ==> True\n    iscube(64) ==> True\n    iscube(0) ==> True\n    iscube(180) ==> False\n    '''\n```",
+    "level_3": "```python\ndef iscube(a):\n    '''\n    Takes an integer and checks if it's a perfect cube of some other integer.\n    \n    The input will always be a valid integer, so no need to worry about error handling.\n    \n    Examples:\n    iscube(1) ==> True\n    iscube(2) ==> False\n    iscube(-1) ==> True\n    iscube(64) ==> True\n    iscube(0) ==> True\n    iscube(180) ==> False\n    '''\n```",
+    "level_4": "```python\ndef iscube(a):\n    '''\n    Hey! So this function takes some integer and checks if it's a perfect cube or not.\n    \n    Basically, you give it a number and it'll tell you True if that number is like \n    some other number cubed (you know, multiplied by itself 3 times), otherwise False.\n    \n    Don't worry about weird inputs - they're always gonna be valid integers.\n    \n    Here's what it does:\n    iscube(1) ==> True (since 1³ = 1)\n    iscube(2) ==> False (no integer cubed gives you 2)\n    iscube(-1) ==> True (since (-1)³ = -1)\n    iscube(64) ==> True (since 4³ = 64)\n    iscube(0) ==> True (since 0³ = 0)\n    iscube(180) ==> False (not a perfect cube)\n    '''\n```",
+    "level_5_vibe": "```\nyo so like... you got this number right? and you wanna know if it's like one of those cube thingies? like when you take some number and go number * number * number and boom you get your original number back? \n\nbasically just check if there's some integer out there that when you cube it (multiply by itself 3 times) you get back what you started with\n\nworks with negatives too cuz math is weird like that. and zero counts as a cube i guess? idk the math gods said so\n\nsome examples if you're confused:\n- 1 is a cube (1³ = 1) ✓\n- 2 is not a cube (no integer cubes to 2) ✗  \n- 64 is totally a cube (4³ = 64) ✓\n- 180 is not vibing as a cube ✗\n```"
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level_1_formal": "\ndef is_happy(s):\n    \"\"\"You are given a string s.\n    Your task is to check if the string is happy or not.\n    A string is happy if its length is at least 3 and every 3 consecutive letters are distinct\n    For example:\n    is_happy(a) => False\n    is_happy(aa) => False\n    is_happy(abcd) => True\n    is_happy(aabb) => False\n    is_happy(adb) => True\n    is_happy(xyy) => False\n    \"\"\"\n",
+    "level_2": "\"\"\"Check if a string is happy or not.\n    \n    A string is happy when it's at least 3 characters long and every group of 3 consecutive letters are all different from each other.\n    \n    For example:\n    is_happy(a) => False\n    is_happy(aa) => False\n    is_happy(abcd) => True\n    is_happy(aabb) => False\n    is_happy(adb) => True\n    is_happy(xyy) => False\n    \"\"\"",
+    "level_3": "\"\"\"Hey, so you've got a string s here.\nWhat you need to do is figure out if this string is \"happy\" or not.\nA string counts as happy when it's got at least 3 characters AND every group of 3 letters next to each other are all different from one another.\n\nHere's how it works:\nis_happy(a) => False\nis_happy(aa) => False  \nis_happy(abcd) => True\nis_happy(aabb) => False\nis_happy(adb) => True\nis_happy(xyy) => False\n\"\"\"",
+    "level_4": "\"\"\"Hey! So you've got this string s, right?\nYou gotta figure out if it's \"happy\" or not.\nA string's happy when it's at least 3 chars long AND every group of 3 letters next to each other are all different.\n\nLike:\nis_happy(a) => False\nis_happy(aa) => False  \nis_happy(abcd) => True\nis_happy(aabb) => False\nis_happy(adb) => True\nis_happy(xyy) => False\n\"\"\"",
+    "level_5_vibe": "\"\"\"Yo so like, you got this string thing and you gotta figure out if it's \"happy\" or whatever. Basically it needs to be at least 3 chars long and when you look at any 3 letters next to each other, they all gotta be different. Like no repeats in those little groups of 3, ya know? If it's too short or has repeating letters in those triplets, it's not happy lol.\"\"\""
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level_1_formal": "\n\ndef below_threshold(l: list, t: int):\n    \"\"\"Return True if all numbers in the list l are below threshold t.\n    >>> below_threshold([1, 2, 4, 10], 100)\n    True\n    >>> below_threshold([1, 20, 4, 10], 5)\n    False\n    \"\"\"\n",
+    "level_2": "\"\"\"Check if all numbers in the list l are below threshold t.\n    >>> below_threshold([1, 2, 4, 10], 100)\n    True\n    >>> below_threshold([1, 20, 4, 10], 5)\n    False\n    \"\"\"",
+    "level_3": "\"\"\"Checks if all numbers in the list are below the given threshold.\n    >>> below_threshold([1, 2, 4, 10], 100)\n    True\n    >>> below_threshold([1, 20, 4, 10], 5)\n    False\n    \"\"\"",
+    "level_4": "\"\"\"Checks if all the numbers in your list are under the threshold - returns True if they are, False if not.\n>>> below_threshold([1, 2, 4, 10], 100)\nTrue\n>>> below_threshold([1, 20, 4, 10], 5)\nFalse\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo this thing just checks if like... all the numbers in your list are smaller than whatever number you picked as your limit, you know? returns true if they're all good, false if any of them are too big\"\"\""
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level_1_formal": "\n\ndef largest_prime_factor(n: int):\n    \"\"\"Return the largest prime factor of n. Assume n > 1 and is not a prime.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"\n",
+    "level_2": "\"\"\"Find and return the largest prime factor of n. We assume n > 1 and isn't a prime number.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"",
+    "level_3": "\"\"\"Find the biggest prime factor of n. We're assuming n is greater than 1 and isn't prime itself.\n>>> largest_prime_factor(13195)\n29\n>>> largest_prime_factor(2048)\n2\n\"\"\"",
+    "level_4": "\"\"\"Finds the biggest prime factor of n. Just assume n's > 1 and isn't prime itself.\n    >>> largest_prime_factor(13195)\n    29\n    >>> largest_prime_factor(2048)\n    2\n    \"\"\"",
+    "level_5_vibe": "\"\"\"yo this thing just finds the biggest prime number that divides into whatever number you throw at it. like if you got some chunky composite number, it'll tell you what the fattest prime factor is. pretty neat for when you need to break stuff down\"\"\""
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level_1_formal": "\ndef circular_shift(x, shift):\n    \"\"\"Circular shift the digits of the integer x, shift the digits right by shift\n    and return the result as a string.\n    If shift > number of digits, return digits reversed.\n    >>> circular_shift(12, 1)\n    \"21\"\n    >>> circular_shift(12, 2)\n    \"12\"\n    \"\"\"\n",
+    "level_2": "\"\"\"Shifts the digits of integer x in a circular pattern, moving digits right by the shift amount\nand returns the result as a string.\nIf shift is greater than the number of digits, just return the digits reversed.\n>>> circular_shift(12, 1)\n\"21\"\n>>> circular_shift(12, 2)\n\"12\"\n\"\"\"",
+    "level_3": "\"\"\"Takes an integer x and shifts its digits in a circle to the right by 'shift' positions, then gives you back the result as a string.\nIf shift is bigger than how many digits you have, just flip the digits backwards instead.\n>>> circular_shift(12, 1)\n\"21\"\n>>> circular_shift(12, 2)\n\"12\"\n\"\"\"",
+    "level_4": "\"\"\"Takes an integer x and shifts its digits in a circle by 'shift' positions to the right, then gives you back a string.\nIf shift is bigger than how many digits you've got, it just reverses the digits instead.\n>>> circular_shift(12, 1)\n\"21\"\n>>> circular_shift(12, 2)\n\"12\"\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like, you take some number and spin its digits around to the right by however much you want. if you try to spin it more than it has digits then just flip the whole thing backwards lol. returns it as text tho\"\"\""
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level_1_formal": "\ndef triangle_area(a, b, c):\n    '''\n    Given the lengths of the three sides of a triangle. Return the area of\n    the triangle rounded to 2 decimal points if the three sides form a valid triangle. \n    Otherwise return -1\n    Three sides make a valid triangle when the sum of any two sides is greater \n    than the third side.\n    Example:\n    triangle_area(3, 4, 5) == 6.00\n    triangle_area(1, 2, 10) == -1\n    '''\n",
+    "level_2": "'''\nCalculates the area of a triangle given the lengths of its three sides. Returns the area rounded to 2 decimal places if the sides form a valid triangle, otherwise returns -1.\n\nFor three sides to make a valid triangle, the sum of any two sides must be greater than the third side.\n\nExample:\ntriangle_area(3, 4, 5) == 6.00\ntriangle_area(1, 2, 10) == -1\n'''",
+    "level_3": "'''\nCalculates the area of a triangle given its three side lengths.\n\nTakes three side lengths and returns the triangle's area rounded to 2 decimal places\nif they form a valid triangle, otherwise returns -1.\n\nA triangle is valid when the sum of any two sides is greater than the third side.\n\nExample:\ntriangle_area(3, 4, 5) == 6.00\ntriangle_area(1, 2, 10) == -1\n'''",
+    "level_4": "'''\nHey! So this function takes 3 side lengths and gives you back the triangle's area (rounded to 2 decimals) if it's actually a valid triangle. If not, you'll get -1.\n\nJust remember - for a triangle to be legit, any two sides added together gotta be bigger than the third side.\n\nExamples:\ntriangle_area(3, 4, 5) == 6.00\ntriangle_area(1, 2, 10) == -1\n'''",
+    "level_5_vibe": "'''\nyo so like... you got 3 sides of a triangle right? just throw those numbers at this thing and it'll spit back the area or whatever. but like, only if it's actually a real triangle tho - you know how sometimes the sides don't even make sense together? yeah if that happens you just get -1 lol. oh and it rounds it to 2 decimals cuz nobody wants to see like 47 decimal places or whatever\n\ntriangle_area(3, 4, 5) gives you 6.00\ntriangle_area(1, 2, 10) gives you -1 cuz that's not even a triangle bro\n'''"
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level_1_formal": "\ndef hex_key(num):\n    \"\"\"You have been tasked to write a function that receives \n    a hexadecimal number as a string and counts the number of hexadecimal \n    digits that are primes (prime number, or a prime, is a natural number \n    greater than 1 that is not a product of two smaller natural numbers).\n    Hexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.\n    Prime numbers are 2, 3, 5, 7, 11, 13, 17,...\n    So you have to determine a number of the following digits: 2, 3, 5, 7, \n    B (=decimal 11), D (=decimal 13).\n    Note: you may assume the input is always correct or empty string, \n    and symbols A,B,C,D,E,F are always uppercase.\n    Examples:\n    For num = \"AB\" the output should be 1.\n    For num = \"1077E\" the output should be 2.\n    For num = \"ABED1A33\" the output should be 4.\n    For num = \"123456789ABCDEF0\" the output should be 6.\n    For num = \"2020\" the output should be 2.\n    \"\"\"\n",
+    "level_2": "\"\"\"This function takes a hexadecimal number as a string and counts how many of its digits are prime numbers.\n\nHere's what you need to know: hexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, and prime numbers are 2, 3, 5, 7, 11, 13, 17, etc.\n\nSo we're looking for these specific hex digits: 2, 3, 5, 7, B (which equals 11 in decimal), and D (which equals 13 in decimal).\n\nThe input will always be a valid hex string or empty, and any letters A-F will be uppercase.\n\nExamples:\nFor num = \"AB\" the output should be 1.\nFor num = \"1077E\" the output should be 2.\nFor num = \"ABED1A33\" the output should be 4.\nFor num = \"123456789ABCDEF0\" the output should be 6.\nFor num = \"2020\" the output should be 2.\n\"\"\"",
+    "level_3": "\"\"\"Takes a hex string and counts how many of its digits are prime numbers.\n    \n    So basically, you're looking through each character in the hex string and checking \n    if it represents a prime number. The hex digits that are prime are: 2, 3, 5, 7, \n    B (which is 11), and D (which is 13).\n    \n    The function goes through each digit and counts up how many are in that prime list.\n    \n    Just so you know - hex digits are 0-9 and A-F, and prime numbers start with 2, 3, 5, 7, 11, 13...\n    You can assume the input is always valid hex or empty, and any letters are uppercase.\n    \n    Examples:\n    For num = \"AB\" the output should be 1.\n    For num = \"1077E\" the output should be 2.\n    For num = \"ABED1A33\" the output should be 4.\n    For num = \"123456789ABCDEF0\" the output should be 6.\n    For num = \"2020\" the output should be 2.\n    \"\"\"",
+    "level_4": "\"\"\"Hey! So you gotta write a function that takes a hex string and counts how many of the digits are actually prime numbers.\n\nQuick refresher - hex digits are 0-9 and A-F. Prime numbers are like 2, 3, 5, 7, 11, 13, etc.\n\nSo you're basically looking for: 2, 3, 5, 7, B (that's 11), and D (that's 13).\n\nDon't worry about error checking - the input's always gonna be valid or empty, and A-F are always uppercase.\n\nSome examples:\n- \"AB\" → 1 (just the B)\n- \"1077E\" → 2 (the two 7s)\n- \"ABED1A33\" → 4 (B, D, and two 3s)\n- \"123456789ABCDEF0\" → 6\n- \"2020\" → 2 (both 2s)\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like, you get this hex string right? and you gotta count how many of the digits are actually prime numbers. like 2, 3, 5, 7 are obvious primes, but then B is 11 and D is 13 which are also prime. just loop through and count em up, pretty straightforward tbh\"\"\""
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level_1_formal": "\ndef count_up_to(n):\n    \"\"\"Implement a function that takes an non-negative integer and returns an array of the first n\n    integers that are prime numbers and less than n.\n    for example:\n    count_up_to(5) => [2,3]\n    count_up_to(11) => [2,3,5,7]\n    count_up_to(0) => []\n    count_up_to(20) => [2,3,5,7,11,13,17,19]\n    count_up_to(1) => []\n    count_up_to(18) => [2,3,5,7,11,13,17]\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a non-negative integer and returns a list of all prime numbers less than n.\n\nfor example:\ncount_up_to(5) => [2,3]\ncount_up_to(11) => [2,3,5,7]\ncount_up_to(0) => []\ncount_up_to(20) => [2,3,5,7,11,13,17,19]\ncount_up_to(1) => []\ncount_up_to(18) => [2,3,5,7,11,13,17]\n\"\"\"",
+    "level_3": "\"\"\"Takes a non-negative integer and gives you back a list of all the prime numbers less than n.\n\nSo if you pass in 5, you'll get [2,3] back since those are the only primes under 5.\nHere's what you can expect:\ncount_up_to(5) => [2,3]\ncount_up_to(11) => [2,3,5,7]\ncount_up_to(0) => []\ncount_up_to(20) => [2,3,5,7,11,13,17,19]\ncount_up_to(1) => []\ncount_up_to(18) => [2,3,5,7,11,13,17]\n\"\"\"",
+    "level_4": "```python\ndef count_up_to(n):\n    \"\"\"\n    Hey! So this function takes a non-negative integer and gives you back \n    all the prime numbers that are less than n. Pretty straightforward!\n    \n    Here's what you'll get:\n    count_up_to(5) => [2,3]\n    count_up_to(11) => [2,3,5,7]  \n    count_up_to(0) => []\n    count_up_to(20) => [2,3,5,7,11,13,17,19]\n    count_up_to(1) => []\n    count_up_to(18) => [2,3,5,7,11,13,17]\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"yo so like, you give this thing a number and it spits back all the prime numbers that are smaller than whatever you gave it. basically finds all the primes up to that point, you know? if you put in 0 or 1 you get nothing back cause there's no primes that small lol\"\"\""
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level_1_formal": "\ndef compare(game,guess):\n    \"\"\"I think we all remember that feeling when the result of some long-awaited\n    event is finally known. The feelings and thoughts you have at that moment are\n    definitely worth noting down and comparing.\n    Your task is to determine if a person correctly guessed the results of a number of matches.\n    You are given two arrays of scores and guesses of equal length, where each index shows a match. \n    Return an array of the same length denoting how far off each guess was. If they have guessed correctly,\n    the value is 0, and if not, the value is the absolute difference between the guess and the score.\n    \n    \n    example:\n\n    compare([1,2,3,4,5,1],[1,2,3,4,2,-2]) -> [0,0,0,0,3,3]\n    compare([0,5,0,0,0,4],[4,1,1,0,0,-2]) -> [4,4,1,0,0,6]\n    \"\"\"\n",
+    "level_2": "\"\"\"Ever had that moment when you're waiting for game results and finally get to see how well you predicted them? \nThis function helps you figure out how accurate someone's guesses were for a bunch of matches.\n\nYou'll get two arrays of the same length - one with actual game scores and one with the person's guesses. \nEach position represents the same match in both arrays. The function returns an array showing how far off \neach guess was. If they nailed it, you get 0. If not, you get the absolute difference between their guess \nand the actual score.\n\nexample:\n\ncompare([1,2,3,4,5,1],[1,2,3,4,2,-2]) -> [0,0,0,0,3,3]\ncompare([0,5,0,0,0,4],[4,1,1,0,0,-2]) -> [4,4,1,0,0,6]\n\"\"\"",
+    "level_3": "\"\"\"Compares game scores with guesses and returns how far off each guess was.\n\nTakes two arrays of equal length - one with actual game scores and one with guesses.\nFor each match, calculates the absolute difference between the guess and actual score.\nIf the guess was correct, returns 0 for that match.\n\nArgs:\n    game: List of actual game scores\n    guess: List of guessed scores\n    \nReturns:\n    List of absolute differences between guesses and actual scores\n    \nExamples:\n    compare([1,2,3,4,5,1],[1,2,3,4,2,-2]) -> [0,0,0,0,3,3]\n    compare([0,5,0,0,0,4],[4,1,1,0,0,-2]) -> [4,4,1,0,0,6]\n\"\"\"",
+    "level_4": "\"\"\"Hey! So you know that feeling when you're waiting for game results and finally find out how you did? Yeah, this function's all about that!\n\nBasically, you've got someone who tried to guess a bunch of match scores, and you wanna see how close they got. You get two lists - the actual game scores and their guesses (same length obvs). \n\nJust return a list showing how far off each guess was. Got it right? That's a 0. Wrong? Just the absolute difference between what they guessed and what actually happened.\n\nLike:\ncompare([1,2,3,4,5,1],[1,2,3,4,2,-2]) gives you [0,0,0,0,3,3]\ncompare([0,5,0,0,0,4],[4,1,1,0,0,-2]) gives you [4,4,1,0,0,6]\n\nPretty straightforward stuff!\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like... you got some game scores and some person's guesses right? just figure out how wrong they were lol. if they nailed it, put 0. if they didn't, just do the math thing where you subtract and make it positive or whatever. returns a list of how off each guess was basically\"\"\""
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level_1_formal": "\ndef even_odd_count(num):\n    \"\"\"Given an integer. return a tuple that has the number of even and odd digits respectively.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes an integer and returns a tuple with the count of even and odd digits.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"",
+    "level_3": "\"\"\"Takes an integer and gives you back a tuple with how many even and odd digits it has.\n\n     Example:\n        even_odd_count(-12) ==> (1, 1)\n        even_odd_count(123) ==> (1, 2)\n    \"\"\"",
+    "level_4": "```python\ndef even_odd_count(num):\n    \"\"\"Hey! So this function takes any integer and gives you back a tuple showing how many even digits and how many odd digits it has.\n\n    Like if you throw in -12, you'll get (1, 1) back - that's 1 even digit and 1 odd digit.\n    Or with 123, you get (1, 2) - 1 even and 2 odds. Pretty straightforward!\n    \"\"\"\n```",
+    "level_5_vibe": "\"\"\"yo so like, you give this thing a number and it tells you how many even digits and how many odd digits are in there. returns it as a tuple or whatever.\n\nlike if you throw -12 at it, you get (1, 1) back cause there's one even digit and one odd digit. or 123 gives you (1, 2) cause one even, two odds. pretty straightforward tbh.\"\"\""
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level_1_formal": "\ndef find_max(words):\n    \"\"\"Write a function that accepts a list of strings.\n    The list contains different words. Return the word with maximum number\n    of unique characters. If multiple strings have maximum number of unique\n    characters, return the one which comes first in lexicographical order.\n\n    find_max([\"name\", \"of\", \"string\"]) == \"string\"\n    find_max([\"name\", \"enam\", \"game\"]) == \"enam\"\n    find_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"\"aaaaaaa\"\n    \"\"\"\n",
+    "level_2": "\"\"\"Takes a list of strings and finds the word with the most unique characters.\nIf there's a tie between multiple words, it returns whichever one comes first \nalphabetically (lexicographical order).\n\nfind_max([\"name\", \"of\", \"string\"]) == \"string\"\nfind_max([\"name\", \"enam\", \"game\"]) == \"enam\"\nfind_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"\"aaaaaaa\"\n\"\"\"",
+    "level_3": "\"\"\"Takes a list of strings and finds the one with the most unique characters.\nIf there's a tie, picks the one that comes first alphabetically.\n\nfind_max([\"name\", \"of\", \"string\"]) == \"string\"\nfind_max([\"name\", \"enam\", \"game\"]) == \"enam\"  \nfind_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"aaaaaaa\"\n\"\"\"",
+    "level_4": "\"\"\"Hey! So this function takes a list of strings and finds the one with the most unique characters. If there's a tie, it'll pick whichever one comes first alphabetically.\n\nLike:\nfind_max([\"name\", \"of\", \"string\"]) == \"string\"\nfind_max([\"name\", \"enam\", \"game\"]) == \"enam\" \nfind_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"aaaaaaa\"\n\"\"\"",
+    "level_5_vibe": "\"\"\"yo so like, you got this list of words right? and you wanna find the one that's got the most different letters in it. if there's a tie or whatever, just pick whichever one would come first if you sorted them alphabetically. pretty straightforward tbh.\n\nfind_max([\"name\", \"of\", \"string\"]) == \"string\"\nfind_max([\"name\", \"enam\", \"game\"]) == \"enam\" \nfind_max([\"aaaaaaa\", \"bb\" ,\"cc\"]) == \"aaaaaaa\"\n\"\"\""
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level_1_formal": "\ndef generate_integers(a, b):\n    \"\"\"\n    Given two positive integers a and b, return the even digits between a\n    and b, in ascending order.\n\n    For example:\n    generate_integers(2, 8) => [2, 4, 6, 8]\n    generate_integers(8, 2) => [2, 4, 6, 8]\n    generate_integers(10, 14) => []\n    \"\"\"\n",
+    "level_2": "\"\"\"\nGiven two positive integers a and b, this function returns the even digits between a\nand b, in ascending order.\n\nFor example:\ngenerate_integers(2, 8) => [2, 4, 6, 8]\ngenerate_integers(8, 2) => [2, 4, 6, 8]\ngenerate_integers(10, 14) => []\n\"\"\"",
+    "level_3": "\"\"\"\nTakes two positive integers a and b, and gives you back all the even digits between them, sorted from smallest to largest.\n\nFor example:\ngenerate_integers(2, 8) => [2, 4, 6, 8]\ngenerate_integers(8, 2) => [2, 4, 6, 8]\ngenerate_integers(10, 14) => []\n\"\"\"",
+    "level_4": "\"\"\"\nHey! So this function takes two positive numbers a and b, and gives you back all the even digits between them in order from smallest to biggest.\n\nLike:\ngenerate_integers(2, 8) => [2, 4, 6, 8]\ngenerate_integers(8, 2) => [2, 4, 6, 8]\ngenerate_integers(10, 14) => []\n\"\"\"",
+    "level_5_vibe": "\"\"\"\nyo so like, you give this thing two numbers and it spits back all the even ones between them, sorted and stuff. doesn't matter which number is bigger, it figures it out. sometimes you get nothing back if there's no evens in there, whatever.\n\"\"\""
+  }
+]
