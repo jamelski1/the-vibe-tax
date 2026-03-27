@@ -23,6 +23,7 @@ HUMANEVAL_FILE = os.path.join(SCRIPT_DIR, "human-eval-v2-20210705.jsonl")
 VIBE_DATA_FILE = os.path.join(SCRIPT_DIR, "vibe_spectrum_data.json")
 
 TIMEOUT_SECONDS = 10
+DEBUG_DIR = os.path.join(SCRIPT_DIR, "debug_scripts")
 
 
 def load_humaneval_tests():
@@ -42,13 +43,39 @@ def load_vibe_data():
     return {entry["task_id"]: entry for entry in data}
 
 
-def strip_markdown_fences(code):
-    """Remove markdown code fences if the model wrapped its response."""
-    code = code.strip()
-    # Remove opening ```python or ``` and closing ```
-    code = re.sub(r"^```(?:python)?\s*\n?", "", code)
-    code = re.sub(r"\n?```\s*$", "", code)
-    return code
+def extract_code(text):
+    """Extract Python code from a model response, stripping markdown fences
+    and any surrounding prose."""
+    text = text.strip()
+
+    # Try to extract code from markdown fenced blocks (```python ... ``` or ``` ... ```)
+    # Use the LAST fenced block if multiple exist (models sometimes show usage examples first)
+    fenced = re.findall(r"```(?:python)?\s*\n(.*?)```", text, re.DOTALL)
+    if fenced:
+        return fenced[-1].strip()
+
+    # Strip simple opening/closing fences (no content outside them)
+    text = re.sub(r"^```(?:python)?\s*\n?", "", text)
+    text = re.sub(r"\n?```\s*$", "", text)
+
+    # If the response starts with non-code prose, try to find where the code begins
+    lines = text.split("\n")
+    code_start = 0
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        # Skip blank lines at the start
+        if not stripped:
+            continue
+        # If the first non-blank line looks like prose (not Python), skip it
+        if stripped.endswith(":") and not stripped.startswith(("def ", "if ", "for ", "while ", "class ", "else:", "elif ", "try:", "except", "finally:", "with ")):
+            code_start = i + 1
+            continue
+        break
+
+    if code_start > 0:
+        text = "\n".join(lines[code_start:])
+
+    return text.strip()
 
 
 def build_test_script(prompt, completion, test_code, entry_point):
@@ -58,11 +85,8 @@ def build_test_script(prompt, completion, test_code, entry_point):
     The completion contains the function body.
     The test_code contains check(candidate) assertions.
     """
-    completion = strip_markdown_fences(completion)
+    completion = extract_code(completion)
 
-    # The prompt already has the function signature and docstring.
-    # The completion should be the body. We need to indent it properly
-    # if it isn't already indented.
     lines = completion.split("\n")
 
     # Check if the completion includes the full function def (some models do this)
@@ -79,7 +103,22 @@ def build_test_script(prompt, completion, test_code, entry_point):
                 break
             preamble_lines.append(pl)
         preamble = "\n".join(preamble_lines)
-        function_code = preamble + "\n" + completion
+
+        # Also strip any lines before the def in the completion (prose, imports already in preamble)
+        comp_lines = completion.split("\n")
+        def_idx = 0
+        for j, cl in enumerate(comp_lines):
+            if cl.strip().startswith(f"def {entry_point}"):
+                def_idx = j
+                break
+        # Keep any imports/helpers the model added before its def
+        model_preamble = "\n".join(comp_lines[:def_idx]).strip()
+        model_func = "\n".join(comp_lines[def_idx:])
+
+        if model_preamble:
+            function_code = preamble + "\n" + model_preamble + "\n\n" + model_func
+        else:
+            function_code = preamble + "\n" + model_func
     else:
         # Completion is just the body — needs to be indented under the prompt
         # Check if lines are already indented
@@ -122,6 +161,8 @@ def run_test(script):
 
 
 def main():
+    debug = "--debug" in sys.argv
+
     # Load data
     if not os.path.exists(RESPONSES_FILE):
         print(f"ERROR: {RESPONSES_FILE} not found. Run query_all_models.py first.")
@@ -175,6 +216,13 @@ def main():
 
         script = build_test_script(prompt, completion, test_code, entry_point)
         passed, error = run_test(script)
+
+        # In debug mode, save assembled scripts for failed tests
+        if debug and not passed:
+            os.makedirs(DEBUG_DIR, exist_ok=True)
+            safe_name = f"{task_id.replace('/', '_')}_{level}_{model}.py"
+            with open(os.path.join(DEBUG_DIR, safe_name), "w", encoding="utf-8") as df:
+                df.write(script)
 
         results.append({**resp, "test_passed": passed, "test_error": error})
 
