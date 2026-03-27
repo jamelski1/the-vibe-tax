@@ -7,7 +7,7 @@ Usage:
     python query_all_models.py
 
 Environment variables required:
-    OPENAI_API_KEY     - For ChatGPT (gpt-4.1)
+    OPENAI_API_KEY     - For ChatGPT (gpt-5.4)
     ANTHROPIC_API_KEY  - For Claude (claude-opus-4-6)
     CODESTRAL_API_KEY  - For Codestral (codestral-latest)
 
@@ -29,7 +29,7 @@ from anthropic import Anthropic
 # Configuration
 # ---------------------------------------------------------------------------
 
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
 CODESTRAL_MODEL = os.getenv("CODESTRAL_MODEL", "codestral-latest")
 CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
