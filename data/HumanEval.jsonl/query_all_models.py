@@ -7,7 +7,7 @@ Usage:
     python query_all_models.py
 
 Environment variables required:
-    OPENAI_API_KEY     - For ChatGPT (gpt-5.3-codex)
+    OPENAI_API_KEY     - For ChatGPT (gpt-4.1)
     ANTHROPIC_API_KEY  - For Claude (claude-opus-4-6)
     CODESTRAL_API_KEY  - For Codestral (codestral-latest)
 
@@ -29,7 +29,7 @@ from anthropic import Anthropic
 # Configuration
 # ---------------------------------------------------------------------------
 
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.3-codex")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
 CODESTRAL_MODEL = os.getenv("CODESTRAL_MODEL", "codestral-latest")
 CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
@@ -135,27 +135,16 @@ def query_openai(client, prompt, model=None):
     """
     model = model or OPENAI_MODEL
 
-    if "codex" in model:
-        # Codex models use the completions endpoint, not chat
-        full_prompt = f"{SYSTEM_PROMPT}\n\n{prompt}"
-        response = client.completions.create(
-            model=model,
-            temperature=0,
-            max_tokens=2048,
-            prompt=full_prompt,
-        )
-        return response.choices[0].text
-    else:
-        response = client.chat.completions.create(
-            model=model,
-            temperature=0,
-            max_tokens=2048,
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": prompt},
-            ],
-        )
-        return response.choices[0].message.content
+    response = client.chat.completions.create(
+        model=model,
+        temperature=0,
+        max_tokens=2048,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    return response.choices[0].message.content
 
 
 def query_anthropic(client, prompt):
