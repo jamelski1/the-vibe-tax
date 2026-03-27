@@ -7,7 +7,7 @@ Usage:
     python query_all_models.py
 
 Environment variables required:
-    OPENAI_API_KEY     - For ChatGPT (gpt-5.3-codex)
+    OPENAI_API_KEY     - For ChatGPT (gpt-5.4)
     ANTHROPIC_API_KEY  - For Claude (claude-opus-4-6)
     CODESTRAL_API_KEY  - For Codestral (codestral-latest)
 
@@ -29,7 +29,7 @@ from anthropic import Anthropic
 # Configuration
 # ---------------------------------------------------------------------------
 
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.3-codex")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
 CODESTRAL_MODEL = os.getenv("CODESTRAL_MODEL", "codestral-latest")
 CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
@@ -129,8 +129,12 @@ def make_codestral_client():
 # ---------------------------------------------------------------------------
 
 def query_openai(client, prompt, model=None):
-    """Send a zero-shot prompt to the OpenAI API and return the completion."""
+    """Send a zero-shot prompt to the OpenAI API and return the completion.
+
+    Uses the completions endpoint for codex models, chat endpoint for others.
+    """
     model = model or OPENAI_MODEL
+
     response = client.chat.completions.create(
         model=model,
         temperature=0,
