@@ -81,10 +81,15 @@ def extract_code(text):
 def build_test_script(prompt, completion, test_code, entry_point):
     """Build a complete Python script that defines the function and runs tests.
 
-    The HumanEval prompt contains the function signature + docstring.
-    The completion contains the function body.
+    The prompt is the HumanEval function signature + docstring (always well-formed).
+    The completion contains the function body (may include fences, full def, etc.).
     The test_code contains check(candidate) assertions.
     """
+    # Clean the prompt: strip markdown fences, ensure trailing newline
+    prompt = extract_code(prompt)
+    if not prompt.endswith("\n"):
+        prompt += "\n"
+
     completion = extract_code(completion)
 
     lines = completion.split("\n")
