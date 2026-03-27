@@ -129,18 +129,33 @@ def make_codestral_client():
 # ---------------------------------------------------------------------------
 
 def query_openai(client, prompt, model=None):
-    """Send a zero-shot prompt to the OpenAI API and return the completion."""
+    """Send a zero-shot prompt to the OpenAI API and return the completion.
+
+    Uses the completions endpoint for codex models, chat endpoint for others.
+    """
     model = model or OPENAI_MODEL
-    response = client.chat.completions.create(
-        model=model,
-        temperature=0,
-        max_tokens=2048,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": prompt},
-        ],
-    )
-    return response.choices[0].message.content
+
+    if "codex" in model:
+        # Codex models use the completions endpoint, not chat
+        full_prompt = f"{SYSTEM_PROMPT}\n\n{prompt}"
+        response = client.completions.create(
+            model=model,
+            temperature=0,
+            max_tokens=2048,
+            prompt=full_prompt,
+        )
+        return response.choices[0].text
+    else:
+        response = client.chat.completions.create(
+            model=model,
+            temperature=0,
+            max_tokens=2048,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": prompt},
+            ],
+        )
+        return response.choices[0].message.content
 
 
 def query_anthropic(client, prompt):
