@@ -1,7 +1,7 @@
 """
 Query ChatGPT, Claude, and Codestral with all 250 zero-shot prompts from vibe_spectrum_data.json.
 
-50 problems × 5 formality levels × 3 models = 750 total completions.
+50 problems x 5 formality levels x 3 models = 750 total completions.
 
 Usage:
     python query_all_models.py
@@ -15,6 +15,7 @@ Set CODESTRAL_MODEL to override the model name (default: codestral-latest).
 """
 
 import json
+import logging
 import os
 import sys
 import time
@@ -36,9 +37,16 @@ CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
 # Delay between API calls (seconds) to respect rate limits
 API_DELAY = float(os.getenv("API_DELAY", "1.0"))
 
-DATA_FILE = os.path.join(os.path.dirname(__file__), "vibe_spectrum_data.json")
-OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "all_model_responses.json")
-PROGRESS_FILE = os.path.join(os.path.dirname(__file__), "query_progress.json")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(SCRIPT_DIR, "vibe_spectrum_data.json")
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "all_model_responses.json")
+PROGRESS_FILE = os.path.join(SCRIPT_DIR, "query_progress.json")
+LOG_FILE = os.path.join(SCRIPT_DIR, "query_all_models.log")
+
+# Save results to disk after every N completions (first checkpoint at 15
+# to verify the first problem's 5 levels x 3 models all saved correctly)
+FIRST_CHECKPOINT = 15
+CHECKPOINT_INTERVAL = 50
 
 LEVEL_KEYS = [
     "level_1_formal",
@@ -58,13 +66,44 @@ SYSTEM_PROMPT = (
 
 
 # ---------------------------------------------------------------------------
+# Logging setup — writes to both terminal and log file
+# ---------------------------------------------------------------------------
+
+def setup_logging():
+    logger = logging.getLogger("vibe_tax")
+    logger.setLevel(logging.DEBUG)
+
+    formatter = logging.Formatter(
+        "%(asctime)s | %(levelname)-7s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
+    # Console handler — INFO and above
+    console = logging.StreamHandler(sys.stdout)
+    console.setLevel(logging.INFO)
+    console.setFormatter(formatter)
+    logger.addHandler(console)
+
+    # File handler — DEBUG and above (captures everything)
+    file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+
+    return logger
+
+
+log = setup_logging()
+
+
+# ---------------------------------------------------------------------------
 # Client setup
 # ---------------------------------------------------------------------------
 
 def make_openai_client():
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        print("WARNING: OPENAI_API_KEY not set — ChatGPT queries will be skipped.")
+        log.warning("OPENAI_API_KEY not set -- ChatGPT queries will be skipped.")
         return None
     return OpenAI(api_key=api_key)
 
@@ -72,7 +111,7 @@ def make_openai_client():
 def make_anthropic_client():
     api_key = os.getenv("ANTHROPIC_API_KEY")
     if not api_key:
-        print("WARNING: ANTHROPIC_API_KEY not set — Claude queries will be skipped.")
+        log.warning("ANTHROPIC_API_KEY not set -- Claude queries will be skipped.")
         return None
     return Anthropic(api_key=api_key)
 
@@ -80,7 +119,7 @@ def make_anthropic_client():
 def make_codestral_client():
     api_key = os.getenv("CODESTRAL_API_KEY")
     if not api_key:
-        print("WARNING: CODESTRAL_API_KEY not set — Codestral queries will be skipped.")
+        log.warning("CODESTRAL_API_KEY not set -- Codestral queries will be skipped.")
         return None
     return OpenAI(api_key=api_key, base_url=CODESTRAL_BASE_URL)
 
@@ -145,6 +184,17 @@ def progress_key(task_id, level, model_name):
 
 
 # ---------------------------------------------------------------------------
+# Save helpers
+# ---------------------------------------------------------------------------
+
+def save_results(results, path):
+    """Write the results list to JSON."""
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+    log.info("Results saved to %s (%d entries)", path, len(results))
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -159,12 +209,16 @@ def build_user_prompt(entry, level_key, entry_point):
 
 
 def run():
+    log.info("=" * 60)
+    log.info("VIBE TAX — Model Query Run Started")
+    log.info("=" * 60)
+
     # Load data
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         problems = json.load(f)
 
-    print(f"Loaded {len(problems)} problems from {DATA_FILE}")
-    print(f"Levels per problem: {len(LEVEL_KEYS)}")
+    log.info("Loaded %d problems from %s", len(problems), DATA_FILE)
+    log.info("Levels per problem: %d", len(LEVEL_KEYS))
 
     # Set up clients
     clients = {}
@@ -181,29 +235,31 @@ def run():
         clients["codestral"] = ("codestral", codestral_client)
 
     if not clients:
-        print("ERROR: No API keys configured. Set at least one of:")
-        print("  OPENAI_API_KEY, ANTHROPIC_API_KEY, CODESTRAL_API_KEY")
+        log.error("No API keys configured. Set at least one of:")
+        log.error("  OPENAI_API_KEY, ANTHROPIC_API_KEY, CODESTRAL_API_KEY")
         sys.exit(1)
 
     total_queries = len(problems) * len(LEVEL_KEYS) * len(clients)
-    print(f"\nModels configured: {list(clients.keys())}")
-    print(f"Total queries to run: {total_queries}")
+    log.info("Models configured: %s", list(clients.keys()))
+    log.info("Total queries to run: %d", total_queries)
 
     # Load existing progress
     progress = load_progress()
     already_done = len(progress)
     if already_done:
-        print(f"Resuming — {already_done} completions already done.")
+        log.info("Resuming -- %d completions already done.", already_done)
 
     # Collect results
     results = []
-    completed = 0
+    new_completed = 0
     errors = 0
     start_time = datetime.now()
 
     for i, entry in enumerate(problems):
         task_id = entry["task_id"]
         entry_point = entry["entry_point"]
+        log.info("-" * 40)
+        log.info("Problem %d/%d: %s (%s)", i + 1, len(problems), task_id, entry_point)
 
         for level_key in LEVEL_KEYS:
             level_label = level_key  # e.g. "level_1_formal"
@@ -214,11 +270,15 @@ def run():
                 # Skip if already completed
                 if pkey in progress:
                     results.append(progress[pkey])
+                    log.debug("SKIP (cached): %s | %s | %s", task_id, level_label, model_name)
                     continue
 
                 user_prompt = build_user_prompt(entry, level_key, entry_point)
+                log.debug("Sending prompt to %s (%d chars)", model_name, len(user_prompt))
 
                 try:
+                    query_start = time.time()
+
                     if api_type == "openai":
                         completion = query_openai(client, user_prompt)
                     elif api_type == "anthropic":
@@ -227,6 +287,8 @@ def run():
                         completion = query_codestral(client, user_prompt)
                     else:
                         completion = f"ERROR: unknown api_type {api_type}"
+
+                    elapsed_secs = time.time() - query_start
 
                     result_entry = {
                         "task_id": task_id,
@@ -239,7 +301,19 @@ def run():
                         "error": None,
                         "timestamp": datetime.now().isoformat(),
                     }
-                    completed += 1
+                    new_completed += 1
+
+                    log.info(
+                        "[%d/%d] OK   %s | %s | %s (%.1fs, %d chars returned)",
+                        already_done + new_completed + errors,
+                        total_queries,
+                        task_id,
+                        level_label,
+                        model_name,
+                        elapsed_secs,
+                        len(completion),
+                    )
+                    log.debug("Response preview: %.200s", completion.replace("\n", "\\n"))
 
                 except Exception as e:
                     result_entry = {
@@ -255,34 +329,48 @@ def run():
                     }
                     errors += 1
 
+                    log.error(
+                        "[%d/%d] FAIL %s | %s | %s -- %s",
+                        already_done + new_completed + errors,
+                        total_queries,
+                        task_id,
+                        level_label,
+                        model_name,
+                        str(e),
+                    )
+
                 results.append(result_entry)
                 progress[pkey] = result_entry
                 save_progress(progress)
 
-                total_done = already_done + completed + errors
-                print(
-                    f"[{total_done}/{total_queries}] "
-                    f"{task_id} | {level_label} | {model_name} — "
-                    f"{'OK' if result_entry['error'] is None else 'ERROR: ' + result_entry['error']}"
-                )
+                # Checkpoint: save results to output file at key intervals
+                total_new = new_completed + errors
+                if total_new == FIRST_CHECKPOINT:
+                    log.info(
+                        ">>> FIRST CHECKPOINT: %d completions done — saving to verify output...",
+                        FIRST_CHECKPOINT,
+                    )
+                    save_results(results, OUTPUT_FILE)
+                elif total_new > FIRST_CHECKPOINT and total_new % CHECKPOINT_INTERVAL == 0:
+                    log.info(">>> CHECKPOINT at %d completions — saving...", total_new)
+                    save_results(results, OUTPUT_FILE)
 
                 time.sleep(API_DELAY)
 
-    # Save final output
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
+    # Final save
+    save_results(results, OUTPUT_FILE)
 
     elapsed = datetime.now() - start_time
-    print(f"\n{'='*60}")
-    print(f"Done! {completed} completions, {errors} errors")
-    print(f"Elapsed: {elapsed}")
-    print(f"Results saved to: {OUTPUT_FILE}")
-    print(f"Progress saved to: {PROGRESS_FILE}")
+    log.info("=" * 60)
+    log.info("DONE! %d completions, %d errors", new_completed, errors)
+    log.info("Elapsed: %s", elapsed)
+    log.info("Results saved to: %s", OUTPUT_FILE)
+    log.info("Log saved to: %s", LOG_FILE)
 
     # Clean up progress file on successful full run
     if errors == 0 and total_queries == len(results):
         os.remove(PROGRESS_FILE)
-        print("(Progress file removed — full run complete.)")
+        log.info("(Progress file removed -- full run complete.)")
 
 
 if __name__ == "__main__":
