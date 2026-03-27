@@ -7,8 +7,8 @@ Usage:
     python query_all_models.py
 
 Environment variables required:
-    OPENAI_API_KEY     - For ChatGPT (gpt-4o)
-    ANTHROPIC_API_KEY  - For Claude (claude-sonnet-4-20250514)
+    OPENAI_API_KEY     - For ChatGPT (gpt-4.1)
+    ANTHROPIC_API_KEY  - For Claude (claude-sonnet-4-6)
     CURSOR_API_KEY     - For Cursor (OpenAI-compatible endpoint)
     CURSOR_BASE_URL    - Cursor API base URL (default: https://api.cursor.com/v1)
 
@@ -29,8 +29,8 @@ from anthropic import Anthropic
 # Configuration
 # ---------------------------------------------------------------------------
 
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1")
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-6")
 CURSOR_MODEL = os.getenv("CURSOR_MODEL", "cursor-small")
 CURSOR_BASE_URL = os.getenv("CURSOR_BASE_URL", "https://api.cursor.com/v1")
 

@@ -47,7 +47,7 @@ def generate_informal_prompt(docstring, formality_level):
 Provide ONLY the converted docstring, no explanations or preamble."""
 
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",  # Best Claude model currently available
+        model="claude-sonnet-4-6",  # Best Claude model currently available
         max_tokens=1000,
         temperature=0,  # Zero temperature for consistency
         system=system_prompt,
