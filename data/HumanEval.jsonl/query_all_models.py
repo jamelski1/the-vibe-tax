@@ -12,7 +12,7 @@ Environment variables required:
     CURSOR_API_KEY     - For Cursor (OpenAI-compatible endpoint)
     CURSOR_BASE_URL    - Cursor API base URL (default: https://api.cursor.com/v1)
 
-Set CURSOR_MODEL to override the Cursor model name (default: cursor-small).
+Set CURSOR_MODEL to override the Cursor model name (default: composer-2).
 """
 
 import json
@@ -31,7 +31,7 @@ from anthropic import Anthropic
 
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.3")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
-CURSOR_MODEL = os.getenv("CURSOR_MODEL", "cursor-small")
+CURSOR_MODEL = os.getenv("CURSOR_MODEL", "composer-2")
 CURSOR_BASE_URL = os.getenv("CURSOR_BASE_URL", "https://api.cursor.com/v1")
 
 # Delay between API calls (seconds) to respect rate limits
