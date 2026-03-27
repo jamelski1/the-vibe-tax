@@ -1,5 +1,5 @@
 """
-Query ChatGPT, Claude, and Cursor with all 250 zero-shot prompts from vibe_spectrum_data.json.
+Query ChatGPT, Claude, and Codestral with all 250 zero-shot prompts from vibe_spectrum_data.json.
 
 50 problems × 5 formality levels × 3 models = 750 total completions.
 
@@ -9,10 +9,9 @@ Usage:
 Environment variables required:
     OPENAI_API_KEY     - For ChatGPT (gpt-5.3)
     ANTHROPIC_API_KEY  - For Claude (claude-opus-4-6)
-    CURSOR_API_KEY     - For Cursor (OpenAI-compatible endpoint)
-    CURSOR_BASE_URL    - Cursor API base URL (default: https://api.cursor.com/v1)
+    CODESTRAL_API_KEY  - For Codestral (codestral-latest)
 
-Set CURSOR_MODEL to override the Cursor model name (default: composer-2).
+Set CODESTRAL_MODEL to override the model name (default: codestral-latest).
 """
 
 import json
@@ -31,8 +30,8 @@ from anthropic import Anthropic
 
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.3")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
-CURSOR_MODEL = os.getenv("CURSOR_MODEL", "composer-2")
-CURSOR_BASE_URL = os.getenv("CURSOR_BASE_URL", "https://api.cursor.com/v1")
+CODESTRAL_MODEL = os.getenv("CODESTRAL_MODEL", "codestral-latest")
+CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
 
 # Delay between API calls (seconds) to respect rate limits
 API_DELAY = float(os.getenv("API_DELAY", "1.0"))
@@ -78,12 +77,12 @@ def make_anthropic_client():
     return Anthropic(api_key=api_key)
 
 
-def make_cursor_client():
-    api_key = os.getenv("CURSOR_API_KEY")
+def make_codestral_client():
+    api_key = os.getenv("CODESTRAL_API_KEY")
     if not api_key:
-        print("WARNING: CURSOR_API_KEY not set — Cursor queries will be skipped.")
+        print("WARNING: CODESTRAL_API_KEY not set — Codestral queries will be skipped.")
         return None
-    return OpenAI(api_key=api_key, base_url=CURSOR_BASE_URL)
+    return OpenAI(api_key=api_key, base_url=CODESTRAL_BASE_URL)
 
 
 # ---------------------------------------------------------------------------
@@ -119,9 +118,9 @@ def query_anthropic(client, prompt):
     return response.content[0].text
 
 
-def query_cursor(client, prompt):
-    """Send a zero-shot prompt to Cursor's OpenAI-compatible API."""
-    return query_openai(client, prompt, model=CURSOR_MODEL)
+def query_codestral(client, prompt):
+    """Send a zero-shot prompt to Mistral's Codestral API."""
+    return query_openai(client, prompt, model=CODESTRAL_MODEL)
 
 
 # ---------------------------------------------------------------------------
@@ -177,13 +176,13 @@ def run():
     if anthropic_client:
         clients["claude"] = ("anthropic", anthropic_client)
 
-    cursor_client = make_cursor_client()
-    if cursor_client:
-        clients["cursor"] = ("cursor", cursor_client)
+    codestral_client = make_codestral_client()
+    if codestral_client:
+        clients["codestral"] = ("codestral", codestral_client)
 
     if not clients:
         print("ERROR: No API keys configured. Set at least one of:")
-        print("  OPENAI_API_KEY, ANTHROPIC_API_KEY, CURSOR_API_KEY")
+        print("  OPENAI_API_KEY, ANTHROPIC_API_KEY, CODESTRAL_API_KEY")
         sys.exit(1)
 
     total_queries = len(problems) * len(LEVEL_KEYS) * len(clients)
@@ -224,8 +223,8 @@ def run():
                         completion = query_openai(client, user_prompt)
                     elif api_type == "anthropic":
                         completion = query_anthropic(client, user_prompt)
-                    elif api_type == "cursor":
-                        completion = query_cursor(client, user_prompt)
+                    elif api_type == "codestral":
+                        completion = query_codestral(client, user_prompt)
                     else:
                         completion = f"ERROR: unknown api_type {api_type}"
 
