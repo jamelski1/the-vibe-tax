@@ -32,7 +32,7 @@ from anthropic import Anthropic
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
 CODESTRAL_MODEL = os.getenv("CODESTRAL_MODEL", "codestral-latest")
-CODESTRAL_BASE_URL = "https://codestral.mistral.ai/v1"
+CODESTRAL_BASE_URL = "https://api.mistral.ai/v1"
 
 # Delay between API calls (seconds) to respect rate limits
 API_DELAY = float(os.getenv("API_DELAY", "1.0"))
