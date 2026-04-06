@@ -79,19 +79,40 @@ log = setup_logging()
 # ---------------------------------------------------------------------------
 
 def _worker(prompt, comp, test, ep, result_list):
-    """Run a completion against its test suite (runs in child process)."""
-    check_program = (
-        prompt
-        + comp
-        + "\n"
-        + test
-        + "\n"
-        + f"check({ep})"
-    )
+    """Run a completion against its test suite (runs in child process).
 
+    Tries multiple strategies:
+    1. prompt + cleaned body (standard HumanEval approach)
+    2. completion as standalone code + test (if model returned full function)
+    """
+    strategies = []
+
+    # Strategy 1: prompt + completion as body
+    strategies.append(prompt + comp + "\n" + test + "\n" + f"check({ep})")
+
+    # Strategy 2: completion as standalone (model may have returned full function)
+    # Extract any imports from the prompt and prepend them
+    prompt_lines = prompt.split("\n")
+    imports = "\n".join(
+        line for line in prompt_lines
+        if line.startswith("from ") or line.startswith("import ")
+    )
+    standalone = imports + "\n\n" + comp + "\n" + test + "\n" + f"check({ep})"
+    strategies.append(standalone)
+
+    for check_program in strategies:
+        try:
+            exec_globals = {}
+            exec(check_program, exec_globals)
+            result_list.append("passed")
+            return
+        except Exception:
+            continue
+
+    # All strategies failed — run the first one again to capture the error
     try:
         exec_globals = {}
-        exec(check_program, exec_globals)
+        exec(strategies[0], exec_globals)
         result_list.append("passed")
     except Exception as e:
         result_list.append(f"failed: {e}")
@@ -128,57 +149,142 @@ def _execute_completion(problem_prompt, completion, test_code, entry_point, time
 # Completion cleaning
 # ---------------------------------------------------------------------------
 
-def clean_completion(completion_text):
-    """
-    Clean up a model completion so it can be appended after the prompt.
+def _remove_markdown_fences(text):
+    """Strip markdown code fences (```python ... ```) from text."""
+    lines = text.split("\n")
+    result = []
+    in_fence = False
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```"):
+            if in_fence:
+                in_fence = False
+                continue
+            else:
+                in_fence = True
+                continue
+        if not in_fence or True:
+            # Keep lines whether inside or outside fences
+            # (we just skip the fence markers themselves)
+            result.append(line)
+    # Actually simpler: just strip leading/trailing fences
+    text = text.strip()
+    if text.startswith("```"):
+        first_nl = text.find("\n")
+        if first_nl != -1:
+            text = text[first_nl + 1:]
+    if text.rstrip().endswith("```"):
+        text = text.rstrip()
+        text = text[:text.rfind("```")]
+    return text.strip()
 
-    Models sometimes return markdown code fences, the full function definition,
-    or extra explanation. Strip those down to just the function body.
+
+def _find_function_body(text, entry_point):
+    """
+    If the text contains a function definition for entry_point,
+    extract just the function body (after signature and docstring).
+    Returns (body, full_text_is_function).
+    """
+    lines = text.split("\n")
+
+    # Find the def line for our target function
+    def_idx = None
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith(f"def {entry_point}(") or stripped.startswith(f"def {entry_point} ("):
+            def_idx = i
+            break
+
+    if def_idx is None:
+        return text, False
+
+    # Find where the body starts (after def line + optional docstring)
+    body_start = def_idx + 1
+
+    # Skip docstring if present
+    if body_start < len(lines):
+        stripped = lines[body_start].strip()
+        for quote in ['"""', "'''"]:
+            if stripped.startswith(quote):
+                if stripped.count(quote) >= 2 and stripped.endswith(quote) and len(stripped) > 6:
+                    # Single-line docstring
+                    body_start += 1
+                else:
+                    # Multi-line docstring — find the closing quotes
+                    for j in range(body_start + 1, len(lines)):
+                        if quote in lines[j]:
+                            body_start = j + 1
+                            break
+                    else:
+                        # No closing quotes found, give up
+                        return text, False
+                break
+
+    body = "\n".join(lines[body_start:])
+    return body, True
+
+
+def clean_completion(completion_text, entry_point=""):
+    """
+    Clean up a model completion so it can be appended after the HumanEval prompt.
+
+    Models return varying formats:
+    - Just the function body (ideal)
+    - Full function with def + docstring
+    - Markdown-wrapped code
+    - Imports + full function
+    - Explanatory text mixed in
+
+    This function does its best to extract just the function body.
+    The _worker function also has a fallback strategy that tries
+    running the completion as standalone code.
     """
     if completion_text is None:
         return "    pass\n"
 
     text = completion_text.strip()
+    if not text:
+        return "    pass\n"
 
-    # Remove markdown code fences
-    if text.startswith("```"):
-        lines = text.split("\n")
-        # Remove first line (```python or ```)
-        lines = lines[1:]
-        # Remove last line if it's ```
-        if lines and lines[-1].strip() == "```":
-            lines = lines[:-1]
-        text = "\n".join(lines).strip()
+    # Step 1: Remove markdown code fences
+    text = _remove_markdown_fences(text)
 
-    # If the completion includes the full function def, extract just the body
+    # Step 2: Remove any leading explanatory text before code
+    # Look for the first line that looks like code
     lines = text.split("\n")
+    code_start = 0
     for i, line in enumerate(lines):
-        if line.strip().startswith("def ") and line.strip().endswith(":"):
-            # Skip past the def line and any docstring
-            body_start = i + 1
-            # Skip docstring if present
-            if body_start < len(lines):
-                stripped = lines[body_start].strip()
-                if stripped.startswith('"""') or stripped.startswith("'''"):
-                    quote = stripped[:3]
-                    if stripped.count(quote) >= 2:
-                        # Single-line docstring
-                        body_start += 1
-                    else:
-                        # Multi-line docstring — find the end
-                        for j in range(body_start + 1, len(lines)):
-                            if quote in lines[j]:
-                                body_start = j + 1
-                                break
-            text = "\n".join(lines[body_start:])
+        stripped = line.strip()
+        if (stripped.startswith("def ")
+                or stripped.startswith("import ")
+                or stripped.startswith("from ")
+                or stripped.startswith("return ")
+                or stripped.startswith("if ")
+                or stripped.startswith("for ")
+                or stripped.startswith("while ")
+                or stripped.startswith("try:")
+                or stripped.startswith("#")
+                or "=" in stripped
+                or stripped == ""
+                or stripped[0:1].isspace()):
+            code_start = i
             break
+    text = "\n".join(lines[code_start:])
 
-    # Ensure proper indentation (body should be indented)
+    # Step 3: Try to extract function body if it contains a def for entry_point
+    if entry_point:
+        body, was_function = _find_function_body(text, entry_point)
+        if was_function:
+            text = body
+
+    # Step 4: Ensure proper indentation
+    # The HumanEval prompt ends with the docstring inside a function def.
+    # The completion body must be indented (4 spaces).
     lines = text.split("\n")
-    if lines and lines[0] and not lines[0][0].isspace():
+    if lines and lines[0].strip() and not lines[0][0].isspace():
         text = textwrap.indent(text, "    ")
 
-    # Ensure it ends with newline
+    # Step 5: Ensure it ends with newline
     if not text.endswith("\n"):
         text += "\n"
 
@@ -244,7 +350,7 @@ def run():
         test_code = problem["test"]
 
         # Clean the completion
-        completion = clean_completion(resp.get("completion"))
+        completion = clean_completion(resp.get("completion"), entry_point)
 
         # Run the test
         test_start = time.time()
