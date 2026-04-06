@@ -78,32 +78,30 @@ log = setup_logging()
 # Execution (Windows-compatible)
 # ---------------------------------------------------------------------------
 
+def _worker(prompt, comp, test, ep, result_list):
+    """Run a completion against its test suite (runs in child process)."""
+    check_program = (
+        prompt
+        + comp
+        + "\n"
+        + test
+        + "\n"
+        + f"check({ep})"
+    )
+
+    try:
+        exec_globals = {}
+        exec(check_program, exec_globals)
+        result_list.append("passed")
+    except Exception as e:
+        result_list.append(f"failed: {e}")
+
+
 def _execute_completion(problem_prompt, completion, test_code, entry_point, timeout):
     """
     Execute a completion against its test suite in a separate process.
     Returns (passed: bool, result: str).
     """
-
-    def _worker(prompt, comp, test, ep, result_list):
-        """Run inside a child process."""
-        # Build the full check program:
-        #   prompt (signature + docstring) + completion (body) + tests + check call
-        check_program = (
-            prompt
-            + comp
-            + "\n"
-            + test
-            + "\n"
-            + f"check({ep})"
-        )
-
-        try:
-            exec_globals = {}
-            exec(check_program, exec_globals)
-            result_list.append("passed")
-        except Exception as e:
-            result_list.append(f"failed: {e}")
-
     manager = multiprocessing.Manager()
     result_list = manager.list()
 
