@@ -42,6 +42,7 @@ DATA_FILE = os.path.join(SCRIPT_DIR, "vibe_spectrum_data.json")
 OUTPUT_FILE = os.path.join(SCRIPT_DIR, "all_model_responses.json")
 PROGRESS_FILE = os.path.join(SCRIPT_DIR, "query_progress.json")
 LOG_FILE = os.path.join(SCRIPT_DIR, "query_all_models.log")
+STATS_FILE = os.path.join(SCRIPT_DIR, "query_run_stats.json")
 
 # Save results to disk after every N completions (first checkpoint at 15
 # to verify the first problem's 5 levels x 3 models all saved correctly)
@@ -371,14 +372,101 @@ def run():
     save_results(results, OUTPUT_FILE)
 
     elapsed = datetime.now() - start_time
+
+    # ---------------------------------------------------------------------------
+    # Build and save run stats
+    # ---------------------------------------------------------------------------
+    successes_by_model = {}
+    errors_by_model = {}
+    successes_by_level = {}
+    errors_by_level = {}
+    error_details = []
+
+    for r in results:
+        model = r["model"]
+        level = r["level"]
+        if r["error"] is None:
+            successes_by_model[model] = successes_by_model.get(model, 0) + 1
+            successes_by_level[level] = successes_by_level.get(level, 0) + 1
+        else:
+            errors_by_model[model] = errors_by_model.get(model, 0) + 1
+            errors_by_level[level] = errors_by_level.get(level, 0) + 1
+            error_details.append({
+                "task_id": r["task_id"],
+                "level": level,
+                "model": model,
+                "error": r["error"],
+            })
+
+    all_models = sorted(set(r["model"] for r in results))
+    all_levels = LEVEL_KEYS
+
+    model_stats = {}
+    for m in all_models:
+        ok = successes_by_model.get(m, 0)
+        fail = errors_by_model.get(m, 0)
+        total = ok + fail
+        model_stats[m] = {
+            "success": ok,
+            "errors": fail,
+            "total": total,
+            "success_rate": f"{ok / total * 100:.1f}%" if total else "N/A",
+        }
+
+    level_stats = {}
+    for lv in all_levels:
+        ok = successes_by_level.get(lv, 0)
+        fail = errors_by_level.get(lv, 0)
+        total = ok + fail
+        level_stats[lv] = {
+            "success": ok,
+            "errors": fail,
+            "total": total,
+            "success_rate": f"{ok / total * 100:.1f}%" if total else "N/A",
+        }
+
+    stats = {
+        "run_timestamp": start_time.isoformat(),
+        "elapsed_seconds": elapsed.total_seconds(),
+        "elapsed_readable": str(elapsed),
+        "total_queries": len(results),
+        "total_success": sum(successes_by_model.values()),
+        "total_errors": sum(errors_by_model.values()),
+        "models": {
+            "chatgpt": OPENAI_MODEL,
+            "claude": ANTHROPIC_MODEL,
+            "codestral": CODESTRAL_MODEL,
+        },
+        "stats_by_model": model_stats,
+        "stats_by_level": level_stats,
+        "errors": error_details,
+    }
+
+    with open(STATS_FILE, "w", encoding="utf-8") as f:
+        json.dump(stats, f, indent=2, ensure_ascii=False)
+
+    # Print summary to terminal and log
     log.info("=" * 60)
-    log.info("DONE! %d completions, %d errors", new_completed, errors)
+    log.info("RUN COMPLETE")
+    log.info("=" * 60)
     log.info("Elapsed: %s", elapsed)
+    log.info("Total: %d queries | %d success | %d errors",
+             len(results), stats["total_success"], stats["total_errors"])
+    log.info("")
+    log.info("By model:")
+    for m, s in model_stats.items():
+        log.info("  %-12s %d/%d success (%s)", m, s["success"], s["total"], s["success_rate"])
+    log.info("")
+    log.info("By level:")
+    for lv, s in level_stats.items():
+        log.info("  %-18s %d/%d success (%s)", lv, s["success"], s["total"], s["success_rate"])
+    log.info("")
     log.info("Results saved to: %s", OUTPUT_FILE)
-    log.info("Log saved to: %s", LOG_FILE)
+    log.info("Stats saved to:   %s", STATS_FILE)
+    log.info("Log saved to:     %s", LOG_FILE)
 
     # Clean up progress file on successful full run
-    if errors == 0 and total_queries == len(results):
+    if stats["total_errors"] == 0 and len(results) == total_queries:
         os.remove(PROGRESS_FILE)
         log.info("(Progress file removed -- full run complete.)")
 
