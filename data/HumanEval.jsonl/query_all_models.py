@@ -208,13 +208,51 @@ def save_results(results, path):
 # Main
 # ---------------------------------------------------------------------------
 
+def extract_signature(level_1_formal):
+    """Extract the function signature and imports from the level_1_formal prompt."""
+    lines = level_1_formal.split("\n")
+    imports = []
+    signature = ""
+    for line in lines:
+        if line.startswith("from ") or line.startswith("import "):
+            imports.append(line)
+        if line.strip().startswith("def "):
+            signature = line.rstrip()
+            break
+    return "\n".join(imports), signature
+
+
 def build_user_prompt(entry, level_key, entry_point):
-    """Construct the user message sent to each model."""
+    """Construct the user message sent to each model.
+
+    Always includes the function signature so models know exact
+    parameter names and return type, regardless of formality level.
+    """
     docstring = entry[level_key]
+    imports, signature = extract_signature(entry["level_1_formal"])
+
+    # level_1_formal already contains the signature — use as-is
+    if level_key == "level_1_formal":
+        return (
+            f"Implement the Python function below.\n\n"
+            f"{docstring}\n\n"
+            f"Write only the function body implementation (the code after the docstring). "
+            f"Do not repeat the function signature or docstring."
+        )
+
+    # For levels 2-5, prepend the signature so models know the exact interface
+    context = ""
+    if imports:
+        context += imports + "\n\n"
+    context += signature
+
     return (
-        f"Implement the Python function `{entry_point}` described below.\n\n"
+        f"Implement the Python function with this exact signature:\n\n"
+        f"{context}\n\n"
+        f"Here is a description of what the function should do:\n\n"
         f"{docstring}\n\n"
-        f"Write only the function body implementation."
+        f"Write only the function body implementation (the code after the docstring). "
+        f"Do not repeat the function signature, imports, or docstring."
     )
 
 

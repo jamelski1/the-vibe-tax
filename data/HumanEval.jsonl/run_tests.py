@@ -277,12 +277,35 @@ def clean_completion(completion_text, entry_point=""):
         if was_function:
             text = body
 
-    # Step 4: Ensure proper indentation
+    # Step 4: Normalize indentation to 4 spaces
     # The HumanEval prompt ends with the docstring inside a function def.
-    # The completion body must be indented (4 spaces).
+    # The completion body must be indented with exactly 4 spaces.
     lines = text.split("\n")
-    if lines and lines[0].strip() and not lines[0][0].isspace():
-        text = textwrap.indent(text, "    ")
+
+    # Find the indentation of the first non-empty line
+    first_indent = None
+    for line in lines:
+        if line.strip():
+            first_indent = len(line) - len(line.lstrip())
+            break
+
+    if first_indent is not None:
+        if first_indent == 0:
+            # Not indented at all — add 4 spaces
+            text = textwrap.indent(text, "    ")
+        elif first_indent != 4:
+            # Wrong indentation — re-indent to 4 spaces
+            reindented = []
+            for line in lines:
+                if not line.strip():
+                    reindented.append("")
+                else:
+                    current_indent = len(line) - len(line.lstrip())
+                    # Calculate relative indent from first line, then base at 4
+                    relative = current_indent - first_indent
+                    new_indent = 4 + max(0, relative)
+                    reindented.append(" " * new_indent + line.lstrip())
+            text = "\n".join(reindented)
 
     # Step 5: Ensure it ends with newline
     if not text.endswith("\n"):
