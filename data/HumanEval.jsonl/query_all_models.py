@@ -129,16 +129,13 @@ def make_codestral_client():
 # ---------------------------------------------------------------------------
 
 def query_openai(client, prompt, model=None):
-    """Send a zero-shot prompt to the OpenAI API and return the completion.
-
-    Uses the completions endpoint for codex models, chat endpoint for others.
-    """
+    """Send a zero-shot prompt to the OpenAI API and return the completion."""
     model = model or OPENAI_MODEL
 
     response = client.chat.completions.create(
         model=model,
         temperature=0,
-        max_tokens=2048,
+        max_completion_tokens=2048,
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user", "content": prompt},
@@ -162,8 +159,17 @@ def query_anthropic(client, prompt):
 
 
 def query_codestral(client, prompt):
-    """Send a zero-shot prompt to Mistral's Codestral API."""
-    return query_openai(client, prompt, model=CODESTRAL_MODEL)
+    """Send a zero-shot prompt to Mistral's Codestral API (OpenAI-compatible)."""
+    response = client.chat.completions.create(
+        model=CODESTRAL_MODEL,
+        temperature=0,
+        max_tokens=2048,
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    return response.choices[0].message.content
 
 
 # ---------------------------------------------------------------------------
