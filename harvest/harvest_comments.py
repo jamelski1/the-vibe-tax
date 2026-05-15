@@ -25,12 +25,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _gh import gh_get, iter_paginated, require_token
+from _gh import gh_get, iter_paginated, require_token, setup_logging
+
+log = logging.getLogger("harvest")
+
+
+class _Stop(Exception):
+    """Internal control-flow signal for hitting --max-runtime."""
 
 
 def load_seen_parents(path: str) -> set[tuple]:
@@ -153,11 +160,16 @@ def main() -> int:
     ap.add_argument("--out", default="harvest/claude_session_comments.jsonl")
     ap.add_argument("--kinds", default="pr,issue",
                     help="parent kinds to enrich (commit threads not pulled)")
+    ap.add_argument("--max-runtime", type=int, default=0,
+                    help="stop after N seconds of wall time (0 = unlimited)")
+    ap.add_argument("--log", default="harvest/harvest_comments.log",
+                    help="log file path (empty string disables)")
     args = ap.parse_args()
 
+    setup_logging(args.log or None)
     token = require_token()
     if not os.path.exists(args.refs):
-        print(f"ERROR: refs file not found: {args.refs}", file=sys.stderr)
+        log.error("refs file not found: %s", args.refs)
         return 1
 
     kinds = {k.strip() for k in args.kinds.split(",") if k.strip()}
@@ -166,7 +178,7 @@ def main() -> int:
         os.makedirs(out_dir, exist_ok=True)
 
     seen = load_seen_parents(args.out)
-    print(f"resuming with {len(seen)} parents already processed")
+    log.info("resuming with %d parents already processed", len(seen))
 
     todo: list[tuple[str, str, int]] = []
     with open(args.refs, "r", encoding="utf-8") as f:
@@ -187,35 +199,77 @@ def main() -> int:
             todo.append(key)
 
     todo = list(dict.fromkeys(todo))  # preserve order, drop dupes
-    print(f"to process: {len(todo)} parents")
+    log.info("to process: %d parents", len(todo))
 
-    with open(args.out, "a", encoding="utf-8") as out:
-        for i, (kind, repo, number) in enumerate(todo, 1):
-            meta = (fetch_pr_meta(repo, number, token) if kind == "pr"
-                    else fetch_issue_meta(repo, number, token))
-            out.write(json.dumps(meta, ensure_ascii=False) + "\n")
+    start = time.time()
+    n_done = 0
+    n_skipped = 0
+    n_comments = 0
+    stop_reason = "completed"
+    try:
+        with open(args.out, "a", encoding="utf-8") as out:
+            for i, (kind, repo, number) in enumerate(todo, 1):
+                meta = (fetch_pr_meta(repo, number, token) if kind == "pr"
+                        else fetch_issue_meta(repo, number, token))
+                out.write(json.dumps(meta, ensure_ascii=False) + "\n")
 
-            if not meta.get("skipped"):
-                for c in iter_issue_comments(repo, number, token):
-                    rec = {"kind": "comment", "parent_kind": kind,
-                           "repo": repo, "parent_number": number, **c}
-                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                if kind == "pr":
-                    for c in iter_review_comments(repo, number, token):
+                if meta.get("skipped"):
+                    n_skipped += 1
+                else:
+                    for c in iter_issue_comments(repo, number, token):
                         rec = {"kind": "comment", "parent_kind": kind,
                                "repo": repo, "parent_number": number, **c}
                         out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                    for c in iter_reviews(repo, number, token):
-                        rec = {"kind": "comment", "parent_kind": kind,
-                               "repo": repo, "parent_number": number, **c}
-                        out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                        n_comments += 1
+                    if kind == "pr":
+                        for c in iter_review_comments(repo, number, token):
+                            rec = {"kind": "comment", "parent_kind": kind,
+                                   "repo": repo, "parent_number": number,
+                                   **c}
+                            out.write(json.dumps(rec, ensure_ascii=False)
+                                      + "\n")
+                            n_comments += 1
+                        for c in iter_reviews(repo, number, token):
+                            rec = {"kind": "comment", "parent_kind": kind,
+                                   "repo": repo, "parent_number": number,
+                                   **c}
+                            out.write(json.dumps(rec, ensure_ascii=False)
+                                      + "\n")
+                            n_comments += 1
 
-            out.flush()
-            if i % 25 == 0:
-                print(f"  processed {i}/{len(todo)}")
-            time.sleep(0.5)
+                out.flush()
+                n_done += 1
+                if i % 25 == 0:
+                    log.info("  processed %d/%d  (%d comments so far)",
+                             i, len(todo), n_comments)
+                if (args.max_runtime
+                        and (time.time() - start) >= args.max_runtime):
+                    stop_reason = f"hit --max-runtime={args.max_runtime}s"
+                    log.warning(stop_reason)
+                    raise _Stop()
+                time.sleep(0.5)
+    except KeyboardInterrupt:
+        stop_reason = "interrupted by user (SIGINT)"
+        log.warning(stop_reason)
+    except _Stop:
+        pass
+    except Exception as e:
+        stop_reason = f"crashed: {type(e).__name__}: {e}"
+        log.exception("unhandled exception")
+    finally:
+        elapsed = time.time() - start
+        log.info("---- summary ----")
+        log.info("stop reason: %s", stop_reason)
+        log.info("elapsed: %.1fs (%.1fm)", elapsed, elapsed / 60)
+        log.info("parents processed: %d   skipped (404/410/451): %d",
+                 n_done, n_skipped)
+        log.info("comments written: %d", n_comments)
+        log.info("output: %s", args.out)
+        if args.log:
+            log.info("log:    %s", args.log)
 
-    return 0
+    return 0 if stop_reason in ("completed",) or stop_reason.startswith(
+        ("hit --", "interrupted")) else 1
 
 
 if __name__ == "__main__":

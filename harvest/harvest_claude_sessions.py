@@ -32,9 +32,15 @@ Strategy
 
 Usage
 -----
-    GITHUB_TOKEN=ghp_xxx python harvest/harvest_claude_sessions.py \
-        --since 2024-06-01 --until 2026-05-15 \
-        --kinds pr,issue,commit \
+    # Probe first: see how big the corpus is before committing
+    GITHUB_TOKEN=ghp_xxx python harvest/harvest_claude_sessions.py \\
+        --since 2026-05-01 --until 2026-05-15 --probe
+
+    # Real run with safety caps
+    GITHUB_TOKEN=ghp_xxx python harvest/harvest_claude_sessions.py \\
+        --since 2026-05-01 --until 2026-05-15 \\
+        --kinds pr,issue,commit \\
+        --max-records 5000 --max-runtime 3600 \\
         --out harvest/claude_session_refs.jsonl
 
 The token only needs `public_repo` scope (or no scope at all for a
@@ -52,46 +58,16 @@ import time
 from datetime import date, timedelta
 from typing import Iterator
 
-import requests
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _gh import gh_get, require_token, setup_logging  # noqa: E402
 
-API = "https://api.github.com"
+import logging  # noqa: E402
+
+log = logging.getLogger("harvest")
+
 SESSION_RE = re.compile(r"https?://claude\.ai/code/session_[A-Za-z0-9_-]+")
 SEARCH_PHRASE = '"claude.ai/code/session"'
 SEARCH_CAP = 1000  # GitHub-imposed per-query result cap
-
-
-# ---------------------------------------------------------------------------
-# HTTP
-# ---------------------------------------------------------------------------
-
-def gh_get(path: str, params: dict, token: str) -> requests.Response:
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "vibe-tax-harvester",
-    }
-    url = f"{API}{path}"
-    for attempt in range(6):
-        r = requests.get(url, params=params, headers=headers, timeout=30)
-        if r.status_code == 200:
-            return r
-        if r.status_code in (403, 429):
-            reset = r.headers.get("x-ratelimit-reset")
-            if reset and reset.isdigit():
-                wait = max(2, int(reset) - int(time.time()) + 2)
-            else:
-                wait = min(60, 2 ** (attempt + 1))
-            print(f"  rate-limited ({r.status_code}); sleeping {wait}s",
-                  file=sys.stderr)
-            time.sleep(wait)
-            continue
-        if r.status_code == 422:
-            # malformed query, or window has too many results
-            return r
-        r.raise_for_status()
-    r.raise_for_status()  # final
-    return r  # unreachable
 
 
 # ---------------------------------------------------------------------------
@@ -112,8 +88,7 @@ def slice_dates(since: date, until: date, step_days: int
 # ---------------------------------------------------------------------------
 
 def _iter_search(path: str, base_query: str, date_field: str,
-                 lo: date, hi: date, token: str,
-                 step_days: int) -> Iterator[dict]:
+                 lo: date, hi: date, token: str) -> Iterator[dict]:
     """Paginate one date window, recursively halving on 1000-result cap."""
     q = f"{base_query} {date_field}:{lo}..{hi}"
     page = 1
@@ -123,29 +98,28 @@ def _iter_search(path: str, base_query: str, date_field: str,
         r = gh_get(path, {"q": q, "per_page": 100, "page": page}, token)
         if r.status_code != 200:
             if r.status_code == 422 and (hi - lo).days > 0:
-                # window too big -- split in half
                 mid = lo + (hi - lo) // 2
                 yield from _iter_search(path, base_query, date_field,
-                                        lo, mid, token, step_days)
+                                        lo, mid, token)
                 yield from _iter_search(path, base_query, date_field,
-                                        mid + timedelta(days=1), hi,
-                                        token, step_days)
+                                        mid + timedelta(days=1), hi, token)
                 return
-            print(f"  {r.status_code} on {lo}..{hi}: {r.text[:160]}",
-                  file=sys.stderr)
+            log.warning("%s on %s..%s: %s", r.status_code, lo, hi,
+                        r.text[:160])
             return
 
         data = r.json()
         if total is None:
             total = data.get("total_count", 0)
+            log.debug("window %s..%s total_count=%d", lo, hi, total)
             if total > SEARCH_CAP and (hi - lo).days > 0:
-                # window will be truncated -- subdivide
                 mid = lo + (hi - lo) // 2
+                log.info("window %s..%s has %d results > cap; halving",
+                         lo, hi, total)
                 yield from _iter_search(path, base_query, date_field,
-                                        lo, mid, token, step_days)
+                                        lo, mid, token)
                 yield from _iter_search(path, base_query, date_field,
-                                        mid + timedelta(days=1), hi,
-                                        token, step_days)
+                                        mid + timedelta(days=1), hi, token)
                 return
 
         items = data.get("items", [])
@@ -164,7 +138,7 @@ def search_issues_or_prs(kind: str, since: date, until: date,
     base = f"{SEARCH_PHRASE} in:body type:{kind}"
     for lo, hi in slice_dates(since, until, step_days):
         for item in _iter_search("/search/issues", base, "created",
-                                 lo, hi, token, step_days):
+                                 lo, hi, token):
             body = item.get("body") or ""
             m = SESSION_RE.search(body)
             if not m:
@@ -190,7 +164,7 @@ def search_commits(since: date, until: date, token: str,
     base = SEARCH_PHRASE
     for lo, hi in slice_dates(since, until, step_days):
         for item in _iter_search("/search/commits", base, "committer-date",
-                                 lo, hi, token, step_days):
+                                 lo, hi, token):
             commit = item.get("commit") or {}
             msg = commit.get("message") or ""
             m = SESSION_RE.search(msg)
@@ -210,6 +184,43 @@ def search_commits(since: date, until: date, token: str,
                 "session_url": m.group(0),
             }
         time.sleep(1.0)
+
+
+# ---------------------------------------------------------------------------
+# Probe mode
+# ---------------------------------------------------------------------------
+
+def probe(since: date, until: date, kinds: list[str], step_days: int,
+          token: str) -> None:
+    """Report total_count per (kind, window) without paginating or writing."""
+    log.info("PROBE MODE: %s..%s, step=%dd, kinds=%s",
+             since, until, step_days, ",".join(kinds))
+    grand_total = 0
+    for kind in kinds:
+        if kind == "commit":
+            path, base, df = "/search/commits", SEARCH_PHRASE, "committer-date"
+        else:
+            path = "/search/issues"
+            base = f"{SEARCH_PHRASE} in:body type:{kind}"
+            df = "created"
+        kind_total = 0
+        for lo, hi in slice_dates(since, until, step_days):
+            q = f"{base} {df}:{lo}..{hi}"
+            r = gh_get(path, {"q": q, "per_page": 1}, token)
+            if r.status_code == 200:
+                t = r.json().get("total_count", 0)
+                kind_total += t
+                cap_note = "  *CAPPED*" if t > SEARCH_CAP else ""
+                log.info("  %-6s %s..%s  total=%d%s", kind, lo, hi, t,
+                         cap_note)
+            else:
+                log.warning("  %-6s %s..%s  status=%d", kind, lo, hi,
+                            r.status_code)
+            time.sleep(2.0)  # search is 30 req/min
+        log.info("  %s total: %d (sum across windows; will hit cap on any "
+                 "window >%d)", kind, kind_total, SEARCH_CAP)
+        grand_total += kind_total
+    log.info("GRAND TOTAL across kinds (raw, pre-dedupe): %d", grand_total)
 
 
 # ---------------------------------------------------------------------------
@@ -243,8 +254,10 @@ def load_seen(path: str) -> set[tuple]:
 # ---------------------------------------------------------------------------
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     ap.add_argument("--since", required=True, help="YYYY-MM-DD (inclusive)")
     ap.add_argument("--until", required=True, help="YYYY-MM-DD (inclusive)")
     ap.add_argument("--kinds", default="pr,issue,commit",
@@ -252,54 +265,113 @@ def main() -> int:
     ap.add_argument("--out", default="harvest/claude_session_refs.jsonl")
     ap.add_argument("--step-days", type=int, default=7,
                     help="initial date-window size; auto-halves on cap")
+    ap.add_argument("--max-records", type=int, default=0,
+                    help="stop after writing N new records (0 = unlimited)")
+    ap.add_argument("--max-runtime", type=int, default=0,
+                    help="stop after N seconds of wall time (0 = unlimited)")
+    ap.add_argument("--probe", action="store_true",
+                    help="report total_count per window, write nothing, exit")
+    ap.add_argument("--log", default="harvest/harvest_claude_sessions.log",
+                    help="log file path (empty string disables)")
     args = ap.parse_args()
 
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        print("ERROR: GITHUB_TOKEN env var required", file=sys.stderr)
-        return 1
+    setup_logging(args.log or None)
+    token = require_token()
 
-    since = date.fromisoformat(args.since)
-    until = date.fromisoformat(args.until)
+    try:
+        since = date.fromisoformat(args.since)
+        until = date.fromisoformat(args.until)
+    except ValueError as e:
+        log.error("bad date: %s", e)
+        return 1
     if since > until:
-        print("ERROR: --since must be <= --until", file=sys.stderr)
+        log.error("--since must be <= --until")
         return 1
 
     kinds = [k.strip() for k in args.kinds.split(",") if k.strip()]
     bad = [k for k in kinds if k not in ("pr", "issue", "commit")]
     if bad:
-        print(f"ERROR: unknown kinds {bad}", file=sys.stderr)
+        log.error("unknown kinds %s", bad)
         return 1
+
+    if args.probe:
+        probe(since, until, kinds, args.step_days, token)
+        return 0
 
     out_dir = os.path.dirname(args.out)
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
 
     seen = load_seen(args.out)
-    print(f"resuming with {len(seen)} existing records in {args.out}")
+    log.info("resuming with %d existing records in %s", len(seen), args.out)
+    log.info("range %s..%s, kinds=%s, step=%dd, caps: records=%s runtime=%ss",
+             since, until, ",".join(kinds), args.step_days,
+             args.max_records or "off", args.max_runtime or "off")
 
-    with open(args.out, "a", encoding="utf-8") as out:
-        for kind in kinds:
-            print(f"=== {kind} ===  {since}..{until}")
-            if kind == "commit":
-                gen = search_commits(since, until, token, args.step_days)
-            else:
-                gen = search_issues_or_prs(kind, since, until, token,
-                                           args.step_days)
-            n_new = 0
-            for rec in gen:
-                k = record_key(rec)
-                if k in seen:
-                    continue
-                seen.add(k)
-                out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                out.flush()
-                n_new += 1
-                if n_new % 50 == 0:
-                    print(f"  {kind}: {n_new} new so far")
-            print(f"  {kind}: {n_new} new records")
+    start = time.time()
+    counts: dict[str, int] = {k: 0 for k in kinds}
+    total_new = 0
+    stop_reason = "completed"
+    last_window: tuple[str, str] | None = None
 
-    return 0
+    try:
+        with open(args.out, "a", encoding="utf-8") as out:
+            for kind in kinds:
+                log.info("=== %s ===  %s..%s", kind, since, until)
+                if kind == "commit":
+                    gen = search_commits(since, until, token, args.step_days)
+                else:
+                    gen = search_issues_or_prs(kind, since, until, token,
+                                               args.step_days)
+                for rec in gen:
+                    k = record_key(rec)
+                    if k in seen:
+                        continue
+                    seen.add(k)
+                    out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                    out.flush()
+                    counts[kind] += 1
+                    total_new += 1
+                    last_window = (kind, rec.get("created_at") or "")
+                    if counts[kind] % 50 == 0:
+                        log.info("  %s: %d new so far", kind, counts[kind])
+                    if args.max_records and total_new >= args.max_records:
+                        stop_reason = f"hit --max-records={args.max_records}"
+                        log.warning(stop_reason)
+                        raise _Stop()
+                    if (args.max_runtime
+                            and (time.time() - start) >= args.max_runtime):
+                        stop_reason = f"hit --max-runtime={args.max_runtime}s"
+                        log.warning(stop_reason)
+                        raise _Stop()
+                log.info("  %s: %d new records this run", kind, counts[kind])
+    except KeyboardInterrupt:
+        stop_reason = "interrupted by user (SIGINT)"
+        log.warning(stop_reason)
+    except _Stop:
+        pass
+    except Exception as e:
+        stop_reason = f"crashed: {type(e).__name__}: {e}"
+        log.exception("unhandled exception")
+    finally:
+        elapsed = time.time() - start
+        log.info("---- summary ----")
+        log.info("stop reason: %s", stop_reason)
+        log.info("elapsed: %.1fs (%.1fm)", elapsed, elapsed / 60)
+        log.info("new records by kind: %s", counts)
+        log.info("new records total: %d", total_new)
+        if last_window:
+            log.info("last record: kind=%s created_at=%s", *last_window)
+        log.info("output: %s", args.out)
+        if args.log:
+            log.info("log:    %s", args.log)
+
+    return 0 if stop_reason in ("completed",) or stop_reason.startswith(
+        ("hit --", "interrupted")) else 1
+
+
+class _Stop(Exception):
+    """Internal control-flow signal for hitting a configured cap."""
 
 
 if __name__ == "__main__":

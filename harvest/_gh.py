@@ -1,7 +1,8 @@
-"""Shared GitHub REST helpers for the harvest scripts."""
+"""Shared GitHub REST helpers and logging for the harvest scripts."""
 
 from __future__ import annotations
 
+import logging
 import os
 import sys
 import time
@@ -9,6 +10,33 @@ import time
 import requests
 
 API = "https://api.github.com"
+
+log = logging.getLogger("harvest")
+
+
+def setup_logging(log_path: str | None) -> logging.Logger:
+    """Configure the 'harvest' logger: INFO to console, DEBUG to file."""
+    logger = logging.getLogger("harvest")
+    if logger.handlers:
+        return logger  # already configured
+    logger.setLevel(logging.DEBUG)
+    fmt = logging.Formatter(
+        "%(asctime)s | %(levelname)-7s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    console = logging.StreamHandler(sys.stdout)
+    console.setLevel(logging.INFO)
+    console.setFormatter(fmt)
+    logger.addHandler(console)
+    if log_path:
+        d = os.path.dirname(log_path)
+        if d:
+            os.makedirs(d, exist_ok=True)
+        file_handler = logging.FileHandler(log_path, encoding="utf-8")
+        file_handler.setLevel(logging.DEBUG)
+        file_handler.setFormatter(fmt)
+        logger.addHandler(file_handler)
+    return logger
 
 
 def make_headers(token: str) -> dict:
@@ -37,12 +65,13 @@ def gh_get(path: str, params: dict | None, token: str) -> requests.Response:
                 wait = max(2, int(reset) - int(time.time()) + 2)
             else:
                 wait = min(60, 2 ** (attempt + 1))
-            print(f"  rate-limited ({r.status_code}); sleeping {wait}s",
-                  file=sys.stderr)
+            log.warning("rate-limited (%s); sleeping %ds", r.status_code, wait)
             time.sleep(wait)
             continue
         if 500 <= r.status_code < 600:
-            time.sleep(min(60, 2 ** attempt))
+            wait = min(60, 2 ** attempt)
+            log.warning("%s on %s; retrying in %ds", r.status_code, url, wait)
+            time.sleep(wait)
             continue
         r.raise_for_status()
     r.raise_for_status()
@@ -73,6 +102,6 @@ def iter_paginated(path: str, params: dict | None, token: str):
 def require_token() -> str:
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
-        print("ERROR: GITHUB_TOKEN env var required", file=sys.stderr)
+        sys.stderr.write("ERROR: GITHUB_TOKEN env var required\n")
         sys.exit(1)
     return token

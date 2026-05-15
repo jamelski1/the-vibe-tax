@@ -25,12 +25,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import os
 import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _gh import gh_get, require_token
+from _gh import gh_get, require_token, setup_logging
+
+log = logging.getLogger("harvest")
+
+
+class _Stop(Exception):
+    """Internal control-flow signal for hitting --max-runtime."""
 
 
 REPO_FIELDS = [
@@ -123,8 +130,13 @@ def main() -> int:
                     default="harvest/claude_session_comments.jsonl")
     ap.add_argument("--repos-out", default="harvest/repos.jsonl")
     ap.add_argument("--users-out", default="harvest/users.jsonl")
+    ap.add_argument("--max-runtime", type=int, default=0,
+                    help="stop after N seconds of wall time (0 = unlimited)")
+    ap.add_argument("--log", default="harvest/enrich_metadata.log",
+                    help="log file path (empty string disables)")
     args = ap.parse_args()
 
+    setup_logging(args.log or None)
     token = require_token()
     for path in (args.repos_out, args.users_out):
         d = os.path.dirname(path)
@@ -136,28 +148,69 @@ def main() -> int:
     have_users = load_seen(args.users_out, "login")
     new_repos = sorted(repos - have_repos)
     new_users = sorted(users - have_users)
-    print(f"repos: {len(repos)} unique, {len(new_repos)} new")
-    print(f"users: {len(users)} unique, {len(new_users)} new")
+    log.info("repos: %d unique, %d new", len(repos), len(new_repos))
+    log.info("users: %d unique, %d new", len(users), len(new_users))
 
-    with open(args.repos_out, "a", encoding="utf-8") as out:
-        for i, r in enumerate(new_repos, 1):
-            rec = fetch_repo(r, token)
-            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-            out.flush()
-            if i % 50 == 0:
-                print(f"  repos {i}/{len(new_repos)}")
-            time.sleep(0.25)
+    start = time.time()
+    n_repos = n_users = 0
+    n_repos_skipped = n_users_skipped = 0
+    stop_reason = "completed"
 
-    with open(args.users_out, "a", encoding="utf-8") as out:
-        for i, u in enumerate(new_users, 1):
-            rec = fetch_user(u, token)
-            out.write(json.dumps(rec, ensure_ascii=False) + "\n")
-            out.flush()
-            if i % 50 == 0:
-                print(f"  users {i}/{len(new_users)}")
-            time.sleep(0.25)
+    try:
+        with open(args.repos_out, "a", encoding="utf-8") as out:
+            for i, r in enumerate(new_repos, 1):
+                rec = fetch_repo(r, token)
+                out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                out.flush()
+                if rec.get("skipped"):
+                    n_repos_skipped += 1
+                n_repos += 1
+                if i % 50 == 0:
+                    log.info("  repos %d/%d", i, len(new_repos))
+                if (args.max_runtime
+                        and (time.time() - start) >= args.max_runtime):
+                    stop_reason = f"hit --max-runtime={args.max_runtime}s"
+                    log.warning(stop_reason)
+                    raise _Stop()
+                time.sleep(0.25)
 
-    return 0
+        with open(args.users_out, "a", encoding="utf-8") as out:
+            for i, u in enumerate(new_users, 1):
+                rec = fetch_user(u, token)
+                out.write(json.dumps(rec, ensure_ascii=False) + "\n")
+                out.flush()
+                if rec.get("skipped"):
+                    n_users_skipped += 1
+                n_users += 1
+                if i % 50 == 0:
+                    log.info("  users %d/%d", i, len(new_users))
+                if (args.max_runtime
+                        and (time.time() - start) >= args.max_runtime):
+                    stop_reason = f"hit --max-runtime={args.max_runtime}s"
+                    log.warning(stop_reason)
+                    raise _Stop()
+                time.sleep(0.25)
+    except KeyboardInterrupt:
+        stop_reason = "interrupted by user (SIGINT)"
+        log.warning(stop_reason)
+    except _Stop:
+        pass
+    except Exception as e:
+        stop_reason = f"crashed: {type(e).__name__}: {e}"
+        log.exception("unhandled exception")
+    finally:
+        elapsed = time.time() - start
+        log.info("---- summary ----")
+        log.info("stop reason: %s", stop_reason)
+        log.info("elapsed: %.1fs (%.1fm)", elapsed, elapsed / 60)
+        log.info("repos fetched: %d   skipped: %d", n_repos, n_repos_skipped)
+        log.info("users fetched: %d   skipped: %d", n_users, n_users_skipped)
+        log.info("outputs: %s , %s", args.repos_out, args.users_out)
+        if args.log:
+            log.info("log:     %s", args.log)
+
+    return 0 if stop_reason in ("completed",) or stop_reason.startswith(
+        ("hit --", "interrupted")) else 1
 
 
 if __name__ == "__main__":
