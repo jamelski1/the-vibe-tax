@@ -19,8 +19,11 @@ below):
 
 - **Agentic CLI** — **198** human-typed prompts from **37** repos, drawn from
   committed Claude Code session transcripts (`crawl_real_prompts.py`).
-- **Web-chat** — **174** coding prompts from real WildChat (ChatGPT)
-  conversations mirrored on GitHub (`pull_webchat_corpus.py`).
+- **Web-chat** — **1,003** coding prompts from real **WildChat-1M** (ChatGPT)
+  conversations, streamed directly from HuggingFace (`pull_webchat_hf.py`).
+  *(An earlier 174-prompt run used a GitHub mirror of WildChat,
+  `pull_webchat_corpus.py`, for the HF-firewalled cloud sandbox; the unbiased
+  HF pull confirmed and strengthened every cross-medium gap below.)*
 
 For the agentic corpus:
 - Only genuine human turns (`userType:"external"`, non-sidechain); tool output,
@@ -132,32 +135,41 @@ politeness is rare (7%).
 ## Two media, two distributions — the medium shapes the prompt
 
 The agentic-CLI corpus (Claude Code) is only half the picture. To cover the
-patterns it structurally lacks — chiefly manual error/code pasting — we pulled a
-parallel **web-chat** corpus: **174** coding prompts from real **WildChat**
-(ChatGPT) conversations, harvested from a public GitHub mirror
-(`pull_webchat_corpus.py`; HuggingFace is firewalled here so we sourced the
-mirror over the allowed GitHub access). Both corpora were labeled by the **same**
-classifier, so the axes are directly comparable.
+patterns it structurally lacks — chiefly manual error/code pasting — we labeled a
+parallel **web-chat** corpus of **1,003** coding prompts from real **WildChat-1M**
+(ChatGPT) conversations, streamed from HuggingFace (`pull_webchat_hf.py`). Both
+corpora were labeled by the **same** classifier, so the axes are directly
+comparable.
 
-| Axis | Agentic CLI (n=198) | Web-chat (n=174) |
-|------|--------------------:|-----------------:|
-| Pasted **error** | **2%** | **13%** |
-| Pasted **code** | ~0% | **24%** |
-| Spec level: casual/vague (L3–L5) | **86%** | 47% |
-| Spec level: detailed/formal (L1–L2) | 10% | **53%** |
-| Register: terse-imperative | **54%** | 23% |
-| Register: conversational | 38% | **70%** |
-| Context: pure NL (no paste) | **77%** | 44% |
-| Multilingual | 11% | **25%** |
+| Axis | Agentic CLI (n=198) | Web-chat (n=1003) |
+|------|--------------------:|------------------:|
+| **Any paste** (error+code+long-context) | ~5% | **51%** |
+| Pasted **error** | 2% | **17%** |
+| Pasted **code** | ~0% | **21%** |
+| Spec level: casual/vague (L3–L5) | **90%** | 56% |
+| Spec level: detailed/formal (L1–L2) | 10% | **44%** |
+| Register: terse-imperative | **55%** | 37% |
+| Register: conversational | 38% | **59%** |
+| Context: pure NL (no paste) | **77%** | 42% |
+| Intent: debug / error-paste | 2% | **17%** |
+| Intent: feature-build (whole thing) | 12% | **23%** |
+| Multilingual | 11% | **36%** |
 
 **The medium shapes the prompt.** In an *agentic CLI*, the model fetches its own
 context (reads files, runs code, sees errors), so users are terse, vague, and
 rarely paste anything — *"fix the failing test"*. In a *web chatbox*, the model
-can't reach the user's machine, so users write long, self-contained, paste-heavy
-prompts and supply the error themselves:
+can't reach the user's machine, so **half** of prompts paste something, users
+write longer and more detailed specs, converse more, and supply the error
+themselves:
 
 > *"Error ImportError: Failed to import test module: tests.test_solution
 > Traceback (most recent call last): File \"/usr/local/lib/python…\""* — WildChat
+
+The intent mix also flips: web-chat's top intent is *"build me this whole thing"*
+(feature-build), while agentic users mostly *explain* and *modify* an existing
+codebase the agent can already see. The unbiased HF pull made every gap **larger**
+than the earlier GitHub-mirror sample did — so the medium effect is not a mirror
+artifact.
 
 This is the single most important finding for the study: **"vibe coding" is not
 one distribution.** Where the prompt is typed changes its formality, its length,
@@ -183,18 +195,19 @@ must state which medium it is modeling.
 ## Limitations
 
 - **Heuristic labels** — expect some misclassification; treat counts as
-  directional, not exact.
-- **Sampling bias** — repos that *commit* their transcripts skew toward
+  directional, not exact. On the web-chat corpus the `other` intent is ~22%
+  (the keyword rules fray on web-chat's topic diversity), so the intent axis
+  there is the least reliable — LLM-assisted relabeling is the next refinement.
+- **Agentic sampling bias** — repos that *commit* their transcripts skew toward
   tutorials, Advent-of-Code, demos, and tooling experiments, which inflates
   AoC/problem-statement prompts and probe/test turns. A broader crawl (more
   query angles, more repos) would shift the mix.
-- **Small n** (198 agentic / 174 web-chat) — enough to define axes and see gross
-  structure and the cross-medium contrast; too small for confident per-cell
-  rates. Scale both crawls before drawing strong quantitative conclusions.
-- **Web-chat sourcing** — pulled from a GitHub mirror of WildChat rather than
-  WildChat/LMSYS directly (HuggingFace is firewalled in this environment). The
-  mirror is a curated subset, so its absolute rates carry its own selection
-  bias; the *direction* of the agentic-vs-web-chat contrast is the robust part.
+- **n** — agentic is still small (198); the web-chat corpus is now 1,003 from
+  the full WildChat-1M stream and gives confident rates. Scale the agentic crawl
+  to match before drawing strong per-cell conclusions there.
+- **Web-chat is one dataset** — WildChat-1M (real ChatGPT logs). Re-running
+  `pull_webchat_hf.py --dataset lmsys` would confirm the pattern replicates
+  across a second web-chat source.
 
 ## Reproduce
 
@@ -204,8 +217,12 @@ python crawl_real_prompts.py --limit 1000
 python classify_prompts.py
 #   -> vibe_spectrum_corpus.json + vibe_spectrum_stats.json
 
-# Web-chat corpus (WildChat / ShareGPT-style conversations)
-python pull_webchat_corpus.py --limit 300
-python classify_prompts.py --in webchat_corpus.json \
-    --out vibe_spectrum_webchat_corpus.json --stats vibe_spectrum_webchat_stats.json
+# Web-chat corpus — unbiased, direct from HuggingFace (needs HF_TOKEN + gated
+# dataset access; run locally, HF is firewalled in the cloud sandbox)
+python pull_webchat_hf.py --dataset wildchat --limit 1000
+python classify_prompts.py --in webchat_wildchat_corpus.json \
+    --out vibe_spectrum_wildchat_corpus.json --stats vibe_spectrum_wildchat_stats.json
+
+# (fallback used in the firewalled sandbox: GitHub mirror of WildChat)
+# python pull_webchat_corpus.py --limit 300
 ```
