@@ -9,7 +9,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "commit the staged changes",
@@ -21,7 +27,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "respond \"test ok\"",
@@ -33,7 +45,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "respond \"ok test\"",
@@ -45,7 +63,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "revent last commit",
@@ -57,7 +81,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "commit changes",
@@ -69,7 +99,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "run /init",
@@ -81,7 +117,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "git_meta",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "list all skills we have",
@@ -93,7 +135,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "mkdir -p /root/claudeclaw\ncd /root/claudeclaw",
@@ -105,7 +153,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "think\n\ntmux操作一切不要\n現在worker example削除中\n動作するshファイルあるがそれぞれの意義が知りたい",
@@ -117,7 +171,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Japanese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "claude config set -g autoUpdates true",
@@ -129,7 +189,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "react vite from day 1",
@@ -141,7 +207,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "whats our git status",
@@ -153,7 +225,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "explain slices to me",
@@ -165,7 +243,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "save this conversation",
@@ -177,7 +261,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "we already have those tests",
@@ -189,7 +279,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "just remove the prepend pilot_",
@@ -201,7 +297,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.95
+    "informality": 0.95,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "明日やることをtasksに入れてほしい",
@@ -213,7 +315,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Japanese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "RVSSは全定例MTGのメンバー確認メール、人事の小笹くんに確認メール入れるっていう二つかなあと尾関くんに直近の連絡をしてもらう。\n慶應は書類の送付これお昼には絶対送る。",
@@ -225,19 +333,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
-  },
-  {
-    "prompt": "Unknown skill: plugin",
-    "repo": "aidenmak0624/ReviewLensAI",
-    "path": "ai-transcripts/session-01-initial-setup.jsonl",
-    "n_words": 3,
-    "n_chars": 21,
-    "looks_coding": false,
-    "non_english": false,
-    "has_error_paste": false,
-    "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Japanese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Run the agent task",
@@ -249,7 +351,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "what is a lambda url?",
@@ -261,7 +369,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Fix the network",
@@ -273,7 +387,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "\"C:\\Users\\kohei\\expense-app\"    いまここで交通費精算のアプリをつくっている　状態を確認することは可能ですか",
@@ -285,7 +405,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Japanese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "读取 /etc/hostname 文件内容",
@@ -297,19 +423,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
-  },
-  {
-    "prompt": "Unknown skill: loginout",
-    "repo": "antimimitic/SNN-CPG-v3",
-    "path": ".claude/projects/-home-shenh-my-todo/7138ff4d-e385-4c19-939a-aa8f184eb701.jsonl",
-    "n_words": 3,
-    "n_chars": 23,
-    "looks_coding": false,
-    "non_english": false,
-    "has_error_paste": false,
-    "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "你可以帮我改代码吗",
@@ -321,7 +441,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "are you using superclaude?",
@@ -333,7 +459,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "why is not working?",
@@ -345,7 +477,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "只输出：test-ok",
@@ -357,7 +495,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "列出当前目录中的文件和目录。",
@@ -369,19 +513,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
-  },
-  {
-    "prompt": "Unknown skill: dev_codex_use",
-    "repo": "liush2yuxjtu/sdk_claude_agent",
-    "path": ".claude/sessions/main/b6fdf2db-e17b-4453-a2cd-8f66ec14bdef.jsonl",
-    "n_words": 3,
-    "n_chars": 28,
-    "looks_coding": false,
-    "non_english": false,
-    "has_error_paste": false,
-    "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "请列出当前仓库可用的全部 skills，只输出 skill 名称，每行一个。不要解释。",
@@ -393,7 +531,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "只回答一个 JSON 对象：{\"ok\": true}",
@@ -405,7 +549,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "只回答“ok”，不要使用任何工具。",
@@ -417,7 +567,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 5,
+    "spec_label": "L5 pure-vibe",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "is everything okay?",
@@ -429,7 +585,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "作为一个程序员 你看看我现在的安装应用 有什么比较差劲的吗 有没有什么好的 软件实验呢",
@@ -441,7 +603,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "ここまでの議論\nFIX_DEV_BRANCH.md作成して\nあなたが記憶を失ってもいいように調査結果仔細を残してほしい\n\nthink",
@@ -453,7 +621,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "Japanese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "请列出当前仓库可用的全部 skills，只输出 skill 名称，每行一个。",
@@ -465,7 +639,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Just say hello",
@@ -477,7 +657,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Just say hello and exit",
@@ -489,7 +675,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "what is \\@mod in zig?",
@@ -501,7 +693,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "how does zig do integer division?",
@@ -513,7 +711,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "does zig have ternaries?",
@@ -525,7 +729,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.85
+    "informality": 0.85,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "help me apply for the agentic engineering grant by Superteam",
@@ -537,7 +747,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "write a few commits without signing them",
@@ -549,7 +765,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "make a small change now, this is for a test, just update the comment",
@@ -561,7 +783,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use search to list most recent checkpoint",
@@ -573,7 +801,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "let's setup github account which you can use how we can do that",
@@ -585,7 +819,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "the pre-commit hook should not block if the commit message explicitly contains \"no trajectory\"",
@@ -597,7 +837,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "explain to me what is in the Makefile",
@@ -609,7 +855,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "can you try now?",
@@ -621,7 +873,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "how to run it on with my claude agent? I have installed it already",
@@ -633,7 +891,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 6 of the puzzle: https://adventofcode.com/2025/day/6",
@@ -645,7 +909,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 5 of the puzzle: https://adventofcode.com/2025/day/5",
@@ -657,7 +927,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 7 of the puzzle: https://adventofcode.com/2025/day/7",
@@ -669,7 +945,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 11 of the puzzle: https://adventofcode.com/2025/day/11",
@@ -681,7 +963,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 2 of the puzzle: https://adventofcode.com/2025/day/2",
@@ -693,7 +981,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 8 of the puzzle: https://adventofcode.com/2025/day/8",
@@ -705,7 +999,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 3 of the puzzle: https://adventofcode.com/2025/day/3",
@@ -717,7 +1017,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 4 of the puzzle: https://adventofcode.com/2025/day/4",
@@ -729,7 +1035,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 12 of the puzzle: https://adventofcode.com/2025/day/12",
@@ -741,7 +1053,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 10 of the puzzle: https://adventofcode.com/2025/day/10",
@@ -753,7 +1071,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "you solved part one, now fetch the part two question and solve it",
@@ -765,7 +1089,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "use the @agent-aoc-solver agent to solve day 9 of the puzzle: https://adventofcode.com/2025/day/9",
@@ -777,7 +1107,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "let's plan a bit more in 01-project overview.md",
@@ -789,7 +1125,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "install OpenHands on llm, alright, install it on j@llm:docker-compose/openhands (youll have to make the fodler)",
@@ -801,7 +1143,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "bash is just the devenv shell, I use zsh",
@@ -813,7 +1161,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "it's there it's just higher up, line 33",
@@ -825,7 +1179,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "alright. Add some example tests that might be iffy for the unit function",
@@ -837,7 +1197,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "part 2 is the issue, part 1 worked fine",
@@ -849,7 +1215,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "the whole point here was to _not_ buffer the whole file",
@@ -861,7 +1233,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "you're on the right track, keep going",
@@ -873,7 +1251,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "ah, I see that there is two pilot_ pilot_... remove the extra one we added",
@@ -885,7 +1269,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "we are comparing v1 (previous loads folder) to v2. Ignore v3",
@@ -897,7 +1287,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "can you run it?",
@@ -909,7 +1305,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.8
+    "informality": 0.8,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "could you check did i iplguin the superpowers",
@@ -921,7 +1323,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.75
+    "informality": 0.75,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "What files are in this directory?",
@@ -933,7 +1341,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.75
+    "informality": 0.75,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "can you restate the question? as asked it doesn't make sense to me",
@@ -945,7 +1359,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.75
+    "informality": 0.75,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "What is 2+2?",
@@ -957,7 +1377,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.75
+    "informality": 0.75,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Help me create a basic Flask API with error handling",
@@ -969,7 +1395,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "make a very small update to a comment in the CLI - im just trying to test something",
@@ -981,7 +1413,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Read the claude file in that dir",
@@ -993,7 +1431,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "used this command but not sure if i saved them aws logs tail /aws/lambda/album-counter --region us-west-2 --since 10m --follow",
@@ -1005,7 +1449,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "so the bug isn't actually a bug?",
@@ -1017,7 +1467,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "how do i trigger the race condition?",
@@ -1029,7 +1485,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "请调用 helper 子 agent。helper 只需读取 /tmp/agent_team_sleep_test.json，然后用中文回答一句“helper 完成”。主 agent 最后只输出一个 JSON 对象：{\"ok\": true}。",
@@ -1041,7 +1503,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "probe_meta",
+    "context_provision": "references_files",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "check /dev_codex_use do we have this skills ?",
@@ -1053,7 +1521,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "change nvim config so that suggestions dont come up automatically but some keypress like ctrl + space",
@@ -1065,7 +1539,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "skip the linux and shell phase im good enough in those domains and i already started k&R",
@@ -1077,7 +1557,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "is there anyting in this repository that is sensitive that I would not want to make public?  Analysze eacch file to ensure I'm safe to make this public, specifically the @claude-sessions/ folder.  The .env will NOT be public",
@@ -1089,7 +1575,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "is there a way I can remove claude-sessions from the whole git history?",
@@ -1101,7 +1593,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "ah wait before that, i remembered that i wanted mobile web notifications to be a part of the spec as well - since the assumption is that the user is multitasking, they would benefit from being informed when tasks are complete",
@@ -1113,7 +1611,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "let's add both my answers so far (about cloud/local, and about mobile notifs) to a \"WIP\" section of the overview spec",
@@ -1125,7 +1629,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "yeah i don't actually care about the continuation per se -- i'm more imagining that each session persists its chat and prompt history, whether mobile or desktop, and then all the context can be reaccessed whenever a new claude code process is started",
@@ -1137,7 +1647,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "rather, the terminal ttyd should be hooked up to a claude code session, so say \"claude help me edit the readme\" -> somehow that literal text gets sent to claude code",
@@ -1149,7 +1665,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "let's plan for there to be a toggle or something, or a buffer that's editable before sending. but don't implement that for now",
@@ -1161,7 +1683,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "i don't think that's a very important decision. perhaps just autostart for now?",
@@ -1173,7 +1701,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "let's do local first, but both cases should have local processes; cloud will have 1 big container containing the web app running alongside claude code",
@@ -1185,7 +1719,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "did you consult meta.md after updating the .md doc?",
@@ -1197,7 +1737,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "write a script that copies this most recent chat session out of my ~/.claude and commits it as a timestamped chat convo for history",
@@ -1209,7 +1755,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "What happens if you check the pid in bash",
@@ -1221,7 +1773,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "if you ssh over to j@10.1.0.94, you'll notice there's no armbian wifi config file, and yet we need to configure wifi for armbian",
@@ -1233,7 +1791,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Use the get_pool_status tool to show current Claude Pool status",
@@ -1245,7 +1809,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "there's some stuff getting caught by git that I think probably shouldn't be versioned. Help me write an appropriate gitignore",
@@ -1257,7 +1827,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I exited and reentered within the devenv shell, try again",
@@ -1269,7 +1845,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "so that confirms that devenv works, but I'm still seeing the error when I cd in from direnv",
@@ -1281,7 +1863,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Somethings off with the gitignore. Look at what has been modified recently",
@@ -1293,7 +1881,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "we probably actually want to hold onto .envrc, but otherwise good. Remove that one from the command and the gitignore",
@@ -1305,7 +1899,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I started a new shell, it doesn't help",
@@ -1317,7 +1917,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "that still looks wrong. As stated in @prompts/day06.md , the right most problem in the example parses to 4+421+623; the problem is defined as split off by the column of whitespace, and each number is a _column_ of digits",
@@ -1329,7 +1935,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "for part 2, we care about _any_ time the dial passes 0 rather than just when it ends on 0. I think that means we want to check for each op whether it would bring the dial to a position outside (0,99] and count those? but then we still need to use mod after",
@@ -1341,7 +1953,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "before doing that, give me a credible explanation as to in what case the current function is wrong and add a test to prove it",
@@ -1353,7 +1971,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "is there a property testing framework for zig?",
@@ -1365,7 +1989,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "thread 5921302 panic: integer overflow\n/Users/sam.schick/Documents/code/zig-advent-of-code/advent/day01.zig:56:26: 0x100414a43 in countZeroCrossings (test)\n    return zeros_on_path - @as(u32, if (start_pos == 0) 1 else 0);",
@@ -1377,7 +2007,13 @@
     "non_english": false,
     "has_error_paste": true,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "debug_error_paste",
+    "context_provision": "pastes_error",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "but I mean zeros_on_path, not the number of crossings. if start_pos is 0 and distance isint... oh, but if we go up rather than down, we could get say 4 as position_before_mod which gives us 0 zeros on path. the original bug only occurs if we go _down_ from 0",
@@ -1389,7 +2025,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "does the copy to mutable actually copy, or reference?",
@@ -1401,7 +2043,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Add a test in the case you think will fail",
@@ -1413,7 +2061,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "fair. I've tried to clean up the logic to make it more explicit, but I still have a few failing cases",
@@ -1425,7 +2079,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "before we do that; this looks better, but we don't want actual recursion. make selectOptimalDigit return a single digit, and have joltage loop over the battery count to \"unroll\" that recursion",
@@ -1437,7 +2097,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "modify the file to convert to newtons, and also I want to change the name of some interface points, I want lug_right to be pilot_lug_starboard and lug_left to be pilot_lug_port",
@@ -1449,7 +2115,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "how does the envelope in this python package work?",
@@ -1461,19 +2133,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.7
-  },
-  {
-    "prompt": "[定时任务 - 以下内容由系统自动发送，并非来自用户或群组的直接消息。]\n\n运行 follow-builders skill，然后将生成的中文摘要通过 QQ 发送给用户。QQ用户ID: E7F14B61D7C08919743690175035F7D1",
-    "repo": "niasand/claw_config",
-    "path": "sessions/task-177476358046/.claude/projects/-Users-zhiwei-Downloads-happyclaw-data-groups-task-177476358046/4bc537f1-56f5-4718-93a2-8fcde3fb5e58.jsonl",
-    "n_words": 9,
-    "n_chars": 125,
-    "looks_coding": false,
-    "non_english": true,
-    "has_error_paste": false,
-    "has_code_paste": false,
-    "informality": 0.7
+    "informality": 0.7,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "can you add a standard MIT license?",
@@ -1485,7 +2151,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "can you read the code inside the mystery folder?",
@@ -1497,7 +2169,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "i dont really understand the \"race condition\" thing, could you explain in a simple manner? brief response",
@@ -1509,7 +2187,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "can you look at the logs from the GIN Go server?",
@@ -1521,7 +2205,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "i think i have pulled them, can you look at them now?",
@@ -1533,7 +2223,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Please copy the files in ~/.claude/projects/-workspaces-aspire-blobstorage into the repo .claude/history folder",
@@ -1545,7 +2241,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "config_devops",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "git push origin main --force                                                     128 х \nfatal: 'origin' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights",
@@ -1557,7 +2259,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "Cyrillic",
+    "register": "polite"
   },
   {
     "prompt": "i'm not sure about that, depends on which APIs are easily available and what their examples recommend starting with. Are you taking notes? please record what we've talked about so far in IMPLEMENTATION.md",
@@ -1569,7 +2277,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "please add in top-level readme that this repo is only for specs, no implementation.",
@@ -1581,7 +2295,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "ah, I forgot to multiply fx loads only by 1.04. Can you do that?",
@@ -1593,7 +2313,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.65
+    "informality": 0.65,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "How do I manage environment variables specified in .env with mise?",
@@ -1605,7 +2331,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Let's adjust the test-secrets.txt file.  Add STRIPE_PUBLISHABLE_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  I'm testing gitleaks.",
@@ -1617,7 +2349,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Refactor the sample button to use design tokens and run the tests.",
@@ -1629,7 +2367,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "so what is a lambda url? and this is a program which deliberately has a bug and the point of this bug is to demonstrate the race condition which is...?",
@@ -1641,7 +2385,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "and how exactly do we resolve this sort of an error? and is this is a coding error (as in, something which might happen during coding the program) or some sort of a system error? (something which comes up duiring scaling)?",
@@ -1653,7 +2403,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "and what exaclty would resolving this bug ensure? would the count not increment by 10k each time we send a POST request?",
@@ -1665,7 +2421,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Look at the repo and get a feel for what I'm trying to do.",
@@ -1677,7 +2439,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "360_zip           帮我换成  Keka Thunder 帮我卸载 Postman Trae Zed   Tencent  Lemon 帮我Alfred 5 帮我卸载  卸载    SunloginClient/Remote 帮我卸载",
@@ -1689,7 +2457,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "references_files",
+    "language": "Chinese",
+    "register": "terse_imperative"
   },
   {
     "prompt": "We are making a sample app that shows blob storage support in aspire project. Add blob storage to apphost using azurerite emulator",
@@ -1701,7 +2475,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "voice should primarily handle chat, maybe terminal commands later, but that's not a supported core flow. for the specific api, keep it flexible - could be openai or wispr flow or something else. we will prioritize what's easy to integrate and low latency with sufficient accuracy.",
@@ -1713,7 +2493,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "should be very basic, read-only, with line numbers. i'm imaging the user might provide commentary but wouldn't be doing code editing.",
@@ -1725,7 +2511,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "yeah that should also be a simple web interface, no LLM apis there though, just a standard touch-based web app with buttons and UI and stuff.",
@@ -1737,7 +2529,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "yeah these all sound good. after this let's figure out an implementation order, i.e. feature prioritzation sequencing. Also add to the meta.md a section that says to think about feature/prototype feature sequencing in future projects too.",
@@ -1749,7 +2547,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "i backed those changes out. let's try that again, but instead, we do a question and answer thing and you be the questioner role. make sure that this is specified in meta.md as well, that implementation order decisions should be cooperative and q&a based.",
@@ -1761,7 +2565,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "that's too many questions at once. i'm thinking the first POC is voice piped directly to some terminal web ttyd.",
@@ -1773,7 +2583,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Check the monitor.sh script in dev-tools, it should stop monitoring when it is stopped, and it should n\n\nAn error just occurred, but it might be a duplicate:\nType: Exqlite.Error\nFile: debugger.ex:155\nTime: 2025-06-18 23:55:43.642\nStack:\n  (ash_chat 0.1.0) lib/ash_chat/ai/chat_agent.ex:16: AshChat.AI.ChatAgent.create_room/0\n  (ash_chat 0.1.0) lib/ash_chat_web/live/chat_live/room_handlers.ex:14: AshChatWeb.ChatLive.RoomHandlers.handle_event/3\n  (phoenix_live_view 1.0.17) lib/phoenix_live_view/channel.ex:509: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3",
@@ -1785,7 +2601,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Use the start_task tool to begin a task called 'CreativePoem' with this prompt: Write a short poem about artificial intelligence and creativity",
@@ -1797,7 +2619,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Use the start_task tool to begin a task called 'CodeExplain' with this prompt: Explain how Python list comprehensions work with 3 examples",
@@ -1809,7 +2637,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "whats the word for a, like, the template of a personality, like an empty archittype, a shell....",
@@ -1821,7 +2655,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "These are for Ai agents and characters in a hybrid home / office / life simulation... they're sometimes \"Roles\" as in \"Janitor\" and sometimes full personalities, with different templates and behaviours. How about generating a big list of just names to brainstomr",
@@ -1833,7 +2673,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "~Read the AI quickstart, find your center, look around and tell what weve been up and what we are working on or what we should do next",
@@ -1845,7 +2691,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I'm trying to use devenv here, but when I cd into this folder I see `use_devenv: command not found`",
@@ -1857,7 +2709,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "day 6 part 2. This is going to be a huge pain, because the numbers are arranged in columns. start by parsing out a list of column buffers, and then parse each of those into a math problem.",
@@ -1869,7 +2727,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "ARE YOU STUPID. there is no \"calculating the product\" you made that insipid nonsense up from whole cloth. read the prompt for day 6. the only thing that has changed is how we read the numbers",
@@ -1881,7 +2745,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I don't see how empty cells could be possible, since all numbers have at least one digit",
@@ -1893,7 +2763,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 4,
+    "spec_label": "L4 vague",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "is zig pass by value or reference? Can I modify start_pos, and if I do does it change outside the function?",
@@ -1905,7 +2781,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "I updated it and it works for the example test, but not for the real input; my answer ends up too high",
@@ -1917,7 +2799,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "I tried to compensate for that but am getting an error I don't understand. advent/day01.zig:56:29: error: value with comptime-only type 'comptime_int' depends on runtime control flow\n    return zeros_on_path - (if (start_pos == 0) 1 else 0);\\\n\\\nexplain that to me",
@@ -1929,7 +2817,13 @@
     "non_english": false,
     "has_error_paste": true,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "debug_error_paste",
+    "context_provision": "pastes_error",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Is there a way to do parametrized tests in zig? The edge cases test is throwing me off because I can only see one failing case at a time",
@@ -1941,7 +2835,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Sorry, I'm not being clear. I want a different _test_ for each edge case. If you can make this tidy with comptime I'm all for it",
@@ -1953,7 +2853,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I did some cleanup that I like, but I'm getting an error I don't understand about const pointers",
@@ -1965,7 +2871,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I do want a stateful iterator though, it cleans up a lot. Is there no way to get the loop var to be mutable? What about a do..while.. loop where we have a set up call to pull it as mutable? The return from ranges.next should be perfectly safe to mutate, we have the only pointer at it",
@@ -1977,7 +2889,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "The day 1 tests all pass, but I'm still getting an ansewr that's too high given the real input",
@@ -1989,7 +2907,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "hold on. Shouldn't the answer in that case be 1? we started at 0, went a full revolution, crossed 0, and got back down to 50.",
@@ -2001,7 +2925,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "write tests inside the day file they are relevant for. Test with tests, not debug scripts.",
@@ -2013,7 +2943,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "test",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Read AGENTS.md. Compile and submit hint-solution.c, it should work.",
@@ -2025,7 +2961,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.6
+    "informality": 0.6,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "modify_run",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Can you also add logging for debugging purposes?",
@@ -2037,7 +2979,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.55
+    "informality": 0.55,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "main.go is a simple api server writte in go, can you try to study and summarize to me what it does?",
@@ -2049,7 +2997,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.55
+    "informality": 0.55,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "Can you create a helpful gitignore file?",
@@ -2061,7 +3015,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.55
+    "informality": 0.55,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "git_meta",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "Can you create a python file to translate the '/Users/alex/repos/JMD-GenAI-paper/data/DUCTILE/sessions/engineer_2/OEM_loads_v2.yaml' to a json format?",
@@ -2073,7 +3033,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.55
+    "informality": 0.55,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "polite"
   },
   {
     "prompt": "about 1, the tools seems to be renaming it automatically, so do not bother. About 2-4, yes fix please.",
@@ -2085,7 +3051,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.55
+    "informality": 0.55,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I am having problems if I start a claude session inside a folder while entire is enabled, becuase either is auto or manual mode, it is not creating checkpoints neither shadow branches. It only works if the claude session is started at root git folder. why ?",
@@ -2097,7 +3069,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "write a little text explaining that the only way to disable is via flag because:\n1. We don't want to promt the user with heaps of choices while setting up for the first time\n2. if we use flags, we can track easier the usage via metrics",
@@ -2109,7 +3087,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Right now my comptuer is offline and my DHCP says somethign thats not even in range. WhaT happened?",
@@ -2121,7 +3105,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "terse_imperative"
   },
   {
     "prompt": "Create 3 directories: frontend, backend, and psql. The frontend is a typescript react project. The backend is a rust tokio axum project that uses psql. And psql needs a migration script to setup the schema when it starts up. The root directory should have a docker-compose that uses the Dockerfiles of each of those individual projects.",
@@ -2133,7 +3123,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "오목을 웹으로 즐길수 있게 만든 프로그램이야. 근데 API가 백엔드랑 프론트엔드랑 뭐가 잘 안보내지는거 같아. 코드를 분석하고 문제르 ㄹ고쳐줘.",
@@ -2145,7 +3141,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "Korean",
+    "register": "conversational"
   },
   {
     "prompt": "This file is a rough examination, not done yet. But I'd love to use iterators rather than array lists in parseRanges. I'm used to iterators in rust or js; what is the equivalent concept in zig?",
@@ -2157,7 +3159,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "That looks good! I'm also seeing that you had trouble accessing git. Is it in the flake?",
@@ -2169,7 +3177,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "How could that ever actually happen? Shouldn't crossings always be at least 1 if start_pos is 0?",
@@ -2181,7 +3195,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I tried to make an iterator, but question; why don't I need an allocator in there? It seems like there's a bunch of places I'm creating memory. Are allocators only for heap allocations?",
@@ -2193,7 +3213,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.5
+    "informality": 0.5,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "feature_build",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "We keep referring to this project as a semantic reasoning layer. Can you explain what that actually means?",
@@ -2205,7 +3231,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.45
+    "informality": 0.45,
+    "spec_level": 3,
+    "spec_label": "L3 casual-task",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "working on day 6 part 2. This is going to need a very different parser. each _column_ is a number, so reading it row wise is going to be a mess. Lets parse this in stages. First, parse the numbers in each problem, then calculate the answers. Feel free to scan the whole buffer for each number you are parsing",
@@ -2217,7 +3249,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.45
+    "informality": 0.45,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "other",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "PLAN ONLY。\n请评估这个请求是否能得到一个好计划：build agent teams in this @/Users/m1/projects/sdk_claude_agent/demo2_control_sdk_agent_teams.json。\n要求：\n1. 先阅读这个 JSON。\n2. 使用至少一个 subagent 获取补充观点。\n3. 不要写文件，不要给实现代码。\n4. 最终只输出中文：\n   - 这个请求是否足够清晰\n   - 主要风险\n   - 一个 1, 2, 3 的最小实施计划\n   - 你建议保留或删掉的复杂度",
@@ -2229,7 +3267,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.4
+    "informality": 0.4,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "probe_meta",
+    "context_provision": "references_files",
+    "language": "Chinese",
+    "register": "conversational"
   },
   {
     "prompt": "PLAN ONLY。\nbuild agent teams with /tmp/*.json。\n要求：\n1. 先阅读仓库里的 demo2_control_sdk_agent_teams.json。\n2. 调用 long_snap、middle_snap、short_snap 三个 agent 各给一个计划视角。\n3. 不写代码，不改文件。\n4. 最终只输出中文：问题是否清晰、主要风险、综合后的 1 2 3 计划。",
@@ -2241,19 +3285,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.4
-  },
-  {
-    "prompt": "[定时任务 - 以下内容由系统自动发送，并非来自用户或群组的直接消息。]\n\n请回顾今天与用户的所有对话内容，写一篇日记发给用户。\n\n日记应该包含：\n1. 今天的日期\n2. 与用户的原始对话记录，不要做总结或者更改。然后再可以对该原始对话做下小的总结或者摘要\n3. 有趣的细节或值得记录的内容\n4. 温暖的结束语\n\n完成后使用 send_message 工具将日记发送给用户。",
-    "repo": "niasand/claw_config",
-    "path": "sessions/task-177461920615/.claude/projects/-Users-zhiwei-Downloads-happyclaw-data-groups-task-177461920615/1335ff40-9c04-499c-9554-01bace4672e2.jsonl",
-    "n_words": 16,
-    "n_chars": 187,
-    "looks_coding": false,
-    "non_english": true,
-    "has_error_paste": false,
-    "has_code_paste": false,
-    "informality": 0.4
+    "informality": 0.4,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "probe_meta",
+    "context_provision": "references_files",
+    "language": "Chinese",
+    "register": "conversational"
   },
   {
     "prompt": "in terms of deployment, i think that should actually be a semi-separated system. it's because of the hot-reload FE+BE - it's possible it might get into broken state, so i need an out of band deployment system which is both responsible for deploying and configuring the LAN/WAN/whatever, and also capable of communicating with the deployed app to find out what versions are stable and how to roll back if needed.",
@@ -2265,7 +3303,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.35
+    "informality": 0.35,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "bugfix",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I want to shape my zig project around being able to submit solutions directly from the built CLI. The project should build an \"advent\" tool that takes 2 arguments, the day and the puzzle number. Given those, it should run a function for that puzzle that gets the input it needs and then submits the solution. The inputs can be hard coded as files in some cases, and the solutions should just be output to the commandline for the user to submit. set up the boilerplate to handle all that without jumping into any puzzling yet",
@@ -2277,7 +3321,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.35
+    "informality": 0.35,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "config_devops",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "we're working on day 6. Youve had an idordinate amount of trouble with this one, so we're going to break it into parts. For the first part, we are just going to parse the sheet into problems. We will do this by making a list of lists, where the outer list is rows and the inner list is \"cells\" in the rows split on whitespace. Stop once you've made a db struct that does that.",
@@ -2289,7 +3339,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.35
+    "informality": 0.35,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "modify_run",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "1 - yeah i'd like the app to be able to be deployed either on a cloud server which has been setup to house a suitable git project and has claude code installed; OR it's just running locally and serving up a web interface. i don't think the code needs to be structured to know which one (it should work agnostically by default) and the only difference is whether it will be accesesed over wifi/LAN or over a cloud endpoint. do you need further clarification?",
@@ -2301,7 +3357,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.25
+    "informality": 0.25,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "explain_understand",
+    "context_provision": "references_files",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "wait hold on. You said this; Start at position 1, move left by 50 (L50)\n  - Current calculation: position_before_mod =\n   1 - 50 = -49\n  - Your function returns: @abs(@divFloor(-49,\n   100)) = @abs(-1) = 1\n  - But this is wrong! Moving from position 1\n  left by 50 should land at position 51\n  (wrapping around), and we should cross 0\n  exactly once\\\n\\\nbut in that text you say my answer is 1 and the actual answer is 1",
@@ -2313,7 +3375,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.25
+    "informality": 0.25,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "bugfix",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "We're working on advent of code, day 1 part 1. This is the prompt; The attached document (your puzzle input) contains a sequence of rotations, one per line, which tell you how to open the safe. A rotation starts with an L or R which indicates whether the rotation should be to the left (toward lower numbers) or to the right (toward higher numbers). Then, the rotation has a distance value which indicates how many clicks the dial should be rotated in that direction.\n\nSo, if the dial were pointing at 11, a rotation of R8 would cause the dial to point at 19. After that, a rotation of L19 would cause it to point at 0.\n\nBecause the dial is a circle, turning the dial left from 0 one click makes it point at 99. Similarly, turning the dial right from 99 one click makes it point at 0.\n\nSo, if the dial were pointing at 5, a rotation of L10 would cause it to point at 95. After that, a rotation of R5 could cause it to point at 0.\n\nThe dial starts by pointing at 50.\n\nYou could follow the instructions, but your recent required official North Pole secret entrance security training seminar taught you that the safe is actually a decoy. The actual password is the number of times the dial is left pointing at 0 after any rotation in the sequence.\n\nFor example, suppose the attached document contained the following rotations:\n\nL68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82\nFollowing these rotations would cause the dial to move as follows:\n\nThe dial starts by pointing at 50.\nThe dial is rotated L68 to point at 82.\nThe dial is rotated L30 to point at 52.\nThe dial is rotated R48 to point at 0.\nThe dial is rotated L5 to point at 95.\nThe dial is rotated R60 to point at 55.\nThe dial is rotated L55 to point at 0.\nThe dial is rotated L1 to point at 99.\nThe dial is rotated L99 to point at 0.\nThe dial is rotated R14 to point at 14.\nThe dial is rotated L82 to point at 32.",
@@ -2325,7 +3393,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.25
+    "informality": 0.25,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "modify_run",
+    "context_provision": "pastes_long_context",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "A concern I have here is that it takes in a buffer as input. Obviously that's fine for the sample input, but how would it handle very large inputs? Given that in general the inputs will be a file, what would it look like to instead give it a file pointer and manage iteration over that, rather than holding the whole fiel in memory?",
@@ -2337,7 +3411,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.25
+    "informality": 0.25,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "explain_understand",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Status   Config   Usage                                                    \n                                                                              \n  Version: 2.1.87                                                             \n  Session name: /rename to add a name                                         \n  Session ID: 312b3035-728c-4745-bda2-858d35e24f14                            \n  cwd: /Users/m1/projects/sdk_claude_agent                                      \n  Auth token: ANTHROPIC_AUTH_TOKEN\n  Anthropic base URL: https://api.minimaxi.com/anthropic\n  Proxy: http://127.0.0.1:7897\n\n  Model: MiniMax-M2.7-highspeed\n  MCP servers: 1 connected, 1 need auth, 1 failed · /mcp\n  Setting sources: User settings\n  Esc to cancel please think as architecture. @AGENTS.md check meta-rules for edit rules: print agents.md fix patch in chat directly instead of wrtting to /tmp/ . <== use this as good examples and bad examples and print the same prompts to me with claude sessions please. verify it this rules worked.",
@@ -2349,7 +3429,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.2
+    "informality": 0.2,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "config_devops",
+    "context_provision": "references_files",
+    "language": "Other-non-English",
+    "register": "conversational"
   },
   {
     "prompt": "Before I do that, I'm getting errors with the current setup. (devenv) CBM-W2F0Q63L2G:zig-advent-of-code sam.schick$ zig test '/Users/sam.schick/Documents/code/zig-advent-of-code/advent/day01.zig'\nadvent/day01.zig:9:20: error: member function expected 1 argument(s), found 0\n    while (try file.reader().readUntilDelimiterOrEof(buf[0..], '\\n')) |line| {\n               ~~~~^~~~~~~\n/nix/store/h5zqw1lr8i0pwqpkkl3lbid06f9dprw0-zig-0.15.2/lib/zig/std/fs/File.zig:2105:5: note: function declared here\npub fn reader(file: File, buffer: []u8) Reader {\\\n\\\nI think this says that reader expects the buffer as an argument. When I fix that, it says there is no such mehtod as readUntilDelimiterOrEof. I also don't really understand what we're doing with the buffer, or why it's not a problem that the buffer starts undefined. Lets take a step back; can you help me understand?",
@@ -2361,19 +3447,13 @@
     "non_english": false,
     "has_error_paste": true,
     "has_code_paste": true,
-    "informality": 0.2
-  },
-  {
-    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: pylint-dev__pylint-6506\n  repo: pylint-dev/pylint\n  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5\n  problem_statement: Traceback printed for unrecognized option\n### Bug description\n\nA traceback is printed when an unrecognized option is passed to pylint.\n\n### Configuration\n\n_No response_\n\n### Command used\n\n```shell\npylint -Q\n```\n\n\n### Pylint output\n\n```shell\n************* Module Command line\nCommand line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)\nTraceback (most recent call last):\n  File \"/Users/markbyrne/venv310/bin/pylint\", line 33, in <module>\n    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())\n  File \"/Users/markbyrne/programming/pylint/pylint/__init__.py\", line 24, in run_pylint\n    PylintRun(argv or sys.argv[1:])\n  File \"/Users/markbyrne/programming/pylint/pylint/lint/run.py\", line 135, in __init__\n    args = _config_initialization(\n  File \"/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py\", line 85, in _config_initialization\n    raise _UnrecognizedOptionError(options=unrecognized_options)\npylint.config.exceptions._UnrecognizedOptionError\n```\n\n\n### Expected behavior\n\nThe top part of the current output is handy:\n`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`\n\nThe traceback I don't think is expected & not user-friendly.\nA usage tip, for example:\n```python\nmypy -Q\nusage: mypy [-h] [-v] [-V] [more options; see below]\n            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]\nmypy: error: unrecognized arguments: -Q\n```\n\n### Pylint version\n\n```shell\npylint 2.14.0-dev0\nastroid 2.11.3\nPython 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]\n```\n\n\n### OS / Environment\n\n_No response_\n\n### Additional dependencies\n\n_No response_",
-    "repo": "jiayuanz3/SWEContextBench",
-    "path": "cases/SWEContextBench Lite Past Experience/2ae56e98.jsonl",
-    "n_words": 197,
-    "n_chars": 1870,
-    "looks_coding": true,
-    "non_english": false,
-    "has_error_paste": true,
-    "has_code_paste": true,
-    "informality": 0.15
+    "informality": 0.2,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "debug_error_paste",
+    "context_provision": "pastes_error",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "Implement the following plan:\n\n# Plan: Create a binary that lists jj info\n\n## Context\n\nThis is the first Rust binary in the vc-x1 project. The goal (from `notes/todo.md` and `notes/chores-01.md`) is to create a CLI tool that lists jj commit info — changeID, commitID, and description title — using `jj-lib`. This is a foundational building block for the broader vibe coding environment that will eventually visualize how code and bot conversations co-evolved.\n\n## Approach: Single-step\n\nThis is a focused, well-defined task: scaffold a Cargo project and write a small binary. The `jj-lib` API surface we need is narrow (open repo, iterate commits, read fields). A single commit keeps history clean.\n\n## Implementation\n\n### 1. Initialize Cargo project in the repo root\n\n- `cargo init` to create `Cargo.toml` and `src/main.rs`\n- Add `jj-lib` dependency (latest version ~0.39)\n- Edition 2024\n\n### 2. Implement `src/main.rs`\n\nThe binary will:\n1. Discover the jj workspace from the current directory (or a path argument)\n2. Open the repo as `ReadonlyRepo`\n3. Evaluate a revset (default: `all()` or `::@` for ancestors of working copy) to get commits\n4. For each commit, print: changeID (short hex), commitID (short hex), first line of description\n\nKey jj-lib types/APIs:\n- `Workspace::load()` — open workspace from a path\n- `repo.index().evaluate_revset()` — query commits\n- `commit.change_id().reverse_hex()` — stable change ID\n- `commit.id().hex()` — git commit hash\n- `commit.description()` — commit message (take first line)\n\n### 3. Update notes\n\n- Add a section in `notes/chores-01.md` documenting this implementation\n- Move the todo item from \"Todo\" to \"Done\" in `notes/todo.md`\n- Add footer references linking to the chore narrative\n\n### 4. Commit\n\nSingle commit to the app repo with footer referencing the chore section, using the footer style from `chores-01.md`.\n\n## Verification\n\n```\ncargo build\ncargo run          # run from the vc-x1 repo root, should list commits\ncargo run -- -h    # if we add help flags\n```\n\n## Files to create/modify\n\n- `Cargo.toml` (new)\n- `src/main.rs` (new)\n- `notes/chores-01.md` (add implementation narrative)\n- `notes/todo.md` (move task to Done)\n\n\nIf you need specific details from before exiting plan mode (like exact code snippets, error messages, or content you generated), read the full transcript at: /home/wink/.claude/projects/-home-wink-data-prgs-rust-vc-x1/8b1f01de-cc51-4077-ad50-5e8542c630c1.jsonl",
@@ -2385,7 +3465,13 @@
     "non_english": true,
     "has_error_paste": false,
     "has_code_paste": true,
-    "informality": 0.15
+    "informality": 0.15,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "git_meta",
+    "context_provision": "pastes_code",
+    "language": "Other-non-English",
+    "register": "conversational"
   },
   {
     "prompt": "the current implementation of day 6 part 2 produces an answer that is too low, and I think you may have cheated to get the tests to pass. I want you to step way back. you can delete any and all part 2 code.\\\n1. we know that each \"column\" is separated by a vertical column of whitespace\\\n2. we know that each column is a math problem\\\n3. as documented in @prompts/day06.md , numbers are a column position with the most significant digit being in the earliest row that number has data\\\n\\\nGiven all of this, lets do some brute force here. first, break the input into a list of lists; split each line on whitespace to get the cells, with the last row being the symbols. Then transpose that table into a list of problems KEEPING IN MIND that the cells are not numbers; the list of cells within a problem still need to be parsed.",
@@ -2397,7 +3483,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.15
+    "informality": 0.15,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "bugfix",
+    "context_provision": "pastes_long_context",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "working on part 2. this is the description. The clerk quickly discovers that there are still invalid IDs in the ranges in your list. Maybe the young Elf was doing other silly patterns as well?\n\nNow, an ID is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs.\n\nFrom the same example as before:\n\n11-22 still has two invalid IDs, 11 and 22.\n95-115 now has two invalid IDs, 99 and 111.\n998-1012 now has two invalid IDs, 999 and 1010.\n1188511880-1188511890 still has one invalid ID, 1188511885.\n222220-222224 still has one invalid ID, 222222.\n1698522-1698528 still contains no invalid IDs.\n446443-446449 still has one invalid ID, 446446.\n38593856-38593862 still has one invalid ID, 38593859.\n565653-565659 now has one invalid ID, 565656.\n824824821-824824827 now has one invalid ID, 824824824.\n2121212118-2121212124 now has one invalid ID, 2121212121.\nAdding up all the invalid IDs in this example produces 4174379265.\\\n\\\nMy thought is we need a different isInvalid function for part 2, so part 1 stays working. The best I can think of is to check iteratively for each possible exact sequence of repeats. We know that repeats are impossible once that many repeats of a single digit wouldn't fit in the given id, so thats our bail condition. And we know that for a given number of repeats, they are only worth considering if that would divide the digits of the particular id up evenly.",
@@ -2409,7 +3501,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.15
+    "informality": 0.15,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "modify_run",
+    "context_provision": "pastes_long_context",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "working in day 3, the answer for part 2 is too low even though all tests pass. to be clear, this was the prompt; ou descend a short staircase, enter the surprisingly vast lobby, and are quickly cleared by the security checkpoint. When you get to the main elevators, however, you discover that each one has a red light above it: they're all offline.\n\n\"Sorry about that,\" an Elf apologizes as she tinkers with a nearby control panel. \"Some kind of electrical surge seems to have fried them. I'll try to get them online soon.\"\n\nYou explain your need to get further underground. \"Well, you could at least take the escalator down to the printing department, not that you'd get much further than that without the elevators working. That is, you could if the escalator weren't also offline.\"\n\n\"But, don't worry! It's not fried; it just needs power. Maybe you can get it running while I keep working on the elevators.\"\n\nThere are batteries nearby that can supply emergency power to the escalator for just such an occasion. The batteries are each labeled with their joltage rating, a value from 1 to 9. You make a note of their joltage ratings (your puzzle input). For example:\n\n987654321111111\n811111111111119\n234234234234278\n818181911112111\nThe batteries are arranged into banks; each line of digits in your input corresponds to a single bank of batteries. Within each bank, you need to turn on exactly two batteries; the joltage that the bank produces is equal to the number formed by the digits on the batteries you've turned on. For example, if you have a bank like 12345 and you turn on batteries 2 and 4, the bank would produce 24 jolts. (You cannot rearrange batteries.)\n\nYou'll need to find the largest possible joltage each bank can produce. In the above example:\n\nIn 987654321111111, you can make the largest joltage possible, 98, by turning on the first two batteries.\nIn 811111111111119, you can make the largest joltage possible by turning on the batteries labeled 8 and 9, producing 89 jolts.\nIn 234234234234278, you can make 78 by turning on the last two batteries (marked 7 and 8).\nIn 818181911112111, the largest joltage you can produce is 92.\nThe total output joltage is the sum of the maximum joltage from each bank, so in this example, the total output joltage is 98 + 89 + 78 + 92 = 357.\n\nThere are many batteries in front of you. Find the maximum joltage possible from each bank; what is the total output joltage?\n\nYour puzzle answer was 17155.\n\nThe first half of this puzzle is complete! It provides one gold star: *\n\n--- Part Two ---\nThe escalator doesn't move. The Elf explains that it probably needs more joltage to overcome the static friction of the system and hits the big red \"joltage limit safety override\" button. You lose count of the number of times she needs to confirm \"yes, I'm sure\" and decorate the lobby a bit while you wait.\n\nNow, you need to make the largest joltage by turning on exactly twelve batteries within each bank.\n\nThe joltage output for the bank is still the number formed by the digits of the batteries you've turned on; the only difference is that now there will be 12 digits in each bank's joltage output instead of two.\n\nConsider again the example from before:\n\n987654321111111\n811111111111119\n234234234234278\n818181911112111\nNow, the joltages are much larger:\n\nIn 987654321111111, the largest joltage can be found by turning on everything except some 1s at the end to produce 987654321111.\nIn the digit sequence 811111111111119, the largest joltage can be found by turning on everything except some 1s, producing 811111111119.\nIn 234234234234278, the largest joltage can be found by turning on everything except a 2 battery, a 3 battery, and another 2 battery near the start to produce 434234234278.\nIn 818181911112111, the joltage 888911112111 is produced by turning on everything except some 1s near the front.\nThe total output joltage is now much larger: 987654321111 + 811111111119 + 434234234278 + 888911112111 = 3121910778619.\n\nWhat is the new total output joltage?",
@@ -2421,7 +3519,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.15
+    "informality": 0.15,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "explain_understand",
+    "context_provision": "pastes_long_context",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "it doesn't matter if we remove or keep, and keep is more intuitive to me. The basic structure should be;\\\n1. scan for the highest digit. It can't be in the last (battery_count - 1) spaces, because that would rule out selecting enough batteries.\\\n2. iterate on that. once you've set the first digit, you only care about the digits after it and your effective battery count has reduced by 1.\\\n3. base case is effective battery count 1, where we just select the highest digit from the affix that is left; then we're done.\\\nThe recursive structure of that suggests that you want a helper function.",
@@ -2433,7 +3537,13 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.15
+    "informality": 0.15,
+    "spec_level": 1,
+    "spec_label": "L1 formal-spec",
+    "intent": "refactor",
+    "context_provision": "pure_nl",
+    "language": "English",
+    "register": "conversational"
   },
   {
     "prompt": "I'm starting day 2. this is the description. You get inside and take the elevator to its only other stop: the gift shop. \"Thank you for visiting the North Pole!\" gleefully exclaims a nearby sign. You aren't sure who is even allowed to visit the North Pole, but you know you can access the lobby through here, and from there you can access the rest of the North Pole base.\n\nAs you make your way through the surprisingly extensive selection, one of the clerks recognizes you and asks for your help.\n\nAs it turns out, one of the younger Elves was playing on a gift shop computer and managed to add a whole bunch of invalid product IDs to their gift shop database! Surely, it would be no trouble for you to identify the invalid product IDs for them, right?\n\nThey've even checked most of the product ID ranges already; they only have a few product ID ranges (your puzzle input) that you'll need to check. For example:\n\n11-22,95-115,998-1012,1188511880-1188511890,222220-222224,\n1698522-1698528,446443-446449,38593856-38593862,565653-565659,\n824824821-824824827,2121212118-2121212124\n(The ID ranges are wrapped here for legibility; in your input, they appear on a single long line.)\n\nThe ranges are separated by commas (,); each range gives its first ID and last ID separated by a dash (-).\n\nSince the young Elf was just doing silly patterns, you can find the invalid IDs by looking for any ID which is made only of some sequence of digits repeated twice. So, 55 (5 twice), 6464 (64 twice), and 123123 (123 twice) would all be invalid IDs.\n\nNone of the numbers have leading zeroes; 0101 isn't an ID at all. (101 is a valid ID that you would ignore.)\n\nYour job is to find all of the invalid IDs that appear in the given ranges. In the above example:\n\n11-22 has two invalid IDs, 11 and 22.\n95-115 has one invalid ID, 99.\n998-1012 has one invalid ID, 1010.\n1188511880-1188511890 has one invalid ID, 1188511885.\n222220-222224 has one invalid ID, 222222.\n1698522-1698528 contains no invalid IDs.\n446443-446449 has one invalid ID, 446446.\n38593856-38593862 has one invalid ID, 38593859.\nThe rest of the ranges contain no invalid IDs.\nAdding up all the invalid IDs in this example produces 1227775554.\n\nWhat do you get if you add up all of the invalid IDs?\\\n\\\nMy thoughts; we should have a parser function that turns the input into an iterator of ranges, a function to turn a range into an iterator of possibilities, and a predicate function for determining whether an id is valid. The invalid ids all have a lot of structure, so we can check by looking at the little end and comparing it to the big end. We can shift and reduce the big end with div floor using a multiple of 10 based on the length of the little end; eg, parse 11 by taking the little end (1) and dividing the whole thing by 10 (since the little end is 1 digit long). The length there is divFloor(n, 10) / 2. ids with an odd number of digits we can short circuit, since they can't possibly be bad; that might be worth pushing up into the possibility iterator since it skips whole ranges.",
@@ -2445,6 +3555,12 @@
     "non_english": false,
     "has_error_paste": false,
     "has_code_paste": false,
-    "informality": 0.0
+    "informality": 0.0,
+    "spec_level": 2,
+    "spec_label": "L2 detailed",
+    "intent": "feature_build",
+    "context_provision": "pastes_long_context",
+    "language": "English",
+    "register": "conversational"
   }
 ]

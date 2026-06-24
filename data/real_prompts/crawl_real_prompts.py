@@ -207,6 +207,7 @@ NOISE_MARKERS = (
     "Caveat: The messages below",
     "This session is being continued",
     "<user-prompt-submit-hook>",
+    "Unknown skill:",
 )
 
 
@@ -285,6 +286,25 @@ CODING_HINTS = re.compile(
 
 POLITE = re.compile(r"\b(please|could you|would you|thanks|thank you|can you)\b", re.IGNORECASE)
 
+# Non-ASCII letters signal a (likely) non-English / multilingual prompt — we must
+# NOT drop these via the English-keyword coding filter.
+NON_ASCII = re.compile(r"[^\x00-\x7f]")
+
+# Pasted error output / stack traces — a core vibe-coding pattern ("here's my
+# error, fix it") that English keyword filters would otherwise miss.
+ERROR_PASTE = re.compile(
+    r"(Traceback \(most recent call last\)|^\s*File \".*\", line \d+|"
+    r"\b\w*(Error|Exception)\b\s*:|SyntaxError|TypeError|NameError|ValueError|"
+    r"undefined reference|segmentation fault|panic:|unhandled|"
+    r"\bat .+\(.+:\d+:\d+\)|\bline \d+\b.*\b(error|failed)\b)",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+# Pasted code blocks / source fragments.
+CODE_PASTE = re.compile(
+    r"```|\bdef \w+\s*\(|\bclass \w+|\bfunction \w+\s*\(|=>|;\s*\n|\{\s*\n",
+)
+
 
 def informality_score(text):
     """Rough 0.0 (formal spec) .. 1.0 (terse vibe) heuristic."""
@@ -332,7 +352,7 @@ TRIVIAL = re.compile(
 )
 
 
-def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
+def run(limit, max_prompt_chars, min_prompt_chars, strict_coding):
     log("=" * 60)
     log("VIBE TAX — Real Prompt Crawler")
     log("=" * 60)
@@ -373,7 +393,19 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
             if TRIVIAL.match(p.strip()):
                 continue
             is_coding = bool(CODING_HINTS.search(p))
-            if coding_only and not is_coding:
+            non_english = bool(NON_ASCII.search(p))
+            has_error = bool(ERROR_PASTE.search(p))
+            has_code = bool(CODE_PASTE.search(p))
+            n_words = len(p.split())
+            # Keep gate. These turns come from real coding sessions, so almost
+            # any substantive turn is on-topic. We keep a turn if it is a
+            # plausible task in ANY language or carries pasted error/code.
+            # `--strict-coding` falls back to the English-keyword-only gate.
+            if strict_coding:
+                keep = is_coding
+            else:
+                keep = is_coding or non_english or has_error or has_code or n_words >= 3
+            if not keep:
                 continue
             norm = normalize(p)
             if norm in seen_norm:
@@ -390,9 +422,12 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
                 "prompt": p,
                 "repo": c["repo"],
                 "path": c["path"],
-                "n_words": len(p.split()),
+                "n_words": n_words,
                 "n_chars": len(p),
                 "looks_coding": is_coding,
+                "non_english": non_english,
+                "has_error_paste": has_error,
+                "has_code_paste": has_code,
                 "informality": informality_score(p),
             })
             kept_here += 1
@@ -417,6 +452,9 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
         "unique_repos": len(repos),
         "total_prompts": len(corpus),
         "coding_prompts": len(coding),
+        "non_english_prompts": sum(1 for c in corpus if c["non_english"]),
+        "error_paste_prompts": sum(1 for c in corpus if c["has_error_paste"]),
+        "code_paste_prompts": sum(1 for c in corpus if c["has_code_paste"]),
         "avg_words": round(sum(c["n_words"] for c in corpus) / len(corpus), 1) if corpus else 0,
         "informality_buckets": {
             "formal_0.0-0.4": sum(1 for c in corpus if c["informality"] < 0.4),
@@ -453,9 +491,11 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=80, help="max transcript files to crawl")
-    ap.add_argument("--max-chars", type=int, default=2000, help="max prompt length to keep")
+    ap.add_argument("--max-chars", type=int, default=8000,
+                    help="max prompt length to keep (high enough to retain pasted errors/code)")
     ap.add_argument("--min-chars", type=int, default=8, help="min prompt length to keep")
-    ap.add_argument("--all-prompts", action="store_true",
-                    help="keep non-coding prompts too (default: coding-only)")
+    ap.add_argument("--strict-coding", action="store_true",
+                    help="only keep prompts matching the English coding-keyword regex "
+                         "(drops most multilingual + error-paste prompts; default is inclusive)")
     args = ap.parse_args()
-    run(args.limit, args.max_chars, args.min_chars, coding_only=not args.all_prompts)
+    run(args.limit, args.max_chars, args.min_chars, strict_coding=args.strict_coding)

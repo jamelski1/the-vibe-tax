@@ -1,6 +1,9 @@
 REAL VIBE-CODING PROMPTS — sample (sorted most-vibe first)
 ============================================================
 
+[informality 0.95 | 3w | entireio/cli-checkpoints]
+just output "ok"
+----------------------------------------
 [informality 0.95 | 4w | entireio/cli-checkpoints]
 commit the staged changes
 ----------------------------------------
@@ -19,17 +22,129 @@ commit changes
 [informality 0.95 | 2w | eduanibal1981/gotosco-flutter_v3]
 run /init
 ----------------------------------------
+[informality 0.95 | 5w | liush2yuxjtu/sdk_claude_agent]
+list all skills we have
+----------------------------------------
+[informality 0.95 | 5w | Siwakorn165/backup]
+mkdir -p /root/claudeclaw
+cd /root/claudeclaw
+----------------------------------------
+[informality 0.95 | 5w | roccho-dev/home]
+think
+
+tmux操作一切不要
+現在worker example削除中
+動作するshファイルあるがそれぞれの意義が知りたい
+----------------------------------------
+[informality 0.95 | 6w | sektant1/arch-dotfiles]
+claude config set -g autoUpdates true
+----------------------------------------
+[informality 0.95 | 5w | boweiliu/idea-project-specs]
+react vite from day 1
+----------------------------------------
+[informality 0.95 | 4w | tensiondriven/athena]
+whats our git status
+----------------------------------------
+[informality 0.95 | 4w | schicks/zig-advent-of-code]
+explain slices to me
+----------------------------------------
+[informality 0.95 | 3w | schicks/zig-advent-of-code]
+save this conversation
+----------------------------------------
+[informality 0.95 | 5w | schicks/zig-advent-of-code]
+we already have those tests
+----------------------------------------
 [informality 0.95 | 5w | alex-pradas/DUCTILE]
 just remove the prepend pilot_
+----------------------------------------
+[informality 0.85 | 1w | yu5011010/knowledge]
+明日やることをtasksに入れてほしい
+----------------------------------------
+[informality 0.85 | 2w | yu5011010/knowledge]
+RVSSは全定例MTGのメンバー確認メール、人事の小笹くんに確認メール入れるっていう二つかなあと尾関くんに直近の連絡をしてもらう。
+慶應は書類の送付これお昼には絶対送る。
+----------------------------------------
+[informality 0.85 | 3w | aidenmak0624/ReviewLensAI]
+Unknown skill: plugin
 ----------------------------------------
 [informality 0.85 | 4w | fullsend-ai/experiments]
 Run the agent task
 ----------------------------------------
+[informality 0.85 | 5w | beelapranay/CS6650-BSDS]
+what is a lambda url?
+----------------------------------------
 [informality 0.85 | 3w | Doarte45/LLMnetopsLab]
 Fix the network
 ----------------------------------------
+[informality 0.85 | 3w | nisijin68/fivem-expense]
+"C:\Users\kohei\expense-app"    いまここで交通費精算のアプリをつくっている　状態を確認することは可能ですか
+----------------------------------------
+[informality 0.85 | 3w | Coriolis0120/SoulCode]
+读取 /etc/hostname 文件内容
+----------------------------------------
+[informality 0.85 | 3w | antimimitic/SNN-CPG-v3]
+Unknown skill: loginout
+----------------------------------------
+[informality 0.85 | 1w | S1mpleLIAO/12345]
+你可以帮我改代码吗
+----------------------------------------
+[informality 0.85 | 4w | skamenan7/fedora-dotfiles]
+are you using superclaude?
+----------------------------------------
+[informality 0.85 | 4w | skamenan7/fedora-dotfiles]
+why is not working?
+----------------------------------------
 [informality 0.85 | 1w | liush2yuxjtu/sdk_claude_agent]
 只输出：test-ok
+----------------------------------------
+[informality 0.85 | 1w | liush2yuxjtu/sdk_claude_agent]
+列出当前目录中的文件和目录。
+----------------------------------------
+[informality 0.85 | 3w | liush2yuxjtu/sdk_claude_agent]
+Unknown skill: dev_codex_use
+----------------------------------------
+[informality 0.85 | 4w | liush2yuxjtu/sdk_claude_agent]
+请列出当前仓库可用的全部 skills，只输出 skill 名称，每行一个。不要解释。
+----------------------------------------
+[informality 0.85 | 4w | liush2yuxjtu/sdk_claude_agent]
+只回答一个 JSON 对象：{"ok": true}
+----------------------------------------
+[informality 0.85 | 1w | liush2yuxjtu/sdk_claude_agent]
+只回答“ok”，不要使用任何工具。
+----------------------------------------
+[informality 0.85 | 3w | pkit/test-gm2]
+is everything okay?
+----------------------------------------
+[informality 0.85 | 5w | yunpiao/blog]
+作为一个程序员 你看看我现在的安装应用 有什么比较差劲的吗 有没有什么好的 软件实验呢
+----------------------------------------
+[informality 0.85 | 4w | roccho-dev/home]
+ここまでの議論
+FIX_DEV_BRANCH.md作成して
+あなたが記憶を失ってもいいように調査結果仔細を残してほしい
+
+think
+----------------------------------------
+[informality 0.85 | 4w | liush2yuxjtu/sdk_claude_agent]
+请列出当前仓库可用的全部 skills，只输出 skill 名称，每行一个。
+----------------------------------------
+[informality 0.85 | 3w | tensiondriven/athena]
+Just say hello
+----------------------------------------
+[informality 0.85 | 5w | tensiondriven/athena]
+Just say hello and exit
+----------------------------------------
+[informality 0.85 | 5w | schicks/zig-advent-of-code]
+what is \@mod in zig?
+----------------------------------------
+[informality 0.85 | 6w | schicks/zig-advent-of-code]
+how does zig do integer division?
+----------------------------------------
+[informality 0.85 | 4w | schicks/zig-advent-of-code]
+does zig have ternaries?
+----------------------------------------
+[informality 0.80 | 10w | Since2024/Yatra]
+help me apply for the agentic engineering grant by Superteam
 ----------------------------------------
 [informality 0.80 | 7w | entireio/cli-checkpoints]
 write a few commits without signing them
@@ -37,29 +152,104 @@ write a few commits without signing them
 [informality 0.80 | 14w | entireio/cli-checkpoints]
 make a small change now, this is for a test, just update the comment
 ----------------------------------------
+[informality 0.80 | 7w | entireio/cli-checkpoints]
+use search to list most recent checkpoint
+----------------------------------------
+[informality 0.80 | 13w | Magicianhax/NectarFi]
+let's setup github account which you can use how we can do that
+----------------------------------------
 [informality 0.80 | 14w | ASSERT-KTH/reproducible-trajectories]
 the pre-commit hook should not block if the commit message explicitly contains "no trajectory"
+----------------------------------------
+[informality 0.80 | 8w | beelapranay/CS6650-BSDS]
+explain to me what is in the Makefile
+----------------------------------------
+[informality 0.80 | 4w | beelapranay/CS6650-BSDS]
+can you try now?
 ----------------------------------------
 [informality 0.80 | 14w | ikruk/lhhp-coac-challenge]
 how to run it on with my claude agent? I have installed it already
 ----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 6 of the puzzle: https://adventofcode.com/2025/day/6
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 5 of the puzzle: https://adventofcode.com/2025/day/5
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 7 of the puzzle: https://adventofcode.com/2025/day/7
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 11 of the puzzle: https://adventofcode.com/2025/day/11
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 2 of the puzzle: https://adventofcode.com/2025/day/2
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 8 of the puzzle: https://adventofcode.com/2025/day/8
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 3 of the puzzle: https://adventofcode.com/2025/day/3
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 4 of the puzzle: https://adventofcode.com/2025/day/4
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 12 of the puzzle: https://adventofcode.com/2025/day/12
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 10 of the puzzle: https://adventofcode.com/2025/day/10
+----------------------------------------
+[informality 0.80 | 13w | pr0j3c7t0dd/advent-of-code-2025]
+you solved part one, now fetch the part two question and solve it
+----------------------------------------
+[informality 0.80 | 12w | pr0j3c7t0dd/advent-of-code-2025]
+use the @agent-aoc-solver agent to solve day 9 of the puzzle: https://adventofcode.com/2025/day/9
+----------------------------------------
+[informality 0.80 | 8w | boweiliu/idea-project-specs]
+let's plan a bit more in 01-project overview.md
+----------------------------------------
 [informality 0.80 | 15w | tensiondriven/athena]
 install OpenHands on llm, alright, install it on j@llm:docker-compose/openhands (youll have to make the fodler)
+----------------------------------------
+[informality 0.80 | 9w | schicks/zig-advent-of-code]
+bash is just the devenv shell, I use zsh
+----------------------------------------
+[informality 0.80 | 8w | schicks/zig-advent-of-code]
+it's there it's just higher up, line 33
 ----------------------------------------
 [informality 0.80 | 13w | schicks/zig-advent-of-code]
 alright. Add some example tests that might be iffy for the unit function
 ----------------------------------------
+[informality 0.80 | 9w | schicks/zig-advent-of-code]
+part 2 is the issue, part 1 worked fine
+----------------------------------------
 [informality 0.80 | 11w | schicks/zig-advent-of-code]
 the whole point here was to _not_ buffer the whole file
+----------------------------------------
+[informality 0.80 | 7w | schicks/zig-advent-of-code]
+you're on the right track, keep going
 ----------------------------------------
 [informality 0.80 | 15w | alex-pradas/DUCTILE]
 ah, I see that there is two pilot_ pilot_... remove the extra one we added
 ----------------------------------------
+[informality 0.80 | 11w | alex-pradas/DUCTILE]
+we are comparing v1 (previous loads folder) to v2. Ignore v3
+----------------------------------------
 [informality 0.80 | 4w | alex-pradas/DUCTILE]
 can you run it?
 ----------------------------------------
+[informality 0.75 | 8w | aidenmak0624/ReviewLensAI]
+could you check did i iplguin the superpowers
+----------------------------------------
+[informality 0.75 | 6w | liush2yuxjtu/sdk_claude_agent]
+What files are in this directory?
+----------------------------------------
 [informality 0.75 | 13w | boweiliu/idea-project-specs]
 can you restate the question? as asked it doesn't make sense to me
+----------------------------------------
+[informality 0.75 | 3w | tensiondriven/athena]
+What is 2+2?
 ----------------------------------------
 [informality 0.70 | 10w | MarioPadilla/claude-vault]
 Help me create a basic Flask API with error handling
@@ -70,17 +260,35 @@ make a very small update to a comment in the CLI - im just trying to test someth
 [informality 0.70 | 7w | tensiondriven/athena]
 Read the claude file in that dir
 ----------------------------------------
+[informality 0.70 | 19w | beelapranay/CS6650-BSDS]
+used this command but not sure if i saved them aws logs tail /aws/lambda/album-counter --region us-west-2 --since 10m --follow
+----------------------------------------
 [informality 0.70 | 7w | beelapranay/CS6650-BSDS]
 so the bug isn't actually a bug?
 ----------------------------------------
+[informality 0.70 | 7w | beelapranay/CS6650-BSDS]
+how do i trigger the race condition?
+----------------------------------------
+[informality 0.70 | 12w | liush2yuxjtu/sdk_claude_agent]
+请调用 helper 子 agent。helper 只需读取 /tmp/agent_team_sleep_test.json，然后用中文回答一句“helper 完成”。主 agent 最后只输出一个 JSON 对象：{"ok": true}。
+----------------------------------------
+[informality 0.70 | 8w | liush2yuxjtu/sdk_claude_agent]
+check /dev_codex_use do we have this skills ?
+----------------------------------------
 [informality 0.70 | 17w | sleeps21/dotfiles]
 change nvim config so that suggestions dont come up automatically but some keypress like ctrl + space
+----------------------------------------
+[informality 0.70 | 17w | sleeps21/dotfiles]
+skip the linux and shell phase im good enough in those domains and i already started k&R
 ----------------------------------------
 [informality 0.70 | 38w | pr0j3c7t0dd/advent-of-code-2025]
 is there anyting in this repository that is sensitive that I would not want to make public?  Analysze eacch file to ensure I'm safe to make this public, specifically the @claude-sessions/ folder.  The .env will NOT be public
 ----------------------------------------
 [informality 0.70 | 13w | pr0j3c7t0dd/advent-of-code-2025]
 is there a way I can remove claude-sessions from the whole git history?
+----------------------------------------
+[informality 0.70 | 41w | boweiliu/idea-project-specs]
+ah wait before that, i remembered that i wanted mobile web notifications to be a part of the spec as well - since the assumption is that the user is multitasking, they would benefit from being informed when tasks are complete
 ----------------------------------------
 [informality 0.70 | 21w | boweiliu/idea-project-specs]
 let's add both my answers so far (about cloud/local, and about mobile notifs) to a "WIP" section of the overview spec
@@ -94,26 +302,56 @@ rather, the terminal ttyd should be hooked up to a claude code session, so say "
 [informality 0.70 | 23w | boweiliu/idea-project-specs]
 let's plan for there to be a toggle or something, or a buffer that's editable before sending. but don't implement that for now
 ----------------------------------------
+[informality 0.70 | 13w | boweiliu/idea-project-specs]
+i don't think that's a very important decision. perhaps just autostart for now?
+----------------------------------------
 [informality 0.70 | 25w | boweiliu/idea-project-specs]
 let's do local first, but both cases should have local processes; cloud will have 1 big container containing the web app running alongside claude code
+----------------------------------------
+[informality 0.70 | 9w | boweiliu/idea-project-specs]
+did you consult meta.md after updating the .md doc?
 ----------------------------------------
 [informality 0.70 | 24w | boweiliu/idea-project-specs]
 write a script that copies this most recent chat session out of my ~/.claude and commits it as a timestamped chat convo for history
 ----------------------------------------
+[informality 0.70 | 9w | tensiondriven/athena]
+What happens if you check the pid in bash
+----------------------------------------
 [informality 0.70 | 23w | tensiondriven/athena]
 if you ssh over to j@10.1.0.94, you'll notice there's no armbian wifi config file, and yet we need to configure wifi for armbian
+----------------------------------------
+[informality 0.70 | 10w | tensiondriven/athena]
+Use the get_pool_status tool to show current Claude Pool status
 ----------------------------------------
 [informality 0.70 | 20w | schicks/zig-advent-of-code]
 there's some stuff getting caught by git that I think probably shouldn't be versioned. Help me write an appropriate gitignore
 ----------------------------------------
+[informality 0.70 | 10w | schicks/zig-advent-of-code]
+I exited and reentered within the devenv shell, try again
+----------------------------------------
 [informality 0.70 | 18w | schicks/zig-advent-of-code]
 so that confirms that devenv works, but I'm still seeing the error when I cd in from direnv
+----------------------------------------
+[informality 0.70 | 12w | schicks/zig-advent-of-code]
+Somethings off with the gitignore. Look at what has been modified recently
 ----------------------------------------
 [informality 0.70 | 20w | schicks/zig-advent-of-code]
 we probably actually want to hold onto .envrc, but otherwise good. Remove that one from the command and the gitignore
 ----------------------------------------
+[informality 0.70 | 8w | schicks/zig-advent-of-code]
+I started a new shell, it doesn't help
+----------------------------------------
+[informality 0.70 | 39w | schicks/zig-advent-of-code]
+that still looks wrong. As stated in @prompts/day06.md , the right most problem in the example parses to 4+421+623; the problem is defined as split off by the column of whitespace, and each number is a _column_ of digits
+----------------------------------------
+[informality 0.70 | 54w | schicks/zig-advent-of-code]
+for part 2, we care about _any_ time the dial passes 0 rather than just when it ends on 0. I think that means we want to check for each op whether it would bring the dial to a position outside (0,99] and count those? but then we still need to use mod after
+----------------------------------------
 [informality 0.70 | 25w | schicks/zig-advent-of-code]
 before doing that, give me a credible explanation as to in what case the current function is wrong and add a test to prove it
+----------------------------------------
+[informality 0.70 | 8w | schicks/zig-advent-of-code]
+is there a property testing framework for zig?
 ----------------------------------------
 [informality 0.70 | 21w | schicks/zig-advent-of-code]
 thread 5921302 panic: integer overflow
@@ -123,6 +361,9 @@ thread 5921302 panic: integer overflow
 [informality 0.70 | 50w | schicks/zig-advent-of-code]
 but I mean zeros_on_path, not the number of crossings. if start_pos is 0 and distance isint... oh, but if we go up rather than down, we could get say 4 as position_before_mod which gives us 0 zeros on path. the original bug only occurs if we go _down_ from 0
 ----------------------------------------
+[informality 0.70 | 9w | schicks/zig-advent-of-code]
+does the copy to mutable actually copy, or reference?
+----------------------------------------
 [informality 0.70 | 10w | schicks/zig-advent-of-code]
 Add a test in the case you think will fail
 ----------------------------------------
@@ -131,337 +372,4 @@ fair. I've tried to clean up the logic to make it more explicit, but I still hav
 ----------------------------------------
 [informality 0.70 | 31w | schicks/zig-advent-of-code]
 before we do that; this looks better, but we don't want actual recursion. make selectOptimalDigit return a single digit, and have joltage loop over the battery count to "unroll" that recursion
-----------------------------------------
-[informality 0.70 | 30w | alex-pradas/DUCTILE]
-modify the file to convert to newtons, and also I want to change the name of some interface points, I want lug_right to be pilot_lug_starboard and lug_left to be pilot_lug_port
-----------------------------------------
-[informality 0.65 | 7w | entireio/cli-checkpoints]
-can you add a standard MIT license?
-----------------------------------------
-[informality 0.65 | 9w | beelapranay/CS6650-BSDS]
-can you read the code inside the mystery folder?
-----------------------------------------
-[informality 0.65 | 33w | pr0j3c7t0dd/advent-of-code-2025]
-git push origin main --force                                                     128 х 
-fatal: 'origin' does not appear to be a git repository
-fatal: Could not read from remote repository.
-
-Please make sure you have the correct access rights
-----------------------------------------
-[informality 0.65 | 14w | boweiliu/idea-project-specs]
-please add in top-level readme that this repo is only for specs, no implementation.
-----------------------------------------
-[informality 0.60 | 10w | entireio/cli-checkpoints]
-Let's adjust the test-secrets.txt file.  Add STRIPE_PUBLISHABLE_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  I'm testing gitleaks.
-----------------------------------------
-[informality 0.60 | 12w | kristenmartino/agentic-sdlc-office]
-Refactor the sample button to use design tokens and run the tests.
-----------------------------------------
-[informality 0.60 | 30w | beelapranay/CS6650-BSDS]
-so what is a lambda url? and this is a program which deliberately has a bug and the point of this bug is to demonstrate the race condition which is...?
-----------------------------------------
-[informality 0.60 | 41w | beelapranay/CS6650-BSDS]
-and how exactly do we resolve this sort of an error? and is this is a coding error (as in, something which might happen during coding the program) or some sort of a system error? (something which comes up duiring scaling)?
-----------------------------------------
-[informality 0.60 | 22w | beelapranay/CS6650-BSDS]
-and what exaclty would resolving this bug ensure? would the count not increment by 10k each time we send a POST request?
-----------------------------------------
-[informality 0.60 | 22w | pksorensen/aspire-blobstorage-portal]
-We are making a sample app that shows blob storage support in aspire project. Add blob storage to apphost using azurerite emulator
-----------------------------------------
-[informality 0.60 | 46w | boweiliu/idea-project-specs]
-voice should primarily handle chat, maybe terminal commands later, but that's not a supported core flow. for the specific api, keep it flexible - could be openai or wispr flow or something else. we will prioritize what's easy to integrate and low latency with sufficient accuracy.
-----------------------------------------
-[informality 0.60 | 21w | boweiliu/idea-project-specs]
-should be very basic, read-only, with line numbers. i'm imaging the user might provide commentary but wouldn't be doing code editing.
-----------------------------------------
-[informality 0.60 | 36w | boweiliu/idea-project-specs]
-yeah these all sound good. after this let's figure out an implementation order, i.e. feature prioritzation sequencing. Also add to the meta.md a section that says to think about feature/prototype feature sequencing in future projects too.
-----------------------------------------
-[informality 0.60 | 44w | boweiliu/idea-project-specs]
-i backed those changes out. let's try that again, but instead, we do a question and answer thing and you be the questioner role. make sure that this is specified in meta.md as well, that implementation order decisions should be cooperative and q&a based.
-----------------------------------------
-[informality 0.60 | 51w | tensiondriven/athena]
-Check the monitor.sh script in dev-tools, it should stop monitoring when it is stopped, and it should n
-
-An error just occurred, but it might be a duplicate:
-Type: Exqlite.Error
-File: debugger.ex:155
-Time: 2025-06-18 23:55:43.642
-Stack:
-  (ash_chat 0.1.0) lib/ash_chat/ai/chat_agent.ex:16: AshChat.AI.ChatAgent.create_room/0
-  (ash_chat 0.1.0) lib/ash_chat_web/live/chat_live/room_handlers.ex:14: AshChatWeb.ChatLive.RoomHandlers.handle_event/3
-  (phoenix_live_view 1.0.17) lib/phoenix_live_view/channel.ex:509: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3
-----------------------------------------
-[informality 0.60 | 22w | tensiondriven/athena]
-Use the start_task tool to begin a task called 'CreativePoem' with this prompt: Write a short poem about artificial intelligence and creativity
-----------------------------------------
-[informality 0.60 | 21w | schicks/zig-advent-of-code]
-is zig pass by value or reference? Can I modify start_pos, and if I do does it change outside the function?
-----------------------------------------
-[informality 0.60 | 22w | schicks/zig-advent-of-code]
-I updated it and it works for the example test, but not for the real input; my answer ends up too high
-----------------------------------------
-[informality 0.60 | 41w | schicks/zig-advent-of-code]
-I tried to compensate for that but am getting an error I don't understand. advent/day01.zig:56:29: error: value with comptime-only type 'comptime_int' depends on runtime control flow
-    return zeros_on_path - (if (start_pos == 0) 1 else 0);\
-\
-explain that to me
-----------------------------------------
-[informality 0.60 | 29w | schicks/zig-advent-of-code]
-Is there a way to do parametrized tests in zig? The edge cases test is throwing me off because I can only see one failing case at a time
-----------------------------------------
-[informality 0.60 | 26w | schicks/zig-advent-of-code]
-Sorry, I'm not being clear. I want a different _test_ for each edge case. If you can make this tidy with comptime I'm all for it
-----------------------------------------
-[informality 0.60 | 18w | schicks/zig-advent-of-code]
-I did some cleanup that I like, but I'm getting an error I don't understand about const pointers
-----------------------------------------
-[informality 0.60 | 16w | schicks/zig-advent-of-code]
-write tests inside the day file they are relevant for. Test with tests, not debug scripts.
-----------------------------------------
-[informality 0.55 | 8w | MarioPadilla/claude-vault]
-Can you also add logging for debugging purposes?
-----------------------------------------
-[informality 0.55 | 21w | hui0112/album-api-go]
-main.go is a simple api server writte in go, can you try to study and summarize to me what it does?
-----------------------------------------
-[informality 0.55 | 7w | harshit-agarwal7/claims-processing-system]
-Can you create a helpful gitignore file?
-----------------------------------------
-[informality 0.55 | 14w | alex-pradas/DUCTILE]
-Can you create a python file to translate the '/Users/alex/repos/JMD-GenAI-paper/data/DUCTILE/sessions/engineer_2/OEM_loads_v2.yaml' to a json format?
-----------------------------------------
-[informality 0.55 | 19w | alex-pradas/DUCTILE]
-about 1, the tools seems to be renaming it automatically, so do not bother. About 2-4, yes fix please.
-----------------------------------------
-[informality 0.50 | 47w | entireio/cli-checkpoints]
-write a little text explaining that the only way to disable is via flag because:
-1. We don't want to promt the user with heaps of choices while setting up for the first time
-2. if we use flags, we can track easier the usage via metrics
-----------------------------------------
-[informality 0.50 | 56w | phughk/ophelos-tech-test]
-Create 3 directories: frontend, backend, and psql. The frontend is a typescript react project. The backend is a rust tokio axum project that uses psql. And psql needs a migration script to setup the schema when it starts up. The root directory should have a docker-compose that uses the Dockerfiles of each of those individual projects.
-----------------------------------------
-[informality 0.50 | 36w | schicks/zig-advent-of-code]
-This file is a rough examination, not done yet. But I'd love to use iterators rather than array lists in parseRanges. I'm used to iterators in rust or js; what is the equivalent concept in zig?
-----------------------------------------
-[informality 0.50 | 33w | schicks/zig-advent-of-code]
-I tried to make an iterator, but question; why don't I need an allocator in there? It seems like there's a bunch of places I'm creating memory. Are allocators only for heap allocations?
-----------------------------------------
-[informality 0.40 | 32w | liush2yuxjtu/sdk_claude_agent]
-PLAN ONLY。
-请评估这个请求是否能得到一个好计划：build agent teams in this @/Users/m1/projects/sdk_claude_agent/demo2_control_sdk_agent_teams.json。
-要求：
-1. 先阅读这个 JSON。
-2. 使用至少一个 subagent 获取补充观点。
-3. 不要写文件，不要给实现代码。
-4. 最终只输出中文：
-   - 这个请求是否足够清晰
-   - 主要风险
-   - 一个 1, 2, 3 的最小实施计划
-   - 你建议保留或删掉的复杂度
-----------------------------------------
-[informality 0.40 | 25w | liush2yuxjtu/sdk_claude_agent]
-PLAN ONLY。
-build agent teams with /tmp/*.json。
-要求：
-1. 先阅读仓库里的 demo2_control_sdk_agent_teams.json。
-2. 调用 long_snap、middle_snap、short_snap 三个 agent 各给一个计划视角。
-3. 不写代码，不改文件。
-4. 最终只输出中文：问题是否清晰、主要风险、综合后的 1 2 3 计划。
-----------------------------------------
-[informality 0.35 | 96w | schicks/zig-advent-of-code]
-I want to shape my zig project around being able to submit solutions directly from the built CLI. The project should build an "advent" tool that takes 2 arguments, the day and the puzzle number. Given those, it should run a function for that puzzle that gets the input it needs and then submits the solution. The inputs can be hard coded as files in some cases, and the solutions should just be output to the commandline for the user to submit. set up the boilerplate to handle all that without jumping into any puzzling yet
-----------------------------------------
-[informality 0.25 | 85w | boweiliu/idea-project-specs]
-1 - yeah i'd like the app to be able to be deployed either on a cloud server which has been setup to house a suitable git project and has claude code installed; OR it's just running locally and serving up a web interface. i don't think the code needs to be structured to know which one (it should work agnostically by default) and the only difference is whether it will be accesesed over wifi/LAN or over a cloud endpoint. do you need further clarification?
-----------------------------------------
-[informality 0.25 | 78w | schicks/zig-advent-of-code]
-wait hold on. You said this; Start at position 1, move left by 50 (L50)
-  - Current calculation: position_before_mod =
-   1 - 50 = -49
-  - Your function returns: @abs(@divFloor(-49,
-   100)) = @abs(-1) = 1
-  - But this is wrong! Moving from position 1
-  left by 50 should land at position 51
-  (wrapping around), and we should cross 0
-  exactly once\
-\
-but in that text you say my answer is 1 and the actual answer is 1
-----------------------------------------
-[informality 0.25 | 364w | schicks/zig-advent-of-code]
-We're working on advent of code, day 1 part 1. This is the prompt; The attached document (your puzzle input) contains a sequence of rotations, one per line, which tell you how to open the safe. A rotation starts with an L or R which indicates whether the rotation should be to the left (toward lower numbers) or to the right (toward higher numbers). Then, the rotation has a distance value which indicates how many clicks the dial should be rotated in that direction.
-
-So, if the dial were pointing at 11, a rotation of R8 would cause the dial to point at 19. After that, a rotation of L19 would cause it to point at 0.
-
-Because the dial is a circle, turning the dial left from 0 one click makes it point at 99. Similarly, turning the dial right from 99 one click makes it point at 0.
-
-So, if the dial were pointing at 5, a rotation of L10 would cause it to point at 95. After that, a rotation of R5 could cause it to point at 0.
-
-The dial starts by pointing at 50.
-
-You could follow the instructions, but your recent required official North Pole secret entrance security training seminar taught you that the safe is actually a decoy. The actual password is the number of times the dial is left pointing at 0 after any rotation in the sequence.
-
-For example, suppose the attached document contained the following rotations:
-
-L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82
-Following these rotations would cause the dial to move as follows:
-
-The dial starts by pointing at 50.
-The dial is rotated L68 to point at 82.
-The dial is rotated L30 to point at 52.
-The dial is rotated R48 to point at 0.
-The dial is rotated L5 to point at 95.
-The dial is rotated R60 to point at 55.
-The dial is rotated L55 to point at 0.
-The dial is rotated L1 to point at 99.
-The dial is rotated L99 to point at 0.
-The dial is rotated R14 to point at 14.
-The dial is rotated L82 to point at 32.
-----------------------------------------
-[informality 0.25 | 64w | schicks/zig-advent-of-code]
-A concern I have here is that it takes in a buffer as input. Obviously that's fine for the sample input, but how would it handle very large inputs? Given that in general the inputs will be a file, what would it look like to instead give it a file pointer and manage iteration over that, rather than holding the whole fiel in memory?
-----------------------------------------
-[informality 0.20 | 94w | liush2yuxjtu/sdk_claude_agent]
-Status   Config   Usage                                                    
-                                                                              
-  Version: 2.1.87                                                             
-  Session name: /rename to add a name                                         
-  Session ID: 312b3035-728c-4745-bda2-858d35e24f14                            
-  cwd: /Users/m1/projects/sdk_claude_agent                                      
-  Auth token: ANTHROPIC_AUTH_TOKEN
-  Anthropic base URL: https://api.minimaxi.com/anthropic
-  Proxy: http://127.0.0.1:7897
-
-  Model: MiniMax-M2.7-highspeed
-  MCP servers: 1 connected, 1 need auth, 1 failed · /mcp
-  Setting sources: User settings
-  Esc to cancel please think as architecture. @AGENTS.md check meta-rules for edit rules: print agents.md fix patch in chat directly instead of wrtting to /tmp/ . <== use this as good examples and bad examples and print the same prompts to me with claude sessions please. verify it this rules worked.
-----------------------------------------
-[informality 0.20 | 104w | schicks/zig-advent-of-code]
-Before I do that, I'm getting errors with the current setup. (devenv) CBM-W2F0Q63L2G:zig-advent-of-code sam.schick$ zig test '/Users/sam.schick/Documents/code/zig-advent-of-code/advent/day01.zig'
-advent/day01.zig:9:20: error: member function expected 1 argument(s), found 0
-    while (try file.reader().readUntilDelimiterOrEof(buf[0..], '\n')) |line| {
-               ~~~~^~~~~~~
-/nix/store/h5zqw1lr8i0pwqpkkl3lbid06f9dprw0-zig-0.15.2/lib/zig/std/fs/File.zig:2105:5: note: function declared here
-pub fn reader(file: File, buffer: []u8) Reader {\
-\
-I think this says that reader expects the buffer as an argument. When I fix that, it says there is no such mehtod as readUntilDelimiterOrEof. I also don't really understand what we're doing with the buffer, or why it's not a problem that the buffer starts undefined. Lets take a step back; can you help me understand?
-----------------------------------------
-[informality 0.15 | 197w | jiayuanz3/SWEContextBench]
-Fix this bug to solve the issue based on manual.yaml:
-  instance_id: pylint-dev__pylint-6506
-  repo: pylint-dev/pylint
-  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5
-  problem_statement: Traceback printed for unrecognized option
-### Bug description
-
-A traceback is printed when an unrecognized option is passed to pylint.
-
-### Configuration
-
-_No response_
-
-### Command used
-
-```shell
-pylint -Q
-```
-
-
-### Pylint output
-
-```shell
-************* Module Command line
-Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)
-Traceback (most recent call last):
-  File "/Users/markbyrne/venv310/bin/pylint", line 33, in <module>
-    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())
-  File "/Users/markbyrne/programming/pylint/pylint/__init__.py", line 24, in run_pylint
-    PylintRun(argv or sys.argv[1:])
-  File "/Users/markbyrne/programming/pylint/pylint/lint/run.py", line 135, in __init__
-    args = _config_initialization(
-  File "/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py", line 85, in _config_initialization
-    raise _UnrecognizedOptionError(options=unrecognized_options)
-pylint.config.exceptions._UnrecognizedOptionError
-```
-
-
-### Expected behavior
-
-The top part of the current output is handy:
-`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`
-
-The traceback I don't think is expected & not user-friendly.
-A usage tip, for example:
-```python
-mypy -Q
-usage: mypy [-h] [-v] [-V] [more options; see below]
-            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]
-mypy: error: unrecognized arguments: -Q
-```
-
-### Pylint version
-
-```shell
-pylint 2.14.0-dev0
-astroid 2.11.3
-Python 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]
-```
-
-
-### OS / Environment
-
-_No response_
-
-### Additional dependencies
-
-_No response_
-----------------------------------------
-[informality 0.15 | 159w | schicks/zig-advent-of-code]
-the current implementation of day 6 part 2 produces an answer that is too low, and I think you may have cheated to get the tests to pass. I want you to step way back. you can delete any and all part 2 code.\
-1. we know that each "column" is separated by a vertical column of whitespace\
-2. we know that each column is a math problem\
-3. as documented in @prompts/day06.md , numbers are a column position with the most significant digit being in the earliest row that number has data\
-\
-Given all of this, lets do some brute force here. first, break the input into a list of lists; split each line on whitespace to get the cells, with the last row being the symbols. Then transpose that table into a list of problems KEEPING IN MIND that the cells are not numbers; the list of cells within a problem still need to be parsed.
-----------------------------------------
-[informality 0.15 | 262w | schicks/zig-advent-of-code]
-working on part 2. this is the description. The clerk quickly discovers that there are still invalid IDs in the ranges in your list. Maybe the young Elf was doing other silly patterns as well?
-
-Now, an ID is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs.
-
-From the same example as before:
-
-11-22 still has two invalid IDs, 11 and 22.
-95-115 now has two invalid IDs, 99 and 111.
-998-1012 now has two invalid IDs, 999 and 1010.
-1188511880-1188511890 still has one invalid ID, 1188511885.
-222220-222224 still has one invalid ID, 222222.
-1698522-1698528 still contains no invalid IDs.
-446443-446449 still has one invalid ID, 446446.
-38593856-38593862 still has one invalid ID, 38593859.
-565653-565659 now has one invalid ID, 565656.
-824824821-824824827 now has one invalid ID, 824824824.
-2121212118-2121212124 now has one invalid ID, 2121212121.
-Adding up all the invalid IDs in this example produces 4174379265.\
-\
-My thought is we need a different isInvalid function for part 2, so part 1 stays working. The best I can think of is to check iteratively for each possible exact sequence of repeats. We know that repeats are impossible once that many repeats of a single digit wouldn't fit in the given id, so thats our bail condition. And we know that for a given number of repeats, they are only worth considering if that would divide the digits of the particular id up evenly.
-----------------------------------------
-[informality 0.15 | 107w | schicks/zig-advent-of-code]
-it doesn't matter if we remove or keep, and keep is more intuitive to me. The basic structure should be;\
-1. scan for the highest digit. It can't be in the last (battery_count - 1) spaces, because that would rule out selecting enough batteries.\
-2. iterate on that. once you've set the first digit, you only care about the digits after it and your effective battery count has reduced by 1.\
-3. base case is effective battery count 1, where we just select the highest digit from the affix that is left; then we're done.\
-The recursive structure of that suggests that you want a helper function.
 ----------------------------------------

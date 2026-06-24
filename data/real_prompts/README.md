@@ -1,12 +1,21 @@
 # Real Vibe-Coding Prompt Corpus
 
 Harvests **authentic** prompts that real developers typed while coding with
-Claude Code, by crawling committed session transcripts on public GitHub.
+Claude Code, by crawling committed session transcripts on public GitHub, then
+classifies them along the **Vibe Spectrum** — a multi-axis taxonomy of how
+people actually prompt.
 
 This complements the synthetic `vibe_spectrum_data.json` (which derives 5
 formality levels from HumanEval docstrings): instead of *inventing* informal
 prompts, we collect how people *actually* prompt — to calibrate or sanity-check
 the synthetic spectrum.
+
+**→ See [`VIBE_SPECTRUM.md`](VIBE_SPECTRUM.md) for the taxonomy, distributions,
+and what they mean for the Vibe Tax study.**
+
+Two scripts:
+- `crawl_real_prompts.py` — discover + fetch + extract the corpus.
+- `classify_prompts.py` — label each prompt across the five spectrum axes.
 
 ## How it works
 
@@ -49,14 +58,20 @@ python crawl_real_prompts.py --all-prompts     # keep non-coding chatter too
 | `real_prompts_sample.txt`  | Human-readable sample, sorted most-vibe first. |
 | `real_prompts_stats.json`  | Aggregate counts + informality buckets. |
 
-## Crawl results (scaled run)
+## Crawl results (inclusive run)
 
 A 13-query crawl (`--limit 1000`) surfaced **220** candidate transcript files
-and yielded **89** unique, de-templated coding prompts across **22** repos.
-Informality skew: 11 formal / 11 mid / **67 vibe** — most real prompts land at
-the informal end. Discovery breadth (number of distinct query angles), not
-fetch budget, is the binding constraint on corpus size; add more query
-variants to `SEARCH_QUERIES` to grow it further.
+and yielded **~200** unique human prompts across **~40** repos. Making the keep
+gate multilingual- and error/code-paste-aware (rather than English-coding-keyword
+only) roughly **doubled** the yield and surfaced patterns the strict gate
+silently dropped — ~11% non-English prompts and the pasted-error/spec patterns.
+Discovery breadth (number of distinct query angles), not fetch budget, is the
+binding constraint on corpus size; add more query variants to `SEARCH_QUERIES`
+to grow it further.
+
+By default the crawler is **inclusive** (keeps any substantive turn from a
+coding session, in any language); pass `--strict-coding` for the old
+English-keyword-only gate.
 
 ## Pilot findings
 
