@@ -13,13 +13,16 @@ the synthetic spectrum.
 `crawl_real_prompts.py` runs a 6-step pipeline:
 
 1. **Discover** — GitHub code-search API (paginated) for `*.jsonl` files
-   carrying Claude Code's distinctive transcript fields (`parentUuid`,
-   `sessionId`, `userType`, `isSidechain`, `cwd`). Caps files-per-repo for
-   diversity and skips fixture/test/example paths.
+   carrying Claude Code's distinctive transcript fields. Leads with the
+   `"userType":"external"` phrase to target **main sessions** (which hold
+   human-typed turns) over sub-agent sidechains. Caps files-per-repo for
+   diversity and skips fixture/test/example paths and `agent-*.jsonl`
+   sidechain files.
 2. **Fetch** — downloads each raw file from `raw.githubusercontent.com`.
-3. **Extract** — parses JSONL, keeps genuine human `type:"user"` turns, drops
+3. **Extract** — parses JSONL, keeps genuine human `type:"user"` turns
+   (requires `userType == "external"`, rejects `isSidechain` turns), drops
    tool results, `[Request interrupted]`, system-reminders, `<command-*>`
-   wrappers, slash-commands, and sub-agent sidechain noise.
+   wrappers, and slash-commands.
 4. **Dedupe** — exact + whitespace-normalized.
 5. **Score** — a rough `informality` heuristic, `0.0` (formal spec) →
    `1.0` (terse vibe), based on length, punctuation, casing, politeness, and
@@ -50,6 +53,9 @@ python crawl_real_prompts.py --all-prompts     # keep non-coding chatter too
   the field signatures), but many are **agent sidechain logs** (`agent-*.jsonl`)
   with no human turns, or **test fixtures** in transcript-tooling repos
   (parsers, editors, exporters) — both filtered out.
+- Leading discovery with `"userType":"external"` and dropping sidechains
+  roughly **doubled the hit rate** (share of fetched files yielding a real
+  prompt) from ~17% to ~32%.
 - Real prompts skew terse and informal: `"commit changes"`, `"Fix the
   network"`, `"Run the agent task"`, alongside fuller asks like `"change nvim
   config so that suggestions dont come up automatically but some keypress like

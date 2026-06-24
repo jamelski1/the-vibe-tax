@@ -1,10 +1,55 @@
 [
   {
+    "prompt": "commit the staged changes",
+    "repo": "entireio/cli-checkpoints",
+    "path": "d8/c9d9506694/1/full.jsonl",
+    "n_words": 4,
+    "n_chars": 25,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "respond \"test ok\"",
+    "repo": "entireio/cli-checkpoints",
+    "path": "22/8e25dcb58c/0/full.jsonl",
+    "n_words": 3,
+    "n_chars": 17,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
     "prompt": "commit changes",
     "repo": "housesigma/listing-chatbot-design",
     "path": "16/5c628cba38/0/full.jsonl",
     "n_words": 2,
     "n_chars": 14,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "add and commit",
+    "repo": "oneopane/claudecode.config",
+    "path": "projects/-Users-ojash-Documents-MediaPlayer/6d05f418-b199-47a9-b790-efd7a9f3ae5c.jsonl",
+    "n_words": 3,
+    "n_chars": 14,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "how to handle this error",
+    "repo": "hangseanshi/Sealine-Database",
+    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "n_words": 5,
+    "n_chars": 24,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "check my api connectivity",
+    "repo": "hangseanshi/Sealine-Database",
+    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "n_words": 4,
+    "n_chars": 25,
     "looks_coding": true,
     "informality": 0.95
   },
@@ -18,20 +63,38 @@
     "informality": 0.95
   },
   {
+    "prompt": "please test the api connectivity",
+    "repo": "hangseanshi/Sealine-Database",
+    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "n_words": 5,
+    "n_chars": 32,
+    "looks_coding": true,
+    "informality": 0.9
+  },
+  {
+    "prompt": "Fix the network",
+    "repo": "Doarte45/LLMnetopsLab",
+    "path": "results/cctranscripts/r014.jsonl",
+    "n_words": 3,
+    "n_chars": 15,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
+    "prompt": "Giải thích file này",
+    "repo": "NguyenDoCong/bidding",
+    "path": "codex-docker/.claude-home/projects/-workspace/366d068c-bdf7-4221-a6d1-3ba5df67eaf8.jsonl",
+    "n_words": 4,
+    "n_chars": 19,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
     "prompt": "Run the agent task",
     "repo": "fullsend-ai/experiments",
     "path": "target-repo-skills/results/control/transcript.jsonl",
     "n_words": 4,
     "n_chars": 18,
-    "looks_coding": true,
-    "informality": 0.85
-  },
-  {
-    "prompt": "Fix the network",
-    "repo": "Doarte45/LLMnetopsLab",
-    "path": "results/cctranscripts/r002.jsonl",
-    "n_words": 3,
-    "n_chars": 15,
     "looks_coding": true,
     "informality": 0.85
   },
@@ -54,6 +117,15 @@
     "informality": 0.8
   },
   {
+    "prompt": "can you restate the question? as asked it doesn't make sense to me",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 13,
+    "n_chars": 66,
+    "looks_coding": true,
+    "informality": 0.75
+  },
+  {
     "prompt": "Help me create a basic Flask API with error handling",
     "repo": "MarioPadilla/claude-vault",
     "path": "code-history.jsonl",
@@ -63,11 +135,74 @@
     "informality": 0.7
   },
   {
-    "prompt": "make a very small update to a comment in the CLI - im just trying to test something",
-    "repo": "entireio/cli-checkpoints",
-    "path": "fc/94685b791a/0/full.jsonl",
-    "n_words": 18,
-    "n_chars": 83,
+    "prompt": "let's add both my answers so far (about cloud/local, and about mobile notifs) to a \"WIP\" section of the overview spec",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 21,
+    "n_chars": 117,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "yeah i don't actually care about the continuation per se -- i'm more imagining that each session persists its chat and prompt history, whether mobile or desktop, and then all the context can be reaccessed whenever a new claude code process is started",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 43,
+    "n_chars": 250,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "rather, the terminal ttyd should be hooked up to a claude code session, so say \"claude help me edit the readme\" -> somehow that literal text gets sent to claude code",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 31,
+    "n_chars": 165,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "let's plan for there to be a toggle or something, or a buffer that's editable before sending. but don't implement that for now",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 23,
+    "n_chars": 126,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "let's do local first, but both cases should have local processes; cloud will have 1 big container containing the web app running alongside claude code",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 25,
+    "n_chars": 150,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "write a script that copies this most recent chat session out of my ~/.claude and commits it as a timestamped chat convo for history",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 24,
+    "n_chars": 131,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "Run /next-task --phase and when complete run /commit",
+    "repo": "troobit/workscripts",
+    "path": "specs/repo-setup/.orbit/phase-2-run-3-transcript.jsonl",
+    "n_words": 8,
+    "n_chars": 52,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "how to handle error: API Error: Unable to connect to API: Self-signed certificate detected. Check your proxy or corporate SSL certificates",
+    "repo": "hangseanshi/Sealine-Database",
+    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "n_words": 21,
+    "n_chars": 138,
     "looks_coding": true,
     "informality": 0.7
   },
@@ -99,11 +234,11 @@
     "informality": 0.7
   },
   {
-    "prompt": "can you add a standard MIT license?",
-    "repo": "entireio/cli-checkpoints",
-    "path": "b0/be9accda39/0/full.jsonl",
-    "n_words": 7,
-    "n_chars": 35,
+    "prompt": "please add in top-level readme that this repo is only for specs, no implementation.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 14,
+    "n_chars": 83,
     "looks_coding": true,
     "informality": 0.65
   },
@@ -115,6 +250,87 @@
     "n_chars": 48,
     "looks_coding": true,
     "informality": 0.65
+  },
+  {
+    "prompt": "voice should primarily handle chat, maybe terminal commands later, but that's not a supported core flow. for the specific api, keep it flexible - could be openai or wispr flow or something else. we will prioritize what's easy to integrate and low latency with sufficient accuracy.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 46,
+    "n_chars": 280,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "should be very basic, read-only, with line numbers. i'm imaging the user might provide commentary but wouldn't be doing code editing.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 21,
+    "n_chars": 133,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "yeah these all sound good. after this let's figure out an implementation order, i.e. feature prioritzation sequencing. Also add to the meta.md a section that says to think about feature/prototype feature sequencing in future projects too.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 36,
+    "n_chars": 238,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "i backed those changes out. let's try that again, but instead, we do a question and answer thing and you be the questioner role. make sure that this is specified in meta.md as well, that implementation order decisions should be cooperative and q&a based.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 44,
+    "n_chars": 254,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-27T22:48 • triage\n\nRun `gt boot triage` now.",
+    "repo": "skogai/claude-backup2",
+    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/9fa0b67d-e3db-4878-8e8f-ff27ea9a2932.jsonl",
+    "n_words": 14,
+    "n_chars": 80,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-27T15:38 • triage\n\nRun `gt boot triage` now.",
+    "repo": "skogai/claude-backup2",
+    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/1d32d8a7-4492-41d5-8daa-44168235c9d2.jsonl",
+    "n_words": 14,
+    "n_chars": 80,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-28T12:44 • triage\n\nRun `gt boot triage` now.",
+    "repo": "skogai/claude-backup2",
+    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/8f7ac31c-5140-432a-b119-d3a4625a631c.jsonl",
+    "n_words": 14,
+    "n_chars": 80,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-28T01:09 • triage\n\nRun `gt boot triage` now.",
+    "repo": "skogai/claude-backup2",
+    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/ab5a255f-2893-4e40-a502-ad510583aa57.jsonl",
+    "n_words": 14,
+    "n_chars": 80,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "[GAS TOWN] boot <- daemon • 2026-03-01T15:47 • triage\n\nRun `gt boot triage` now.",
+    "repo": "skogai/claude-backup2",
+    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/1fb2c8c2-691f-44c2-9163-7dac5f976f08.jsonl",
+    "n_words": 14,
+    "n_chars": 80,
+    "looks_coding": true,
+    "informality": 0.6
   },
   {
     "prompt": "Refactor the sample button to use design tokens and run the tests.",
@@ -189,11 +405,20 @@
     "informality": 0.55
   },
   {
-    "prompt": "Search for all Elixir source files (.ex, .exs) in the athena-ptz-connector directory to understand the project structure and find the main application code and any existing tests.",
-    "repo": "tensiondriven/athena",
-    "path": "chat-history/246b2b63-06b0-4f19-aae6-38468afc8feb.jsonl",
-    "n_words": 27,
-    "n_chars": 179,
+    "prompt": "Create a Next.js middleware that adds a custom header \"X-Request-Id\" with a unique value to all responses. The middleware should also log the request pathname to the console.",
+    "repo": "vercel/next-evals-oss",
+    "path": "results/claude-opus-4.7/2026-04-16T16-28-28.945Z/agent-031-proxy-middleware/run-1/transcript-raw.jsonl",
+    "n_words": 28,
+    "n_chars": 174,
+    "looks_coding": true,
+    "informality": 0.5
+  },
+  {
+    "prompt": "  ~/Documents/repo/recommendations-service   RECO-0-create-full-cicle-flow *1 ❯ git push                                                                                                                 01:42:52fatal: The current branch RECO-0-create-full-cicle-flow has no upstream branch.To push the current branch and set the remote as upstream, use    git push --set-upstream origin RECO-0-create-full-cicle-flowTo have this happen automatically for branches without a trackingupstream, see 'push.autoSetupRemote' in 'git help config'.",
+    "repo": "4thwithme/.dotfiles",
+    "path": "claude/projects/-Users-4thwithme--config/c5835584-ebf7-45b9-96e9-174e4510a5e9.jsonl",
+    "n_words": 51,
+    "n_chars": 542,
     "looks_coding": true,
     "informality": 0.5
   },
@@ -234,6 +459,60 @@
     "informality": 0.3
   },
   {
+    "prompt": "You are in plan mode. ExitPlanMode is how you PROPOSE a plan BEFORE doing any work — you do NOT need to (and must not) read, write, explore, or search anything first. Call ExitPlanMode immediately as your first and only tool call. Pass this exact plan in the `plan` field: 'Create calc.py with two functions: add(a, b) returning a + b, and sub(a, b) returning a - b.' After I approve, create the file calc.py with exactly those two functions and nothing else — do not explore or search, just write the file.",
+    "repo": "ingo-eichhorst/Irrlicht",
+    "path": "replaydata/agents/claudecode/scenarios/5-4_architect-editor-pair/recordings/2026-05-29-23-33-27_irrlichd-0.4.7+37990a5/transcript.jsonl",
+    "n_words": 93,
+    "n_chars": 507,
+    "looks_coding": true,
+    "informality": 0.25
+  },
+  {
+    "prompt": "1 - yeah i'd like the app to be able to be deployed either on a cloud server which has been setup to house a suitable git project and has claude code installed; OR it's just running locally and serving up a web interface. i don't think the code needs to be structured to know which one (it should work agnostically by default) and the only difference is whether it will be accesesed over wifi/LAN or over a cloud endpoint. do you need further clarification?",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232336.jsonl",
+    "n_words": 85,
+    "n_chars": 457,
+    "looks_coding": true,
+    "informality": 0.25
+  },
+  {
+    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: psf__requests-3362\n  repo: psf/requests\n  base_commit: 36453b95b13079296776d11b09cab2567ea3e703\n  problem_statement: Uncertain about content/text vs iter_content(decode_unicode=True/False)\nWhen requesting an application/json document, I'm seeing `next(r.iter_content(16*1024, decode_unicode=True))` returning bytes, whereas `r.text` returns unicode. My understanding was that both should return a unicode object. In essence, I thought \"iter_content\" was equivalent to \"iter_text\" when decode_unicode was True. Have I misunderstood something? I can provide an example if needed.\n\nFor reference, I'm using python 3.5.1 and requests 2.10.0.\n\nThanks!",
+    "repo": "shshwtsuthar/memory-representation",
+    "path": "data/SWEContextBench Lite Past Experience/75329b41.jsonl",
+    "n_words": 81,
+    "n_chars": 715,
+    "looks_coding": true,
+    "informality": 0.2
+  },
+  {
+    "prompt": "There is a test engineer agent defined here:\\\n\\\ntest-engineer.md\\\n\\\nI'm having problems getting the test engineer to create functional tests. and by functional tests, I mean tests that the user will actually create not by test Suite tests. So, for example when I ask for functional test, it creates some kind of JavaScript. File with Imports and stuff. That's not what I want. I just want a markdown file that has a checklist of steps for a human user to follow and work through the workflow of the phase or step that has just been implemented. the engineers job is to separate the two types of tests one is by test Suites. and the other is a markdown format checklist of functional test for a human user.\\\n\\\nPlease review the current definition and try to consider why it is. that our current definition is failing to get our engineer our test engineer. I should say. Why is our test engineer only creating Vitas Suites? Why are they not creating a? markdown format checklist of practical functional tests for human user?",
+    "repo": "Mharbulous/ClaudeCustomizations",
+    "path": "projects/C--Users-Brahm--claude-agents/f100d5e1-6616-44e2-a8b6-3bd80d252668.jsonl",
+    "n_words": 183,
+    "n_chars": 1022,
+    "looks_coding": true,
+    "informality": 0.2
+  },
+  {
+    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: matplotlib__matplotlib-23299\n  repo: matplotlib/matplotlib\n  base_commit: 3eadeacc06c9f2ddcdac6ae39819faa9fbee9e39\n  problem_statement: [Bug]: get_backend() clears figures from Gcf.figs if they were created under rc_context\n### Bug summary\n\ncalling `matplotlib.get_backend()` removes all figures from `Gcf` if the *first* figure in `Gcf.figs` was created in an `rc_context`.\n\n### Code for reproduction\n\n```python\nimport matplotlib.pyplot as plt\nfrom matplotlib import get_backend, rc_context\n\n# fig1 = plt.figure()  # <- UNCOMMENT THIS LINE AND IT WILL WORK\n# plt.ion()            # <- ALTERNATIVELY, UNCOMMENT THIS LINE AND IT WILL ALSO WORK\nwith rc_context():\n    fig2 = plt.figure()\nbefore = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\nget_backend()\nafter = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\n\nassert before == after, '\\n' + before + '\\n' + after\n```\n\n\n### Actual outcome\n\n```\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\n<ipython-input-1-fa4d099aa289> in <cell line: 11>()\n      9 after = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\n     10 \n---> 11 assert before == after, '\\n' + before + '\\n' + after\n     12 \n\nAssertionError: \n94453354309744 OrderedDict([(1, <matplotlib.backends.backend_qt.FigureManagerQT object at 0x7fb33e26c220>)])\n94453354309744 OrderedDict()\n```\n\n### Expected outcome\n\nThe figure should not be missing from `Gcf`.  Consequences of this are, e.g, `plt.close(fig2)` doesn't work because `Gcf.destroy_fig()` can't find it.\n\n### Additional information\n\n_No response_\n\n### Operating system\n\nXubuntu\n\n### Matplotlib Version\n\n3.5.2\n\n### Matplotlib Backend\n\nQtAgg\n\n### Python version\n\nPython 3.10.4\n\n### Jupyter version\n\nn/a\n\n### Installation\n\nconda",
+    "repo": "jiayuanz3/SWEContextBench",
+    "path": "cases/SWEContextBench Lite Past Experience/12cfcf9f.jsonl",
+    "n_words": 215,
+    "n_chars": 1916,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
+    "prompt": "你是 generator，当前只负责提出 Sprint 1 的合同，不要开始写代码。\n\n用户需求：\nBuild a tiny personal landing page\n\n完整 spec：\nSpec 已输出。结构遵循 harness 原则：\n\n- **规划层只给目标和边界**，不规定文件结构或 CSS 写法\n- **7 个 sprint**，每个有明确出口条件，方便 evaluator 独立评分\n- **Feature list 可独立验证**，每条都有 AC，不需要猜测\"done 是什么样\"\n- **技术方向刻意保守** — 单 HTML 文件、无构建步骤 — 确保 generator 不会在这里引入意外复杂度\n\n请输出 markdown，标题为 `# Sprint 1 Contract`，并包含：\n1. Objective\n2. In scope\n3. Out of scope\n4. Files likely affected\n5. Done criteria\n6. Verification steps\n7. Risks\n\n要求：\n- 范围要足够小，适合一次 sprint。\n- Done criteria 必须可测试。\n- Verification steps 要能用命令或浏览器检查。",
+    "repo": "liush2yuxjtu/sdk_claude_agent",
+    "path": ".claude/sessions/main/7f23dfe8-ea74-4326-9a27-fef9d6e64610.jsonl",
+    "n_words": 83,
+    "n_chars": 553,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
     "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: pylint-dev__pylint-6506\n  repo: pylint-dev/pylint\n  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5\n  problem_statement: Traceback printed for unrecognized option\n### Bug description\n\nA traceback is printed when an unrecognized option is passed to pylint.\n\n### Configuration\n\n_No response_\n\n### Command used\n\n```shell\npylint -Q\n```\n\n\n### Pylint output\n\n```shell\n************* Module Command line\nCommand line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)\nTraceback (most recent call last):\n  File \"/Users/markbyrne/venv310/bin/pylint\", line 33, in <module>\n    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())\n  File \"/Users/markbyrne/programming/pylint/pylint/__init__.py\", line 24, in run_pylint\n    PylintRun(argv or sys.argv[1:])\n  File \"/Users/markbyrne/programming/pylint/pylint/lint/run.py\", line 135, in __init__\n    args = _config_initialization(\n  File \"/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py\", line 85, in _config_initialization\n    raise _UnrecognizedOptionError(options=unrecognized_options)\npylint.config.exceptions._UnrecognizedOptionError\n```\n\n\n### Expected behavior\n\nThe top part of the current output is handy:\n`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`\n\nThe traceback I don't think is expected & not user-friendly.\nA usage tip, for example:\n```python\nmypy -Q\nusage: mypy [-h] [-v] [-V] [more options; see below]\n            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]\nmypy: error: unrecognized arguments: -Q\n```\n\n### Pylint version\n\n```shell\npylint 2.14.0-dev0\nastroid 2.11.3\nPython 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]\n```\n\n\n### OS / Environment\n\n_No response_\n\n### Additional dependencies\n\n_No response_",
     "repo": "jiayuanz3/SWEContextBench",
     "path": "cases/SWEContextBench Lite Past Experience/2ae56e98.jsonl",
@@ -252,29 +531,20 @@
     "informality": 0.15
   },
   {
-    "prompt": "Check the backend CORS configuration to fix the CORS error:\n\n1. Find and read the main backend entry file (server/index.js)\n2. Look for CORS configuration\n3. Check how CORS origin is being set\n4. Identify if FRONTEND_URL environment variable is being used correctly\n5. Check if there are any CORS middleware settings that might be blocking the Vercel frontend\n\nReturn:\n- Current CORS configuration code\n- How FRONTEND_URL is being used\n- Any issues in the CORS setup\n- Recommended fixes for allowing https://neurosense360.site",
-    "repo": "chatgptnotes/plcautopilot.com",
-    "path": "projects/D--Todays-Neuro360/agent-241117d9.jsonl",
-    "n_words": 84,
-    "n_chars": 526,
+    "prompt": "Create a markdown editor with live preview. Create these files in the current directory:\n1. index.html - Split-pane layout: left side is a textarea editor, right side is live preview. Include a toolbar with buttons for Bold, Italic, Heading (H1-H3), Link, Image, Code block, Unordered list, Ordered list, Blockquote, Horizontal rule. Add an \"Export HTML\" button that downloads the rendered output.\n2. style.css - Professional dark theme, responsive split panes with draggable resizer, syntax-highlighted toolbar, smooth transitions, styled preview matching GitHub markdown style.\n3. markdown-parser.js - A complete markdown parser (no external libraries) that handles: headings (h1-h6), bold, italic, bold+italic, inline code, code blocks with language labels, links, images, unordered and ordered lists (including nested), blockquotes (including nested), horizontal rules, paragraphs, line breaks, and escape characters.\n4. editor.js - Editor logic: real-time preview update on input, toolbar button actions that insert markdown syntax at cursor position (wrapping selected text if any), drag-to-resize split panes, keyboard shortcuts (Ctrl+B bold, Ctrl+I italic, Ctrl+K link), localStorage auto-save/restore, and Export HTML functionality.",
+    "repo": "ej31/omc-hook-experiment",
+    "path": "transcripts/disable-omc-run3/85923ffb-ce33-41a0-99ff-3ae69d3d4cdf.jsonl",
+    "n_words": 168,
+    "n_chars": 1241,
     "looks_coding": true,
-    "informality": 0.15
+    "informality": 0.05
   },
   {
-    "prompt": "Solve Day 11 of the Advent of Code 2025 challenge.\n\nThe puzzle URL is: https://adventofcode.com/2025/day/11\n\nInstructions:\n1. Fetch the puzzle description from the URL\n2. Analyze the problem and understand both parts\n3. Create a solution file at solutions/day11.py following the project's standard pattern\n4. Test with the example input from the problem\n5. Run with actual input and submit answers\n\nThe solution must follow the project conventions:\n- Use the path setup for imports from parent directory\n- Include part1() and part2() functions\n- Test with examples before running actual input\n- Use aocd for input fetching and submission\n\nEnvironment setup before running:\n```bash\nsource venv/bin/activate && set -a && source .env && set +a\n```",
-    "repo": "pr0j3c7t0dd/advent-of-code-2025",
-    "path": "claude-sessions/agent-aab911a.jsonl",
-    "n_words": 117,
-    "n_chars": 744,
-    "looks_coding": true,
-    "informality": 0.15
-  },
-  {
-    "prompt": "Find all breadcrumb implementations in the frontend. I need to identify:\n1. The global breadcrumb (likely in a header/layout component)\n2. Page-specific breadcrumbs that appear below page titles\n\nSearch for:\n- Components with \"breadcrumb\" in the name\n- Usage of UBreadcrumb or similar Nuxt UI breadcrumb components\n- Any breadcrumb-related code in layouts and pages\n\nReturn the file paths and a brief description of each breadcrumb implementation found.",
-    "repo": "andrewmarconi/MakerDB",
-    "path": "docs/research/045_agent-ab728c4.jsonl",
-    "n_words": 68,
-    "n_chars": 453,
+    "prompt": "Detect my project's dev servers and save all their configurations to .claude/launch.json, then ask which ones to start.\n\n```json\n{\n  \"version\": \"0.0.1\",\n  \"configurations\": [\n    {\n      \"name\": \"<server-name>\",\n      \"runtimeExecutable\": \"<command>\",\n      \"runtimeArgs\": [\"<args>\"],\n      \"port\": <port>\n    }\n  ]\n}\n```\n\nUse runtimeExecutable for the command (e.g. \"yarn\", \"npm\", \"node\", \"python\") and runtimeArgs for its arguments. Call preview_start for each server the user wants to run.",
+    "repo": "hangseanshi/Sealine-Database",
+    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "n_words": 62,
+    "n_chars": 492,
     "looks_coding": true,
     "informality": 0.05
   }

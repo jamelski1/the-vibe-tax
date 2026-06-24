@@ -43,12 +43,21 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN") or ""
 
 # Search queries targeting Claude Code transcript files. GitHub code search caps
 # each query at 1000 results, so we use several complementary angles.
+#
+# `"userType":"external"` is the strongest signal for a MAIN session that holds
+# genuine human-typed turns — sub-agent sidechain transcripts (agent-*.jsonl)
+# don't carry external user turns. It leads the list so the crawl budget is
+# spent on files that actually contain prompts.
 SEARCH_QUERIES = [
-    '"parentUuid" "userType" extension:jsonl',
+    '"userType":"external" extension:jsonl',
+    '"userType" "external" "parentUuid" extension:jsonl',
     '"sessionId" "toolUseResult" extension:jsonl',
-    '"isSidechain" "cwd" extension:jsonl',
     'path:.claude "parentUuid" extension:jsonl',
 ]
+
+# Sub-agent sidechain transcripts follow this naming convention and never hold
+# human-typed prompts — skip them at discovery time.
+SIDECHAIN_FILENAME = re.compile(r"(^|/)agent-[0-9a-f]+\.jsonl$", re.IGNORECASE)
 
 # Max bytes to download per transcript (skip giant logs).
 MAX_FILE_BYTES = 3_000_000
@@ -143,6 +152,8 @@ def discover(limit, log):
                 path = it.get("path") or ""
                 if FIXTURE_PATH.search(path):
                     continue
+                if SIDECHAIN_FILENAME.search(path):
+                    continue
                 repo = it.get("repository", {})
                 repo_name = repo.get("full_name") if isinstance(repo, dict) else repo
                 if per_repo.get(repo_name, 0) >= MAX_FILES_PER_REPO:
@@ -219,6 +230,14 @@ def extract_prompts(jsonl_text):
         if o.get("type") != "user":
             continue
         if o.get("isMeta"):
+            continue
+        # Sub-agent / sidechain turns are not human-typed prompts.
+        if o.get("isSidechain"):
+            continue
+        # When the transcript records a userType, require it to be the human one.
+        # (Older transcripts may omit the field — keep those rather than lose data.)
+        utype = o.get("userType")
+        if utype is not None and utype != "external":
             continue
         msg = o.get("message") or {}
         if msg.get("role") and msg.get("role") != "user":
@@ -373,6 +392,7 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
         "candidate_files": len(candidates),
         "transcripts_fetched": transcripts_fetched,
         "transcripts_with_prompts": transcripts_used,
+        "hit_rate": f"{transcripts_used / transcripts_fetched * 100:.0f}%" if transcripts_fetched else "N/A",
         "unique_repos": len(repos),
         "total_prompts": len(corpus),
         "coding_prompts": len(coding),
