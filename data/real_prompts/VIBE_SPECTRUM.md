@@ -177,6 +177,38 @@ one distribution.** Where the prompt is typed changes its formality, its length,
 its language mix, and whether it carries pasted context. Any vibe-tax measurement
 must state which medium it is modeling.
 
+## Replication across web-chat sources — what's a *medium* effect vs a *population* effect
+
+To check whether the web-chat numbers are a real medium effect or an artifact of
+one dataset, we ran the same pipeline on a second web-chat source,
+**LMSYS-Chat-1M** (Chatbot Arena), at the same n=5000.
+
+| Axis | Agentic (n=198) | WildChat (n=5000) | LMSYS (n=5000) | replicates? |
+|------|----------------:|------------------:|---------------:|:-----------:|
+| Detailed/formal spec (L1–L2) | 10% | 45% | 47% | ✅ |
+| Conversational register | 38% | 58% | 54% | ✅ |
+| Feature-build intent | 12% | 22% | 28% | ✅ |
+| Any paste | ~5% | 54% | 36% | ✅ |
+| Pasted code | ~0% | 28% | 20% | ✅ |
+| **Pasted error** | 2% | 12% | **3%** | ❌ |
+| **Multilingual** | 11% | 42% | **16%** | ❌ |
+
+**Robust (true medium effects).** On *both* web-chat datasets, users write more
+detailed specs, converse more, ask for whole features, and paste code far more
+than agentic-CLI users. The structural "medium shapes the prompt" claim holds.
+
+**Not robust (population effects).** Two gaps fail to replicate: error-paste
+(WildChat 12% vs LMSYS 3% ≈ agentic) and multilingual (42% vs 16%). These track
+*who uses the tool*, not the medium. WildChat is a free public ChatGPT proxy —
+broad, international, real users debugging real code (they paste stack traces, in
+many languages). LMSYS is Chatbot Arena — English-heavy enthusiasts comparing
+models, who paste *code* to test but rarely paste a raw error.
+
+**Takeaway:** "web-chat" is not one population. Treat the formality / register /
+code-paste gaps as medium effects, but treat **error-paste prevalence and
+language mix as population-dependent** — the error-paste arm of the study must
+name its population, and **WildChat (not LMSYS) is the source for it**.
+
 ## What this means for the Vibe Tax study
 
 1. **Sample across all five axes, not just formality.** A faithful "vibe"
@@ -206,9 +238,10 @@ must state which medium it is modeling.
 - **n** — agentic is still small (198); the web-chat corpus is now 5,000 from
   the full WildChat-1M stream and gives confident, sample-stable rates. Scale the
   agentic crawl to match before drawing strong per-cell conclusions there.
-- **Web-chat is one dataset** — WildChat-1M (real ChatGPT logs). Re-running
-  `pull_webchat_hf.py --dataset lmsys` would confirm the pattern replicates
-  across a second web-chat source.
+- **Web-chat populations differ** — checked against a second source,
+  LMSYS-Chat-1M (see the replication section): the formality/register/code-paste
+  gaps replicate, but error-paste and multilingual rates are population-specific.
+  Don't generalize those two from a single dataset.
 
 ## Reproduce
 
