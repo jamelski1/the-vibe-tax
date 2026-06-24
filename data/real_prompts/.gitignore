@@ -1,0 +1,18 @@
+# Generated prompt corpora contain raw third-party chat text harvested from
+# real users (WildChat / LMSYS / committed transcripts). That text can include
+# pasted secrets (API keys) and PII, and GitHub push protection will (rightly)
+# block it. Keep the raw corpora OUT of the repo — they are fully reproducible
+# from the scripts. Commit only the aggregate *_stats.json (counts, no raw text).
+webchat_wildchat_corpus.json
+webchat_lmsys_corpus.json
+webchat_corpus.json
+vibe_spectrum_wildchat_corpus.json
+vibe_spectrum_lmsys_corpus.json
+
+# Readable samples also contain raw prompt text — keep them out too.
+webchat_sample.txt
+webchat_*_sample.txt
+
+# Backups people make while iterating on limits
+webchat_*_1003*.json
+*_corpus.backup.json
