@@ -14,8 +14,15 @@ spectrum so the study can sample from it representatively.
 
 ## Data
 
-- **198** human-typed prompts from **37** repos, drawn from committed Claude
-  Code session transcripts (`crawl_real_prompts.py`).
+Two parallel corpora, labeled by the same classifier (see the medium comparison
+below):
+
+- **Agentic CLI** — **198** human-typed prompts from **37** repos, drawn from
+  committed Claude Code session transcripts (`crawl_real_prompts.py`).
+- **Web-chat** — **174** coding prompts from real WildChat (ChatGPT)
+  conversations mirrored on GitHub (`pull_webchat_corpus.py`).
+
+For the agentic corpus:
 - Only genuine human turns (`userType:"external"`, non-sidechain); tool output,
   system injections, slash-commands, failed-skill artifacts, scheduled-task
   messages, and benchmark-harness templates are filtered out.
@@ -122,6 +129,41 @@ i'm more imagining that…*"). These are mid-session turns in an ongoing dialogu
 a register the one-shot synthetic spectrum has no analogue for. Explicit
 politeness is rare (7%).
 
+## Two media, two distributions — the medium shapes the prompt
+
+The agentic-CLI corpus (Claude Code) is only half the picture. To cover the
+patterns it structurally lacks — chiefly manual error/code pasting — we pulled a
+parallel **web-chat** corpus: **174** coding prompts from real **WildChat**
+(ChatGPT) conversations, harvested from a public GitHub mirror
+(`pull_webchat_corpus.py`; HuggingFace is firewalled here so we sourced the
+mirror over the allowed GitHub access). Both corpora were labeled by the **same**
+classifier, so the axes are directly comparable.
+
+| Axis | Agentic CLI (n=198) | Web-chat (n=174) |
+|------|--------------------:|-----------------:|
+| Pasted **error** | **2%** | **13%** |
+| Pasted **code** | ~0% | **24%** |
+| Spec level: casual/vague (L3–L5) | **86%** | 47% |
+| Spec level: detailed/formal (L1–L2) | 10% | **53%** |
+| Register: terse-imperative | **54%** | 23% |
+| Register: conversational | 38% | **70%** |
+| Context: pure NL (no paste) | **77%** | 44% |
+| Multilingual | 11% | **25%** |
+
+**The medium shapes the prompt.** In an *agentic CLI*, the model fetches its own
+context (reads files, runs code, sees errors), so users are terse, vague, and
+rarely paste anything — *"fix the failing test"*. In a *web chatbox*, the model
+can't reach the user's machine, so users write long, self-contained, paste-heavy
+prompts and supply the error themselves:
+
+> *"Error ImportError: Failed to import test module: tests.test_solution
+> Traceback (most recent call last): File \"/usr/local/lib/python…\""* — WildChat
+
+This is the single most important finding for the study: **"vibe coding" is not
+one distribution.** Where the prompt is typed changes its formality, its length,
+its language mix, and whether it carries pasted context. Any vibe-tax measurement
+must state which medium it is modeling.
+
 ## What this means for the Vibe Tax study
 
 1. **Sample across all five axes, not just formality.** A faithful "vibe"
@@ -133,8 +175,10 @@ politeness is rare (7%).
    differ by language.
 4. **Add a conversational/follow-up arm.** Much real coding is dialogue, not
    one-shot.
-5. **For error-paste effects, change the data source.** Agentic transcripts
-   won't supply them; web-chat corpora will.
+5. **Model the two media separately.** Run the tax once per medium (agentic vs
+   web-chat) rather than blending them — they have different formality, paste,
+   and language distributions. The web-chat corpus is the right source for the
+   error-paste / code-paste arm; the agentic corpus for terse one-liners.
 
 ## Limitations
 
@@ -144,13 +188,24 @@ politeness is rare (7%).
   tutorials, Advent-of-Code, demos, and tooling experiments, which inflates
   AoC/problem-statement prompts and probe/test turns. A broader crawl (more
   query angles, more repos) would shift the mix.
-- **Small n (198)** — enough to define axes and see gross structure; too small
-  for confident per-cell rates. Scale the crawl before drawing strong
-  quantitative conclusions.
+- **Small n** (198 agentic / 174 web-chat) — enough to define axes and see gross
+  structure and the cross-medium contrast; too small for confident per-cell
+  rates. Scale both crawls before drawing strong quantitative conclusions.
+- **Web-chat sourcing** — pulled from a GitHub mirror of WildChat rather than
+  WildChat/LMSYS directly (HuggingFace is firewalled in this environment). The
+  mirror is a curated subset, so its absolute rates carry its own selection
+  bias; the *direction* of the agentic-vs-web-chat contrast is the robust part.
 
 ## Reproduce
 
 ```bash
-python crawl_real_prompts.py --limit 1000   # harvest -> real_prompts_corpus.json
-python classify_prompts.py                  # label   -> vibe_spectrum_corpus.json + stats
+# Agentic-CLI corpus (Claude Code transcripts)
+python crawl_real_prompts.py --limit 1000
+python classify_prompts.py
+#   -> vibe_spectrum_corpus.json + vibe_spectrum_stats.json
+
+# Web-chat corpus (WildChat / ShareGPT-style conversations)
+python pull_webchat_corpus.py --limit 300
+python classify_prompts.py --in webchat_corpus.json \
+    --out vibe_spectrum_webchat_corpus.json --stats vibe_spectrum_webchat_stats.json
 ```

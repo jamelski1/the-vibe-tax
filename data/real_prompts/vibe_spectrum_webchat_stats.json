@@ -1,0 +1,41 @@
+{
+  "total_prompts": 174,
+  "by_spec_level": {
+    "L1 formal-spec": 20,
+    "L2 detailed": 73,
+    "L3 casual-task": 47,
+    "L4 vague": 34,
+    "L5 pure-vibe": 0
+  },
+  "by_intent": {
+    "explain_understand": 42,
+    "feature_build": 36,
+    "other": 23,
+    "debug_error_paste": 22,
+    "bugfix": 21,
+    "modify_run": 18,
+    "refactor": 8,
+    "config_devops": 3,
+    "test": 1
+  },
+  "by_context_provision": {
+    "pure_nl": 77,
+    "pastes_code": 34,
+    "pastes_long_context": 32,
+    "pastes_error": 22,
+    "references_files": 9
+  },
+  "by_language": {
+    "English": 130,
+    "Other-non-English": 33,
+    "Chinese": 6,
+    "Japanese": 5
+  },
+  "by_register": {
+    "conversational": 121,
+    "terse_imperative": 40,
+    "polite": 13
+  },
+  "multilingual_share": "25%",
+  "error_paste_share": "13%"
+}

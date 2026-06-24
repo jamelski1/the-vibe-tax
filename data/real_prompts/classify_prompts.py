@@ -263,14 +263,14 @@ def is_noise(text):
     return bool(NOISE.match(t)) or "并非来自用户" in t
 
 
-def run():
-    with open(IN_FILE, "r", encoding="utf-8") as f:
+def run(in_file=IN_FILE, out_file=OUT_FILE, stats_file=STATS_FILE):
+    with open(in_file, "r", encoding="utf-8") as f:
         corpus = json.load(f)
 
     corpus = [p for p in corpus if not is_noise(p["prompt"])]
     labeled = [classify(p) for p in corpus]
 
-    with open(OUT_FILE, "w", encoding="utf-8") as f:
+    with open(out_file, "w", encoding="utf-8") as f:
         json.dump(labeled, f, indent=2, ensure_ascii=False)
 
     stats = {
@@ -284,10 +284,10 @@ def run():
         "multilingual_share": f"{sum(1 for x in labeled if x['language'] != 'English') / len(labeled) * 100:.0f}%" if labeled else "N/A",
         "error_paste_share": f"{sum(1 for x in labeled if x['has_error_paste']) / len(labeled) * 100:.0f}%" if labeled else "N/A",
     }
-    with open(STATS_FILE, "w", encoding="utf-8") as f:
+    with open(stats_file, "w", encoding="utf-8") as f:
         json.dump(stats, f, indent=2, ensure_ascii=False)
 
-    print(f"Classified {len(labeled)} prompts -> {OUT_FILE}")
+    print(f"Classified {len(labeled)} prompts -> {out_file}")
     for axis in ["by_spec_level", "by_intent", "by_context_provision", "by_language", "by_register"]:
         print(f"\n{axis}:")
         for k, v in stats[axis].items():
@@ -296,4 +296,10 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--in", dest="in_file", default=IN_FILE)
+    ap.add_argument("--out", dest="out_file", default=OUT_FILE)
+    ap.add_argument("--stats", dest="stats_file", default=STATS_FILE)
+    a = ap.parse_args()
+    run(a.in_file, a.out_file, a.stats_file)

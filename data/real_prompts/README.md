@@ -13,9 +13,17 @@ the synthetic spectrum.
 **→ See [`VIBE_SPECTRUM.md`](VIBE_SPECTRUM.md) for the taxonomy, distributions,
 and what they mean for the Vibe Tax study.**
 
-Two scripts:
-- `crawl_real_prompts.py` — discover + fetch + extract the corpus.
-- `classify_prompts.py` — label each prompt across the five spectrum axes.
+Scripts:
+- `crawl_real_prompts.py` — harvest the **agentic-CLI** corpus from committed
+  Claude Code transcripts.
+- `pull_webchat_corpus.py` — harvest a parallel **web-chat** corpus from real
+  WildChat (ChatGPT) conversations mirrored on GitHub (HuggingFace is firewalled
+  in this environment, so we source the mirror over the allowed GitHub access).
+- `classify_prompts.py` — label any corpus across the five spectrum axes
+  (`--in/--out/--stats` to point it at either corpus).
+
+The two media prompt very differently (web-chat is far more paste-heavy and
+verbose; agentic CLI is terse) — see `VIBE_SPECTRUM.md` for the comparison.
 
 ## How it works
 
