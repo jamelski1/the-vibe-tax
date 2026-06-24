@@ -1,0 +1,15 @@
+{
+  "crawled_at": "2026-06-24T02:44:52.810374",
+  "candidate_files": 149,
+  "transcripts_fetched": 149,
+  "transcripts_with_prompts": 25,
+  "unique_repos": 20,
+  "total_prompts": 31,
+  "coding_prompts": 31,
+  "avg_words": 35.5,
+  "informality_buckets": {
+    "formal_0.0-0.4": 6,
+    "mid_0.4-0.6": 7,
+    "vibe_0.6-1.0": 18
+  }
+}

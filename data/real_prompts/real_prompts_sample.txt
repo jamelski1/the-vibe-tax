@@ -1,0 +1,262 @@
+REAL VIBE-CODING PROMPTS — sample (sorted most-vibe first)
+============================================================
+
+[informality 0.95 | 2w | housesigma/listing-chatbot-design]
+commit changes
+----------------------------------------
+[informality 0.95 | 2w | eduanibal1981/gotosco-flutter_v3]
+run /init
+----------------------------------------
+[informality 0.85 | 4w | fullsend-ai/experiments]
+Run the agent task
+----------------------------------------
+[informality 0.85 | 3w | Doarte45/LLMnetopsLab]
+Fix the network
+----------------------------------------
+[informality 0.85 | 1w | liush2yuxjtu/sdk_claude_agent]
+只输出：test-ok
+----------------------------------------
+[informality 0.80 | 14w | ASSERT-KTH/reproducible-trajectories]
+the pre-commit hook should not block if the commit message explicitly contains "no trajectory"
+----------------------------------------
+[informality 0.70 | 10w | MarioPadilla/claude-vault]
+Help me create a basic Flask API with error handling
+----------------------------------------
+[informality 0.70 | 18w | entireio/cli-checkpoints]
+make a very small update to a comment in the CLI - im just trying to test something
+----------------------------------------
+[informality 0.70 | 7w | tensiondriven/athena]
+Read the claude file in that dir
+----------------------------------------
+[informality 0.70 | 7w | beelapranay/CS6650-BSDS]
+so the bug isn't actually a bug?
+----------------------------------------
+[informality 0.70 | 17w | sleeps21/dotfiles]
+change nvim config so that suggestions dont come up automatically but some keypress like ctrl + space
+----------------------------------------
+[informality 0.65 | 7w | entireio/cli-checkpoints]
+can you add a standard MIT license?
+----------------------------------------
+[informality 0.65 | 9w | beelapranay/CS6650-BSDS]
+can you read the code inside the mystery folder?
+----------------------------------------
+[informality 0.60 | 12w | kristenmartino/agentic-sdlc-office]
+Refactor the sample button to use design tokens and run the tests.
+----------------------------------------
+[informality 0.60 | 30w | beelapranay/CS6650-BSDS]
+so what is a lambda url? and this is a program which deliberately has a bug and the point of this bug is to demonstrate the race condition which is...?
+----------------------------------------
+[informality 0.60 | 41w | beelapranay/CS6650-BSDS]
+and how exactly do we resolve this sort of an error? and is this is a coding error (as in, something which might happen during coding the program) or some sort of a system error? (something which comes up duiring scaling)?
+----------------------------------------
+[informality 0.60 | 22w | beelapranay/CS6650-BSDS]
+and what exaclty would resolving this bug ensure? would the count not increment by 10k each time we send a POST request?
+----------------------------------------
+[informality 0.60 | 22w | pksorensen/aspire-blobstorage-portal]
+We are making a sample app that shows blob storage support in aspire project. Add blob storage to apphost using azurerite emulator
+----------------------------------------
+[informality 0.55 | 8w | MarioPadilla/claude-vault]
+Can you also add logging for debugging purposes?
+----------------------------------------
+[informality 0.55 | 21w | hui0112/album-api-go]
+main.go is a simple api server writte in go, can you try to study and summarize to me what it does?
+----------------------------------------
+[informality 0.55 | 7w | harshit-agarwal7/claims-processing-system]
+Can you create a helpful gitignore file?
+----------------------------------------
+[informality 0.50 | 27w | tensiondriven/athena]
+Search for all Elixir source files (.ex, .exs) in the athena-ptz-connector directory to understand the project structure and find the main application code and any existing tests.
+----------------------------------------
+[informality 0.50 | 56w | phughk/ophelos-tech-test]
+Create 3 directories: frontend, backend, and psql. The frontend is a typescript react project. The backend is a rust tokio axum project that uses psql. And psql needs a migration script to setup the schema when it starts up. The root directory should have a docker-compose that uses the Dockerfiles of each of those individual projects.
+----------------------------------------
+[informality 0.40 | 32w | liush2yuxjtu/sdk_claude_agent]
+PLAN ONLY。
+请评估这个请求是否能得到一个好计划：build agent teams in this @/Users/m1/projects/sdk_claude_agent/demo2_control_sdk_agent_teams.json。
+要求：
+1. 先阅读这个 JSON。
+2. 使用至少一个 subagent 获取补充观点。
+3. 不要写文件，不要给实现代码。
+4. 最终只输出中文：
+   - 这个请求是否足够清晰
+   - 主要风险
+   - 一个 1, 2, 3 的最小实施计划
+   - 你建议保留或删掉的复杂度
+----------------------------------------
+[informality 0.40 | 25w | liush2yuxjtu/sdk_claude_agent]
+PLAN ONLY。
+build agent teams with /tmp/*.json。
+要求：
+1. 先阅读仓库里的 demo2_control_sdk_agent_teams.json。
+2. 调用 long_snap、middle_snap、short_snap 三个 agent 各给一个计划视角。
+3. 不写代码，不改文件。
+4. 最终只输出中文：问题是否清晰、主要风险、综合后的 1 2 3 计划。
+----------------------------------------
+[informality 0.30 | 96w | jiayuanz3/SWEContextBench]
+Fix this bug to solve the issue based on manual.yaml:
+  instance_id: django__django-14382
+  repo: django/django
+  base_commit: 29345aecf6e8d53ccb3577a3762bb0c263f7558d
+  problem_statement: django-admin startapp with trailing slash in directory name results in error
+Description
+    
+Bash tab-completion appends trailing slashes to directory names. django-admin startapp name directory/ results in the error:
+CommandError: '' is not a valid app directory. Please make sure the directory is a valid identifier.
+The error is caused by ​line 77 of django/core/management/templates.py by calling basename() on the path with no consideration for a trailing slash:
+self.validate_name(os.path.basename(target), 'directory')
+Removing potential trailing slashes would solve the problem:
+self.validate_name(os.path.basename(target.rstrip(os.sep)), 'directory')
+----------------------------------------
+[informality 0.15 | 197w | jiayuanz3/SWEContextBench]
+Fix this bug to solve the issue based on manual.yaml:
+  instance_id: pylint-dev__pylint-6506
+  repo: pylint-dev/pylint
+  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5
+  problem_statement: Traceback printed for unrecognized option
+### Bug description
+
+A traceback is printed when an unrecognized option is passed to pylint.
+
+### Configuration
+
+_No response_
+
+### Command used
+
+```shell
+pylint -Q
+```
+
+
+### Pylint output
+
+```shell
+************* Module Command line
+Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)
+Traceback (most recent call last):
+  File "/Users/markbyrne/venv310/bin/pylint", line 33, in <module>
+    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())
+  File "/Users/markbyrne/programming/pylint/pylint/__init__.py", line 24, in run_pylint
+    PylintRun(argv or sys.argv[1:])
+  File "/Users/markbyrne/programming/pylint/pylint/lint/run.py", line 135, in __init__
+    args = _config_initialization(
+  File "/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py", line 85, in _config_initialization
+    raise _UnrecognizedOptionError(options=unrecognized_options)
+pylint.config.exceptions._UnrecognizedOptionError
+```
+
+
+### Expected behavior
+
+The top part of the current output is handy:
+`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`
+
+The traceback I don't think is expected & not user-friendly.
+A usage tip, for example:
+```python
+mypy -Q
+usage: mypy [-h] [-v] [-V] [more options; see below]
+            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]
+mypy: error: unrecognized arguments: -Q
+```
+
+### Pylint version
+
+```shell
+pylint 2.14.0-dev0
+astroid 2.11.3
+Python 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]
+```
+
+
+### OS / Environment
+
+_No response_
+
+### Additional dependencies
+
+_No response_
+----------------------------------------
+[informality 0.15 | 136w | jiayuanz3/SWEContextBench]
+Fix this bug to solve the issue based on manual.yaml:
+  instance_id: sympy__sympy-23117
+  repo: sympy/sympy
+  base_commit: c5cef2499d6eed024b0db5c792d6ec7c53baa470
+  problem_statement: sympy.Array([]) fails, while sympy.Matrix([]) works
+SymPy 1.4 does not allow to construct empty Array (see code below). Is this the intended behavior?
+
+```
+>>> import sympy
+KeyboardInterrupt
+>>> import sympy
+>>> from sympy import Array
+>>> sympy.__version__
+'1.4'
+>>> a = Array([])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py", line 130, in __new__
+    return cls._new(iterable, shape, **kwargs)
+  File "/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py", line 136, in _new
+    shape, flat_list = cls._handle_ndarray_creation_inputs(iterable, shape, **kwargs)
+  File "/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py", line 142, in _handle_ndarray_creation_inputs
+    iterable, shape = cls._scan_iterable_shape(iterable)
+  File "/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py", line 127, in _scan_iterable_shape
+    return f(iterable)
+  File "/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py", line 120, in f
+    elems, shapes = zip(*[f(i) for i in pointer])
+ValueError: not enough values to unpack (expected 2, got 0)
+```
+
+@czgdp1807
+----------------------------------------
+[informality 0.15 | 84w | chatgptnotes/plcautopilot.com]
+Check the backend CORS configuration to fix the CORS error:
+
+1. Find and read the main backend entry file (server/index.js)
+2. Look for CORS configuration
+3. Check how CORS origin is being set
+4. Identify if FRONTEND_URL environment variable is being used correctly
+5. Check if there are any CORS middleware settings that might be blocking the Vercel frontend
+
+Return:
+- Current CORS configuration code
+- How FRONTEND_URL is being used
+- Any issues in the CORS setup
+- Recommended fixes for allowing https://neurosense360.site
+----------------------------------------
+[informality 0.15 | 117w | pr0j3c7t0dd/advent-of-code-2025]
+Solve Day 11 of the Advent of Code 2025 challenge.
+
+The puzzle URL is: https://adventofcode.com/2025/day/11
+
+Instructions:
+1. Fetch the puzzle description from the URL
+2. Analyze the problem and understand both parts
+3. Create a solution file at solutions/day11.py following the project's standard pattern
+4. Test with the example input from the problem
+5. Run with actual input and submit answers
+
+The solution must follow the project conventions:
+- Use the path setup for imports from parent directory
+- Include part1() and part2() functions
+- Test with examples before running actual input
+- Use aocd for input fetching and submission
+
+Environment setup before running:
+```bash
+source venv/bin/activate && set -a && source .env && set +a
+```
+----------------------------------------
+[informality 0.05 | 68w | andrewmarconi/MakerDB]
+Find all breadcrumb implementations in the frontend. I need to identify:
+1. The global breadcrumb (likely in a header/layout component)
+2. Page-specific breadcrumbs that appear below page titles
+
+Search for:
+- Components with "breadcrumb" in the name
+- Usage of UBreadcrumb or similar Nuxt UI breadcrumb components
+- Any breadcrumb-related code in layouts and pages
+
+Return the file paths and a brief description of each breadcrumb implementation found.
+----------------------------------------

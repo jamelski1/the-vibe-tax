@@ -1,0 +1,281 @@
+[
+  {
+    "prompt": "commit changes",
+    "repo": "housesigma/listing-chatbot-design",
+    "path": "16/5c628cba38/0/full.jsonl",
+    "n_words": 2,
+    "n_chars": 14,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "run /init",
+    "repo": "eduanibal1981/gotosco-flutter_v3",
+    "path": ".claude/projects/C--Users-abdal/e4fe9966-b131-432f-8c96-0f6a58dfc780.jsonl",
+    "n_words": 2,
+    "n_chars": 9,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "Run the agent task",
+    "repo": "fullsend-ai/experiments",
+    "path": "target-repo-skills/results/control/transcript.jsonl",
+    "n_words": 4,
+    "n_chars": 18,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
+    "prompt": "Fix the network",
+    "repo": "Doarte45/LLMnetopsLab",
+    "path": "results/cctranscripts/r002.jsonl",
+    "n_words": 3,
+    "n_chars": 15,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
+    "prompt": "只输出：test-ok",
+    "repo": "liush2yuxjtu/sdk_claude_agent",
+    "path": ".claude/sessions/main/96151641-12ae-4259-9173-dc474856d354.jsonl",
+    "n_words": 1,
+    "n_chars": 11,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
+    "prompt": "the pre-commit hook should not block if the commit message explicitly contains \"no trajectory\"",
+    "repo": "ASSERT-KTH/reproducible-trajectories",
+    "path": "trajectories/ca9f8f57-90ab-4eda-b6a9-b9fc9676b789.jsonl",
+    "n_words": 14,
+    "n_chars": 94,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "Help me create a basic Flask API with error handling",
+    "repo": "MarioPadilla/claude-vault",
+    "path": "code-history.jsonl",
+    "n_words": 10,
+    "n_chars": 52,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "make a very small update to a comment in the CLI - im just trying to test something",
+    "repo": "entireio/cli-checkpoints",
+    "path": "fc/94685b791a/0/full.jsonl",
+    "n_words": 18,
+    "n_chars": 83,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "Read the claude file in that dir",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/246b2b63-06b0-4f19-aae6-38468afc8feb.jsonl",
+    "n_words": 7,
+    "n_chars": 32,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "so the bug isn't actually a bug?",
+    "repo": "beelapranay/CS6650-BSDS",
+    "path": "hw2/file.jsonl",
+    "n_words": 7,
+    "n_chars": 32,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "change nvim config so that suggestions dont come up automatically but some keypress like ctrl + space",
+    "repo": "sleeps21/dotfiles",
+    "path": ".claude/projects/-home-sleeps/63499e94-6ba9-4ab2-868e-ffe89e40738a.jsonl",
+    "n_words": 17,
+    "n_chars": 101,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "can you add a standard MIT license?",
+    "repo": "entireio/cli-checkpoints",
+    "path": "b0/be9accda39/0/full.jsonl",
+    "n_words": 7,
+    "n_chars": 35,
+    "looks_coding": true,
+    "informality": 0.65
+  },
+  {
+    "prompt": "can you read the code inside the mystery folder?",
+    "repo": "beelapranay/CS6650-BSDS",
+    "path": "hw2/file.jsonl",
+    "n_words": 9,
+    "n_chars": 48,
+    "looks_coding": true,
+    "informality": 0.65
+  },
+  {
+    "prompt": "Refactor the sample button to use design tokens and run the tests.",
+    "repo": "kristenmartino/agentic-sdlc-office",
+    "path": "src/data/claude-code-transcript-real-redacted.jsonl",
+    "n_words": 12,
+    "n_chars": 66,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "so what is a lambda url? and this is a program which deliberately has a bug and the point of this bug is to demonstrate the race condition which is...?",
+    "repo": "beelapranay/CS6650-BSDS",
+    "path": "hw2/file.jsonl",
+    "n_words": 30,
+    "n_chars": 151,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "and how exactly do we resolve this sort of an error? and is this is a coding error (as in, something which might happen during coding the program) or some sort of a system error? (something which comes up duiring scaling)?",
+    "repo": "beelapranay/CS6650-BSDS",
+    "path": "hw2/file.jsonl",
+    "n_words": 41,
+    "n_chars": 222,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "and what exaclty would resolving this bug ensure? would the count not increment by 10k each time we send a POST request?",
+    "repo": "beelapranay/CS6650-BSDS",
+    "path": "hw2/file.jsonl",
+    "n_words": 22,
+    "n_chars": 120,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "We are making a sample app that shows blob storage support in aspire project. Add blob storage to apphost using azurerite emulator",
+    "repo": "pksorensen/aspire-blobstorage-portal",
+    "path": ".claude/history/1cbb8e69-8e0e-45ba-a411-42cb7887fedd.jsonl",
+    "n_words": 22,
+    "n_chars": 130,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "Can you also add logging for debugging purposes?",
+    "repo": "MarioPadilla/claude-vault",
+    "path": "code-history.jsonl",
+    "n_words": 8,
+    "n_chars": 48,
+    "looks_coding": true,
+    "informality": 0.55
+  },
+  {
+    "prompt": "main.go is a simple api server writte in go, can you try to study and summarize to me what it does?",
+    "repo": "hui0112/album-api-go",
+    "path": "Homework2/claude.jsonl",
+    "n_words": 21,
+    "n_chars": 99,
+    "looks_coding": true,
+    "informality": 0.55
+  },
+  {
+    "prompt": "Can you create a helpful gitignore file?",
+    "repo": "harshit-agarwal7/claims-processing-system",
+    "path": "ai-artifacts/0b4b5db5-2405-429d-9810-a4028b870d5f.jsonl",
+    "n_words": 7,
+    "n_chars": 40,
+    "looks_coding": true,
+    "informality": 0.55
+  },
+  {
+    "prompt": "Search for all Elixir source files (.ex, .exs) in the athena-ptz-connector directory to understand the project structure and find the main application code and any existing tests.",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/246b2b63-06b0-4f19-aae6-38468afc8feb.jsonl",
+    "n_words": 27,
+    "n_chars": 179,
+    "looks_coding": true,
+    "informality": 0.5
+  },
+  {
+    "prompt": "Create 3 directories: frontend, backend, and psql. The frontend is a typescript react project. The backend is a rust tokio axum project that uses psql. And psql needs a migration script to setup the schema when it starts up. The root directory should have a docker-compose that uses the Dockerfiles of each of those individual projects.",
+    "repo": "phughk/ophelos-tech-test",
+    "path": ".claude/3f005a6b-a932-45c2-8b07-460d452e6202.jsonl",
+    "n_words": 56,
+    "n_chars": 336,
+    "looks_coding": true,
+    "informality": 0.5
+  },
+  {
+    "prompt": "PLAN ONLY。\n请评估这个请求是否能得到一个好计划：build agent teams in this @/Users/m1/projects/sdk_claude_agent/demo2_control_sdk_agent_teams.json。\n要求：\n1. 先阅读这个 JSON。\n2. 使用至少一个 subagent 获取补充观点。\n3. 不要写文件，不要给实现代码。\n4. 最终只输出中文：\n   - 这个请求是否足够清晰\n   - 主要风险\n   - 一个 1, 2, 3 的最小实施计划\n   - 你建议保留或删掉的复杂度",
+    "repo": "liush2yuxjtu/sdk_claude_agent",
+    "path": ".claude/sessions/main/d1d60909-b768-432e-b467-882831f0983a.jsonl",
+    "n_words": 32,
+    "n_chars": 271,
+    "looks_coding": true,
+    "informality": 0.4
+  },
+  {
+    "prompt": "PLAN ONLY。\nbuild agent teams with /tmp/*.json。\n要求：\n1. 先阅读仓库里的 demo2_control_sdk_agent_teams.json。\n2. 调用 long_snap、middle_snap、short_snap 三个 agent 各给一个计划视角。\n3. 不写代码，不改文件。\n4. 最终只输出中文：问题是否清晰、主要风险、综合后的 1 2 3 计划。",
+    "repo": "liush2yuxjtu/sdk_claude_agent",
+    "path": ".claude/sessions/main/eb719c00-5e45-4835-b3f3-7ceef61958aa.jsonl",
+    "n_words": 25,
+    "n_chars": 207,
+    "looks_coding": true,
+    "informality": 0.4
+  },
+  {
+    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: django__django-14382\n  repo: django/django\n  base_commit: 29345aecf6e8d53ccb3577a3762bb0c263f7558d\n  problem_statement: django-admin startapp with trailing slash in directory name results in error\nDescription\n    \nBash tab-completion appends trailing slashes to directory names. django-admin startapp name directory/ results in the error:\nCommandError: '' is not a valid app directory. Please make sure the directory is a valid identifier.\nThe error is caused by ​line 77 of django/core/management/templates.py by calling basename() on the path with no consideration for a trailing slash:\nself.validate_name(os.path.basename(target), 'directory')\nRemoving potential trailing slashes would solve the problem:\nself.validate_name(os.path.basename(target.rstrip(os.sep)), 'directory')",
+    "repo": "jiayuanz3/SWEContextBench",
+    "path": "cases/SWEContextBench Lite Past Experience/3341728c.jsonl",
+    "n_words": 96,
+    "n_chars": 849,
+    "looks_coding": true,
+    "informality": 0.3
+  },
+  {
+    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: pylint-dev__pylint-6506\n  repo: pylint-dev/pylint\n  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5\n  problem_statement: Traceback printed for unrecognized option\n### Bug description\n\nA traceback is printed when an unrecognized option is passed to pylint.\n\n### Configuration\n\n_No response_\n\n### Command used\n\n```shell\npylint -Q\n```\n\n\n### Pylint output\n\n```shell\n************* Module Command line\nCommand line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)\nTraceback (most recent call last):\n  File \"/Users/markbyrne/venv310/bin/pylint\", line 33, in <module>\n    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())\n  File \"/Users/markbyrne/programming/pylint/pylint/__init__.py\", line 24, in run_pylint\n    PylintRun(argv or sys.argv[1:])\n  File \"/Users/markbyrne/programming/pylint/pylint/lint/run.py\", line 135, in __init__\n    args = _config_initialization(\n  File \"/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py\", line 85, in _config_initialization\n    raise _UnrecognizedOptionError(options=unrecognized_options)\npylint.config.exceptions._UnrecognizedOptionError\n```\n\n\n### Expected behavior\n\nThe top part of the current output is handy:\n`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`\n\nThe traceback I don't think is expected & not user-friendly.\nA usage tip, for example:\n```python\nmypy -Q\nusage: mypy [-h] [-v] [-V] [more options; see below]\n            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]\nmypy: error: unrecognized arguments: -Q\n```\n\n### Pylint version\n\n```shell\npylint 2.14.0-dev0\nastroid 2.11.3\nPython 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]\n```\n\n\n### OS / Environment\n\n_No response_\n\n### Additional dependencies\n\n_No response_",
+    "repo": "jiayuanz3/SWEContextBench",
+    "path": "cases/SWEContextBench Lite Past Experience/2ae56e98.jsonl",
+    "n_words": 197,
+    "n_chars": 1870,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
+    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: sympy__sympy-23117\n  repo: sympy/sympy\n  base_commit: c5cef2499d6eed024b0db5c792d6ec7c53baa470\n  problem_statement: sympy.Array([]) fails, while sympy.Matrix([]) works\nSymPy 1.4 does not allow to construct empty Array (see code below). Is this the intended behavior?\n\n```\n>>> import sympy\nKeyboardInterrupt\n>>> import sympy\n>>> from sympy import Array\n>>> sympy.__version__\n'1.4'\n>>> a = Array([])\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py\", line 130, in __new__\n    return cls._new(iterable, shape, **kwargs)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py\", line 136, in _new\n    shape, flat_list = cls._handle_ndarray_creation_inputs(iterable, shape, **kwargs)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 142, in _handle_ndarray_creation_inputs\n    iterable, shape = cls._scan_iterable_shape(iterable)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 127, in _scan_iterable_shape\n    return f(iterable)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 120, in f\n    elems, shapes = zip(*[f(i) for i in pointer])\nValueError: not enough values to unpack (expected 2, got 0)\n```\n\n@czgdp1807",
+    "repo": "jiayuanz3/SWEContextBench",
+    "path": "cases/SWEContextBench Lite Past Experience/31913e46.jsonl",
+    "n_words": 136,
+    "n_chars": 1533,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
+    "prompt": "Check the backend CORS configuration to fix the CORS error:\n\n1. Find and read the main backend entry file (server/index.js)\n2. Look for CORS configuration\n3. Check how CORS origin is being set\n4. Identify if FRONTEND_URL environment variable is being used correctly\n5. Check if there are any CORS middleware settings that might be blocking the Vercel frontend\n\nReturn:\n- Current CORS configuration code\n- How FRONTEND_URL is being used\n- Any issues in the CORS setup\n- Recommended fixes for allowing https://neurosense360.site",
+    "repo": "chatgptnotes/plcautopilot.com",
+    "path": "projects/D--Todays-Neuro360/agent-241117d9.jsonl",
+    "n_words": 84,
+    "n_chars": 526,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
+    "prompt": "Solve Day 11 of the Advent of Code 2025 challenge.\n\nThe puzzle URL is: https://adventofcode.com/2025/day/11\n\nInstructions:\n1. Fetch the puzzle description from the URL\n2. Analyze the problem and understand both parts\n3. Create a solution file at solutions/day11.py following the project's standard pattern\n4. Test with the example input from the problem\n5. Run with actual input and submit answers\n\nThe solution must follow the project conventions:\n- Use the path setup for imports from parent directory\n- Include part1() and part2() functions\n- Test with examples before running actual input\n- Use aocd for input fetching and submission\n\nEnvironment setup before running:\n```bash\nsource venv/bin/activate && set -a && source .env && set +a\n```",
+    "repo": "pr0j3c7t0dd/advent-of-code-2025",
+    "path": "claude-sessions/agent-aab911a.jsonl",
+    "n_words": 117,
+    "n_chars": 744,
+    "looks_coding": true,
+    "informality": 0.15
+  },
+  {
+    "prompt": "Find all breadcrumb implementations in the frontend. I need to identify:\n1. The global breadcrumb (likely in a header/layout component)\n2. Page-specific breadcrumbs that appear below page titles\n\nSearch for:\n- Components with \"breadcrumb\" in the name\n- Usage of UBreadcrumb or similar Nuxt UI breadcrumb components\n- Any breadcrumb-related code in layouts and pages\n\nReturn the file paths and a brief description of each breadcrumb implementation found.",
+    "repo": "andrewmarconi/MakerDB",
+    "path": "docs/research/045_agent-ab728c4.jsonl",
+    "n_words": 68,
+    "n_chars": 453,
+    "looks_coding": true,
+    "informality": 0.05
+  }
+]
