@@ -1,45 +1,47 @@
 {
-  "total_prompts": 198,
+  "total_prompts": 2356,
   "by_spec_level": {
-    "L1 formal-spec": 7,
-    "L2 detailed": 12,
-    "L3 casual-task": 87,
-    "L4 vague": 84,
-    "L5 pure-vibe": 8
+    "L1 formal-spec": 103,
+    "L2 detailed": 153,
+    "L3 casual-task": 1166,
+    "L4 vague": 812,
+    "L5 pure-vibe": 122
   },
   "by_intent": {
-    "explain_understand": 47,
-    "modify_run": 41,
-    "feature_build": 23,
-    "other": 21,
-    "config_devops": 16,
-    "bugfix": 16,
-    "probe_meta": 13,
-    "git_meta": 11,
-    "refactor": 6,
-    "debug_error_paste": 3,
-    "test": 1
+    "other": 657,
+    "modify_run": 464,
+    "explain_understand": 384,
+    "git_meta": 266,
+    "feature_build": 250,
+    "bugfix": 113,
+    "config_devops": 107,
+    "refactor": 41,
+    "debug_error_paste": 30,
+    "probe_meta": 22,
+    "test": 22
   },
   "by_context_provision": {
-    "pure_nl": 152,
-    "references_files": 37,
-    "pastes_long_context": 5,
-    "pastes_error": 3,
-    "pastes_code": 1
+    "pure_nl": 1322,
+    "references_files": 888,
+    "pastes_long_context": 78,
+    "pastes_code": 38,
+    "pastes_error": 30
   },
   "by_language": {
-    "English": 176,
-    "Chinese": 13,
-    "Japanese": 5,
-    "Other-non-English": 2,
-    "Cyrillic": 1,
+    "English": 1925,
+    "Japanese": 148,
+    "Other-non-English": 125,
+    "Spanish": 63,
+    "Vietnamese": 62,
+    "Chinese": 30,
+    "Cyrillic": 2,
     "Korean": 1
   },
   "by_register": {
-    "terse_imperative": 108,
-    "conversational": 76,
-    "polite": 14
+    "terse_imperative": 1130,
+    "conversational": 1091,
+    "polite": 135
   },
-  "multilingual_share": "11%",
-  "error_paste_share": "2%"
+  "multilingual_share": "18%",
+  "error_paste_share": "1%"
 }
