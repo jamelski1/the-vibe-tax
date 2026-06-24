@@ -18,12 +18,42 @@ Scripts:
   Claude Code transcripts.
 - `pull_webchat_corpus.py` — harvest a parallel **web-chat** corpus from real
   WildChat (ChatGPT) conversations mirrored on GitHub (HuggingFace is firewalled
-  in this environment, so we source the mirror over the allowed GitHub access).
+  in the cloud sandbox, so we source the mirror over the allowed GitHub access).
+- `pull_webchat_hf.py` — the **unbiased** web-chat pull: streams WildChat-1M /
+  LMSYS-Chat-1M directly from HuggingFace (run locally with an HF token).
 - `classify_prompts.py` — label any corpus across the five spectrum axes
   (`--in/--out/--stats` to point it at either corpus).
 
 The two media prompt very differently (web-chat is far more paste-heavy and
 verbose; agentic CLI is terse) — see `VIBE_SPECTRUM.md` for the comparison.
+
+## Running locally with an HF token (unbiased web-chat pull)
+
+The cloud sandbox can't reach HuggingFace, so `pull_webchat_corpus.py` sourced a
+GitHub *mirror* of WildChat (curated subset → selection bias). On your own
+machine, pull WildChat-1M / LMSYS-Chat-1M directly for unbiased rates:
+
+```bash
+git fetch origin claude/blissful-hopper-dy0rvr
+git checkout claude/blissful-hopper-dy0rvr
+cd data/real_prompts
+
+pip install "datasets>=2.0" huggingface_hub
+
+# WildChat-1M and LMSYS-Chat-1M are GATED — visit each dataset page on HF once,
+# click "Agree and access" with the account that owns your token, then:
+export HF_TOKEN=hf_xxx
+
+python pull_webchat_hf.py --dataset wildchat --limit 1000
+python classify_prompts.py --in webchat_wildchat_corpus.json \
+    --out vibe_spectrum_wildchat_corpus.json --stats vibe_spectrum_wildchat_stats.json
+```
+
+`pull_webchat_hf.py` streams the dataset (no full download), keeps coding turns,
+flags pasted error/code, and writes the same schema the classifier consumes.
+Compare its stats against the agentic `vibe_spectrum_stats.json` for unbiased
+cross-medium rates. The dataset also provides a ground-truth `language` per turn
+(stored as `language_meta`), better than the classifier's script heuristic.
 
 ## How it works
 
