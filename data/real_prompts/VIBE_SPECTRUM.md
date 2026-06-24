@@ -19,7 +19,7 @@ below):
 
 - **Agentic CLI** — **198** human-typed prompts from **37** repos, drawn from
   committed Claude Code session transcripts (`crawl_real_prompts.py`).
-- **Web-chat** — **1,003** coding prompts from real **WildChat-1M** (ChatGPT)
+- **Web-chat** — **5,000** coding prompts from real **WildChat-1M** (ChatGPT)
   conversations, streamed directly from HuggingFace (`pull_webchat_hf.py`).
   *(An earlier 174-prompt run used a GitHub mirror of WildChat,
   `pull_webchat_corpus.py`, for the HF-firewalled cloud sandbox; the unbiased
@@ -136,40 +136,41 @@ politeness is rare (7%).
 
 The agentic-CLI corpus (Claude Code) is only half the picture. To cover the
 patterns it structurally lacks — chiefly manual error/code pasting — we labeled a
-parallel **web-chat** corpus of **1,003** coding prompts from real **WildChat-1M**
+parallel **web-chat** corpus of **5,000** coding prompts from real **WildChat-1M**
 (ChatGPT) conversations, streamed from HuggingFace (`pull_webchat_hf.py`). Both
 corpora were labeled by the **same** classifier, so the axes are directly
 comparable.
 
-| Axis | Agentic CLI (n=198) | Web-chat (n=1003) |
+| Axis | Agentic CLI (n=198) | Web-chat (n=5000) |
 |------|--------------------:|------------------:|
-| **Any paste** (error+code+long-context) | ~5% | **51%** |
-| Pasted **error** | 2% | **17%** |
-| Pasted **code** | ~0% | **21%** |
-| Spec level: casual/vague (L3–L5) | **90%** | 56% |
-| Spec level: detailed/formal (L1–L2) | 10% | **44%** |
-| Register: terse-imperative | **55%** | 37% |
-| Register: conversational | 38% | **59%** |
-| Context: pure NL (no paste) | **77%** | 42% |
-| Intent: debug / error-paste | 2% | **17%** |
-| Intent: feature-build (whole thing) | 12% | **23%** |
-| Multilingual | 11% | **36%** |
+| **Any paste** (error+code+long-context) | ~5% | **54%** |
+| Pasted **error** | 2% | **12%** |
+| Pasted **code** | ~0% | **28%** |
+| Spec level: casual/vague (L3–L5) | **90%** | 55% |
+| Spec level: detailed/formal (L1–L2) | 10% | **45%** |
+| Register: terse-imperative | **55%** | 38% |
+| Register: conversational | 38% | **58%** |
+| Context: pure NL (no paste) | **77%** | 41% |
+| Intent: debug / error-paste | 2% | **12%** |
+| Intent: feature-build (whole thing) | 12% | **22%** |
+| Multilingual | 11% | **42%** |
 
 **The medium shapes the prompt.** In an *agentic CLI*, the model fetches its own
 context (reads files, runs code, sees errors), so users are terse, vague, and
 rarely paste anything — *"fix the failing test"*. In a *web chatbox*, the model
-can't reach the user's machine, so **half** of prompts paste something, users
-write longer and more detailed specs, converse more, and supply the error
+can't reach the user's machine, so **over half** of prompts paste something,
+users write longer and more detailed specs, converse more, and supply the error
 themselves:
 
 > *"Error ImportError: Failed to import test module: tests.test_solution
 > Traceback (most recent call last): File \"/usr/local/lib/python…\""* — WildChat
 
-The intent mix also flips: web-chat's top intent is *"build me this whole thing"*
-(feature-build), while agentic users mostly *explain* and *modify* an existing
-codebase the agent can already see. The unbiased HF pull made every gap **larger**
-than the earlier GitHub-mirror sample did — so the medium effect is not a mirror
-artifact.
+The intent mix also flips: web-chat's top *codeable* intent is *"build me this
+whole thing"* (feature-build), while agentic users mostly *explain* and *modify*
+an existing codebase the agent can already see. The pattern is stable across
+sample sizes — at n=5000 every gap holds, with the code-paste and multilingual
+gaps widening further; only error-paste eased from the small-sample 17% to a
+steady **12%** (still 6× the agentic rate).
 
 This is the single most important finding for the study: **"vibe coding" is not
 one distribution.** Where the prompt is typed changes its formality, its length,
@@ -202,9 +203,9 @@ must state which medium it is modeling.
   tutorials, Advent-of-Code, demos, and tooling experiments, which inflates
   AoC/problem-statement prompts and probe/test turns. A broader crawl (more
   query angles, more repos) would shift the mix.
-- **n** — agentic is still small (198); the web-chat corpus is now 1,003 from
-  the full WildChat-1M stream and gives confident rates. Scale the agentic crawl
-  to match before drawing strong per-cell conclusions there.
+- **n** — agentic is still small (198); the web-chat corpus is now 5,000 from
+  the full WildChat-1M stream and gives confident, sample-stable rates. Scale the
+  agentic crawl to match before drawing strong per-cell conclusions there.
 - **Web-chat is one dataset** — WildChat-1M (real ChatGPT logs). Re-running
   `pull_webchat_hf.py --dataset lmsys` would confirm the pattern replicates
   across a second web-chat source.
