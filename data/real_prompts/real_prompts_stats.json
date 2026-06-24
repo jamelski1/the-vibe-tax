@@ -1,19 +1,19 @@
 {
-  "crawled_at": "2026-06-24T03:53:27.556207",
-  "candidate_files": 220,
-  "transcripts_fetched": 220,
-  "transcripts_with_prompts": 114,
-  "hit_rate": "52%",
-  "unique_repos": 40,
-  "total_prompts": 204,
-  "coding_prompts": 92,
-  "non_english_prompts": 24,
+  "crawled_at": "2026-06-24T05:29:31.602940",
+  "candidate_files": 400,
+  "transcripts_fetched": 356,
+  "transcripts_with_prompts": 207,
+  "hit_rate": "58%",
+  "unique_repos": 39,
+  "total_prompts": 830,
+  "coding_prompts": 297,
+  "non_english_prompts": 87,
   "error_paste_prompts": 4,
-  "code_paste_prompts": 3,
-  "avg_words": 31.1,
+  "code_paste_prompts": 4,
+  "avg_words": 24.4,
   "informality_buckets": {
-    "formal_0.0-0.4": 16,
-    "mid_0.4-0.6": 19,
-    "vibe_0.6-1.0": 169
+    "formal_0.0-0.4": 57,
+    "mid_0.4-0.6": 123,
+    "vibe_0.6-1.0": 650
   }
 }

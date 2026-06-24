@@ -133,12 +133,59 @@ def raw_url_for(item):
     return f"https://raw.githubusercontent.com/{full_name}/{ref}/{urllib.parse.quote(path)}"
 
 
-def discover(limit, log):
+# A repo-tree path that looks like a committed Claude Code transcript.
+TRANSCRIPT_PATH = re.compile(
+    r"(^|/)(\.claude|claude-sessions|chat-history|conversations|sessions|"
+    r"\.specstory|ai-sessions|claude-vault|cli-checkpoints)/.*\.jsonl$"
+    r"|(^|/)[0-9a-f-]{8,}\.jsonl$",   # uuid-named session files anywhere
+    re.IGNORECASE,
+)
+
+
+def enumerate_repo(repo, cap, log):
+    """Deep-list a repo's whole tree and return ALL transcript .jsonl files.
+
+    This bypasses code search's 1000-result cap: archive repos that commit a
+    whole ~/.claude/projects tree can hold hundreds of sessions.
+    """
+    out = []
+    try:
+        info = _get(f"https://api.github.com/repos/{repo}")
+        branch = info.get("default_branch", "HEAD")
+        tree = _get(f"https://api.github.com/repos/{repo}/git/trees/{branch}?recursive=1")
+    except Exception as e:
+        log(f"    tree error {repo}: {e}")
+        return out
+    if tree.get("truncated"):
+        log(f"    (tree truncated for {repo} — using partial listing)")
+    for node in tree.get("tree", []):
+        if node.get("type") != "blob":
+            continue
+        path = node.get("path", "")
+        if not TRANSCRIPT_PATH.search(path):
+            continue
+        if FIXTURE_PATH.search(path) or SIDECHAIN_FILENAME.search(path):
+            continue
+        out.append({
+            "repo": repo,
+            "path": path,
+            "sha": node.get("sha"),
+            "raw_url": f"https://raw.githubusercontent.com/{repo}/{branch}/{urllib.parse.quote(path)}",
+        })
+        if len(out) >= cap:
+            break
+    return out
+
+
+def discover(limit, log, deep=False, per_repo_cap=None):
     """Page through searches and collect unique candidate transcript files.
 
     Caps files-per-repo for diversity and skips obvious fixture paths so the
-    crawl budget is spent on real sessions, not test data.
+    crawl budget is spent on real sessions, not test data. When ``deep`` is set,
+    every repo surfaced by search is then fully enumerated via the git-tree API
+    to pull all of its transcripts (up to ``per_repo_cap``).
     """
+    cap = per_repo_cap or MAX_FILES_PER_REPO
     seen = set()
     per_repo = {}
     candidates = []
@@ -169,7 +216,7 @@ def discover(limit, log):
                     continue
                 repo = it.get("repository", {})
                 repo_name = repo.get("full_name") if isinstance(repo, dict) else repo
-                if per_repo.get(repo_name, 0) >= MAX_FILES_PER_REPO:
+                if per_repo.get(repo_name, 0) >= cap:
                     continue
                 url = raw_url_for(it)
                 if not url:
@@ -188,6 +235,29 @@ def discover(limit, log):
             page += 1
             time.sleep(SEARCH_DELAY)
         time.sleep(SEARCH_DELAY)
+
+    if not deep:
+        return candidates
+
+    # Deep phase: fully enumerate every repo we've seen, pulling all transcripts.
+    log(f"  deep enumeration of {len(per_repo)} repos (cap {cap}/repo) ...")
+    have = {(c["repo"], c["path"]) for c in candidates}
+    for repo_name in list(per_repo.keys()):
+        if len(candidates) >= limit:
+            break
+        room = cap - per_repo.get(repo_name, 0)
+        if room <= 0:
+            continue
+        for f in enumerate_repo(repo_name, cap, log):
+            if (f["repo"], f["path"]) in have:
+                continue
+            have.add((f["repo"], f["path"]))
+            candidates.append(f)
+            per_repo[repo_name] = per_repo.get(repo_name, 0) + 1
+            if per_repo[repo_name] >= cap or len(candidates) >= limit:
+                break
+        time.sleep(0.3)
+    log(f"  after deep enumeration: {len(candidates)} candidate files")
     return candidates
 
 
@@ -352,14 +422,14 @@ TRIVIAL = re.compile(
 )
 
 
-def run(limit, max_prompt_chars, min_prompt_chars, strict_coding):
+def run(limit, max_prompt_chars, min_prompt_chars, strict_coding, deep=False, per_repo_cap=None):
     log("=" * 60)
     log("VIBE TAX — Real Prompt Crawler")
     log("=" * 60)
     log(f"Token: {'set' if GITHUB_TOKEN else 'NONE (low rate limit)'}")
 
     log(f"[1/4] Discovering up to {limit} transcript files ...")
-    candidates = discover(limit, log)
+    candidates = discover(limit, log, deep=deep, per_repo_cap=per_repo_cap)
     log(f"  found {len(candidates)} candidate files")
 
     log("[2/4] Fetching + extracting ...")
@@ -497,5 +567,11 @@ if __name__ == "__main__":
     ap.add_argument("--strict-coding", action="store_true",
                     help="only keep prompts matching the English coding-keyword regex "
                          "(drops most multilingual + error-paste prompts; default is inclusive)")
+    ap.add_argument("--deep", action="store_true",
+                    help="after search, fully enumerate each repo's git tree to pull all "
+                         "its transcripts (bypasses code-search's 1000-result cap)")
+    ap.add_argument("--per-repo", type=int, default=None,
+                    help="max transcript files per repo (default 20; raise it with --deep)")
     args = ap.parse_args()
-    run(args.limit, args.max_chars, args.min_chars, strict_coding=args.strict_coding)
+    run(args.limit, args.max_chars, args.min_chars, strict_coding=args.strict_coding,
+        deep=args.deep, per_repo_cap=args.per_repo)
