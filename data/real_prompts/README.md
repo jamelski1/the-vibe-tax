@@ -23,7 +23,9 @@ the synthetic spectrum.
    (requires `userType == "external"`, rejects `isSidechain` turns), drops
    tool results, `[Request interrupted]`, system-reminders, `<command-*>`
    wrappers, and slash-commands.
-4. **Dedupe** — exact + whitespace-normalized.
+4. **Dedupe** — exact + whitespace-normalized, plus a long-prefix collapse
+   that removes templated machine-generated prompts (e.g. SWE-bench-style
+   harnesses that share a 60+ char prefix and differ only in a trailing id).
 5. **Score** — a rough `informality` heuristic, `0.0` (formal spec) →
    `1.0` (terse vibe), based on length, punctuation, casing, politeness, and
    structure (bullets/code blocks read as formal).
@@ -46,6 +48,15 @@ python crawl_real_prompts.py --all-prompts     # keep non-coding chatter too
 | `real_prompts_corpus.json` | Each prompt with `repo`, `path`, word/char counts, `looks_coding`, `informality`. |
 | `real_prompts_sample.txt`  | Human-readable sample, sorted most-vibe first. |
 | `real_prompts_stats.json`  | Aggregate counts + informality buckets. |
+
+## Crawl results (scaled run)
+
+A 13-query crawl (`--limit 1000`) surfaced **220** candidate transcript files
+and yielded **89** unique, de-templated coding prompts across **22** repos.
+Informality skew: 11 formal / 11 mid / **67 vibe** — most real prompts land at
+the informal end. Discovery breadth (number of distinct query angles), not
+fetch budget, is the binding constraint on corpus size; add more query
+variants to `SEARCH_QUERIES` to grow it further.
 
 ## Pilot findings
 

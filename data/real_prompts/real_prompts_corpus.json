@@ -18,38 +18,29 @@
     "informality": 0.95
   },
   {
+    "prompt": "respond \"ok test\"",
+    "repo": "entireio/cli-checkpoints",
+    "path": "6f/fa85cf0d18/0/full.jsonl",
+    "n_words": 3,
+    "n_chars": 17,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
+    "prompt": "revent last commit",
+    "repo": "entireio/cli-checkpoints",
+    "path": "b2/a47f629ae5/0/full.jsonl",
+    "n_words": 3,
+    "n_chars": 18,
+    "looks_coding": true,
+    "informality": 0.95
+  },
+  {
     "prompt": "commit changes",
     "repo": "housesigma/listing-chatbot-design",
     "path": "16/5c628cba38/0/full.jsonl",
     "n_words": 2,
     "n_chars": 14,
-    "looks_coding": true,
-    "informality": 0.95
-  },
-  {
-    "prompt": "add and commit",
-    "repo": "oneopane/claudecode.config",
-    "path": "projects/-Users-ojash-Documents-MediaPlayer/6d05f418-b199-47a9-b790-efd7a9f3ae5c.jsonl",
-    "n_words": 3,
-    "n_chars": 14,
-    "looks_coding": true,
-    "informality": 0.95
-  },
-  {
-    "prompt": "how to handle this error",
-    "repo": "hangseanshi/Sealine-Database",
-    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
-    "n_words": 5,
-    "n_chars": 24,
-    "looks_coding": true,
-    "informality": 0.95
-  },
-  {
-    "prompt": "check my api connectivity",
-    "repo": "hangseanshi/Sealine-Database",
-    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
-    "n_words": 4,
-    "n_chars": 25,
     "looks_coding": true,
     "informality": 0.95
   },
@@ -63,31 +54,13 @@
     "informality": 0.95
   },
   {
-    "prompt": "please test the api connectivity",
-    "repo": "hangseanshi/Sealine-Database",
-    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
+    "prompt": "just remove the prepend pilot_",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
     "n_words": 5,
-    "n_chars": 32,
+    "n_chars": 30,
     "looks_coding": true,
-    "informality": 0.9
-  },
-  {
-    "prompt": "Fix the network",
-    "repo": "Doarte45/LLMnetopsLab",
-    "path": "results/cctranscripts/r014.jsonl",
-    "n_words": 3,
-    "n_chars": 15,
-    "looks_coding": true,
-    "informality": 0.85
-  },
-  {
-    "prompt": "Giải thích file này",
-    "repo": "NguyenDoCong/bidding",
-    "path": "codex-docker/.claude-home/projects/-workspace/366d068c-bdf7-4221-a6d1-3ba5df67eaf8.jsonl",
-    "n_words": 4,
-    "n_chars": 19,
-    "looks_coding": true,
-    "informality": 0.85
+    "informality": 0.95
   },
   {
     "prompt": "Run the agent task",
@@ -95,6 +68,15 @@
     "path": "target-repo-skills/results/control/transcript.jsonl",
     "n_words": 4,
     "n_chars": 18,
+    "looks_coding": true,
+    "informality": 0.85
+  },
+  {
+    "prompt": "Fix the network",
+    "repo": "Doarte45/LLMnetopsLab",
+    "path": "results/cctranscripts/r002.jsonl",
+    "n_words": 3,
+    "n_chars": 15,
     "looks_coding": true,
     "informality": 0.85
   },
@@ -108,6 +90,24 @@
     "informality": 0.85
   },
   {
+    "prompt": "write a few commits without signing them",
+    "repo": "entireio/cli-checkpoints",
+    "path": "d9/e1b6af3456/0/full.jsonl",
+    "n_words": 7,
+    "n_chars": 40,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "make a small change now, this is for a test, just update the comment",
+    "repo": "entireio/cli-checkpoints",
+    "path": "9c/e53b94aa25/0/full.jsonl",
+    "n_words": 14,
+    "n_chars": 68,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
     "prompt": "the pre-commit hook should not block if the commit message explicitly contains \"no trajectory\"",
     "repo": "ASSERT-KTH/reproducible-trajectories",
     "path": "trajectories/ca9f8f57-90ab-4eda-b6a9-b9fc9676b789.jsonl",
@@ -117,9 +117,63 @@
     "informality": 0.8
   },
   {
+    "prompt": "how to run it on with my claude agent? I have installed it already",
+    "repo": "ikruk/lhhp-coac-challenge",
+    "path": "claude-sessions/-Users-Ihor-Kruk-Desktop-work-projects-LHHP-COAC-sources-Ihor-Kruk-epam-com/555cb873-d165-4c2d-801d-dc3909926dbc.jsonl",
+    "n_words": 14,
+    "n_chars": 66,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "install OpenHands on llm, alright, install it on j@llm:docker-compose/openhands (youll have to make the fodler)",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/046acf63-d001-440a-a70c-4afe6bd96eeb.jsonl",
+    "n_words": 15,
+    "n_chars": 111,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "alright. Add some example tests that might be iffy for the unit function",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 13,
+    "n_chars": 72,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "the whole point here was to _not_ buffer the whole file",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/36ba98db-561d-44f5-84a5-6f83c813ac34.jsonl",
+    "n_words": 11,
+    "n_chars": 55,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "ah, I see that there is two pilot_ pilot_... remove the extra one we added",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
+    "n_words": 15,
+    "n_chars": 74,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
+    "prompt": "can you run it?",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
+    "n_words": 4,
+    "n_chars": 15,
+    "looks_coding": true,
+    "informality": 0.8
+  },
+  {
     "prompt": "can you restate the question? as asked it doesn't make sense to me",
     "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
+    "path": "chat-history/chat_20250824_232209.jsonl",
     "n_words": 13,
     "n_chars": 66,
     "looks_coding": true,
@@ -135,74 +189,11 @@
     "informality": 0.7
   },
   {
-    "prompt": "let's add both my answers so far (about cloud/local, and about mobile notifs) to a \"WIP\" section of the overview spec",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 21,
-    "n_chars": 117,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "yeah i don't actually care about the continuation per se -- i'm more imagining that each session persists its chat and prompt history, whether mobile or desktop, and then all the context can be reaccessed whenever a new claude code process is started",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 43,
-    "n_chars": 250,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "rather, the terminal ttyd should be hooked up to a claude code session, so say \"claude help me edit the readme\" -> somehow that literal text gets sent to claude code",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 31,
-    "n_chars": 165,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "let's plan for there to be a toggle or something, or a buffer that's editable before sending. but don't implement that for now",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 23,
-    "n_chars": 126,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "let's do local first, but both cases should have local processes; cloud will have 1 big container containing the web app running alongside claude code",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 25,
-    "n_chars": 150,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "write a script that copies this most recent chat session out of my ~/.claude and commits it as a timestamped chat convo for history",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 24,
-    "n_chars": 131,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "Run /next-task --phase and when complete run /commit",
-    "repo": "troobit/workscripts",
-    "path": "specs/repo-setup/.orbit/phase-2-run-3-transcript.jsonl",
-    "n_words": 8,
-    "n_chars": 52,
-    "looks_coding": true,
-    "informality": 0.7
-  },
-  {
-    "prompt": "how to handle error: API Error: Unable to connect to API: Self-signed certificate detected. Check your proxy or corporate SSL certificates",
-    "repo": "hangseanshi/Sealine-Database",
-    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
-    "n_words": 21,
-    "n_chars": 138,
+    "prompt": "make a very small update to a comment in the CLI - im just trying to test something",
+    "repo": "entireio/cli-checkpoints",
+    "path": "fc/94685b791a/0/full.jsonl",
+    "n_words": 18,
+    "n_chars": 83,
     "looks_coding": true,
     "informality": 0.7
   },
@@ -234,11 +225,182 @@
     "informality": 0.7
   },
   {
-    "prompt": "please add in top-level readme that this repo is only for specs, no implementation.",
+    "prompt": "is there anyting in this repository that is sensitive that I would not want to make public?  Analysze eacch file to ensure I'm safe to make this public, specifically the @claude-sessions/ folder.  The .env will NOT be public",
+    "repo": "pr0j3c7t0dd/advent-of-code-2025",
+    "path": "claude-sessions/7ca68abe-61bd-47fc-969a-b98bb0b2b0fc.jsonl",
+    "n_words": 38,
+    "n_chars": 224,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "is there a way I can remove claude-sessions from the whole git history?",
+    "repo": "pr0j3c7t0dd/advent-of-code-2025",
+    "path": "claude-sessions/7ca68abe-61bd-47fc-969a-b98bb0b2b0fc.jsonl",
+    "n_words": 13,
+    "n_chars": 71,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "let's add both my answers so far (about cloud/local, and about mobile notifs) to a \"WIP\" section of the overview spec",
     "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 14,
-    "n_chars": 83,
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 21,
+    "n_chars": 117,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "yeah i don't actually care about the continuation per se -- i'm more imagining that each session persists its chat and prompt history, whether mobile or desktop, and then all the context can be reaccessed whenever a new claude code process is started",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 43,
+    "n_chars": 250,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "rather, the terminal ttyd should be hooked up to a claude code session, so say \"claude help me edit the readme\" -> somehow that literal text gets sent to claude code",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 31,
+    "n_chars": 165,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "let's plan for there to be a toggle or something, or a buffer that's editable before sending. but don't implement that for now",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 23,
+    "n_chars": 126,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "let's do local first, but both cases should have local processes; cloud will have 1 big container containing the web app running alongside claude code",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 25,
+    "n_chars": 150,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "write a script that copies this most recent chat session out of my ~/.claude and commits it as a timestamped chat convo for history",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 24,
+    "n_chars": 131,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "if you ssh over to j@10.1.0.94, you'll notice there's no armbian wifi config file, and yet we need to configure wifi for armbian",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/10dceff6-f77a-4646-a93f-a830e54f2683.jsonl",
+    "n_words": 23,
+    "n_chars": 128,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "there's some stuff getting caught by git that I think probably shouldn't be versioned. Help me write an appropriate gitignore",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/b65b69ff-7444-4254-aff1-fe4b8c7ec43b.jsonl",
+    "n_words": 20,
+    "n_chars": 125,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "so that confirms that devenv works, but I'm still seeing the error when I cd in from direnv",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/94a7d78d-283b-433b-8403-924ad7126f03.jsonl",
+    "n_words": 18,
+    "n_chars": 91,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "we probably actually want to hold onto .envrc, but otherwise good. Remove that one from the command and the gitignore",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/ca9192d8-99d3-4f3b-8854-ba8f0bb615e4.jsonl",
+    "n_words": 20,
+    "n_chars": 117,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "before doing that, give me a credible explanation as to in what case the current function is wrong and add a test to prove it",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 25,
+    "n_chars": 125,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "thread 5921302 panic: integer overflow\n/Users/sam.schick/Documents/code/zig-advent-of-code/advent/day01.zig:56:26: 0x100414a43 in countZeroCrossings (test)\n    return zeros_on_path - @as(u32, if (start_pos == 0) 1 else 0);",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 21,
+    "n_chars": 222,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "but I mean zeros_on_path, not the number of crossings. if start_pos is 0 and distance isint... oh, but if we go up rather than down, we could get say 4 as position_before_mod which gives us 0 zeros on path. the original bug only occurs if we go _down_ from 0",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 50,
+    "n_chars": 258,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "Add a test in the case you think will fail",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/8395a4e1-27b6-4016-aa39-d4e5358f30cb.jsonl",
+    "n_words": 10,
+    "n_chars": 42,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "fair. I've tried to clean up the logic to make it more explicit, but I still have a few failing cases",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/4fc0e851-7299-43c2-9c4c-4e09f705fd10.jsonl",
+    "n_words": 21,
+    "n_chars": 101,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "before we do that; this looks better, but we don't want actual recursion. make selectOptimalDigit return a single digit, and have joltage loop over the battery count to \"unroll\" that recursion",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/ae6f55a0-fb7f-4b33-9f56-7f80891c3f68.jsonl",
+    "n_words": 31,
+    "n_chars": 192,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "modify the file to convert to newtons, and also I want to change the name of some interface points, I want lug_right to be pilot_lug_starboard and lug_left to be pilot_lug_port",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
+    "n_words": 30,
+    "n_chars": 176,
+    "looks_coding": true,
+    "informality": 0.7
+  },
+  {
+    "prompt": "can you add a standard MIT license?",
+    "repo": "entireio/cli-checkpoints",
+    "path": "b0/be9accda39/0/full.jsonl",
+    "n_words": 7,
+    "n_chars": 35,
     "looks_coding": true,
     "informality": 0.65
   },
@@ -252,83 +414,29 @@
     "informality": 0.65
   },
   {
-    "prompt": "voice should primarily handle chat, maybe terminal commands later, but that's not a supported core flow. for the specific api, keep it flexible - could be openai or wispr flow or something else. we will prioritize what's easy to integrate and low latency with sufficient accuracy.",
+    "prompt": "git push origin main --force                                                     128 х \nfatal: 'origin' does not appear to be a git repository\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights",
+    "repo": "pr0j3c7t0dd/advent-of-code-2025",
+    "path": "claude-sessions/7ca68abe-61bd-47fc-969a-b98bb0b2b0fc.jsonl",
+    "n_words": 33,
+    "n_chars": 241,
+    "looks_coding": true,
+    "informality": 0.65
+  },
+  {
+    "prompt": "please add in top-level readme that this repo is only for specs, no implementation.",
     "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 46,
-    "n_chars": 280,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "should be very basic, read-only, with line numbers. i'm imaging the user might provide commentary but wouldn't be doing code editing.",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 21,
-    "n_chars": 133,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "yeah these all sound good. after this let's figure out an implementation order, i.e. feature prioritzation sequencing. Also add to the meta.md a section that says to think about feature/prototype feature sequencing in future projects too.",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 36,
-    "n_chars": 238,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "i backed those changes out. let's try that again, but instead, we do a question and answer thing and you be the questioner role. make sure that this is specified in meta.md as well, that implementation order decisions should be cooperative and q&a based.",
-    "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
-    "n_words": 44,
-    "n_chars": 254,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-27T22:48 • triage\n\nRun `gt boot triage` now.",
-    "repo": "skogai/claude-backup2",
-    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/9fa0b67d-e3db-4878-8e8f-ff27ea9a2932.jsonl",
+    "path": "chat-history/chat_20250824_232209.jsonl",
     "n_words": 14,
-    "n_chars": 80,
+    "n_chars": 83,
     "looks_coding": true,
-    "informality": 0.6
+    "informality": 0.65
   },
   {
-    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-27T15:38 • triage\n\nRun `gt boot triage` now.",
-    "repo": "skogai/claude-backup2",
-    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/1d32d8a7-4492-41d5-8daa-44168235c9d2.jsonl",
-    "n_words": 14,
-    "n_chars": 80,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-28T12:44 • triage\n\nRun `gt boot triage` now.",
-    "repo": "skogai/claude-backup2",
-    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/8f7ac31c-5140-432a-b119-d3a4625a631c.jsonl",
-    "n_words": 14,
-    "n_chars": 80,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "[GAS TOWN] boot <- daemon • 2026-02-28T01:09 • triage\n\nRun `gt boot triage` now.",
-    "repo": "skogai/claude-backup2",
-    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/ab5a255f-2893-4e40-a502-ad510583aa57.jsonl",
-    "n_words": 14,
-    "n_chars": 80,
-    "looks_coding": true,
-    "informality": 0.6
-  },
-  {
-    "prompt": "[GAS TOWN] boot <- daemon • 2026-03-01T15:47 • triage\n\nRun `gt boot triage` now.",
-    "repo": "skogai/claude-backup2",
-    "path": "tmp/dot-claude/projects/-home-skogix-gt-deacon-dogs-boot/1fb2c8c2-691f-44c2-9163-7dac5f976f08.jsonl",
-    "n_words": 14,
-    "n_chars": 80,
+    "prompt": "Let's adjust the test-secrets.txt file.  Add STRIPE_PUBLISHABLE_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  I'm testing gitleaks.",
+    "repo": "entireio/cli-checkpoints",
+    "path": "d8/ab7104d00c/0/full.jsonl",
+    "n_words": 10,
+    "n_chars": 157,
     "looks_coding": true,
     "informality": 0.6
   },
@@ -378,6 +486,123 @@
     "informality": 0.6
   },
   {
+    "prompt": "voice should primarily handle chat, maybe terminal commands later, but that's not a supported core flow. for the specific api, keep it flexible - could be openai or wispr flow or something else. we will prioritize what's easy to integrate and low latency with sufficient accuracy.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 46,
+    "n_chars": 280,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "should be very basic, read-only, with line numbers. i'm imaging the user might provide commentary but wouldn't be doing code editing.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 21,
+    "n_chars": 133,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "yeah these all sound good. after this let's figure out an implementation order, i.e. feature prioritzation sequencing. Also add to the meta.md a section that says to think about feature/prototype feature sequencing in future projects too.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 36,
+    "n_chars": 238,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "i backed those changes out. let's try that again, but instead, we do a question and answer thing and you be the questioner role. make sure that this is specified in meta.md as well, that implementation order decisions should be cooperative and q&a based.",
+    "repo": "boweiliu/idea-project-specs",
+    "path": "chat-history/chat_20250824_232209.jsonl",
+    "n_words": 44,
+    "n_chars": 254,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "Check the monitor.sh script in dev-tools, it should stop monitoring when it is stopped, and it should n\n\nAn error just occurred, but it might be a duplicate:\nType: Exqlite.Error\nFile: debugger.ex:155\nTime: 2025-06-18 23:55:43.642\nStack:\n  (ash_chat 0.1.0) lib/ash_chat/ai/chat_agent.ex:16: AshChat.AI.ChatAgent.create_room/0\n  (ash_chat 0.1.0) lib/ash_chat_web/live/chat_live/room_handlers.ex:14: AshChatWeb.ChatLive.RoomHandlers.handle_event/3\n  (phoenix_live_view 1.0.17) lib/phoenix_live_view/channel.ex:509: anonymous fn/3 in Phoenix.LiveView.Channel.view_handle_event/3",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/32c8ca23-b090-4627-90ca-0639bcf1d1cc.jsonl",
+    "n_words": 51,
+    "n_chars": 574,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "Use the start_task tool to begin a task called 'CreativePoem' with this prompt: Write a short poem about artificial intelligence and creativity",
+    "repo": "tensiondriven/athena",
+    "path": "chat-history/4a5979a0-0325-4782-aa8a-0aa95c24b859.jsonl",
+    "n_words": 22,
+    "n_chars": 143,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "is zig pass by value or reference? Can I modify start_pos, and if I do does it change outside the function?",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 21,
+    "n_chars": 107,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "I updated it and it works for the example test, but not for the real input; my answer ends up too high",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 22,
+    "n_chars": 102,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "I tried to compensate for that but am getting an error I don't understand. advent/day01.zig:56:29: error: value with comptime-only type 'comptime_int' depends on runtime control flow\n    return zeros_on_path - (if (start_pos == 0) 1 else 0);\\\n\\\nexplain that to me",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 41,
+    "n_chars": 263,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "Is there a way to do parametrized tests in zig? The edge cases test is throwing me off because I can only see one failing case at a time",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 29,
+    "n_chars": 136,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "Sorry, I'm not being clear. I want a different _test_ for each edge case. If you can make this tidy with comptime I'm all for it",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 26,
+    "n_chars": 128,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "I did some cleanup that I like, but I'm getting an error I don't understand about const pointers",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/e672d945-0b5f-4812-8262-93f69b57418c.jsonl",
+    "n_words": 18,
+    "n_chars": 96,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
+    "prompt": "write tests inside the day file they are relevant for. Test with tests, not debug scripts.",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/ae6f55a0-fb7f-4b33-9f56-7f80891c3f68.jsonl",
+    "n_words": 16,
+    "n_chars": 90,
+    "looks_coding": true,
+    "informality": 0.6
+  },
+  {
     "prompt": "Can you also add logging for debugging purposes?",
     "repo": "MarioPadilla/claude-vault",
     "path": "code-history.jsonl",
@@ -405,20 +630,29 @@
     "informality": 0.55
   },
   {
-    "prompt": "Create a Next.js middleware that adds a custom header \"X-Request-Id\" with a unique value to all responses. The middleware should also log the request pathname to the console.",
-    "repo": "vercel/next-evals-oss",
-    "path": "results/claude-opus-4.7/2026-04-16T16-28-28.945Z/agent-031-proxy-middleware/run-1/transcript-raw.jsonl",
-    "n_words": 28,
-    "n_chars": 174,
+    "prompt": "Can you create a python file to translate the '/Users/alex/repos/JMD-GenAI-paper/data/DUCTILE/sessions/engineer_2/OEM_loads_v2.yaml' to a json format?",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
+    "n_words": 14,
+    "n_chars": 150,
     "looks_coding": true,
-    "informality": 0.5
+    "informality": 0.55
   },
   {
-    "prompt": "  ~/Documents/repo/recommendations-service   RECO-0-create-full-cicle-flow *1 ❯ git push                                                                                                                 01:42:52fatal: The current branch RECO-0-create-full-cicle-flow has no upstream branch.To push the current branch and set the remote as upstream, use    git push --set-upstream origin RECO-0-create-full-cicle-flowTo have this happen automatically for branches without a trackingupstream, see 'push.autoSetupRemote' in 'git help config'.",
-    "repo": "4thwithme/.dotfiles",
-    "path": "claude/projects/-Users-4thwithme--config/c5835584-ebf7-45b9-96e9-174e4510a5e9.jsonl",
-    "n_words": 51,
-    "n_chars": 542,
+    "prompt": "about 1, the tools seems to be renaming it automatically, so do not bother. About 2-4, yes fix please.",
+    "repo": "alex-pradas/DUCTILE",
+    "path": "sessions/engineer_2/engineer_2_transcript.jsonl",
+    "n_words": 19,
+    "n_chars": 102,
+    "looks_coding": true,
+    "informality": 0.55
+  },
+  {
+    "prompt": "write a little text explaining that the only way to disable is via flag because:\n1. We don't want to promt the user with heaps of choices while setting up for the first time\n2. if we use flags, we can track easier the usage via metrics",
+    "repo": "entireio/cli-checkpoints",
+    "path": "8c/fa910f8ef9/2/full.jsonl",
+    "n_words": 47,
+    "n_chars": 235,
     "looks_coding": true,
     "informality": 0.5
   },
@@ -428,6 +662,24 @@
     "path": ".claude/3f005a6b-a932-45c2-8b07-460d452e6202.jsonl",
     "n_words": 56,
     "n_chars": 336,
+    "looks_coding": true,
+    "informality": 0.5
+  },
+  {
+    "prompt": "This file is a rough examination, not done yet. But I'd love to use iterators rather than array lists in parseRanges. I'm used to iterators in rust or js; what is the equivalent concept in zig?",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/cba20590-9123-43b9-86d8-2c21c05b3f80.jsonl",
+    "n_words": 36,
+    "n_chars": 193,
+    "looks_coding": true,
+    "informality": 0.5
+  },
+  {
+    "prompt": "I tried to make an iterator, but question; why don't I need an allocator in there? It seems like there's a bunch of places I'm creating memory. Are allocators only for heap allocations?",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/e672d945-0b5f-4812-8262-93f69b57418c.jsonl",
+    "n_words": 33,
+    "n_chars": 185,
     "looks_coding": true,
     "informality": 0.5
   },
@@ -450,67 +702,67 @@
     "informality": 0.4
   },
   {
-    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: django__django-14382\n  repo: django/django\n  base_commit: 29345aecf6e8d53ccb3577a3762bb0c263f7558d\n  problem_statement: django-admin startapp with trailing slash in directory name results in error\nDescription\n    \nBash tab-completion appends trailing slashes to directory names. django-admin startapp name directory/ results in the error:\nCommandError: '' is not a valid app directory. Please make sure the directory is a valid identifier.\nThe error is caused by ​line 77 of django/core/management/templates.py by calling basename() on the path with no consideration for a trailing slash:\nself.validate_name(os.path.basename(target), 'directory')\nRemoving potential trailing slashes would solve the problem:\nself.validate_name(os.path.basename(target.rstrip(os.sep)), 'directory')",
-    "repo": "jiayuanz3/SWEContextBench",
-    "path": "cases/SWEContextBench Lite Past Experience/3341728c.jsonl",
+    "prompt": "I want to shape my zig project around being able to submit solutions directly from the built CLI. The project should build an \"advent\" tool that takes 2 arguments, the day and the puzzle number. Given those, it should run a function for that puzzle that gets the input it needs and then submits the solution. The inputs can be hard coded as files in some cases, and the solutions should just be output to the commandline for the user to submit. set up the boilerplate to handle all that without jumping into any puzzling yet",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/6fc2ef0c-0436-4a4f-9242-44a55c596167.jsonl",
     "n_words": 96,
-    "n_chars": 849,
+    "n_chars": 524,
     "looks_coding": true,
-    "informality": 0.3
-  },
-  {
-    "prompt": "You are in plan mode. ExitPlanMode is how you PROPOSE a plan BEFORE doing any work — you do NOT need to (and must not) read, write, explore, or search anything first. Call ExitPlanMode immediately as your first and only tool call. Pass this exact plan in the `plan` field: 'Create calc.py with two functions: add(a, b) returning a + b, and sub(a, b) returning a - b.' After I approve, create the file calc.py with exactly those two functions and nothing else — do not explore or search, just write the file.",
-    "repo": "ingo-eichhorst/Irrlicht",
-    "path": "replaydata/agents/claudecode/scenarios/5-4_architect-editor-pair/recordings/2026-05-29-23-33-27_irrlichd-0.4.7+37990a5/transcript.jsonl",
-    "n_words": 93,
-    "n_chars": 507,
-    "looks_coding": true,
-    "informality": 0.25
+    "informality": 0.35
   },
   {
     "prompt": "1 - yeah i'd like the app to be able to be deployed either on a cloud server which has been setup to house a suitable git project and has claude code installed; OR it's just running locally and serving up a web interface. i don't think the code needs to be structured to know which one (it should work agnostically by default) and the only difference is whether it will be accesesed over wifi/LAN or over a cloud endpoint. do you need further clarification?",
     "repo": "boweiliu/idea-project-specs",
-    "path": "chat-history/chat_20250824_232336.jsonl",
+    "path": "chat-history/chat_20250824_232209.jsonl",
     "n_words": 85,
     "n_chars": 457,
     "looks_coding": true,
     "informality": 0.25
   },
   {
-    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: psf__requests-3362\n  repo: psf/requests\n  base_commit: 36453b95b13079296776d11b09cab2567ea3e703\n  problem_statement: Uncertain about content/text vs iter_content(decode_unicode=True/False)\nWhen requesting an application/json document, I'm seeing `next(r.iter_content(16*1024, decode_unicode=True))` returning bytes, whereas `r.text` returns unicode. My understanding was that both should return a unicode object. In essence, I thought \"iter_content\" was equivalent to \"iter_text\" when decode_unicode was True. Have I misunderstood something? I can provide an example if needed.\n\nFor reference, I'm using python 3.5.1 and requests 2.10.0.\n\nThanks!",
-    "repo": "shshwtsuthar/memory-representation",
-    "path": "data/SWEContextBench Lite Past Experience/75329b41.jsonl",
-    "n_words": 81,
-    "n_chars": 715,
+    "prompt": "wait hold on. You said this; Start at position 1, move left by 50 (L50)\n  - Current calculation: position_before_mod =\n   1 - 50 = -49\n  - Your function returns: @abs(@divFloor(-49,\n   100)) = @abs(-1) = 1\n  - But this is wrong! Moving from position 1\n  left by 50 should land at position 51\n  (wrapping around), and we should cross 0\n  exactly once\\\n\\\nbut in that text you say my answer is 1 and the actual answer is 1",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/0e74c8fe-2949-4545-bd1e-095cfe0c1169.jsonl",
+    "n_words": 78,
+    "n_chars": 419,
     "looks_coding": true,
-    "informality": 0.2
+    "informality": 0.25
   },
   {
-    "prompt": "There is a test engineer agent defined here:\\\n\\\ntest-engineer.md\\\n\\\nI'm having problems getting the test engineer to create functional tests. and by functional tests, I mean tests that the user will actually create not by test Suite tests. So, for example when I ask for functional test, it creates some kind of JavaScript. File with Imports and stuff. That's not what I want. I just want a markdown file that has a checklist of steps for a human user to follow and work through the workflow of the phase or step that has just been implemented. the engineers job is to separate the two types of tests one is by test Suites. and the other is a markdown format checklist of functional test for a human user.\\\n\\\nPlease review the current definition and try to consider why it is. that our current definition is failing to get our engineer our test engineer. I should say. Why is our test engineer only creating Vitas Suites? Why are they not creating a? markdown format checklist of practical functional tests for human user?",
-    "repo": "Mharbulous/ClaudeCustomizations",
-    "path": "projects/C--Users-Brahm--claude-agents/f100d5e1-6616-44e2-a8b6-3bd80d252668.jsonl",
-    "n_words": 183,
-    "n_chars": 1022,
+    "prompt": "We're working on advent of code, day 1 part 1. This is the prompt; The attached document (your puzzle input) contains a sequence of rotations, one per line, which tell you how to open the safe. A rotation starts with an L or R which indicates whether the rotation should be to the left (toward lower numbers) or to the right (toward higher numbers). Then, the rotation has a distance value which indicates how many clicks the dial should be rotated in that direction.\n\nSo, if the dial were pointing at 11, a rotation of R8 would cause the dial to point at 19. After that, a rotation of L19 would cause it to point at 0.\n\nBecause the dial is a circle, turning the dial left from 0 one click makes it point at 99. Similarly, turning the dial right from 99 one click makes it point at 0.\n\nSo, if the dial were pointing at 5, a rotation of L10 would cause it to point at 95. After that, a rotation of R5 could cause it to point at 0.\n\nThe dial starts by pointing at 50.\n\nYou could follow the instructions, but your recent required official North Pole secret entrance security training seminar taught you that the safe is actually a decoy. The actual password is the number of times the dial is left pointing at 0 after any rotation in the sequence.\n\nFor example, suppose the attached document contained the following rotations:\n\nL68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82\nFollowing these rotations would cause the dial to move as follows:\n\nThe dial starts by pointing at 50.\nThe dial is rotated L68 to point at 82.\nThe dial is rotated L30 to point at 52.\nThe dial is rotated R48 to point at 0.\nThe dial is rotated L5 to point at 95.\nThe dial is rotated R60 to point at 55.\nThe dial is rotated L55 to point at 0.\nThe dial is rotated L1 to point at 99.\nThe dial is rotated L99 to point at 0.\nThe dial is rotated R14 to point at 14.\nThe dial is rotated L82 to point at 32.",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/36ba98db-561d-44f5-84a5-6f83c813ac34.jsonl",
+    "n_words": 364,
+    "n_chars": 1860,
     "looks_coding": true,
-    "informality": 0.2
+    "informality": 0.25
   },
   {
-    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: matplotlib__matplotlib-23299\n  repo: matplotlib/matplotlib\n  base_commit: 3eadeacc06c9f2ddcdac6ae39819faa9fbee9e39\n  problem_statement: [Bug]: get_backend() clears figures from Gcf.figs if they were created under rc_context\n### Bug summary\n\ncalling `matplotlib.get_backend()` removes all figures from `Gcf` if the *first* figure in `Gcf.figs` was created in an `rc_context`.\n\n### Code for reproduction\n\n```python\nimport matplotlib.pyplot as plt\nfrom matplotlib import get_backend, rc_context\n\n# fig1 = plt.figure()  # <- UNCOMMENT THIS LINE AND IT WILL WORK\n# plt.ion()            # <- ALTERNATIVELY, UNCOMMENT THIS LINE AND IT WILL ALSO WORK\nwith rc_context():\n    fig2 = plt.figure()\nbefore = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\nget_backend()\nafter = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\n\nassert before == after, '\\n' + before + '\\n' + after\n```\n\n\n### Actual outcome\n\n```\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\n<ipython-input-1-fa4d099aa289> in <cell line: 11>()\n      9 after = f'{id(plt._pylab_helpers.Gcf)} {plt._pylab_helpers.Gcf.figs!r}'\n     10 \n---> 11 assert before == after, '\\n' + before + '\\n' + after\n     12 \n\nAssertionError: \n94453354309744 OrderedDict([(1, <matplotlib.backends.backend_qt.FigureManagerQT object at 0x7fb33e26c220>)])\n94453354309744 OrderedDict()\n```\n\n### Expected outcome\n\nThe figure should not be missing from `Gcf`.  Consequences of this are, e.g, `plt.close(fig2)` doesn't work because `Gcf.destroy_fig()` can't find it.\n\n### Additional information\n\n_No response_\n\n### Operating system\n\nXubuntu\n\n### Matplotlib Version\n\n3.5.2\n\n### Matplotlib Backend\n\nQtAgg\n\n### Python version\n\nPython 3.10.4\n\n### Jupyter version\n\nn/a\n\n### Installation\n\nconda",
-    "repo": "jiayuanz3/SWEContextBench",
-    "path": "cases/SWEContextBench Lite Past Experience/12cfcf9f.jsonl",
-    "n_words": 215,
-    "n_chars": 1916,
+    "prompt": "A concern I have here is that it takes in a buffer as input. Obviously that's fine for the sample input, but how would it handle very large inputs? Given that in general the inputs will be a file, what would it look like to instead give it a file pointer and manage iteration over that, rather than holding the whole fiel in memory?",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/36ba98db-561d-44f5-84a5-6f83c813ac34.jsonl",
+    "n_words": 64,
+    "n_chars": 332,
     "looks_coding": true,
-    "informality": 0.15
+    "informality": 0.25
   },
   {
-    "prompt": "你是 generator，当前只负责提出 Sprint 1 的合同，不要开始写代码。\n\n用户需求：\nBuild a tiny personal landing page\n\n完整 spec：\nSpec 已输出。结构遵循 harness 原则：\n\n- **规划层只给目标和边界**，不规定文件结构或 CSS 写法\n- **7 个 sprint**，每个有明确出口条件，方便 evaluator 独立评分\n- **Feature list 可独立验证**，每条都有 AC，不需要猜测\"done 是什么样\"\n- **技术方向刻意保守** — 单 HTML 文件、无构建步骤 — 确保 generator 不会在这里引入意外复杂度\n\n请输出 markdown，标题为 `# Sprint 1 Contract`，并包含：\n1. Objective\n2. In scope\n3. Out of scope\n4. Files likely affected\n5. Done criteria\n6. Verification steps\n7. Risks\n\n要求：\n- 范围要足够小，适合一次 sprint。\n- Done criteria 必须可测试。\n- Verification steps 要能用命令或浏览器检查。",
+    "prompt": "Status   Config   Usage                                                    \n                                                                              \n  Version: 2.1.87                                                             \n  Session name: /rename to add a name                                         \n  Session ID: 312b3035-728c-4745-bda2-858d35e24f14                            \n  cwd: /Users/m1/projects/sdk_claude_agent                                      \n  Auth token: ANTHROPIC_AUTH_TOKEN\n  Anthropic base URL: https://api.minimaxi.com/anthropic\n  Proxy: http://127.0.0.1:7897\n\n  Model: MiniMax-M2.7-highspeed\n  MCP servers: 1 connected, 1 need auth, 1 failed · /mcp\n  Setting sources: User settings\n  Esc to cancel please think as architecture. @AGENTS.md check meta-rules for edit rules: print agents.md fix patch in chat directly instead of wrtting to /tmp/ . <== use this as good examples and bad examples and print the same prompts to me with claude sessions please. verify it this rules worked.",
     "repo": "liush2yuxjtu/sdk_claude_agent",
-    "path": ".claude/sessions/main/7f23dfe8-ea74-4326-9a27-fef9d6e64610.jsonl",
-    "n_words": 83,
-    "n_chars": 553,
+    "path": ".claude/sessions/main/f17a1bbb-331c-40fc-8724-9dc31d107689.jsonl",
+    "n_words": 94,
+    "n_chars": 1019,
     "looks_coding": true,
-    "informality": 0.15
+    "informality": 0.2
+  },
+  {
+    "prompt": "Before I do that, I'm getting errors with the current setup. (devenv) CBM-W2F0Q63L2G:zig-advent-of-code sam.schick$ zig test '/Users/sam.schick/Documents/code/zig-advent-of-code/advent/day01.zig'\nadvent/day01.zig:9:20: error: member function expected 1 argument(s), found 0\n    while (try file.reader().readUntilDelimiterOrEof(buf[0..], '\\n')) |line| {\n               ~~~~^~~~~~~\n/nix/store/h5zqw1lr8i0pwqpkkl3lbid06f9dprw0-zig-0.15.2/lib/zig/std/fs/File.zig:2105:5: note: function declared here\npub fn reader(file: File, buffer: []u8) Reader {\\\n\\\nI think this says that reader expects the buffer as an argument. When I fix that, it says there is no such mehtod as readUntilDelimiterOrEof. I also don't really understand what we're doing with the buffer, or why it's not a problem that the buffer starts undefined. Lets take a step back; can you help me understand?",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/36ba98db-561d-44f5-84a5-6f83c813ac34.jsonl",
+    "n_words": 104,
+    "n_chars": 865,
+    "looks_coding": true,
+    "informality": 0.2
   },
   {
     "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: pylint-dev__pylint-6506\n  repo: pylint-dev/pylint\n  base_commit: 0a4204fd7555cfedd43f43017c94d24ef48244a5\n  problem_statement: Traceback printed for unrecognized option\n### Bug description\n\nA traceback is printed when an unrecognized option is passed to pylint.\n\n### Configuration\n\n_No response_\n\n### Command used\n\n```shell\npylint -Q\n```\n\n\n### Pylint output\n\n```shell\n************* Module Command line\nCommand line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)\nTraceback (most recent call last):\n  File \"/Users/markbyrne/venv310/bin/pylint\", line 33, in <module>\n    sys.exit(load_entry_point('pylint', 'console_scripts', 'pylint')())\n  File \"/Users/markbyrne/programming/pylint/pylint/__init__.py\", line 24, in run_pylint\n    PylintRun(argv or sys.argv[1:])\n  File \"/Users/markbyrne/programming/pylint/pylint/lint/run.py\", line 135, in __init__\n    args = _config_initialization(\n  File \"/Users/markbyrne/programming/pylint/pylint/config/config_initialization.py\", line 85, in _config_initialization\n    raise _UnrecognizedOptionError(options=unrecognized_options)\npylint.config.exceptions._UnrecognizedOptionError\n```\n\n\n### Expected behavior\n\nThe top part of the current output is handy:\n`Command line:1:0: E0015: Unrecognized option found: Q (unrecognized-option)`\n\nThe traceback I don't think is expected & not user-friendly.\nA usage tip, for example:\n```python\nmypy -Q\nusage: mypy [-h] [-v] [-V] [more options; see below]\n            [-m MODULE] [-p PACKAGE] [-c PROGRAM_TEXT] [files ...]\nmypy: error: unrecognized arguments: -Q\n```\n\n### Pylint version\n\n```shell\npylint 2.14.0-dev0\nastroid 2.11.3\nPython 3.10.0b2 (v3.10.0b2:317314165a, May 31 2021, 10:02:22) [Clang 12.0.5 (clang-1205.0.22.9)]\n```\n\n\n### OS / Environment\n\n_No response_\n\n### Additional dependencies\n\n_No response_",
@@ -522,30 +774,30 @@
     "informality": 0.15
   },
   {
-    "prompt": "Fix this bug to solve the issue based on manual.yaml:\n  instance_id: sympy__sympy-23117\n  repo: sympy/sympy\n  base_commit: c5cef2499d6eed024b0db5c792d6ec7c53baa470\n  problem_statement: sympy.Array([]) fails, while sympy.Matrix([]) works\nSymPy 1.4 does not allow to construct empty Array (see code below). Is this the intended behavior?\n\n```\n>>> import sympy\nKeyboardInterrupt\n>>> import sympy\n>>> from sympy import Array\n>>> sympy.__version__\n'1.4'\n>>> a = Array([])\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py\", line 130, in __new__\n    return cls._new(iterable, shape, **kwargs)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/dense_ndim_array.py\", line 136, in _new\n    shape, flat_list = cls._handle_ndarray_creation_inputs(iterable, shape, **kwargs)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 142, in _handle_ndarray_creation_inputs\n    iterable, shape = cls._scan_iterable_shape(iterable)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 127, in _scan_iterable_shape\n    return f(iterable)\n  File \"/Users/hcui7/miniconda3/envs/a/lib/python3.7/site-packages/sympy/tensor/array/ndim_array.py\", line 120, in f\n    elems, shapes = zip(*[f(i) for i in pointer])\nValueError: not enough values to unpack (expected 2, got 0)\n```\n\n@czgdp1807",
-    "repo": "jiayuanz3/SWEContextBench",
-    "path": "cases/SWEContextBench Lite Past Experience/31913e46.jsonl",
-    "n_words": 136,
-    "n_chars": 1533,
+    "prompt": "the current implementation of day 6 part 2 produces an answer that is too low, and I think you may have cheated to get the tests to pass. I want you to step way back. you can delete any and all part 2 code.\\\n1. we know that each \"column\" is separated by a vertical column of whitespace\\\n2. we know that each column is a math problem\\\n3. as documented in @prompts/day06.md , numbers are a column position with the most significant digit being in the earliest row that number has data\\\n\\\nGiven all of this, lets do some brute force here. first, break the input into a list of lists; split each line on whitespace to get the cells, with the last row being the symbols. Then transpose that table into a list of problems KEEPING IN MIND that the cells are not numbers; the list of cells within a problem still need to be parsed.",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/5b16fac3-5a44-4566-bbff-0703d2f1440c.jsonl",
+    "n_words": 159,
+    "n_chars": 823,
     "looks_coding": true,
     "informality": 0.15
   },
   {
-    "prompt": "Create a markdown editor with live preview. Create these files in the current directory:\n1. index.html - Split-pane layout: left side is a textarea editor, right side is live preview. Include a toolbar with buttons for Bold, Italic, Heading (H1-H3), Link, Image, Code block, Unordered list, Ordered list, Blockquote, Horizontal rule. Add an \"Export HTML\" button that downloads the rendered output.\n2. style.css - Professional dark theme, responsive split panes with draggable resizer, syntax-highlighted toolbar, smooth transitions, styled preview matching GitHub markdown style.\n3. markdown-parser.js - A complete markdown parser (no external libraries) that handles: headings (h1-h6), bold, italic, bold+italic, inline code, code blocks with language labels, links, images, unordered and ordered lists (including nested), blockquotes (including nested), horizontal rules, paragraphs, line breaks, and escape characters.\n4. editor.js - Editor logic: real-time preview update on input, toolbar button actions that insert markdown syntax at cursor position (wrapping selected text if any), drag-to-resize split panes, keyboard shortcuts (Ctrl+B bold, Ctrl+I italic, Ctrl+K link), localStorage auto-save/restore, and Export HTML functionality.",
-    "repo": "ej31/omc-hook-experiment",
-    "path": "transcripts/disable-omc-run3/85923ffb-ce33-41a0-99ff-3ae69d3d4cdf.jsonl",
-    "n_words": 168,
-    "n_chars": 1241,
+    "prompt": "working on part 2. this is the description. The clerk quickly discovers that there are still invalid IDs in the ranges in your list. Maybe the young Elf was doing other silly patterns as well?\n\nNow, an ID is invalid if it is made only of some sequence of digits repeated at least twice. So, 12341234 (1234 two times), 123123123 (123 three times), 1212121212 (12 five times), and 1111111 (1 seven times) are all invalid IDs.\n\nFrom the same example as before:\n\n11-22 still has two invalid IDs, 11 and 22.\n95-115 now has two invalid IDs, 99 and 111.\n998-1012 now has two invalid IDs, 999 and 1010.\n1188511880-1188511890 still has one invalid ID, 1188511885.\n222220-222224 still has one invalid ID, 222222.\n1698522-1698528 still contains no invalid IDs.\n446443-446449 still has one invalid ID, 446446.\n38593856-38593862 still has one invalid ID, 38593859.\n565653-565659 now has one invalid ID, 565656.\n824824821-824824827 now has one invalid ID, 824824824.\n2121212118-2121212124 now has one invalid ID, 2121212121.\nAdding up all the invalid IDs in this example produces 4174379265.\\\n\\\nMy thought is we need a different isInvalid function for part 2, so part 1 stays working. The best I can think of is to check iteratively for each possible exact sequence of repeats. We know that repeats are impossible once that many repeats of a single digit wouldn't fit in the given id, so thats our bail condition. And we know that for a given number of repeats, they are only worth considering if that would divide the digits of the particular id up evenly.",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/a5b88046-fa90-4506-b6bf-b06ce5623752.jsonl",
+    "n_words": 262,
+    "n_chars": 1543,
     "looks_coding": true,
-    "informality": 0.05
+    "informality": 0.15
   },
   {
-    "prompt": "Detect my project's dev servers and save all their configurations to .claude/launch.json, then ask which ones to start.\n\n```json\n{\n  \"version\": \"0.0.1\",\n  \"configurations\": [\n    {\n      \"name\": \"<server-name>\",\n      \"runtimeExecutable\": \"<command>\",\n      \"runtimeArgs\": [\"<args>\"],\n      \"port\": <port>\n    }\n  ]\n}\n```\n\nUse runtimeExecutable for the command (e.g. \"yarn\", \"npm\", \"node\", \"python\") and runtimeArgs for its arguments. Call preview_start for each server the user wants to run.",
-    "repo": "hangseanshi/Sealine-Database",
-    "path": "05f7ed48-1708-417b-a72b-e22f8f477486.jsonl",
-    "n_words": 62,
-    "n_chars": 492,
+    "prompt": "it doesn't matter if we remove or keep, and keep is more intuitive to me. The basic structure should be;\\\n1. scan for the highest digit. It can't be in the last (battery_count - 1) spaces, because that would rule out selecting enough batteries.\\\n2. iterate on that. once you've set the first digit, you only care about the digits after it and your effective battery count has reduced by 1.\\\n3. base case is effective battery count 1, where we just select the highest digit from the affix that is left; then we're done.\\\nThe recursive structure of that suggests that you want a helper function.",
+    "repo": "schicks/zig-advent-of-code",
+    "path": "conversations/ae6f55a0-fb7f-4b33-9f56-7f80891c3f68.jsonl",
+    "n_words": 107,
+    "n_chars": 593,
     "looks_coding": true,
-    "informality": 0.05
+    "informality": 0.15
   }
 ]

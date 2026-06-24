@@ -1,16 +1,16 @@
 {
-  "crawled_at": "2026-06-24T02:53:22.316799",
-  "candidate_files": 126,
-  "transcripts_fetched": 126,
-  "transcripts_with_prompts": 40,
-  "hit_rate": "32%",
-  "unique_repos": 29,
-  "total_prompts": 61,
-  "coding_prompts": 61,
-  "avg_words": 37.7,
+  "crawled_at": "2026-06-24T03:07:24.476854",
+  "candidate_files": 220,
+  "transcripts_fetched": 220,
+  "transcripts_with_prompts": 50,
+  "hit_rate": "23%",
+  "unique_repos": 22,
+  "total_prompts": 89,
+  "coding_prompts": 89,
+  "avg_words": 35.9,
   "informality_buckets": {
     "formal_0.0-0.4": 11,
-    "mid_0.4-0.6": 8,
-    "vibe_0.6-1.0": 42
+    "mid_0.4-0.6": 11,
+    "vibe_0.6-1.0": 67
   }
 }

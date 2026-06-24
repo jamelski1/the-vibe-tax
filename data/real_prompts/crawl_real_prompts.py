@@ -49,10 +49,21 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN") or ""
 # don't carry external user turns. It leads the list so the crawl budget is
 # spent on files that actually contain prompts.
 SEARCH_QUERIES = [
+    # Field-signature angles (main-session human turns).
     '"userType":"external" extension:jsonl',
     '"userType" "external" "parentUuid" extension:jsonl',
     '"sessionId" "toolUseResult" extension:jsonl',
-    'path:.claude "parentUuid" extension:jsonl',
+    '"gitBranch" "sessionId" "userType" extension:jsonl',
+    '"requestId" "userType" "parentUuid" extension:jsonl',
+    '"cwd" "version" "userType" extension:jsonl',
+    '"isCompactSummary" "userType" extension:jsonl',
+    # Path angles — common places people commit their session history.
+    'path:.claude "userType" extension:jsonl',
+    'path:claude-sessions "userType" extension:jsonl',
+    'path:chat-history "userType" extension:jsonl',
+    'path:conversations "userType" extension:jsonl',
+    'path:.specstory "userType" extension:jsonl',
+    'path:sessions "parentUuid" extension:jsonl',
 ]
 
 # Sub-agent sidechain transcripts follow this naming convention and never hold
@@ -63,7 +74,9 @@ SIDECHAIN_FILENAME = re.compile(r"(^|/)agent-[0-9a-f]+\.jsonl$", re.IGNORECASE)
 MAX_FILE_BYTES = 3_000_000
 
 # Don't let one repo with hundreds of transcript files dominate the crawl.
-MAX_FILES_PER_REPO = 6
+# Higher values harvest dedicated session-archive repos more deeply; dedup
+# still removes repeated boilerplate across a repo's sessions.
+MAX_FILES_PER_REPO = 20
 
 # Paths that mark a transcript as a test fixture / example rather than a real
 # coding session — these poison the corpus with "test", "hello", etc.
@@ -332,6 +345,7 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
     log("[2/4] Fetching + extracting ...")
     corpus = []
     seen_norm = set()
+    seen_prefix = set()   # collapses templated prompts (e.g. benchmark harnesses)
     transcripts_used = 0
     transcripts_fetched = 0
     repos = set()
@@ -364,7 +378,14 @@ def run(limit, max_prompt_chars, min_prompt_chars, coding_only):
             norm = normalize(p)
             if norm in seen_norm:
                 continue
+            # Collapse templated prompts that share a long identical prefix but
+            # differ in a trailing id (machine-generated benchmark harnesses).
+            # Real prompts almost always diverge well before 60 chars.
+            prefix = norm[:60]
+            if len(norm) >= 60 and prefix in seen_prefix:
+                continue
             seen_norm.add(norm)
+            seen_prefix.add(prefix)
             corpus.append({
                 "prompt": p,
                 "repo": c["repo"],
