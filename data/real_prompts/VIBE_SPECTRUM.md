@@ -17,9 +17,9 @@ spectrum so the study can sample from it representatively.
 Two parallel corpora, labeled by the same classifier (see the medium comparison
 below):
 
-- **Agentic CLI** — **2,356** human-typed prompts from **60** repos, drawn from
+- **Agentic CLI** — **4,675** human-typed prompts from **163** repos, drawn from
   committed Claude Code session transcripts (`crawl_real_prompts.py --deep`,
-  which fully enumerates each repo's session tree).
+  ~31 query angles + full per-repo session-tree enumeration).
 - **Web-chat** — **5,000** coding prompts from real **WildChat-1M** (ChatGPT)
   conversations, streamed directly from HuggingFace (`pull_webchat_hf.py`).
   *(An earlier 174-prompt run used a GitHub mirror of WildChat,
@@ -43,8 +43,8 @@ A prompt is a point in a 5-dimensional space, not a single formality number.
 
 > The per-axis count tables below are from the original **n=198** agentic sample
 > (kept for their hand-checked examples). The headline rates are confirmed on the
-> full **n=2356** corpus — see the cross-medium table — and barely moved when the
-> crawl scaled 12×.
+> full **n=4675** corpus (163 repos) — see the cross-medium table — and stayed
+> stable as the crawl scaled 24×.
 
 ### Axis 1 — Specification level (the original "formality" axis)
 
@@ -147,19 +147,19 @@ parallel **web-chat** corpus of **5,000** coding prompts from real **WildChat-1M
 corpora were labeled by the **same** classifier, so the axes are directly
 comparable.
 
-| Axis | Agentic CLI (n=2356) | Web-chat (n=5000) |
+| Axis | Agentic CLI (n=4675) | Web-chat (n=5000) |
 |------|--------------------:|------------------:|
-| **Any paste** (error+code+long-context) | **6%** | **54%** |
-| └ pasted error | 1% | 12% |
+| **Any paste** (error+code+long-context) | **8%** | **54%** |
+| └ pasted error | 2% | 12% |
 | └ pasted code | 2% | 28% |
-| **References files** (agent opens them) | **38%** | ~4% |
-| Spec level: casual/vague (L3–L5) | **89%** | 55% |
-| Spec level: detailed/formal (L1–L2) | 11% | **45%** |
-| Register: terse-imperative | **48%** | 38% |
-| Register: conversational | 46% | **58%** |
-| Intent: debug / error-paste | 1% | **12%** |
-| Intent: feature-build (whole thing) | 11% | **22%** |
-| Multilingual | 18% | **42%** |
+| **References files** (agent opens them) | **21%** | ~4% |
+| Spec level: casual/vague (L3–L5) | **87%** | 55% |
+| Spec level: detailed/formal (L1–L2) | 13% | **45%** |
+| Register: terse-imperative | **57%** | 38% |
+| Register: conversational | 38% | **58%** |
+| Intent: debug / error-paste | 2% | **12%** |
+| Intent: feature-build (whole thing) | 13% | **22%** |
+| Multilingual | 23% | **42%** |
 
 **The medium shapes the prompt.** In an *agentic CLI*, the model fetches its own
 context (reads files, runs code, sees errors), so users are terse, vague, and
@@ -172,16 +172,16 @@ themselves:
 > Traceback (most recent call last): File \"/usr/local/lib/python…\""* — WildChat
 
 The cleanest single signal is **how context is supplied**: agentic users
-*reference files* (38% — *"read the config in that dir"*) because the agent can
+*reference files* (21% — *"read the config in that dir"*) because the agent can
 open them; web-chat users *paste* (over half of prompts) because the model
 can't. Same need, opposite mechanism — a direct consequence of the medium.
 
 The intent mix also flips: web-chat's top *codeable* intent is *"build me this
 whole thing"* (feature-build), while agentic users mostly *explain* and *modify*
 an existing codebase the agent can already see. **Both corpora are now at scale**
-(agentic n=2356, web-chat n=5000) and the gaps are stable: scaling the agentic
-crawl 12× (198 → 2356) barely moved its profile — casual/vague held at ~89%,
-pasting stayed negligible (~6%).
+(agentic n=4675 from 163 repos, web-chat n=5000) and the gaps are stable:
+scaling the agentic crawl from 198 → 2356 → 4675 prompts barely moved its
+profile — casual/vague held at ~87–90%, pasting stayed negligible (~6–8%).
 
 This is the single most important finding for the study: **"vibe coding" is not
 one distribution.** Where the prompt is typed changes its formality, its length,
@@ -194,15 +194,15 @@ To check whether the web-chat numbers are a real medium effect or an artifact of
 one dataset, we ran the same pipeline on a second web-chat source,
 **LMSYS-Chat-1M** (Chatbot Arena), at the same n=5000.
 
-| Axis | Agentic (n=2356) | WildChat (n=5000) | LMSYS (n=5000) | replicates? |
+| Axis | Agentic (n=4675) | WildChat (n=5000) | LMSYS (n=5000) | replicates? |
 |------|-----------------:|------------------:|---------------:|:-----------:|
-| Detailed/formal spec (L1–L2) | 11% | 45% | 47% | ✅ |
-| Conversational register | 46% | 58% | 54% | ✅ |
-| Feature-build intent | 11% | 22% | 28% | ✅ |
-| Any paste | 6% | 54% | 36% | ✅ |
+| Detailed/formal spec (L1–L2) | 13% | 45% | 47% | ✅ |
+| Conversational register | 38% | 58% | 54% | ✅ |
+| Feature-build intent | 13% | 22% | 28% | ✅ |
+| Any paste | 8% | 54% | 36% | ✅ |
 | Pasted code | 2% | 28% | 20% | ✅ |
-| **Pasted error** | 1% | 12% | **3%** | ❌ |
-| **Multilingual** | 18% | 42% | **16%** | ❌ |
+| **Pasted error** | 2% | 12% | **3%** | ❌ |
+| **Multilingual** | 23% | 42% | **16%** | ❌ |
 
 **Robust (true medium effects).** On *both* web-chat datasets, users write more
 detailed specs, converse more, ask for whole features, and paste code far more
@@ -243,16 +243,15 @@ name its population, and **WildChat (not LMSYS) is the source for it**.
   (the keyword rules fray on web-chat's topic diversity), so the intent axis
   there is the least reliable — LLM-assisted relabeling is the next refinement.
 - **Agentic sampling bias** — repos that *commit* their transcripts skew toward
-  tutorials, Advent-of-Code, demos, and tooling experiments. Deep enumeration
-  (pulling every session from a repo) trades user-diversity for volume: the 2,356
-  agentic prompts come from just **60 repos** (i.e. ~60 developers), vs WildChat's
-  thousands of distinct users. So the agentic *rates* are stable but the *style*
-  is a few power-users'; widening the repo set (more query angles) is the next
-  improvement.
-- **n / ceiling** — both corpora are now at scale (agentic 2,356, web-chat 5,000).
-  Committed Claude Code transcripts are scarcer than web-chat logs, so ~2.4k is
-  near the ceiling reachable from the current 60 repos; more search-query angles
-  would surface more repos to push it higher.
+  tutorials, Advent-of-Code, demos, dotfiles, and tooling experiments. Expanding
+  to ~31 query angles lifted the corpus to **4,675 prompts from 163 repos**, and
+  flattened concentration sharply: the top-10 repos are now **36%** of prompts
+  (down from 88% at 60 repos), the largest single repo 5.5%. Still ~163 committers
+  rather than a random developer sample, but far more representative than before.
+- **n** — both corpora are now comparably at scale (agentic 4,675, web-chat
+  5,000), with sample-stable rates. Committed Claude Code transcripts remain
+  scarcer than web-chat logs; more query angles could push the agentic n higher
+  but with diminishing returns.
 - **Web-chat populations differ** — checked against a second source,
   LMSYS-Chat-1M (see the replication section): the formality/register/code-paste
   gaps replicate, but error-paste and multilingual rates are population-specific.
@@ -263,7 +262,7 @@ name its population, and **WildChat (not LMSYS) is the source for it**.
 ```bash
 # Agentic-CLI corpus (Claude Code transcripts) — --deep fully enumerates each
 # repo's session tree, bypassing code search's 1000-result cap
-python crawl_real_prompts.py --limit 3000 --deep --per-repo 400
+python crawl_real_prompts.py --limit 6000 --deep --per-repo 40
 python classify_prompts.py
 #   -> vibe_spectrum_corpus.json + vibe_spectrum_stats.json
 
