@@ -64,6 +64,30 @@ SEARCH_QUERIES = [
     'path:conversations "userType" extension:jsonl',
     'path:.specstory "userType" extension:jsonl',
     'path:sessions "parentUuid" extension:jsonl',
+    'path:projects "parentUuid" "userType" extension:jsonl',
+    'path:logs "parentUuid" "userType" extension:jsonl',
+    # Size partitions of the main signature — GitHub code search caps each query
+    # at 1000 results, so slicing by file size surfaces DIFFERENT files/repos.
+    '"userType":"external" "parentUuid" size:0..5000 extension:jsonl',
+    '"userType":"external" "parentUuid" size:5000..30000 extension:jsonl',
+    '"userType":"external" "parentUuid" size:30000..150000 extension:jsonl',
+    '"userType":"external" "parentUuid" size:>150000 extension:jsonl',
+    # Content-token pairings — pairing the signature with a common tool/keyword
+    # slices into different repos than the bare signature does.
+    '"parentUuid" "userType" "Bash" extension:jsonl',
+    '"parentUuid" "userType" "TodoWrite" extension:jsonl',
+    '"parentUuid" "userType" "Grep" extension:jsonl',
+    '"parentUuid" "userType" "git commit" extension:jsonl',
+    '"parentUuid" "userType" "npm" extension:jsonl',
+    '"parentUuid" "userType" "import" extension:jsonl',
+    '"parentUuid" "userType" "def " extension:jsonl',
+    '"parentUuid" "userType" "error" extension:jsonl',
+    '"parentUuid" "userType" "test" extension:jsonl',
+    # Additional Claude Code field signatures.
+    '"toolUseResult" "isApiErrorMessage" extension:jsonl',
+    '"type":"summary" "leafUuid" extension:jsonl',
+    '"requestId" "stop_reason" extension:jsonl',
+    '"isCompactSummary" "toolUseResult" extension:jsonl',
 ]
 
 # Sub-agent sidechain transcripts follow this naming convention and never hold
