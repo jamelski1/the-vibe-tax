@@ -220,6 +220,9 @@ code-paste gaps as medium effects, but treat **error-paste prevalence and
 language mix as population-dependent** — the error-paste arm of the study must
 name its population, and **WildChat (not LMSYS) is the source for it**.
 
+> **This design is now implemented** — see `data/vibe_tax_v2/EXPERIMENT.md` for
+> the two-medium experiment built on these distributions.
+
 ## What this means for the Vibe Tax study
 
 1. **Sample across all five axes, not just formality.** A faithful "vibe"
