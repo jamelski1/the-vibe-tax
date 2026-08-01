@@ -36,10 +36,12 @@ from human_eval.data import read_problems
 # ---------------------------------------------------------------------------
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-RESPONSES_FILE = os.path.join(SCRIPT_DIR, "all_model_responses.json")
-RESULTS_FILE = os.path.join(SCRIPT_DIR, "test_results.json")
-STATS_FILE = os.path.join(SCRIPT_DIR, "test_results_stats.json")
-LOG_FILE = os.path.join(SCRIPT_DIR, "run_tests.log")
+# Paths are overridable via env vars so the same scorer works on v1 and on the
+# v2 experiment without editing code (e.g. set RESPONSES_FILE to the v2 output).
+RESPONSES_FILE = os.getenv("RESPONSES_FILE", os.path.join(SCRIPT_DIR, "all_model_responses.json"))
+RESULTS_FILE = os.getenv("RESULTS_FILE", os.path.join(SCRIPT_DIR, "test_results.json"))
+STATS_FILE = os.getenv("STATS_FILE", os.path.join(SCRIPT_DIR, "test_results_stats.json"))
+LOG_FILE = os.getenv("RUN_TESTS_LOG", os.path.join(SCRIPT_DIR, "run_tests.log"))
 
 TIMEOUT = 10.0  # seconds per test
 N_WORKERS = 4   # parallel workers
