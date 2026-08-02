@@ -7,19 +7,41 @@ Its test accuracy is a realism score:
     ~100% -> trivially separable (unrealistic; a calibrated generator is worth
              building, and the top "tells" below say exactly what to fix)
 
-Pure standard library (no numpy / sklearn / network / signals) so it runs
-identically in the cloud sandbox and on your local machine.
+MODEL: feature-based logistic regression (sigmoid + cross-entropy, batch
+gradient descent), implemented in pure standard library — no numpy / sklearn /
+network / signals — so it runs identically in the cloud sandbox and locally.
+Chosen for INTERPRETABILITY: the weights ARE the "tells". 20 hand-crafted
+features (lengths, char-class fractions, and binary flags like has_doctest /
+has_triplequote / has_signature); no embeddings.
+
+REPRODUCIBLE: no RNG anywhere. Class-balancing and the 75/25 train/test split
+are keyed on md5 hashes of the prompt text (not Python's salted hash()); weights
+init to zero; hyperparameters are fixed. Same inputs -> identical output on any
+machine, every run.
+
+Importable:
+    from realism_discriminator import RealismDiscriminator, featurize, FEATURES
+    d = RealismDiscriminator().fit(real_texts, synth_texts)
+    d.evaluate()            # {'test_accuracy':..., 'test_auc':...}
+    d.tells()               # [(feature, weight), ...] most-telling first
+    d.predict_proba(text)   # P(real) in [0,1]
 
 Data (auto-discovered — uses whatever is present):
   REAL       any data/real_prompts/*_corpus.json with a "prompt" field
              (real_prompts_corpus.json = agentic; webchat_*_corpus.json = chat)
-  SYNTHETIC  data/HumanEval.jsonl/vibe_spectrum_data.json (the 5 hand-written
-             formality levels) + data/vibe_tax_v2/vibe_tax_prompts.json
-             (the v2 experiment conditions)
+  SYNTHETIC  data/HumanEval.jsonl/vibe_spectrum_data.json (5 hand-written levels)
+             + data/vibe_tax_v2/vibe_tax_prompts.json (v2 experiment conditions)
 
-Usage:
-    python realism_discriminator.py                 # all real corpora vs synthetic
-    python realism_discriminator.py --real agentic  # restrict real set
+CLI:
+    python realism_discriminator.py                 # all real corpora vs all synthetic
+    python realism_discriminator.py --real agentic --synth v2
+
+NOTE: this is a deliberately WEAK discriminator — the features include literal
+code-scaffolding flags, so current synthetic prompts separate trivially. It is
+right for "is our synthetic obviously fake?" and as a first-pass fitness
+function for a calibrated generator. Certifying subtle style realism needs a
+stronger discriminator (TF-IDF n-grams or an embedding/LLM judge) — see
+RESEARCH_LOG open threads.
 """
 
 import argparse
@@ -29,7 +51,6 @@ import json
 import math
 import os
 import re
-from collections import defaultdict
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
@@ -88,15 +109,115 @@ def featurize(text):
     return [float(f[k]) for k in FEATURES]
 
 
+def _h(text):
+    return int(hashlib.md5(text.encode("utf-8")).hexdigest(), 16)
+
+
+def _auc(pairs):
+    pos = [p for p, y in pairs if y == 1]
+    neg = [p for p, y in pairs if y == 0]
+    if not pos or not neg:
+        return None
+    wins = sum((a > b) + 0.5 * (a == b) for a in pos for b in neg)
+    return wins / (len(pos) * len(neg))
+
+
+# ---------------------------------------------------------------------------
+# The discriminator — pure-python logistic regression, deterministic
+# ---------------------------------------------------------------------------
+
+class RealismDiscriminator:
+    """Reproducible logistic-regression discriminator (real=1 vs synthetic=0).
+
+    fit() balances the classes and makes a hash-keyed 75/25 split internally,
+    trains on the train split, and keeps the test split for evaluate(). No RNG.
+    """
+
+    def __init__(self, features=FEATURES, iters=800, lr=0.2, l2=0.01, test_mod=4):
+        self.features = features
+        self.iters, self.lr, self.l2, self.test_mod = iters, lr, l2, test_mod
+        self.w = None
+        self.b = 0.0
+        self.mean = self.std = None
+        self._test = []
+        self.n_real = self.n_synthetic = self.n_train = self.n_test = 0
+
+    def _standardize(self, X):
+        return [[(row[j] - self.mean[j]) / self.std[j] for j in range(len(row))] for row in X]
+
+    def _proba(self, xs):  # xs already standardized
+        z = self.b + sum(self.w[j] * xs[j] for j in range(len(xs)))
+        return 1.0 / (1.0 + math.exp(-max(-30.0, min(30.0, z))))
+
+    def fit(self, real_texts, synth_texts):
+        real = sorted(set(real_texts), key=_h)
+        synth = sorted(set(synth_texts), key=_h)
+        n = min(len(real), len(synth))
+        real, synth = real[:n], synth[:n]
+        self.n_real, self.n_synthetic = len(real), len(synth)
+
+        rows = [(featurize(p), 1) for p in real] + [(featurize(p), 0) for p in synth]
+        texts = real + synth
+        train, self._test = [], []
+        for (x, y), t in zip(rows, texts):
+            (self._test if _h(t) % self.test_mod == 0 else train).append((x, y))
+        self.n_train, self.n_test = len(train), len(self._test)
+
+        Xtr = [r[0] for r in train]
+        ytr = [r[1] for r in train]
+        d = len(self.features)
+        self.mean = [sum(r[j] for r in Xtr) / len(Xtr) for j in range(d)]
+        self.std = [(sum((r[j] - self.mean[j]) ** 2 for r in Xtr) / len(Xtr)) ** 0.5 or 1.0
+                    for j in range(d)]
+        Xs = self._standardize(Xtr)
+
+        w, b = [0.0] * d, 0.0
+        m = len(Xs)
+        for _ in range(self.iters):
+            gw, gb = [0.0] * d, 0.0
+            for i in range(m):
+                z = b + sum(w[j] * Xs[i][j] for j in range(d))
+                p = 1.0 / (1.0 + math.exp(-max(-30.0, min(30.0, z))))
+                e = p - ytr[i]
+                gb += e
+                for j in range(d):
+                    gw[j] += e * Xs[i][j]
+            b -= self.lr * gb / m
+            for j in range(d):
+                w[j] -= self.lr * (gw[j] / m + self.l2 * w[j])
+        self.w, self.b = w, b
+        return self
+
+    def predict_proba(self, text):
+        """P(real) for an arbitrary prompt string."""
+        return self._proba(self._standardize([featurize(text)])[0])
+
+    def evaluate(self):
+        Xte = self._standardize([r[0] for r in self._test])
+        yte = [r[1] for r in self._test]
+        probs = [self._proba(x) for x in Xte]
+        acc = sum((p >= 0.5) == bool(y) for p, y in zip(probs, yte)) / len(yte) if yte else None
+        a = _auc(list(zip(probs, yte)))
+        return {
+            "n_real": self.n_real, "n_synthetic": self.n_synthetic,
+            "n_train": self.n_train, "n_test": self.n_test,
+            "test_accuracy": round(acc, 3) if acc is not None else None,
+            "test_auc": round(a, 3) if a is not None else None,
+        }
+
+    def tells(self, k=10):
+        """(feature, weight) most-telling first; weight>0 leans REAL."""
+        return sorted(zip(self.features, self.w), key=lambda kv: -abs(kv[1]))[:k]
+
+
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
 
-def load_real(which):
+def load_real(which="all"):
     prompts = []
     for path in sorted(glob.glob(os.path.join(SCRIPT_DIR, "*_corpus.json"))):
-        name = os.path.basename(path)
-        is_agentic = name == "real_prompts_corpus.json"
+        is_agentic = os.path.basename(path) == "real_prompts_corpus.json"
         if which == "agentic" and not is_agentic:
             continue
         if which == "webchat" and is_agentic:
@@ -126,54 +247,8 @@ def load_synthetic(which="all"):
     return prompts
 
 
-def _h(text):
-    return int(hashlib.md5(text.encode("utf-8")).hexdigest(), 16)
-
-
 # ---------------------------------------------------------------------------
-# Pure-python logistic regression (standardized features, L2, GD)
-# ---------------------------------------------------------------------------
-
-def standardize(X, mean, std):
-    return [[(row[j] - mean[j]) / std[j] for j in range(len(row))] for row in X]
-
-
-def fit(X, y, iters=800, lr=0.2, l2=0.01):
-    m, d = len(X), len(X[0])
-    w = [0.0] * d
-    b = 0.0
-    for _ in range(iters):
-        gw = [0.0] * d
-        gb = 0.0
-        for i in range(m):
-            z = b + sum(w[j] * X[i][j] for j in range(d))
-            p = 1.0 / (1.0 + math.exp(-max(-30, min(30, z))))
-            err = p - y[i]
-            gb += err
-            for j in range(d):
-                gw[j] += err * X[i][j]
-        b -= lr * gb / m
-        for j in range(d):
-            w[j] -= lr * (gw[j] / m + l2 * w[j])
-    return w, b
-
-
-def predict_prob(w, b, x):
-    z = b + sum(w[j] * x[j] for j in range(len(x)))
-    return 1.0 / (1.0 + math.exp(-max(-30, min(30, z))))
-
-
-def auc(pairs):
-    pos = [p for p, y in pairs if y == 1]
-    neg = [p for p, y in pairs if y == 0]
-    if not pos or not neg:
-        return None
-    wins = sum((a > b) + 0.5 * (a == b) for a in pos for b in neg)
-    return wins / (len(pos) * len(neg))
-
-
-# ---------------------------------------------------------------------------
-# Main
+# CLI
 # ---------------------------------------------------------------------------
 
 def run(which, synth_which="all"):
@@ -186,55 +261,28 @@ def run(which, synth_which="all"):
         print("  (and/or run pull_webchat_hf.py locally for the web-chat corpora)")
         return
     if not synth:
-        print("No synthetic sources found."); return
+        print("No synthetic sources found.")
+        return
 
-    # Balance classes deterministically (hash-sorted, take equal counts).
-    real = sorted(set(real), key=_h)
-    synth = sorted(set(synth), key=_h)
-    n = min(len(real), len(synth))
-    real, synth = real[:n], synth[:n]
-
-    rows = [(featurize(p), 1) for p in real] + [(featurize(p), 0) for p in synth]
-    texts = real + synth
-    # deterministic 75/25 split by text hash
-    train, test = [], []
-    for (x, y), txt in zip(rows, texts):
-        (test if _h(txt) % 4 == 0 else train).append((x, y))
-
-    Xtr = [r[0] for r in train]; ytr = [r[1] for r in train]
-    d = len(FEATURES)
-    mean = [sum(row[j] for row in Xtr) / len(Xtr) for j in range(d)]
-    std = [(sum((row[j] - mean[j]) ** 2 for row in Xtr) / len(Xtr)) ** 0.5 or 1.0 for j in range(d)]
-    Xtr_s = standardize(Xtr, mean, std)
-    w, b = fit(Xtr_s, ytr)
-
-    Xte = standardize([r[0] for r in test], mean, std)
-    yte = [r[1] for r in test]
-    probs = [predict_prob(w, b, x) for x in Xte]
-    preds = [1 if p >= 0.5 else 0 for p in probs]
-    acc = sum(pr == yt for pr, yt in zip(preds, yte)) / len(yte)
-    a = auc(list(zip(probs, yte)))
-
-    # tells: standardized-feature weights (positive => pushes toward REAL)
-    tells = sorted(zip(FEATURES, w), key=lambda kv: -abs(kv[1]))
+    d = RealismDiscriminator().fit(real, synth)
+    ev = d.evaluate()
+    tells = d.tells()
 
     stats = {
-        "real_set": which, "n_real": len(real), "n_synthetic": len(synth),
-        "n_train": len(train), "n_test": len(test),
-        "test_accuracy": round(acc, 3), "test_auc": round(a, 3) if a else None,
+        "real_set": which, "synth_set": synth_which, **ev,
         "top_tells": [{"feature": f, "weight": round(wt, 3),
-                       "leans": "real" if wt > 0 else "synthetic"} for f, wt in tells[:10]],
+                       "leans": "real" if wt > 0 else "synthetic"} for f, wt in tells],
     }
     json.dump(stats, open(STATS_OUT, "w", encoding="utf-8"), indent=2)
 
     print("=" * 60)
-    print(f"REAL ({which}): {len(real)}   SYNTHETIC: {len(synth)}   "
-          f"(balanced; train {len(train)} / test {len(test)})")
-    print(f"\nDiscriminator test accuracy: {acc*100:.1f}%   AUC: {a:.3f}")
+    print(f"REAL ({which}): {ev['n_real']}   SYNTHETIC ({synth_which}): {ev['n_synthetic']}   "
+          f"(balanced; train {ev['n_train']} / test {ev['n_test']})")
+    print(f"\nDiscriminator test accuracy: {ev['test_accuracy']*100:.1f}%   AUC: {ev['test_auc']}")
     print("  (50% = indistinguishable/realistic; 100% = trivially separable)")
     print("\nTop tells (what gives a prompt away):")
-    for f, wt in tells[:10]:
-        print(f"  {f:18s} {wt:+.2f}  -> {'REAL' if wt>0 else 'SYNTHETIC'}")
+    for f, wt in tells:
+        print(f"  {f:18s} {wt:+.2f}  -> {'REAL' if wt > 0 else 'SYNTHETIC'}")
     print(f"\nstats -> {STATS_OUT}")
 
 

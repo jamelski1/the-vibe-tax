@@ -118,9 +118,20 @@ medium effect; no paste premium; language tax only for the weak model
 
 ## Phase 7 — Realism discriminator (motivates the calibrated generator)
 
-- `data/real_prompts/realism_discriminator.py` — pure-stdlib (portable local/
-  sandbox) classifier: real corpus prompt vs synthetic prompt. Test accuracy =
-  realism score (50% = indistinguishable, 100% = trivially separable).
+- `data/real_prompts/realism_discriminator.py` — the `RealismDiscriminator`
+  class: real corpus prompt vs synthetic prompt. Test accuracy = realism score
+  (50% = indistinguishable, 100% = trivially separable).
+  - **Model:** feature-based **logistic regression** (sigmoid + cross-entropy,
+    batch gradient descent), pure standard library — no numpy/sklearn/network/
+    signals — chosen for interpretability (weights = the "tells"). 20 hand-
+    crafted features (lengths, char-class fractions, binary flags like
+    has_doctest/has_triplequote/has_signature); no embeddings.
+  - **Reproducible:** no RNG — class-balancing and the 75/25 split are md5-hash-
+    keyed (not Python's salted hash()), weights init to zero, fixed
+    hyperparameters. Same inputs → identical output on any machine (verified:
+    two runs bit-identical).
+  - **Importable:** `from realism_discriminator import RealismDiscriminator`;
+    `.fit(real, synth) / .evaluate() / .tells() / .predict_proba(text)`.
 - Demo (real WildChat web-chat n=207 vs synthetic, balanced):
   - vs OLD 5-level docstrings: **100% acc, AUC 1.000**
   - vs v2 conditions: **100% acc, AUC 1.000**
@@ -155,7 +166,15 @@ medium effect; no paste premium; language tax only for the weak model
 - [ ] **LiveCodeBench port** for harder *problems* (real de-saturation).
 - [ ] **Calibrated generator** (needs API keys): LLM rewriting + classifier
       validation so conditions are statistically indistinguishable from real
-      prompts. Realism upgrade, not a measurement upgrade.
+      prompts. Realism upgrade, not a measurement upgrade. Uses the
+      `RealismDiscriminator` as its first-pass fitness function.
+- [ ] **Stronger discriminator** (pairs with the generator): the current
+      `RealismDiscriminator` (logistic regression on 20 hand features incl.
+      literal code-scaffolding flags) is deliberately WEAK — it separates
+      current synthetic trivially and can't certify subtle style realism. Once
+      the generator strips scaffolding, upgrade to TF-IDF n-grams + logistic
+      regression, or an embedding / LLM-judge discriminator, to drive a
+      meaningful accuracy-toward-50% signal.
 - [ ] Re-run W3 with the failing-assert line elided (it currently leaks one test).
 
 ## Standing caveats (carry into any writeup)
