@@ -15,5 +15,3 @@ vibe_tax_run_stats.json
 HumanEvalPlus.jsonl
 *.jsonl.gz
 
-# v3 generator output (regenerated per backend)
-vibe_tax_v3_prompts.json
