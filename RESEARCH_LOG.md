@@ -146,6 +146,26 @@ medium effect; no paste premium; language tax only for the weak model
 - **Decision:** calibrated generator IS worth building; the tells say how (strip
   signature/docstring/doctest scaffolding; phrase tasks as prose messages).
 
+## Phase 8 — Calibrated generator (v3)
+
+- `data/vibe_tax_v3/generate_calibrated_prompts.py` — rewrites each HumanEval
+  task into a realistic prompt (preserving exact function name + params so it
+  stays gradeable), gated by the `RealismDiscriminator`. Pluggable backend
+  (anthropic / openai / **mock** for keyless testing). Output schema = v2's, so
+  it feeds `run_vibe_tax.py` unchanged.
+- **Mock-backend demo result:** prose conditions read realistic —
+  agentic_terse/casual 0.94–0.95, webchat_detailed 0.94, multilingual 0.98
+  P(real) — vs the old synthetic **0.00**. Big realism gain, harness validated.
+- **Finding — the weak discriminator breaks on paste conditions.** Error/code-
+  paste prompts legitimately contain pasted code (`def` line) + traceback, which
+  the feature discriminator mis-reads as synthetic (reads_real ≈ 0.01) and a
+  blanket scaffolding check would reject. Resolved with **condition-aware
+  gating**: paste conditions gated on function-name preservation only, with the
+  discriminator score recorded as advisory. This concretely motivates the
+  stronger-discriminator thread — you can't certify realistic pasted code until
+  the discriminator can tell it from a synthetic stub.
+- Needs API keys to produce real (non-mock) rewrites; run locally.
+
 ## Literature positioning (from web search)
 
 - Closest prior: [WildCode](https://arxiv.org/html/2512.04259) (coding

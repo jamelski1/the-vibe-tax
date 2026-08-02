@@ -14,3 +14,6 @@ vibe_tax_run_stats.json
 # Third-party benchmark data (reproducible; download cmd in score_vibe_tax_plus.py)
 HumanEvalPlus.jsonl
 *.jsonl.gz
+
+# v3 generator output (regenerated per backend)
+vibe_tax_v3_prompts.json
