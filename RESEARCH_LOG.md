@@ -166,6 +166,22 @@ medium effect; no paste premium; language tax only for the weak model
   the discriminator can tell it from a synthetic stub.
 - Needs API keys to produce real (non-mock) rewrites; run locally.
 
+## Phase 9 — v2 vs v3 result (the payoff)
+
+- User generated real v3 prompts (Claude backend) + ran all 3 models (822
+  completions). Scored with the robust base scorer AND HumanEval+ (see
+  `data/vibe_tax_v3/RESULTS.md`).
+- **Realistic prompts get BETTER code than researcher-written ones.** v3 ≥ v2 in
+  almost every cell; clearest on HumanEval+: overall **88.7% (v2) → 91.7% (v3)**,
+  +4.6 on agentic_terse, +4.5 on error_paste.
+- **Interpretation:** the researcher-written v2 conditions **overstated the vibe
+  tax.** Real informal phrasing is in-distribution for RLHF'd models; invented
+  informality ("yo so like…", one-word "finish this") is weird/out-of-
+  distribution and confuses them more. A caution for the perturbation/under-
+  specification literature that relies on artificial degradations.
+- **Replicates:** paste/fix conditions remain hardest on HumanEval+ (both
+  versions); base HumanEval still saturated; no *large* tax on easy problems.
+
 ## Literature positioning (from web search)
 
 - Closest prior: [WildCode](https://arxiv.org/html/2512.04259) (coding
