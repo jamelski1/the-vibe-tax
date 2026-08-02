@@ -116,6 +116,25 @@ medium effect; no paste premium; language tax only for the weak model
   partly a weak-test artifact. Full de-saturation likely needs harder
   *problems* (LiveCodeBench), not just harder tests.
 
+## Phase 7 — Realism discriminator (motivates the calibrated generator)
+
+- `data/real_prompts/realism_discriminator.py` — pure-stdlib (portable local/
+  sandbox) classifier: real corpus prompt vs synthetic prompt. Test accuracy =
+  realism score (50% = indistinguishable, 100% = trivially separable).
+- Demo (real WildChat web-chat n=207 vs synthetic, balanced):
+  - vs OLD 5-level docstrings: **100% acc, AUC 1.000**
+  - vs v2 conditions: **100% acc, AUC 1.000**
+- **Top tells (both):** `has_triplequote`, `has_signature`, `has_doctest`,
+  `frac_punct` → SYNTHETIC. Our prompts are dressed-up HumanEval stubs; real
+  ones are conversational messages.
+- **Caveat:** 100% is partly trivial — synthetic prompts literally contain code
+  scaffolding real chat prompts lack, so one feature nearly separates them. The
+  diagnostic's real value: (1) confirms the current synthetic spectrum is
+  unrealistic, (2) becomes the **fitness function** for a calibrated generator
+  (generate → discriminate → drive accuracy toward 50%).
+- **Decision:** calibrated generator IS worth building; the tells say how (strip
+  signature/docstring/doctest scaffolding; phrase tasks as prose messages).
+
 ## Literature positioning (from web search)
 
 - Closest prior: [WildCode](https://arxiv.org/html/2512.04259) (coding
@@ -131,9 +150,8 @@ medium effect; no paste premium; language tax only for the weak model
 
 ## Open threads / next steps
 
-- [ ] **Discriminator diagnostic** (cheap, no API keys): real-vs-synthetic
-      classifier to quantify how unrealistic the current synthetic prompts are →
-      decides whether the calibrated generator is worth building.
+- [x] **Discriminator diagnostic** (Phase 7): DONE — current synthetic is 100%
+      separable from real; calibrated generator justified.
 - [ ] **LiveCodeBench port** for harder *problems* (real de-saturation).
 - [ ] **Calibrated generator** (needs API keys): LLM rewriting + classifier
       validation so conditions are statistically indistinguishable from real

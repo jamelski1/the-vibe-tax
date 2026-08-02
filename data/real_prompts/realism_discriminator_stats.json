@@ -1,0 +1,61 @@
+{
+  "real_set": "webchat",
+  "n_real": 207,
+  "n_synthetic": 207,
+  "n_train": 311,
+  "n_test": 103,
+  "test_accuracy": 1.0,
+  "test_auc": 1.0,
+  "top_tells": [
+    {
+      "feature": "has_triplequote",
+      "weight": -1.671,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "has_signature",
+      "weight": -1.469,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "frac_punct",
+      "weight": -0.575,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "has_doctest",
+      "weight": -0.544,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "avg_word_len",
+      "weight": 0.532,
+      "leans": "real"
+    },
+    {
+      "feature": "has_url",
+      "weight": 0.457,
+      "leans": "real"
+    },
+    {
+      "feature": "n_chars",
+      "weight": 0.349,
+      "leans": "real"
+    },
+    {
+      "feature": "has_question",
+      "weight": -0.324,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "frac_digit",
+      "weight": -0.274,
+      "leans": "synthetic"
+    },
+    {
+      "feature": "frac_upper",
+      "weight": 0.243,
+      "leans": "real"
+    }
+  ]
+}
