@@ -70,3 +70,43 @@ This matches the literature: prompt-technique effects on correctness are
 [surprisingly small](https://arxiv.org/pdf/2412.20545), and under-specification
 costs ~-11% on HumanEval specifically — i.e. real but modest, and easily
 swamped by ceiling + scoring noise.
+
+## Harder-benchmark re-score: HumanEval+ (no new API calls)
+
+To test whether the flat base-HumanEval result was a *weak-test* artifact, we
+re-scored the **same 822 completions** against HumanEval+ (EvalPlus), which adds
+hundreds of edge-case inputs per problem. `score_vibe_tax_plus.py` computes
+expected outputs from each canonical solution and requires the completion to
+match on every sampled input. (Approximate harness — exact-equality comparator,
+≤60 sampled inputs/problem, budget-capped — so treat absolute numbers as
+directional, not the official EvalPlus figure.)
+
+| Condition | base HumanEval | **HumanEval+** | Δ |
+|-----------|---------------:|---------------:|--:|
+| agentic_casual | 99.3 | 91.3 | −8.0 |
+| agentic_terse | 93.3 | 88.7 | −4.6 |
+| webchat_detailed | 96.7 | 89.3 | −7.4 |
+| webchat_code_paste | 96.4 | 88.3 | −8.1 |
+| **webchat_error_paste** | 95.5 | **83.8** | **−11.7** |
+| webchat_multilingual | 96.0 | 89.3 | −6.7 |
+| **Overall** | **96.2** | **88.7** | **−7.5** |
+
+By model: ChatGPT 90.1, Claude 92.0, Codestral 83.9.
+
+**Findings:**
+- **The harder benchmark works and matters.** Rigorous tests knocked ~7.5 points
+  off overall and, more importantly, **changed the condition ranking** — the
+  base-test numbers were partly a weak-test artifact.
+- **Error-paste is now the *lowest* condition** (−11.7, vs ~−7 elsewhere). The
+  extra failures are genuine (15 base→plus flips over 7 problems, with **all
+  three models failing the same Fibonacci-family problems**, HumanEval/63/39/55).
+  Interpretation: "fix the bug my traceback shows" converges on code that passes
+  the *visible* failing test but is **less robust to edge cases** (large-`n`
+  inputs) than write-from-scratch code. A real, if modest, effect the weak base
+  tests completely hid.
+- Even de-saturated, the spread stays ~8 points — no *large* vibe tax on these
+  problems. Full de-saturation likely needs harder *problems* (LiveCodeBench),
+  not just harder tests.
+
+**Takeaway:** this validates running the full v2 design on a harder benchmark
+rather than trusting saturated base-HumanEval — the ranking is test-dependent.
