@@ -1,0 +1,160 @@
+{
+  "overall": {
+    "passed": 791,
+    "total": 822,
+    "pass_rate": 96.2
+  },
+  "by_condition": {
+    "agentic_casual": {
+      "passed": 149,
+      "total": 150,
+      "pass_rate": 99.3
+    },
+    "agentic_terse": {
+      "passed": 140,
+      "total": 150,
+      "pass_rate": 93.3
+    },
+    "webchat_code_paste": {
+      "passed": 107,
+      "total": 111,
+      "pass_rate": 96.4
+    },
+    "webchat_detailed": {
+      "passed": 145,
+      "total": 150,
+      "pass_rate": 96.7
+    },
+    "webchat_error_paste": {
+      "passed": 106,
+      "total": 111,
+      "pass_rate": 95.5
+    },
+    "webchat_multilingual": {
+      "passed": 144,
+      "total": 150,
+      "pass_rate": 96.0
+    }
+  },
+  "by_model": {
+    "chatgpt": {
+      "passed": 266,
+      "total": 274,
+      "pass_rate": 97.1
+    },
+    "claude": {
+      "passed": 272,
+      "total": 274,
+      "pass_rate": 99.3
+    },
+    "codestral": {
+      "passed": 253,
+      "total": 274,
+      "pass_rate": 92.3
+    }
+  },
+  "by_medium": {
+    "agentic": {
+      "passed": 289,
+      "total": 300,
+      "pass_rate": 96.3
+    },
+    "webchat": {
+      "passed": 502,
+      "total": 522,
+      "pass_rate": 96.2
+    }
+  },
+  "by_condition_and_model": {
+    "chatgpt|agentic_casual": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "chatgpt|agentic_terse": {
+      "passed": 45,
+      "total": 50,
+      "pass_rate": 90.0
+    },
+    "chatgpt|webchat_code_paste": {
+      "passed": 36,
+      "total": 37,
+      "pass_rate": 97.3
+    },
+    "chatgpt|webchat_detailed": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "chatgpt|webchat_error_paste": {
+      "passed": 35,
+      "total": 37,
+      "pass_rate": 94.6
+    },
+    "chatgpt|webchat_multilingual": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "claude|agentic_casual": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "claude|agentic_terse": {
+      "passed": 49,
+      "total": 50,
+      "pass_rate": 98.0
+    },
+    "claude|webchat_code_paste": {
+      "passed": 36,
+      "total": 37,
+      "pass_rate": 97.3
+    },
+    "claude|webchat_detailed": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "claude|webchat_error_paste": {
+      "passed": 37,
+      "total": 37,
+      "pass_rate": 100.0
+    },
+    "claude|webchat_multilingual": {
+      "passed": 50,
+      "total": 50,
+      "pass_rate": 100.0
+    },
+    "codestral|agentic_casual": {
+      "passed": 49,
+      "total": 50,
+      "pass_rate": 98.0
+    },
+    "codestral|agentic_terse": {
+      "passed": 46,
+      "total": 50,
+      "pass_rate": 92.0
+    },
+    "codestral|webchat_code_paste": {
+      "passed": 35,
+      "total": 37,
+      "pass_rate": 94.6
+    },
+    "codestral|webchat_detailed": {
+      "passed": 45,
+      "total": 50,
+      "pass_rate": 90.0
+    },
+    "codestral|webchat_error_paste": {
+      "passed": 34,
+      "total": 37,
+      "pass_rate": 91.9
+    },
+    "codestral|webchat_multilingual": {
+      "passed": 44,
+      "total": 50,
+      "pass_rate": 88.0
+    }
+  }
+}
