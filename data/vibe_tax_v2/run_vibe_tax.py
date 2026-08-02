@@ -35,11 +35,16 @@ from openai import OpenAI
 from anthropic import Anthropic
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROMPTS_FILE = os.path.join(SCRIPT_DIR, "vibe_tax_prompts.json")
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "vibe_tax_responses.json")
-PROGRESS_FILE = os.path.join(SCRIPT_DIR, "vibe_tax_progress.json")
-STATS_FILE = os.path.join(SCRIPT_DIR, "vibe_tax_run_stats.json")
-LOG_FILE = os.path.join(SCRIPT_DIR, "run_vibe_tax.log")
+# Paths are env-overridable so the same runner works on v2 and the v3 calibrated
+# prompts without editing code, e.g. (PowerShell):
+#   $env:PROMPTS_FILE = "..\vibe_tax_v3\vibe_tax_v3_prompts.json"
+#   $env:OUTPUT_FILE  = "..\vibe_tax_v3\vibe_tax_v3_responses.json"
+#   $env:PROGRESS_FILE = "..\vibe_tax_v3\vibe_tax_v3_progress.json"
+PROMPTS_FILE = os.getenv("PROMPTS_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_prompts.json"))
+OUTPUT_FILE = os.getenv("OUTPUT_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_responses.json"))
+PROGRESS_FILE = os.getenv("PROGRESS_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_progress.json"))
+STATS_FILE = os.getenv("STATS_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_run_stats.json"))
+LOG_FILE = os.getenv("RUN_VIBE_TAX_LOG", os.path.join(SCRIPT_DIR, "run_vibe_tax.log"))
 
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-opus-4-6")
