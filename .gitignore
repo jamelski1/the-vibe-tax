@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+
+# Logs
+*.log
+
+# Generated run / scoring artifacts (reproducible from the scripts; the
+# committed *_scored_stats.json / *_stats.json aggregates are enough)
+vibe_tax_test_results.json
+vibe_tax_test_stats.json
+vibe_tax_progress.json
+vibe_tax_run_stats.json
