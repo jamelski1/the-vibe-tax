@@ -181,6 +181,28 @@ medium effect; no paste premium; language tax only for the weak model
   specification literature that relies on artificial degradations.
 - **Replicates:** paste/fix conditions remain hardest on HumanEval+ (both
   versions); base HumanEval still saturated; no *large* tax on easy problems.
+- **Significance (paired McNemar, v2 vs v3 on HumanEval+):** 822 paired items,
+  771 agree; of 51 discordant, 38 favor v3 vs 13 favor v2 → **p=0.001**, delta
+  **+3.0 ± 1.7 pts**. So the effect is REAL, not noise — but **small and
+  ceiling-suppressed**: at ~90% there's no room for it to grow. Significant ≠
+  large. Can't size the true tax on a saturated benchmark → need harder problems.
+
+## Phase 10 — LiveCodeBench port (design)
+
+- Chosen next benchmark: **LiveCodeBench** (hard + contamination-free; frontier
+  pass ~30–70% = real headroom). `data/vibe_tax_lcb/DESIGN.md` +
+  `prepare_lcb.py`.
+- Scoping (probed): LCB and BigCodeBench are **HF-firewalled** in the sandbox
+  (fetch locally); MBPP+ was reachable (drop-in) but too easy for real headroom.
+- Design decisions: reuse LCB's **official loader + evaluator** (don't reimpl the
+  finicky test decoding); **functional problems only** first (keeps method-name
+  trick + call-based scoring); **contamination date-filter**; paste conditions
+  via **correct-then-mutate** (LCB has no canonical solutions). Generator's
+  realism machinery (6 conditions, discriminator gate, name preservation) ports
+  directly; only task text + name source change.
+- Status: design done; blocked on a local LCB fetch (`prepare_lcb.py` →
+  `lcb_sample.json`) so the generator/scorer adapters are built against the real
+  schema rather than a reconstructed one.
 
 ## Literature positioning (from web search)
 
@@ -199,7 +221,9 @@ medium effect; no paste premium; language tax only for the weak model
 
 - [x] **Discriminator diagnostic** (Phase 7): DONE — current synthetic is 100%
       separable from real; calibrated generator justified.
-- [ ] **LiveCodeBench port** for harder *problems* (real de-saturation).
+- [~] **LiveCodeBench port** (Phase 10): design + `prepare_lcb.py` done; blocked
+      on a local LCB fetch to finalize the generator/scorer adapters. THE key
+      step — the only way to size the tax with real headroom.
 - [ ] **Calibrated generator** (needs API keys): LLM rewriting + classifier
       validation so conditions are statistically indistinguishable from real
       prompts. Realism upgrade, not a measurement upgrade. Uses the
