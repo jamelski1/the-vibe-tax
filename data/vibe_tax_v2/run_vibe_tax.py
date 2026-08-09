@@ -131,6 +131,7 @@ def run():
         with open(PROGRESS_FILE, encoding="utf-8") as f:
             progress = json.load(f)
         log.info("Resuming -- %d completions already done.", len(progress))
+    already_done = len(progress)   # fixed baseline; progress grows during the run
 
     total = len(prompts) * len(clients)
     log.info("Models: %s | prompts: %d | total queries: %d",
@@ -161,7 +162,7 @@ def run():
                 }
                 new += 1
                 log.info("[%d/%d] OK   %s | %-22s | %-9s (%.1fs)",
-                         len(progress) + new + errors, total, entry["task_id"],
+                         already_done + new + errors, total, entry["task_id"],
                          entry["condition"], model_name, time.time() - t0)
             except Exception as e:
                 record = {
@@ -178,7 +179,7 @@ def run():
                 }
                 errors += 1
                 log.error("[%d/%d] FAIL %s | %s | %s -- %s",
-                          len(progress) + new + errors, total, entry["task_id"],
+                          already_done + new + errors, total, entry["task_id"],
                           entry["condition"], model_name, e)
             results.append(record)
             progress[key] = record
