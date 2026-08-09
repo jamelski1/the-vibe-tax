@@ -64,26 +64,47 @@ def parse_starter(starter):
 
 
 def load_lcb(version):
-    """Return a list of raw problem dicts using LCB's official dataset."""
+    """Return an ITERABLE of raw problem dicts using LCB's official dataset.
+
+    STREAMING FIRST: streaming reads the (already-downloaded) files directly and
+    never writes the local Arrow cache — which is the exact step that crashes on
+    Windows with `[WinError 32] ... .incomplete\\...arrow`. Non-streaming is the
+    fallback (fine on Linux/Mac).
+    """
     from datasets import load_dataset
     token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
-    kwargs = dict(split="test", token=token, trust_remote_code=True)
-    # newer releases require a version_tag kwarg; try with, then without.
-    for attempt in ({"version_tag": version}, {}):
+    base = dict(split="test", token=token, trust_remote_code=True)
+    attempts = [
+        {"version_tag": version, "streaming": True},
+        {"streaming": True},
+        {"version_tag": version},
+        {},
+    ]
+    last = None
+    for kw in attempts:
+        mode = "streaming" if kw.get("streaming") else "cached"
         try:
-            ds = load_dataset("livecodebench/code_generation_lite", **attempt, **kwargs)
-            return list(ds)
+            ds = load_dataset("livecodebench/code_generation_lite", **kw, **base)
+            print(f"loaded LCB ({mode}, {'version '+version if 'version_tag' in kw else 'default version'})")
+            return ds
         except Exception as e:
             last = e
+            print(f"  {mode} attempt failed: {type(e).__name__}: {str(e)[:90]}")
     raise SystemExit(f"Could not load LCB (accepted terms? token set?): {last}")
 
 
 def run(version, min_date, difficulties, limit):
+    import itertools
     rows = load_lcb(version)
-    print(f"loaded {len(rows)} raw LCB problems")
-    if rows:
-        print("RAW FIELD NAMES (report these back if anything looks off):")
-        print("  " + ", ".join(sorted(rows[0].keys())))
+    # Peek the first row for the schema report; works for streaming + cached.
+    it = iter(rows)
+    try:
+        first_row = next(it)
+    except StopIteration:
+        raise SystemExit("LCB loaded but returned no rows.")
+    print("RAW FIELD NAMES (report these back if anything looks off):")
+    print("  " + ", ".join(sorted(first_row.keys())))
+    rows = itertools.chain([first_row], it)
 
     diffs = {d.strip().lower() for d in difficulties.split(",")} if difficulties else None
     out = []
