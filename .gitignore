@@ -15,3 +15,7 @@ vibe_tax_run_stats.json
 HumanEvalPlus.jsonl
 *.jsonl.gz
 
+
+# LCB generator output (regenerated per backend) + local scoring data
+lcb_v3_prompts.json
+lcb_tests.jsonl
