@@ -129,6 +129,13 @@ def sample_tests(rec, k):
 def run(max_tests):
     tests_by_id = {r["task_id"]: r for r in (json.loads(l) for l in open(TESTS, encoding="utf-8"))}
     responses = json.load(open(RESPONSES, encoding="utf-8"))
+    # difficulty isn't carried on the response records — pull it from the problem file
+    diff_by_id = {}
+    probs_path = os.path.join(SCRIPT_DIR, "lcb_problems.jsonl")
+    if os.path.exists(probs_path):
+        for l in open(probs_path, encoding="utf-8"):
+            p = json.loads(l)
+            diff_by_id[p["task_id"]] = p.get("difficulty")
     print(f"tests for {len(tests_by_id)} problems | {len(responses)} completions")
 
     scored = []
@@ -138,8 +145,8 @@ def run(max_tests):
         if rec:
             code = extract_solution(r.get("completion"), r["entry_point"])
             ok = passes(code, r["entry_point"], sample_tests(rec, max_tests))
-        scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model", "difficulty")}
-                      | {"passed": ok})
+        scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model")}
+                      | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok})
         if (i + 1) % 100 == 0:
             print(f"  scored {i+1}/{len(responses)}", flush=True)
 
