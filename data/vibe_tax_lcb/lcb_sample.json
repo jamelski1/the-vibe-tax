@@ -1,0 +1,102 @@
+[
+  {
+    "task_id": "lcb/3517",
+    "entry_point": "shortestDistanceAfterQueries",
+    "class_name": "Solution",
+    "params": "n, queries",
+    "starter_code": "class Solution:\n    def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:\n        ",
+    "question_content": "You are given an integer n and a 2D integer array queries.\nThere are n cities numbered from 0 to n - 1. Initially, there is a unidirectional road from city i to city i + 1 for all 0 <= i < n - 1.\nqueries[i] = [u_i, v_i] represents the addition of a new unidirectional road from city u_i to city v_i. After each query, you need to find the length of the shortest path from city 0 to city n - 1.\nReturn an array answer where for each i in the range [0, queries.length - 1], answer[i] is the length of the shortest path from city 0 to city n - 1 after processing the first i + 1 queries.\n \nExample 1:\n\nInput: n = 5, queries = [[2,4],[0,2],[0,4]]\nOutput: [3,2,1]\nExplanation: \n\nAfter the addition of the road from 2 to 4, the length of the shortest path from 0 to 4 is 3.\n\nAfter the addition of the road from 0 to 2, the length of the shortest path from 0 to 4 is 2.\n\nAfter the addition of the road from 0 to 4, the length of the shortest path from 0 to 4 is 1.\n\nExample 2:\n\nInput: n = 4, queries = [[0,3],[0,2]]\nOutput: [1,1]\nExplanation:\n\nAfter the addition of the road from 0 to 3, the length of the shortest path from 0 to 3 is 1.\n\nAfter the addition of the road from 0 to 2, the length of the shortest path remains 1.\n\n \nConstraints:\n\n3 <= n <= 500\n1 <= queries.length <= 500\nqueries[i].length == 2\n0 <= queries[i][0] < queries[i][1] < n\n1 < queries[i][1] - queries[i][0]\nThere are no repeated roads among the queries.",
+    "difficulty": "medium",
+    "contest_date": "2024-08-03"
+  },
+  {
+    "task_id": "lcb/3527",
+    "entry_point": "numberOfAlternatingGroups",
+    "class_name": "Solution",
+    "params": "colors, queries",
+    "starter_code": "class Solution:\n    def numberOfAlternatingGroups(self, colors: List[int], queries: List[List[int]]) -> List[int]:\n        ",
+    "question_content": "There are some red and blue tiles arranged circularly. You are given an array of integers colors and a 2D integers array queries.\nThe color of tile i is represented by colors[i]:\n\ncolors[i] == 0 means that tile i is red.\ncolors[i] == 1 means that tile i is blue.\n\nAn alternating group is a contiguous subset of tiles in the circle with alternating colors (each tile in the group except the first and last one has a different color from its adjacent tiles in the group).\nYou have to process queries of two types:\n\nqueries[i] = [1, size_i], determine the count of alternating groups with size size_i.\nqueries[i] = [2, index_i, color_i], change colors[index_i] to color_i.\n\nReturn an array answer containing the results of the queries of the first type in order.\nNote that since colors represents a circle, the first and the last tiles are considered to be next to each other.\n \nExample 1:\n\nInput: colors = [0,1,1,0,1], queries = [[2,1,0],[1,4]]\nOutput: [2]\nExplanation:\n\nFirst query:\nChange colors[1] to 0.\n\nSecond query:\nCount of the alternating groups with size 4:\n\n\nExample 2:\n\nInput: colors = [0,0,1,0,1,1], queries = [[1,3],[2,3,0],[1,5]]\nOutput: [2,0]\nExplanation:\n\nFirst query:\nCount of the alternating groups with size 3:\n\nSecond query: colors will not change.\nThird query: There is no alternating group with size 5.\n\n \nConstraints:\n\n4 <= colors.length <= 5 * 10^4\n0 <= colors[i] <= 1\n1 <= queries.length <= 5 * 10^4\nqueries[i][0] == 1 or queries[i][0] == 2\nFor all i that:\n\t\nqueries[i][0] == 1: queries[i].length == 2, 3 <= queries[i][1] <= colors.length - 1\nqueries[i][0] == 2: queries[i].length == 3, 0 <= queries[i][1] <= colors.length - 1, 0 <= queries[i][2] <= 1",
+    "difficulty": "hard",
+    "contest_date": "2024-08-03"
+  },
+  {
+    "task_id": "lcb/3535",
+    "entry_point": "countOfPairs",
+    "class_name": "Solution",
+    "params": "nums",
+    "starter_code": "class Solution:\n    def countOfPairs(self, nums: List[int]) -> int:\n        ",
+    "question_content": "You are given an array of positive integers nums of length n.\nWe call a pair of non-negative integer arrays (arr1, arr2) monotonic if:\n\nThe lengths of both arrays are n.\narr1 is monotonically non-decreasing, in other words, arr1[0] <= arr1[1] <= ... <= arr1[n - 1].\narr2 is monotonically non-increasing, in other words, arr2[0] >= arr2[1] >= ... >= arr2[n - 1].\narr1[i] + arr2[i] == nums[i] for all 0 <= i <= n - 1.\n\nReturn the count of monotonic pairs.\nSince the answer may be very large, return it modulo 10^9 + 7.\n \nExample 1:\n\nInput: nums = [2,3,2]\nOutput: 4\nExplanation:\nThe good pairs are:\n\n([0, 1, 1], [2, 2, 1])\n([0, 1, 2], [2, 2, 0])\n([0, 2, 2], [2, 1, 0])\n([1, 2, 2], [1, 1, 0])\n\n\nExample 2:\n\nInput: nums = [5,5,5,5]\nOutput: 126\n\n \nConstraints:\n\n1 <= n == nums.length <= 2000\n1 <= nums[i] <= 50",
+    "difficulty": "hard",
+    "contest_date": "2024-08-10"
+  },
+  {
+    "task_id": "lcb/3526",
+    "entry_point": "minFlips",
+    "class_name": "Solution",
+    "params": "grid",
+    "starter_code": "class Solution:\n    def minFlips(self, grid: List[List[int]]) -> int:\n        ",
+    "question_content": "You are given an m x n binary matrix grid.\nA row or column is considered palindromic if its values read the same forward and backward.\nYou can flip any number of cells in grid from 0 to 1, or from 1 to 0.\nReturn the minimum number of cells that need to be flipped to make either all rows palindromic or all columns palindromic.\n \nExample 1:\n\nInput: grid = [[1,0,0],[0,0,0],[0,0,1]]\nOutput: 2\nExplanation:\n\nFlipping the highlighted cells makes all the rows palindromic.\n\nExample 2:\n\nInput: grid = [[0,1],[0,1],[0,0]]\nOutput: 1\nExplanation:\n\nFlipping the highlighted cell makes all the columns palindromic.\n\nExample 3:\n\nInput: grid = [[1],[0]]\nOutput: 0\nExplanation:\nAll rows are already palindromic.\n\n \nConstraints:\n\nm == grid.length\nn == grid[i].length\n1 <= m * n <= 2 * 10^5\n0 <= grid[i][j] <= 1",
+    "difficulty": "medium",
+    "contest_date": "2024-08-03"
+  },
+  {
+    "task_id": "lcb/3532",
+    "entry_point": "timeTaken",
+    "class_name": "Solution",
+    "params": "edges",
+    "starter_code": "class Solution:\n    def timeTaken(self, edges: List[List[int]]) -> List[int]:\n        ",
+    "question_content": "There exists an undirected tree with n nodes numbered 0 to n - 1. You are given a 2D integer array edges of length n - 1, where edges[i] = [u_i, v_i] indicates that there is an edge between nodes u_i and v_i in the tree.\nInitially, all nodes are unmarked. For each node i:\n\nIf i is odd, the node will get marked at time x if there is at least one node adjacent to it which was marked at time x - 1.\nIf i is even, the node will get marked at time x if there is at least one node adjacent to it which was marked at time x - 2.\n\nReturn an array times where times[i] is the time when all nodes get marked in the tree, if you mark node i at time t = 0.\nNote that the answer for each times[i] is independent, i.e. when you mark node i all other nodes are unmarked.\n \nExample 1:\n\nInput: edges = [[0,1],[0,2]]\nOutput: [2,4,3]\nExplanation:\n\n\nFor i = 0:\n\n\t\nNode 1 is marked at t = 1, and Node 2 at t = 2.\n\n\nFor i = 1:\n\t\nNode 0 is marked at t = 2, and Node 2 at t = 4.\n\n\nFor i = 2:\n\t\nNode 0 is marked at t = 2, and Node 1 at t = 3.\n\n\n\n\nExample 2:\n\nInput: edges = [[0,1]]\nOutput: [1,2]\nExplanation:\n\n\nFor i = 0:\n\n\t\nNode 1 is marked at t = 1.\n\n\nFor i = 1:\n\t\nNode 0 is marked at t = 2.\n\n\n\n\nExample 3:\n\nInput: edges = [[2,4],[0,1],[2,3],[0,2]]\nOutput: [4,6,3,5,5]\nExplanation:\n\n\n \nConstraints:\n\n2 <= n <= 10^5\nedges.length == n - 1\nedges[i].length == 2\n0 <= edges[i][0], edges[i][1] <= n - 1\nThe input is generated such that edges represents a valid tree.",
+    "difficulty": "hard",
+    "contest_date": "2024-08-03"
+  },
+  {
+    "task_id": "lcb/3525",
+    "entry_point": "maxEnergyBoost",
+    "class_name": "Solution",
+    "params": "energyDrinkA, energyDrinkB",
+    "starter_code": "class Solution:\n    def maxEnergyBoost(self, energyDrinkA: List[int], energyDrinkB: List[int]) -> int:\n        ",
+    "question_content": "You are given two integer arrays energyDrinkA and energyDrinkB of the same length n by a futuristic sports scientist. These arrays represent the energy boosts per hour provided by two different energy drinks, A and B, respectively.\nYou want to maximize your total energy boost by drinking one energy drink per hour. However, if you want to switch from consuming one energy drink to the other, you need to wait for one hour to cleanse your system (meaning you won't get any energy boost in that hour).\nReturn the maximum total energy boost you can gain in the next n hours.\nNote that you can start consuming either of the two energy drinks.\n \nExample 1:\n\nInput: energyDrinkA = [1,3,1], energyDrinkB = [3,1,1]\nOutput: 5\nExplanation:\nTo gain an energy boost of 5, drink only the energy drink A (or only B).\n\nExample 2:\n\nInput: energyDrinkA = [4,1,1], energyDrinkB = [1,1,3]\nOutput: 7\nExplanation:\nTo gain an energy boost of 7:\n\nDrink the energy drink A for the first hour.\nSwitch to the energy drink B and we lose the energy boost of the second hour.\nGain the energy boost of the drink B in the third hour.\n\n\n \nConstraints:\n\nn == energyDrinkA.length == energyDrinkB.length\n3 <= n <= 10^5\n1 <= energyDrinkA[i], energyDrinkB[i] <= 10^5",
+    "difficulty": "medium",
+    "contest_date": "2024-08-17"
+  },
+  {
+    "task_id": "lcb/3552",
+    "entry_point": "largestPalindrome",
+    "class_name": "Solution",
+    "params": "n, k",
+    "starter_code": "class Solution:\n    def largestPalindrome(self, n: int, k: int) -> str:\n        ",
+    "question_content": "You are given two positive integers n and k.\nAn integer x is called k-palindromic if:\n\nx is a palindrome.\nx is divisible by k.\n\nReturn the largest integer having n digits (as a string) that is k-palindromic.\nNote that the integer must not have leading zeros.\n \nExample 1:\n\nInput: n = 3, k = 5\nOutput: \"595\"\nExplanation:\n595 is the largest k-palindromic integer with 3 digits.\n\nExample 2:\n\nInput: n = 1, k = 4\nOutput: \"8\"\nExplanation:\n4 and 8 are the only k-palindromic integers with 1 digit.\n\nExample 3:\n\nInput: n = 5, k = 6\nOutput: \"89898\"\n\n \nConstraints:\n\n1 <= n <= 10^5\n1 <= k <= 9",
+    "difficulty": "hard",
+    "contest_date": "2024-08-17"
+  },
+  {
+    "task_id": "lcb/3534",
+    "entry_point": "countPairs",
+    "class_name": "Solution",
+    "params": "nums",
+    "starter_code": "class Solution:\n    def countPairs(self, nums: List[int]) -> int:\n        ",
+    "question_content": "You are given an array nums consisting of positive integers.\nWe call two integers x and y in this problem almost equal if both integers can become equal after performing the following operation at most once:\n\nChoose either x or y and swap any two digits within the chosen number.\n\nReturn the number of indices i and j in nums where i < j such that nums[i] and nums[j] are almost equal.\nNote that it is allowed for an integer to have leading zeros after performing an operation.\n \nExample 1:\n\nInput: nums = [3,12,30,17,21]\nOutput: 2\nExplanation:\nThe almost equal pairs of elements are:\n\n3 and 30. By swapping 3 and 0 in 30, you get 3.\n12 and 21. By swapping 1 and 2 in 12, you get 21.\n\n\nExample 2:\n\nInput: nums = [1,1,1,1,1]\nOutput: 10\nExplanation:\nEvery two elements in the array are almost equal.\n\nExample 3:\n\nInput: nums = [123,231]\nOutput: 0\nExplanation:\nWe cannot swap any two digits of 123 or 231 to reach the other.\n\n \nConstraints:\n\n2 <= nums.length <= 100\n1 <= nums[i] <= 10^6",
+    "difficulty": "medium",
+    "contest_date": "2024-08-24"
+  },
+  {
+    "task_id": "lcb/3495",
+    "entry_point": "resultsArray",
+    "class_name": "Solution",
+    "params": "queries, k",
+    "starter_code": "class Solution:\n    def resultsArray(self, queries: List[List[int]], k: int) -> List[int]:\n        ",
+    "question_content": "There is an infinite 2D plane.\nYou are given a positive integer k. You are also given a 2D array queries, which contains the following queries:\n\nqueries[i] = [x, y]: Build an obstacle at coordinate (x, y) in the plane. It is guaranteed that there is no obstacle at this coordinate when this query is made.\n\nAfter each query, you need to find the distance of the k^th nearest obstacle from the origin.\nReturn an integer array results where results[i] denotes the k^th nearest obstacle after query i, or results[i] == -1 if there are less than k obstacles.\nNote that initially there are no obstacles anywhere.\nThe distance of an obstacle at coordinate (x, y) from the origin is given by |x| + |y|.\n \nExample 1:\n\nInput: queries = [[1,2],[3,4],[2,3],[-3,0]], k = 2\nOutput: [-1,7,5,3]\nExplanation:\n\nInitially, there are 0 obstacles.\nAfter queries[0], there are less than 2 obstacles.\nAfter queries[1], there are obstacles at distances 3 and 7.\nAfter queries[2], there are obstacles at distances 3, 5, and 7.\nAfter queries[3], there are obstacles at distances 3, 3, 5, and 7.\n\n\nExample 2:\n\nInput: queries = [[5,5],[4,4],[3,3]], k = 1\nOutput: [10,8,6]\nExplanation:\n\nAfter queries[0], there is an obstacle at distance 10.\nAfter queries[1], there are obstacles at distances 8 and 10.\nAfter queries[2], there are obstacles at distances 6, 8, and 10.\n\n\n \nConstraints:\n\n1 <= queries.length <= 2 * 10^5\nAll queries[i] are unique.\n-10^9 <= queries[i][0], queries[i][1] <= 10^9\n1 <= k <= 10^5",
+    "difficulty": "medium",
+    "contest_date": "2024-08-31"
+  },
+  {
+    "task_id": "lcb/3563",
+    "entry_point": "maxScore",
+    "class_name": "Solution",
+    "params": "grid",
+    "starter_code": "class Solution:\n    def maxScore(self, grid: List[List[int]]) -> int:\n        ",
+    "question_content": "You are given a 2D matrix grid consisting of positive integers.\nYou have to select one or more cells from the matrix such that the following conditions are satisfied:\n\nNo two selected cells are in the same row of the matrix.\nThe values in the set of selected cells are unique.\n\nYour score will be the sum of the values of the selected cells.\nReturn the maximum score you can achieve.\n \nExample 1:\n\nInput: grid = [[1,2,3],[4,3,2],[1,1,1]]\nOutput: 8\nExplanation:\n\nWe can select the cells with values 1, 3, and 4 that are colored above.\n\nExample 2:\n\nInput: grid = [[8,7,6],[8,3,2]]\nOutput: 15\nExplanation:\n\nWe can select the cells with values 7 and 8 that are colored above.\n\n \nConstraints:\n\n1 <= grid.length, grid[i].length <= 10\n1 <= grid[i][j] <= 100",
+    "difficulty": "hard",
+    "contest_date": "2024-08-31"
+  }
+]
