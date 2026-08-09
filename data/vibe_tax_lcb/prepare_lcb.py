@@ -13,14 +13,18 @@ version tags vary by release, so it prints the schema it actually sees and skips
 fields it can't find rather than crashing. Push `lcb_sample.json` back so the
 generator/scorer adapters can be finalized against the real schema.
 
+Reads LCB's release JSONL files (test.jsonl .. test6.jsonl) DIRECTLY via
+huggingface_hub — no `datasets` loading script, no Arrow cache, no streaming.
+This sidesteps the Windows `datasets` failures (WinError 32 on the Arrow rename;
+streaming hang). Files are cached, so a prior download is reused.
+
 Setup:
-    pip install "datasets>=2.0" huggingface_hub
-    export HF_TOKEN=hf_xxx            # and accept the dataset terms on HF once
+    pip install huggingface_hub
+    $env:HF_TOKEN = "hf_xxx"          # and accept the dataset terms on HF once
     # dataset: https://huggingface.co/datasets/livecodebench/code_generation_lite
 
 Usage:
-    python prepare_lcb.py --version release_v5 --min-date 2024-08-01 \
-        --difficulties medium,hard --limit 300
+    python prepare_lcb.py --min-date 2024-08-01 --difficulties medium,hard --limit 300
 """
 
 import argparse
@@ -63,53 +67,62 @@ def parse_starter(starter):
     return cls, method, ", ".join(params)
 
 
-def load_lcb(version):
-    """Return an ITERABLE of raw problem dicts using LCB's official dataset.
+# LCB stores problems as plain JSONL, one file per release version, one problem
+# per line. We read these DIRECTLY (via hf_hub_download) — no `datasets` loading
+# script, no Arrow cache, no streaming. Dodges every Windows/datasets failure.
+DATA_FILES = ["test.jsonl", "test2.jsonl", "test3.jsonl",
+              "test4.jsonl", "test5.jsonl", "test6.jsonl"]
 
-    STREAMING FIRST: streaming reads the (already-downloaded) files directly and
-    never writes the local Arrow cache — which is the exact step that crashes on
-    Windows with `[WinError 32] ... .incomplete\\...arrow`. Non-streaming is the
-    fallback (fine on Linux/Mac).
-    """
-    from datasets import load_dataset
+
+def iter_lcb_direct(files):
+    """Yield raw problem dicts straight from the release JSONL files."""
+    from huggingface_hub import hf_hub_download
     token = os.getenv("HF_TOKEN") or os.getenv("HUGGING_FACE_HUB_TOKEN")
-    base = dict(split="test", token=token, trust_remote_code=True)
-    attempts = [
-        {"version_tag": version, "streaming": True},
-        {"streaming": True},
-        {"version_tag": version},
-        {},
-    ]
-    last = None
-    for kw in attempts:
-        mode = "streaming" if kw.get("streaming") else "cached"
+    for fn in files:
+        print(f"  fetching {fn} (cached if already downloaded) ...", flush=True)
         try:
-            ds = load_dataset("livecodebench/code_generation_lite", **kw, **base)
-            print(f"loaded LCB ({mode}, {'version '+version if 'version_tag' in kw else 'default version'})")
-            return ds
+            path = hf_hub_download("livecodebench/code_generation_lite", fn,
+                                   repo_type="dataset", token=token)
         except Exception as e:
-            last = e
-            print(f"  {mode} attempt failed: {type(e).__name__}: {str(e)[:90]}")
-    raise SystemExit(f"Could not load LCB (accepted terms? token set?): {last}")
+            print(f"    skip {fn}: {type(e).__name__}: {str(e)[:80]}")
+            continue
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    yield json.loads(line)
+                except Exception:
+                    continue
 
 
-def run(version, min_date, difficulties, limit):
+def run(version, min_date, difficulties, limit, files):
     import itertools
-    rows = load_lcb(version)
-    # Peek the first row for the schema report; works for streaming + cached.
+    file_list = [f.strip() for f in files.split(",")] if files else DATA_FILES
+    print(f"reading LCB release files: {file_list}")
+    rows = iter_lcb_direct(file_list)
     it = iter(rows)
     try:
         first_row = next(it)
     except StopIteration:
-        raise SystemExit("LCB loaded but returned no rows.")
+        raise SystemExit("No problems parsed — check HF_TOKEN + dataset access.")
     print("RAW FIELD NAMES (report these back if anything looks off):")
     print("  " + ", ".join(sorted(first_row.keys())))
     rows = itertools.chain([first_row], it)
 
     diffs = {d.strip().lower() for d in difficulties.split(",")} if difficulties else None
+    seen_ids = set()
     out = []
     skipped = {"no_starter": 0, "difficulty": 0, "date": 0, "no_method": 0}
+    skipped["dup"] = 0
     for r in rows:
+        rid = first(r, F_ID, None)
+        if rid is not None and rid in seen_ids:        # releases overlap
+            skipped["dup"] += 1
+            continue
+        if rid is not None:
+            seen_ids.add(rid)
         starter = first(r, F_STARTER, "")
         if not starter or "def " not in starter:      # functional-only
             skipped["no_starter"] += 1
@@ -154,9 +167,10 @@ def run(version, min_date, difficulties, limit):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--version", default="release_v5", help="LCB version_tag")
+    ap.add_argument("--version", default="", help="(unused; kept for compatibility)")
     ap.add_argument("--min-date", default="", help="keep contest_date >= YYYY-MM-DD (contamination filter)")
     ap.add_argument("--difficulties", default="medium,hard", help="comma list, or '' for all")
     ap.add_argument("--limit", type=int, default=0, help="max problems (0 = all)")
+    ap.add_argument("--files", default="", help="comma list of release JSONLs (default: all test*.jsonl)")
     a = ap.parse_args()
-    run(a.version, a.min_date, a.difficulties, a.limit)
+    run(a.version, a.min_date, a.difficulties, a.limit, a.files)
