@@ -1,0 +1,120 @@
+{
+  "overall": {
+    "passed": 647,
+    "total": 1488,
+    "pass_rate": 43.5
+  },
+  "by_condition": {
+    "agentic_casual": {
+      "passed": 164,
+      "total": 372,
+      "pass_rate": 44.1
+    },
+    "agentic_terse": {
+      "passed": 171,
+      "total": 372,
+      "pass_rate": 46.0
+    },
+    "webchat_detailed": {
+      "passed": 149,
+      "total": 372,
+      "pass_rate": 40.1
+    },
+    "webchat_multilingual": {
+      "passed": 163,
+      "total": 372,
+      "pass_rate": 43.8
+    }
+  },
+  "by_model": {
+    "chatgpt": {
+      "passed": 288,
+      "total": 496,
+      "pass_rate": 58.1
+    },
+    "claude": {
+      "passed": 296,
+      "total": 496,
+      "pass_rate": 59.7
+    },
+    "codestral": {
+      "passed": 63,
+      "total": 496,
+      "pass_rate": 12.7
+    }
+  },
+  "by_difficulty": {
+    "hard": {
+      "passed": 190,
+      "total": 612,
+      "pass_rate": 31.0
+    },
+    "medium": {
+      "passed": 457,
+      "total": 876,
+      "pass_rate": 52.2
+    }
+  },
+  "by_condition_and_model": {
+    "chatgpt|agentic_casual": {
+      "passed": 76,
+      "total": 124,
+      "pass_rate": 61.3
+    },
+    "chatgpt|agentic_terse": {
+      "passed": 81,
+      "total": 124,
+      "pass_rate": 65.3
+    },
+    "chatgpt|webchat_detailed": {
+      "passed": 52,
+      "total": 124,
+      "pass_rate": 41.9
+    },
+    "chatgpt|webchat_multilingual": {
+      "passed": 79,
+      "total": 124,
+      "pass_rate": 63.7
+    },
+    "claude|agentic_casual": {
+      "passed": 72,
+      "total": 124,
+      "pass_rate": 58.1
+    },
+    "claude|agentic_terse": {
+      "passed": 75,
+      "total": 124,
+      "pass_rate": 60.5
+    },
+    "claude|webchat_detailed": {
+      "passed": 81,
+      "total": 124,
+      "pass_rate": 65.3
+    },
+    "claude|webchat_multilingual": {
+      "passed": 68,
+      "total": 124,
+      "pass_rate": 54.8
+    },
+    "codestral|agentic_casual": {
+      "passed": 16,
+      "total": 124,
+      "pass_rate": 12.9
+    },
+    "codestral|agentic_terse": {
+      "passed": 15,
+      "total": 124,
+      "pass_rate": 12.1
+    },
+    "codestral|webchat_detailed": {
+      "passed": 16,
+      "total": 124,
+      "pass_rate": 12.9
+    },
+    "codestral|webchat_multilingual": {
+      "passed": 16,
+      "total": 124,
+      "pass_rate": 12.9
+    }
+  }
+}
