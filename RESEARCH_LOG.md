@@ -200,9 +200,21 @@ medium effect; no paste premium; language tax only for the weak model
   via **correct-then-mutate** (LCB has no canonical solutions). Generator's
   realism machinery (6 conditions, discriminator gate, name preservation) ports
   directly; only task text + name source change.
-- Status: design done; blocked on a local LCB fetch (`prepare_lcb.py` →
-  `lcb_sample.json`) so the generator/scorer adapters are built against the real
-  schema rather than a reconstructed one.
+- Status: **pipeline built + validated.** After fighting `datasets`-on-Windows
+  (Arrow WinError 32, streaming hang), switched to reading LCB's release JSONLs
+  directly via `hf_hub_download`. Working set: **124 functional, medium/hard,
+  post-2024-08 (contamination-free) problems** (`lcb_problems.jsonl`).
+  - `generate_lcb_prompts.py` — 4 non-paste conditions framed around the
+    IRREDUCIBLE problem statement, preserving `Solution.<method>`; tested (mock:
+    496 prompts, 0 dropped, reads_real ~0.96).
+  - `extract_lcb_tests.py` — decodes LCB tests (public + base64/zlib/pickle
+    private); ~37 tests/problem.
+  - `score_lcb.py` — functional scorer (parse args → `Solution().method(*args)`
+    → compare; Windows-safe multiprocessing). **Validated** against a real
+    example (correct passes, wrong fails, conversational-reply extraction works).
+  - Deferred: paste conditions (correct-then-mutate); LLM-rewrite framings
+    (mock templated framings suffice for a first cross-condition headroom read).
+  - Next: user runs generate → models → score locally; push stats to analyze.
 
 ## Literature positioning (from web search)
 
