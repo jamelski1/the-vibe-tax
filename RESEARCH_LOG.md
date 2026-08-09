@@ -216,6 +216,29 @@ medium effect; no paste premium; language tax only for the weak model
     (mock templated framings suffice for a first cross-condition headroom read).
   - Next: user runs generate → models → score locally; push stats to analyze.
 
+## Phase 11 — LiveCodeBench result (the payoff: a non-saturated measurement)
+
+- 124 functional, contamination-free (≥2024-08) LCB problems × 4 framing
+  conditions × 3 models = 1,488 completions, scored by `score_lcb.py`.
+- **Real headroom:** overall 43.5% (medium 52.2%, hard 31.0%; Claude 59.7 /
+  ChatGPT 58.1 / Codestral 12.7). Full writeup: `data/vibe_tax_lcb/RESULTS.md`.
+- **Headline (significant):** verbose/polite framing carries a real penalty vs
+  terse — terse 46.0% vs detailed 40.1%, paired McNemar **p=0.012**; **+8.7 on
+  medium (p=0.009)**, **+9.3 on capable models (p=0.007)**. Washed out on HARD
+  (+2.0, n.s. — difficulty dominates) and was invisible on saturated HumanEval.
+- **Direction is counterintuitive:** the tax is on VERBOSITY/POLITENESS, not
+  informality — terse "vibe" framing beats polite detailed framing (consistent
+  with the rude>polite tone literature). No language tax (Chinese wrapper ≈
+  English casual).
+- **Goldilocks zone:** effects need enough difficulty to escape the ceiling but
+  not so much the model is at the floor — medium LCB is that zone. This
+  demonstrates the project's core thesis: you can't size the tax on a saturated
+  benchmark. On HumanEval realism gave +3 (ceiling-crushed); on LCB framing
+  gives +9 (p<0.01) with headroom.
+- Robustness: paired within-problem design cancels per-problem scorer quirks;
+  scorer validated; pass-rate distribution smooth; all-fail problems concentrate
+  in hard (real difficulty).
+
 ## Literature positioning (from web search)
 
 - Closest prior: [WildCode](https://arxiv.org/html/2512.04259) (coding
