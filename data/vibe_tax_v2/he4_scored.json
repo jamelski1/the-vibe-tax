@@ -1,0 +1,5402 @@
+[
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/1",
+    "problem_number": 1,
+    "entry_point": "separate_paren_groups",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/6",
+    "problem_number": 6,
+    "entry_point": "parse_nested_parens",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/10",
+    "problem_number": 10,
+    "entry_point": "make_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/22",
+    "problem_number": 22,
+    "entry_point": "filter_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/28",
+    "problem_number": 28,
+    "entry_point": "concatenate",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/41",
+    "problem_number": 41,
+    "entry_point": "car_race_collision",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/43",
+    "problem_number": 43,
+    "entry_point": "pairs_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/58",
+    "problem_number": 58,
+    "entry_point": "common",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/67",
+    "problem_number": 67,
+    "entry_point": "fruit_distribution",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/153",
+    "problem_number": 153,
+    "entry_point": "Strongest_Extension",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/0",
+    "problem_number": 0,
+    "entry_point": "has_close_elements",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/4",
+    "problem_number": 4,
+    "entry_point": "mean_absolute_deviation",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/9",
+    "problem_number": 9,
+    "entry_point": "rolling_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/18",
+    "problem_number": 18,
+    "entry_point": "how_many_times",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/25",
+    "problem_number": 25,
+    "entry_point": "factorize",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/33",
+    "problem_number": 33,
+    "entry_point": "sort_third",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/34",
+    "problem_number": 34,
+    "entry_point": "unique",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/35",
+    "problem_number": 35,
+    "entry_point": "max_element",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/54",
+    "problem_number": 54,
+    "entry_point": "same_chars",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/68",
+    "problem_number": 68,
+    "entry_point": "pluck",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/13",
+    "problem_number": 13,
+    "entry_point": "greatest_common_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/30",
+    "problem_number": 30,
+    "entry_point": "get_positive",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/32",
+    "problem_number": 32,
+    "entry_point": "find_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/37",
+    "problem_number": 37,
+    "entry_point": "sort_even",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/48",
+    "problem_number": 48,
+    "entry_point": "is_palindrome",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/49",
+    "problem_number": 49,
+    "entry_point": "modp",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/60",
+    "problem_number": 60,
+    "entry_point": "sum_to_n",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/63",
+    "problem_number": 63,
+    "entry_point": "fibfib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/66",
+    "problem_number": 66,
+    "entry_point": "digitSum",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/157",
+    "problem_number": 157,
+    "entry_point": "right_angle_triangle",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/24",
+    "problem_number": 24,
+    "entry_point": "largest_divisor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/36",
+    "problem_number": 36,
+    "entry_point": "fizz_buzz",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/39",
+    "problem_number": 39,
+    "entry_point": "prime_fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/40",
+    "problem_number": 40,
+    "entry_point": "triples_sum_to_zero",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/42",
+    "problem_number": 42,
+    "entry_point": "incr_list",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/55",
+    "problem_number": 55,
+    "entry_point": "fib",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/64",
+    "problem_number": 64,
+    "entry_point": "vowels_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/75",
+    "problem_number": 75,
+    "entry_point": "is_multiply_prime",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/77",
+    "problem_number": 77,
+    "entry_point": "iscube",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/80",
+    "problem_number": 80,
+    "entry_point": "is_happy",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/52",
+    "problem_number": 52,
+    "entry_point": "below_threshold",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/59",
+    "problem_number": 59,
+    "entry_point": "largest_prime_factor",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/65",
+    "problem_number": 65,
+    "entry_point": "circular_shift",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/71",
+    "problem_number": 71,
+    "entry_point": "triangle_area",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/78",
+    "problem_number": 78,
+    "entry_point": "hex_key",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/96",
+    "problem_number": 96,
+    "entry_point": "count_up_to",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/152",
+    "problem_number": 152,
+    "entry_point": "compare",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/155",
+    "problem_number": 155,
+    "entry_point": "even_odd_count",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/158",
+    "problem_number": 158,
+    "entry_point": "find_max",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "passed": true
+  },
+  {
+    "task_id": "HumanEval/163",
+    "problem_number": 163,
+    "entry_point": "generate_integers",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "codestral",
+    "passed": false
+  }
+]
