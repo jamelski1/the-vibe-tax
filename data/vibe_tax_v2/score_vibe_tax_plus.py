@@ -13,8 +13,8 @@ Method (approximation of the EvalPlus harness; noted as such):
     score_vibe_tax.py) and compared to expected with float tolerance;
   - passes only if it matches on EVERY sampled input. Cannot inflate.
 
-Signal-based (SIGALRM) timeouts keep it fast and immune to pathological inputs;
-this scorer runs in the Linux analysis sandbox, not on Windows.
+Timeouts use multiprocessing (Windows-safe — no SIGALRM), matching score_lcb.py,
+so this runs on Windows and Linux alike.
 
 Get the dataset (gitignored; ~1MB, public EvalPlus release) then run:
     curl -sSL https://github.com/evalplus/humanevalplus_release/releases/download/v0.1.10/HumanEvalPlus.jsonl.gz | gunzip > HumanEvalPlus.jsonl
@@ -24,41 +24,24 @@ Get the dataset (gitignored; ~1MB, public EvalPlus release) then run:
 import argparse
 import json
 import math
+import multiprocessing
 import os
-import signal
 import sys
 import time
 from collections import defaultdict
-from contextlib import contextmanager
 
 PER_PROBLEM_BUDGET = 5.0   # wall-clock seconds to spend precomputing one problem
-PER_INPUT_LIMIT = 0.4      # seconds per canonical/candidate call
+CANDIDATE_TIMEOUT = 8      # seconds to run one completion's checks (subprocess join)
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 from score_vibe_tax import (strip_fences, problem_imports, extract_last_function,  # noqa: E402
                             normalized_body, fenced_blocks, clean_completion)
 
-RESPONSES = os.path.join(SCRIPT_DIR, "vibe_tax_responses.json")
+RESPONSES = os.getenv("RESPONSES_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_responses.json"))
 PLUS = os.path.join(SCRIPT_DIR, "HumanEvalPlus.jsonl")
-OUT = os.path.join(SCRIPT_DIR, "vibe_tax_plus_scored.json")
-STATS = os.path.join(SCRIPT_DIR, "vibe_tax_plus_scored_stats.json")
-
-
-class _TO(Exception):
-    pass
-
-
-signal.signal(signal.SIGALRM, lambda s, f: (_ for _ in ()).throw(_TO()))
-
-
-@contextmanager
-def limit(sec):
-    signal.setitimer(signal.ITIMER_REAL, sec)
-    try:
-        yield
-    finally:
-        signal.setitimer(signal.ITIMER_REAL, 0)
+OUT = os.getenv("PLUS_SCORED_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_plus_scored.json"))
+STATS = os.getenv("PLUS_STATS_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_plus_scored_stats.json"))
 
 
 def outputs_equal(a, b, atol):
@@ -90,24 +73,34 @@ def candidate_sources(prompt, completion, entry):
     return srcs
 
 
-def passes(srcs, entry, inputs, expected, atol):
+def _passes_worker(srcs, entry, inputs, expected, atol, q):
     for src in srcs:
         ns = {}
         try:
-            with limit(3.0):
-                exec(src, ns)
+            exec(src, ns)
             fn = ns.get(entry)
             if not callable(fn):
                 continue
         except Exception:
             continue
         try:
-            with limit(3.0):
-                if all(outputs_equal(fn(*inp), e, atol) for inp, e in zip(inputs, expected)):
-                    return True
+            if all(outputs_equal(fn(*inp), e, atol) for inp, e in zip(inputs, expected)):
+                q.append(True); return
         except Exception:
             continue
-    return False
+    q.append(False)
+
+
+def passes(srcs, entry, inputs, expected, atol):
+    """Run one completion's candidate sources in a subprocess (Windows-safe
+    timeout). Passes only if some candidate matches on every sampled input."""
+    mgr = multiprocessing.Manager(); q = mgr.list()
+    p = multiprocessing.Process(target=_passes_worker,
+                                args=(srcs, entry, inputs, expected, atol, q))
+    p.start(); p.join(CANDIDATE_TIMEOUT)
+    if p.is_alive():
+        p.kill(); p.join(3); return False
+    return bool(q) and q[0]
 
 
 def sample_inputs(prob, k):
@@ -134,11 +127,10 @@ def run(samples):
         good, exp = [], []
         t0 = time.time()
         for inp in sample_inputs(prob, samples):
-            if time.time() - t0 > PER_PROBLEM_BUDGET:
+            if time.time() - t0 > PER_PROBLEM_BUDGET:   # wall-clock guard (canonical is trusted+fast)
                 break
             try:
-                with limit(PER_INPUT_LIMIT):
-                    out = ref(*inp)
+                out = ref(*inp)
                 good.append(inp); exp.append(out)
             except Exception:
                 pass
@@ -195,6 +187,7 @@ def run(samples):
 
 
 if __name__ == "__main__":
+    multiprocessing.set_start_method("spawn", force=True)   # Windows-safe / consistent
     ap = argparse.ArgumentParser()
     ap.add_argument("--samples", type=int, default=60, help="max test inputs per problem")
     a = ap.parse_args()
