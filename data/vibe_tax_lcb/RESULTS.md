@@ -44,6 +44,34 @@ and framing is washed out (the model either can or can't). On the ceiling of
 HumanEval it was invisible; here, in the headroom, it's a clean ~9-point,
 p<0.01 effect.
 
+## Pairwise: it is politeness specifically, not informality or language
+
+The advisor asked us to run terse against the *other* framings too, not just
+detailed. Reproduce with `python mcnemar_lcb.py --base agentic_terse`
+(pure stdlib, reads `lcb_scored.json` → `lcb_mcnemar_stats.json`):
+
+| Baseline `agentic_terse` vs … | slice | Δ (pts) | p |
+|-------------------------------|-------|--------:|--:|
+| **webchat_detailed** (polite) | all | **+5.9** | **0.012** |
+| | medium | **+8.7** | **0.008** |
+| | capable models | **+9.3** | **0.007** |
+| | capable × medium | **+13.0** | **0.007** |
+| agentic_casual | all | +1.9 | 0.419 (n.s.) |
+| | medium | +1.8 | 0.597 (n.s.) |
+| | capable models | +3.2 | 0.332 (n.s.) |
+| webchat_multilingual (ZH) | all | +2.2 | 0.396 (n.s.) |
+| | medium | +1.8 | 0.652 (n.s.) |
+| | capable models | +3.6 | 0.306 (n.s.) |
+
+**This is the key sharpening.** Terse beats *polite/detailed* significantly, but
+terse vs **casual** and terse vs **multilingual** are both **null** in every
+slice. Casual lowercase phrasing and a Chinese wrapper are statistically
+indistinguishable from terse; only the polite, verbose "Hi!… Thank you!"
+scaffolding carries a cost. The vibe tax is a **politeness/verbosity tax** — not
+a penalty on informality (casual is fine) or on language (Chinese is fine). The
+strongest single reading is capable models on medium problems: **+13.0 pts,
+p=0.007**.
+
 ## Interpretation
 
 - **The tax is on verbosity/politeness, not informality.** The *terse* "vibe"

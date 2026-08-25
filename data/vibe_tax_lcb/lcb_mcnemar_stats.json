@@ -1,0 +1,188 @@
+{
+  "agentic_terse__vs__agentic_casual": {
+    "all": {
+      "cond_a": "agentic_terse",
+      "cond_b": "agentic_casual",
+      "n_pairs": 372,
+      "a_pass_rate": 46.0,
+      "b_pass_rate": 44.1,
+      "b_only": 31,
+      "c_only": 24,
+      "delta_pts": 1.9,
+      "p": 0.4188,
+      "significant": false
+    },
+    "medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "agentic_casual",
+      "n_pairs": 219,
+      "a_pass_rate": 55.3,
+      "b_pass_rate": 53.4,
+      "b_only": 18,
+      "c_only": 14,
+      "delta_pts": 1.8,
+      "p": 0.5966,
+      "significant": false
+    },
+    "hard": {
+      "cond_a": "agentic_terse",
+      "cond_b": "agentic_casual",
+      "n_pairs": 153,
+      "a_pass_rate": 32.7,
+      "b_pass_rate": 30.7,
+      "b_only": 13,
+      "c_only": 10,
+      "delta_pts": 2.0,
+      "p": 0.6776,
+      "significant": false
+    },
+    "capable_models": {
+      "cond_a": "agentic_terse",
+      "cond_b": "agentic_casual",
+      "n_pairs": 248,
+      "a_pass_rate": 62.9,
+      "b_pass_rate": 59.7,
+      "b_only": 30,
+      "c_only": 22,
+      "delta_pts": 3.2,
+      "p": 0.3317,
+      "significant": false
+    },
+    "capable_medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "agentic_casual",
+      "n_pairs": 146,
+      "a_pass_rate": 72.6,
+      "b_pass_rate": 69.2,
+      "b_only": 17,
+      "c_only": 12,
+      "delta_pts": 3.4,
+      "p": 0.4583,
+      "significant": false
+    }
+  },
+  "agentic_terse__vs__webchat_detailed": {
+    "all": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_detailed",
+      "n_pairs": 372,
+      "a_pass_rate": 46.0,
+      "b_pass_rate": 40.1,
+      "b_only": 46,
+      "c_only": 24,
+      "delta_pts": 5.9,
+      "p": 0.0115,
+      "significant": true
+    },
+    "medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_detailed",
+      "n_pairs": 219,
+      "a_pass_rate": 55.3,
+      "b_pass_rate": 46.6,
+      "b_only": 33,
+      "c_only": 14,
+      "delta_pts": 8.7,
+      "p": 0.0079,
+      "significant": true
+    },
+    "hard": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_detailed",
+      "n_pairs": 153,
+      "a_pass_rate": 32.7,
+      "b_pass_rate": 30.7,
+      "b_only": 13,
+      "c_only": 10,
+      "delta_pts": 2.0,
+      "p": 0.6776,
+      "significant": false
+    },
+    "capable_models": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_detailed",
+      "n_pairs": 248,
+      "a_pass_rate": 62.9,
+      "b_pass_rate": 53.6,
+      "b_only": 45,
+      "c_only": 22,
+      "delta_pts": 9.3,
+      "p": 0.0067,
+      "significant": true
+    },
+    "capable_medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_detailed",
+      "n_pairs": 146,
+      "a_pass_rate": 72.6,
+      "b_pass_rate": 59.6,
+      "b_only": 32,
+      "c_only": 13,
+      "delta_pts": 13.0,
+      "p": 0.0066,
+      "significant": true
+    }
+  },
+  "agentic_terse__vs__webchat_multilingual": {
+    "all": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_multilingual",
+      "n_pairs": 372,
+      "a_pass_rate": 46.0,
+      "b_pass_rate": 43.8,
+      "b_only": 38,
+      "c_only": 30,
+      "delta_pts": 2.2,
+      "p": 0.3961,
+      "significant": false
+    },
+    "medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_multilingual",
+      "n_pairs": 219,
+      "a_pass_rate": 55.3,
+      "b_pass_rate": 53.4,
+      "b_only": 24,
+      "c_only": 20,
+      "delta_pts": 1.8,
+      "p": 0.6516,
+      "significant": false
+    },
+    "hard": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_multilingual",
+      "n_pairs": 153,
+      "a_pass_rate": 32.7,
+      "b_pass_rate": 30.1,
+      "b_only": 14,
+      "c_only": 10,
+      "delta_pts": 2.6,
+      "p": 0.5413,
+      "significant": false
+    },
+    "capable_models": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_multilingual",
+      "n_pairs": 248,
+      "a_pass_rate": 62.9,
+      "b_pass_rate": 59.3,
+      "b_only": 35,
+      "c_only": 26,
+      "delta_pts": 3.6,
+      "p": 0.3057,
+      "significant": false
+    },
+    "capable_medium": {
+      "cond_a": "agentic_terse",
+      "cond_b": "webchat_multilingual",
+      "n_pairs": 146,
+      "a_pass_rate": 72.6,
+      "b_pass_rate": 69.2,
+      "b_only": 21,
+      "c_only": 16,
+      "delta_pts": 3.4,
+      "p": 0.5114,
+      "significant": false
+    }
+  }
+}

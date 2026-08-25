@@ -30,7 +30,12 @@ import textwrap
 from collections import defaultdict
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-RESPONSES = os.path.join(SCRIPT_DIR, "vibe_tax_responses.json")
+# Paths are env-overridable so the same scorer works on the v2, v3, and the
+# 4-condition HE4 runs without editing code, e.g. (PowerShell):
+#   $env:RESPONSES_FILE = "he4_responses.json"
+#   $env:SCORED_FILE    = "he4_scored.json"
+#   $env:STATS_FILE     = "he4_scored_stats.json"
+RESPONSES = os.getenv("RESPONSES_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_responses.json"))
 HE_DIR = os.path.join(SCRIPT_DIR, "..", "HumanEval.jsonl")
 HUMANEVAL = os.path.join(HE_DIR, "human-eval-v2-20210705.jsonl")
 
@@ -38,8 +43,8 @@ HUMANEVAL = os.path.join(HE_DIR, "human-eval-v2-20210705.jsonl")
 # which the paste-oriented extractor below does not handle).
 sys.path.insert(0, HE_DIR)
 from run_tests import clean_completion  # noqa: E402
-OUT = os.path.join(SCRIPT_DIR, "vibe_tax_scored.json")
-STATS = os.path.join(SCRIPT_DIR, "vibe_tax_scored_stats.json")
+OUT = os.getenv("SCORED_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_scored.json"))
+STATS = os.getenv("STATS_FILE", os.path.join(SCRIPT_DIR, "vibe_tax_scored_stats.json"))
 TIMEOUT = 10
 
 

@@ -19,3 +19,11 @@ HumanEvalPlus.jsonl
 # LCB generator output (regenerated per backend) + local scoring data
 lcb_v3_prompts.json
 lcb_tests.jsonl
+lcb_progress.json
+
+# HE4 (4-condition HumanEval) local run artifacts — need API keys; the
+# committed he4_prompts.json (deterministic) + he4_scored_stats.json aggregate
+# are enough to reproduce/inspect.
+he4_responses.json
+he4_progress.json
+he4_run_stats.json

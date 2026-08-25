@@ -169,13 +169,28 @@ Paired McNemar, **terse vs detailed**:
 | All | +5.9 | **0.012** |
 | Medium | +8.7 | **0.009** |
 | Capable models (ChatGPT+Claude) | +9.3 | **0.007** |
+| Capable × medium | +13.0 | **0.007** |
 | Hard | +2.0 | 0.677 (n.s.) |
 
 **Verbose/polite framing significantly underperforms terse** — but only in a
 *Goldilocks zone*: medium-difficulty problems and capable models. On **hard**
 problems every framing collapses to ~30% (difficulty dominates); on **HumanEval**
-the ceiling hid it entirely. No **language tax** appears (Chinese wrapper ≈
-English casual).
+the ceiling hid it entirely.
+
+**Pairwise: it is politeness specifically.** Running terse against *each* other
+framing (not just detailed) isolates the driver:
+
+| terse vs … | Δ (all) | p | Δ (capable) | p |
+|------------|--------:|--:|------------:|--:|
+| detailed / polite | +5.9 | **0.012** | +9.3 | **0.007** |
+| casual | +1.9 | 0.419 (n.s.) | +3.2 | 0.332 (n.s.) |
+| multilingual (ZH) | +2.2 | 0.396 (n.s.) | +3.6 | 0.306 (n.s.) |
+
+Terse vs **casual** and terse vs **multilingual** are **null in every slice**;
+only the polite/verbose wrapper is significant. So the effect is not a penalty on
+informality (casual ≈ terse) or on language (Chinese ≈ terse) — it is
+specifically **politeness/verbosity**. This is the sharpest form of the central
+claim.
 
 ## 7. Discussion
 
@@ -203,11 +218,19 @@ Three claims:
   rates are stable across the scale-up, but style skews to power users). Web-chat
   corpora are 2023-era (GPT-3.5/4).
 - **LiveCodeBench framings are deterministic mock wrappers** (clean minimal
-  pairs); LLM-rewritten framings are future work (likely same direction).
+  pairs); LLM-rewritten framings are future work (likely same direction). The
+  *same* four wrappers are applied to HumanEval as a matched pair (the "HE4"
+  set), holding the problem body constant so framing is isolated from
+  specification detail — removing a confound present in the earlier
+  six-condition HumanEval runs (where terse/casual/detailed also differed in
+  spec level).
+- **Difficulty coverage.** The headline LCB run is medium+hard; an easy slice is
+  added for completeness (expected near-ceiling, like HumanEval), which completes
+  the Goldilocks curve rather than changing the conclusion.
 - **Paste conditions not yet ported to LCB** (they need correct-then-mutate, as
   LCB has no canonical solutions).
-- **n=124 LCB problems**; a larger pull would tighten hard-problem estimates.
-  Codestral sits near the floor on hard problems and adds noise; the
+- **n=124 LCB problems** (medium+hard); a larger pull would tighten hard-problem
+  estimates. Codestral sits near the floor on hard problems and adds noise; the
   capable-model slice is the cleaner read.
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
