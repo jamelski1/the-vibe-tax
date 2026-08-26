@@ -56,19 +56,49 @@ def parse_input(inp):
     return [parse_lit(line) for line in str(inp).split("\n") if line.strip() != ""]
 
 
+def _trim_to_compilable(code):
+    """Drop trailing lines until the source parses. Conversational replies put a
+    prose paragraph AFTER the code ('This checks every adjacent pair...'); with no
+    fences to delimit it, that prose used to be exec'd and threw SyntaxError,
+    failing correct code. The polite/detailed framing elicits more explain-after-
+    code, so this bug penalized it hardest — a scoring artifact, not correctness.
+    We keep the largest leading prefix that is valid Python and still has the
+    class/method."""
+    lines = code.split("\n")
+    while lines:
+        src = "\n".join(lines)
+        try:
+            ast.parse(src)
+            return src
+        except SyntaxError:
+            lines.pop()
+    return None
+
+
 def extract_solution(completion, entry):
-    """Pull runnable code that defines `class Solution` (or the method)."""
+    """Pull runnable code that defines `class Solution` (or the method), robust to
+    trailing prose and leading chatter. Returns the first candidate that compiles
+    AND still defines the target (so we never hand exec() a prose paragraph)."""
     if not completion:
         return None
-    # prefer a fenced code block that mentions the class/method
-    blocks = re.findall(r"```(?:python|py)?\s*\n(.*?)```", completion, re.DOTALL)
-    for b in blocks:
+    cands = []
+    # 1) fenced code blocks that mention the class/method (highest confidence)
+    for b in re.findall(r"```(?:python|py)?\s*\n(.*?)```", completion, re.DOTALL):
         if "class Solution" in b or f"def {entry}" in b:
-            return b
-    if "class Solution" in completion or f"def {entry}" in completion:
-        # strip stray prose fences if any
-        return "\n".join(l for l in completion.split("\n") if not l.strip().startswith("```"))
-    return None
+            cands.append(b)
+    # 2) unfenced: slice from the class/def anchor to the end (drops leading prose)
+    text = "\n".join(l for l in completion.split("\n") if not l.strip().startswith("```"))
+    for anchor in ("class Solution", f"def {entry}"):
+        i = text.find(anchor)
+        if i != -1:
+            cands.append(text[i:])
+    # return the first candidate that, after trimming trailing prose, compiles
+    for c in cands:
+        t = _trim_to_compilable(c)
+        if t and ("class Solution" in t or f"def {entry}" in t):
+            return t
+    # last resort: the raw text (old behaviour) so we never regress to None
+    return cands[0] if cands else None
 
 
 def eq(a, b):
