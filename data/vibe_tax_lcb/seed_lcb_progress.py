@@ -27,13 +27,27 @@ RESPONSES = os.getenv("SEED_FROM", os.path.join(SCRIPT_DIR, "lcb_v3_responses.js
 PROGRESS = os.getenv("SEED_TO", os.path.join(SCRIPT_DIR, "lcb_progress.json"))
 
 
+def load_json_any_encoding(path):
+    """Read JSON regardless of how the shell wrote the file. PowerShell's `>`
+    redirection writes UTF-16 with a BOM (git show > file), which breaks a plain
+    utf-8 read; try the common encodings in order."""
+    raw = open(path, "rb").read()
+    for enc in ("utf-8-sig", "utf-8", "utf-16", "utf-16-le", "utf-16-be"):
+        try:
+            return json.loads(raw.decode(enc))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            continue
+    raise SystemExit(f"could not decode {path} as UTF-8 or UTF-16 — "
+                     f"re-create it with:  cmd /c \"git show <ref>:<path> > {os.path.basename(path)}\"")
+
+
 def run():
     files = [f.strip() for f in RESPONSES.split(",") if f.strip()]
     progress, skipped, per_file = {}, 0, {}
     for path in files:
         if not os.path.exists(path):
             sys.exit(f"no responses file at {path}")
-        responses = json.load(open(path, encoding="utf-8"))
+        responses = load_json_any_encoding(path)
         n0 = len(progress)
         for r in responses:
             if r.get("completion") is None:      # only seed successes; failures re-run
