@@ -247,10 +247,11 @@ Three claims:
   (the "HE4" matched set) hold the problem body constant, isolating framing from
   specification detail (a confound in the earlier six-condition HumanEval runs)
   — and land, as expected, flat at the ceiling (~97%).
-- **n=167 LCB problems** (43 easy / 73 medium / 51 hard). The reported LCB numbers
-  are the two capable models (ChatGPT + Claude); Codestral was dropped in the
-  easy re-run and is optional to restore — it floors on hard, adds noise, and
-  cannot change a null.
+- **n=167 LCB problems** (43 easy / 73 medium / 51 hard) × 4 framings × 3 models
+  = 2,004 completions. Codestral floors on hard problems, so we read the
+  capable-model slice (ChatGPT + Claude); both the full set and the capable slice
+  give the same null. (With all three models terse is if anything the *lowest*
+  framing, further ruling out a terseness advantage.)
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
 

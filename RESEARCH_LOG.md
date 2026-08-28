@@ -304,8 +304,11 @@ as LCB (the "HE4" matched set), (2) easy LCB problems, (3) an RQ→metric map,
   rewritten to match.
 - **Scope guard**: this tests *framing*, not *under-specification* (giving the
   model less information) or paste/buggy-code on LCB — the open positive-result
-  threads. Also: Codestral was dropped in the easy re-run (2-model numbers);
-  restoring it via the `seed_lcb_progress.py` merge won't change a null.
+  threads. Codestral was restored via the `seed_lcb_progress.py` merge
+  (n=2,004, 3 models); the null holds and terse is if anything the lowest framing.
+  Only "significant" cell is terse < multilingual (all −3.8, p=0.013) but it's
+  n.s. in every controlled slice (medium/hard/capable) — a weak, non-robust
+  curiosity, reported as such.
 
 ## Standing caveats (carry into any writeup)
 

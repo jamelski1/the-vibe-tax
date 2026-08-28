@@ -9,10 +9,9 @@ real effect. This is the honest, post-fix result.
 all **contamination-free** (contest_date ≥ 2024-08-01). 4 framing conditions,
 scored against LCB's own tests (`score_lcb.py`). The 4 conditions differ ONLY in
 the *wrapper text* around an identical, full problem statement — so this isolates
-**framing/register**, holding the task constant. Numbers below are the two
-capable models (ChatGPT + Claude); Codestral was dropped in the easy re-run and
-is optional to restore (it floors on hard and only adds noise — it will not move
-a null).
+**framing/register**, holding the task constant. All three models (ChatGPT +
+Claude + Codestral, n=2,004) are included; the capable-model slice (ChatGPT +
+Claude) is the cleaner read since Codestral floors on hard problems.
 
 ## The artifact (what happened, and why it mattered)
 
@@ -40,28 +39,38 @@ inflate correctness** (extracted code must still pass the real tests).
 
 ## Post-fix result: no framing effect
 
-| Condition (wrapper around identical problem) | overall | easy | medium | hard |
-|----------------------------------------------|--------:|-----:|-------:|-----:|
-| agentic_terse | 74.9 | 98.8 | 80.1 | 47.1 |
-| agentic_casual | 76.0 | 95.3 | 80.1 | 53.9 |
-| webchat_detailed (*"Hi! Could you help… Thank you!"*) | 76.0 | 100.0 | 80.1 | 50.0 |
-| webchat_multilingual (Chinese wrapper) | 78.7 | 100.0 | 84.2 | 52.9 |
+Full 3-model set (ChatGPT + Claude + Codestral, n=2,004). Pass rate by condition:
 
-Detailed **ties** terse (76.0 vs 74.9); multilingual is if anything highest.
-Paired McNemar, `terse` vs each other framing (reproduce:
-`python mcnemar_lcb.py --base agentic_terse`):
+| Condition (wrapper around identical problem) | overall (3 models) | capable (CG+Cl) | easy | medium | hard |
+|----------------------------------------------|-------------------:|----------------:|-----:|-------:|-----:|
+| agentic_terse | 58.7 | 74.9 | 88.4 | 60.3 | 31.4 |
+| agentic_casual | 60.1 | 76.0 | 87.6 | 60.7 | 35.9 |
+| webchat_detailed (*"Hi! Could you help… Thank you!"*) | 59.7 | 76.0 | 89.1 | 60.3 | 34.0 |
+| webchat_multilingual (Chinese wrapper) | 62.5 | 78.7 | 93.0 | 63.5 | 35.3 |
+
+Terse is if anything the **lowest** condition, not the highest — the pre-fix
+"terse wins" ordering has fully inverted. Paired McNemar, `terse` vs each other
+framing (reproduce: `python mcnemar_lcb.py --base agentic_terse`):
 
 | terse vs … | slice | Δ (pts) | p | |
 |------------|-------|--------:|--:|--|
-| webchat_detailed | all | −1.2 | 0.585 | n.s. |
+| webchat_detailed | all | −1.0 | 0.511 | n.s. |
 | | medium | 0.0 | 1.000 | n.s. |
+| | capable models | −1.2 | 0.585 | n.s. |
 | | capable × medium | 0.0 | 1.000 | n.s. |
-| agentic_casual | all | −1.2 | 0.541 | n.s. |
-| webchat_multilingual | all | −3.9 | 0.060 | n.s. |
+| agentic_casual | all | −1.4 | 0.281 | n.s. |
+| webchat_multilingual | all | −3.8 | **0.013** | *see note* |
+| | medium | −3.2 | 0.210 | n.s. |
+| | capable models | −3.9 | 0.060 | n.s. |
 
-**Every comparison is null.** The discordant cells are near-symmetric
-(terse>detailed 13, detailed>terse 17). Before the fix these same pairs read
-+5.9/+8.7/+9.3/+13.0 with p<0.01 — that entire signal was the extractor.
+**The framing effect is null.** terse−detailed and terse−casual are n.s. in every
+slice; before the fix terse−detailed read +5.9/+8.7/+9.3/+13.0 with p<0.01 — that
+entire signal was the extractor. The one "significant" cell (terse < multilingual,
+all −3.8, p=0.013, and easy −4.7, p=0.031) is **not robust**: it is n.s. in
+medium, hard, capable-models, and capable×medium, and is carried by the pooled
+"all" slice (which mixes in Codestral) plus a few near-ceiling easy problems. We
+report it as a weak curiosity, not a finding — certainly not a *penalty* for
+non-English, if anything the reverse.
 
 ## What this means
 
@@ -87,8 +96,9 @@ Paired McNemar, `terse` vs each other framing (reproduce:
   correct code runs; wrong code still fails every test. Pass rates rose across
   *all* conditions (terse least, detailed most) — the signature of removing an
   *asymmetric* artifact, not of leniency.
-- **Codestral** was dropped in the easy re-run (2-model numbers above). Restoring
-  it (via `seed_lcb_progress.py` merge) is optional and won't change a null.
+- **Codestral** is included (restored via the `seed_lcb_progress.py` merge);
+  n=2,004. It floors on hard problems, so the capable-model slice is the cleaner
+  read — and both give the same null.
 - Framings are deterministic **mock** wrappers (clean minimal pairs); LLM-rewritten
   framings are a follow-up, but there is now no effect for them to reduce.
 - **Under-specification and paste conditions on LCB are the open positive-result
