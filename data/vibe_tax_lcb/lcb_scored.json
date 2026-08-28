@@ -165,21 +165,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3533",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3533",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -187,6 +179,14 @@
     "task_id": "lcb/3533",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3533",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -220,224 +220,224 @@
     "level": "agentic_casual",
     "medium": "agentic",
     "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3535",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3535",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3535",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3535",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3519",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3526",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "agentic_terse",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3532",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
     "difficulty": "hard",
     "passed": false
-  },
-  {
-    "task_id": "lcb/3535",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3535",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3535",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3535",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3519",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3526",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3532",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": true
   },
   {
     "task_id": "lcb/3532",
@@ -469,7 +469,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3543",
@@ -485,7 +485,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3543",
@@ -517,7 +517,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3525",
@@ -533,7 +533,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3525",
@@ -549,7 +549,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3525",
@@ -565,7 +565,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3525",
@@ -589,7 +589,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3552",
@@ -605,7 +605,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3552",
@@ -661,7 +661,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3555",
@@ -677,7 +677,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3555",
@@ -885,7 +885,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3495",
@@ -1061,7 +1061,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3567",
@@ -1093,21 +1093,13 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3485",
     "level": "agentic_terse",
     "medium": "agentic",
     "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3485",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
     "difficulty": "medium",
     "passed": true
   },
@@ -1115,6 +1107,14 @@
     "task_id": "lcb/3485",
     "level": "agentic_casual",
     "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3485",
+    "level": "agentic_casual",
+    "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
     "passed": true
@@ -1141,7 +1141,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3485",
@@ -1189,7 +1189,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3528",
@@ -1197,7 +1197,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3528",
@@ -1205,7 +1205,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3528",
@@ -1301,7 +1301,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3518",
@@ -1317,7 +1317,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3518",
@@ -1333,7 +1333,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3518",
@@ -1405,7 +1405,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3522",
@@ -1445,7 +1445,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3522",
@@ -1757,20 +1757,20 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3531",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
   },
   {
     "task_id": "lcb/3531",
     "level": "webchat_detailed",
     "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3531",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
     "passed": true
@@ -1781,7 +1781,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3531",
@@ -1789,7 +1789,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3558",
@@ -1853,7 +1853,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3575",
@@ -1925,7 +1925,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3571",
@@ -1957,7 +1957,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3571",
@@ -1965,7 +1965,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3571",
@@ -2125,7 +2125,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3573",
@@ -2141,7 +2141,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3573",
@@ -2149,7 +2149,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3573",
@@ -2317,7 +2317,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3579",
@@ -2325,7 +2325,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3579",
@@ -2333,7 +2333,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3579",
@@ -2341,7 +2341,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3579",
@@ -2365,7 +2365,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3583",
@@ -2381,7 +2381,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3583",
@@ -2397,7 +2397,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3583",
@@ -2413,7 +2413,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3583",
@@ -2485,7 +2485,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3606",
@@ -2533,7 +2533,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3510",
@@ -2709,39 +2709,39 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3610",
     "level": "agentic_casual",
     "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3610",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3610",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3610",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3610",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3610",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3610",
@@ -2853,21 +2853,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3566",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3566",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "medium",
     "passed": true
   },
@@ -2875,6 +2867,14 @@
     "task_id": "lcb/3566",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3566",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
     "passed": true
@@ -2901,7 +2901,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3502",
@@ -2933,7 +2933,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3502",
@@ -2981,7 +2981,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3607",
@@ -3005,7 +3005,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3603",
@@ -3109,7 +3109,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3593",
@@ -3157,7 +3157,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3629",
@@ -3301,7 +3301,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3636",
@@ -3477,39 +3477,39 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3612",
     "level": "agentic_casual",
     "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3612",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3612",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3612",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3612",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3612",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3612",
@@ -3533,7 +3533,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3646",
@@ -3541,39 +3541,39 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3646",
     "level": "agentic_casual",
     "medium": "agentic",
-    "model": "claude",
-    "difficulty": "hard",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3646",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "hard",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3646",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
     "passed": true
   },
   {
     "task_id": "lcb/3646",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3646",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "hard",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3646",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3646",
@@ -3581,7 +3581,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3631",
@@ -3613,7 +3613,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3631",
@@ -3629,7 +3629,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3631",
@@ -3645,7 +3645,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3616",
@@ -3677,7 +3677,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3616",
@@ -3701,7 +3701,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3616",
@@ -3741,7 +3741,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3639",
@@ -3749,7 +3749,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3639",
@@ -3773,7 +3773,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3658",
@@ -3861,39 +3861,39 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3644",
     "level": "agentic_casual",
     "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3644",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3644",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3644",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3644",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3644",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3644",
@@ -3973,7 +3973,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3675",
@@ -3989,7 +3989,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3675",
@@ -4005,7 +4005,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3675",
@@ -4061,7 +4061,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3605",
@@ -4069,7 +4069,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3605",
@@ -4093,7 +4093,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3487",
@@ -4157,7 +4157,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3604",
@@ -4213,7 +4213,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3604",
@@ -4245,7 +4245,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3617",
@@ -4261,7 +4261,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3617",
@@ -4277,7 +4277,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3617",
@@ -4309,7 +4309,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3587",
@@ -4325,7 +4325,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3587",
@@ -4357,7 +4357,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3626",
@@ -4389,7 +4389,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3626",
@@ -4405,7 +4405,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3626",
@@ -4421,7 +4421,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3622",
@@ -4517,21 +4517,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3625",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3625",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -4539,6 +4531,14 @@
     "task_id": "lcb/3625",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3625",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -4605,7 +4605,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3647",
@@ -4621,7 +4621,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3647",
@@ -4661,7 +4661,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3647",
@@ -4741,27 +4741,11 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3676",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3676",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3676",
-    "level": "agentic_casual",
+    "level": "agentic_terse",
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
@@ -4769,11 +4753,27 @@
   },
   {
     "task_id": "lcb/3676",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3676",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3676",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3676",
@@ -4789,7 +4789,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3676",
@@ -4813,7 +4813,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3594",
@@ -4828,14 +4828,6 @@
     "level": "agentic_casual",
     "medium": "agentic",
     "model": "claude",
-    "difficulty": "medium",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3594",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "medium",
     "passed": true
   },
@@ -4843,6 +4835,14 @@
     "task_id": "lcb/3594",
     "level": "webchat_detailed",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3594",
+    "level": "webchat_detailed",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
     "passed": true
@@ -4885,39 +4885,39 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3651",
     "level": "agentic_casual",
     "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3651",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3651",
-    "level": "webchat_detailed",
-    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3651",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3651",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3651",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3651",
@@ -4957,7 +4957,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3681",
@@ -4989,7 +4989,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3653",
@@ -5029,7 +5029,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3653",
@@ -5045,7 +5045,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3653",
@@ -5053,7 +5053,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3621",
@@ -5085,7 +5085,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3621",
@@ -5093,7 +5093,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3621",
@@ -5117,7 +5117,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3649",
@@ -5157,7 +5157,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3649",
@@ -5189,7 +5189,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3655",
@@ -5253,7 +5253,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3680",
@@ -5285,7 +5285,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3680",
@@ -5349,7 +5349,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3632",
@@ -5605,7 +5605,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3656",
@@ -5614,19 +5614,19 @@
     "model": "claude",
     "difficulty": "easy",
     "passed": true
-  },
-  {
-    "task_id": "lcb/3656",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
   },
   {
     "task_id": "lcb/3656",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3656",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -5637,7 +5637,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3620",
@@ -5653,7 +5653,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3620",
@@ -5669,7 +5669,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3620",
@@ -5685,7 +5685,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3620",
@@ -5693,7 +5693,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3690",
@@ -5709,7 +5709,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3690",
@@ -5757,7 +5757,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3683",
@@ -5837,7 +5837,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3699",
@@ -5845,7 +5845,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3699",
@@ -5853,7 +5853,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3699",
@@ -5861,7 +5861,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3699",
@@ -5957,7 +5957,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3685",
@@ -5973,7 +5973,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3685",
@@ -5989,7 +5989,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3685",
@@ -6005,7 +6005,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3685",
@@ -6109,7 +6109,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3657",
@@ -6117,7 +6117,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3657",
@@ -6125,7 +6125,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3657",
@@ -6141,7 +6141,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3700",
@@ -6213,7 +6213,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3702",
@@ -6237,7 +6237,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3702",
@@ -6245,7 +6245,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3702",
@@ -6261,7 +6261,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3702",
@@ -6373,7 +6373,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3715",
@@ -6405,7 +6405,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3562",
@@ -6421,7 +6421,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3562",
@@ -6437,7 +6437,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3562",
@@ -6453,7 +6453,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3562",
@@ -6501,7 +6501,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3684",
@@ -6677,7 +6677,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3708",
@@ -6685,27 +6685,11 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3708",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3708",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "claude",
-    "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3708",
-    "level": "webchat_multilingual",
+    "level": "webchat_detailed",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
@@ -6713,11 +6697,27 @@
   },
   {
     "task_id": "lcb/3708",
+    "level": "webchat_detailed",
+    "medium": "webchat",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3708",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3708",
     "level": "webchat_multilingual",
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3677",
@@ -6813,7 +6813,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3720",
@@ -6917,27 +6917,11 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3731",
-    "level": "agentic_terse",
-    "medium": "agentic",
-    "model": "claude",
-    "difficulty": "easy",
     "passed": true
   },
   {
     "task_id": "lcb/3731",
-    "level": "agentic_casual",
-    "medium": "agentic",
-    "model": "chatgpt",
-    "difficulty": "easy",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3731",
-    "level": "agentic_casual",
+    "level": "agentic_terse",
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
@@ -6945,11 +6929,27 @@
   },
   {
     "task_id": "lcb/3731",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3731",
+    "level": "agentic_casual",
+    "medium": "agentic",
+    "model": "claude",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3731",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3731",
@@ -6965,7 +6965,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3731",
@@ -7053,7 +7053,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3737",
@@ -7068,14 +7068,6 @@
     "level": "agentic_casual",
     "medium": "agentic",
     "model": "claude",
-    "difficulty": "medium",
-    "passed": false
-  },
-  {
-    "task_id": "lcb/3737",
-    "level": "webchat_detailed",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "medium",
     "passed": true
   },
@@ -7083,9 +7075,17 @@
     "task_id": "lcb/3737",
     "level": "webchat_detailed",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "medium",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3737",
+    "level": "webchat_detailed",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3737",
@@ -7133,7 +7133,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3725",
@@ -7165,7 +7165,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3704",
@@ -7189,7 +7189,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3704",
@@ -7205,7 +7205,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3704",
@@ -7221,7 +7221,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3704",
@@ -7317,7 +7317,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3751",
@@ -7357,7 +7357,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3753",
@@ -7381,7 +7381,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3753",
@@ -7397,7 +7397,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3753",
@@ -7413,7 +7413,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3753",
@@ -7437,7 +7437,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3754",
@@ -7453,7 +7453,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3754",
@@ -7461,7 +7461,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3754",
@@ -7469,7 +7469,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3754",
@@ -7485,7 +7485,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3697",
@@ -7589,7 +7589,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3748",
@@ -7845,21 +7845,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3709",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3709",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -7867,6 +7859,14 @@
     "task_id": "lcb/3709",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3709",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -7877,7 +7877,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3779",
@@ -7885,7 +7885,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3779",
@@ -7893,7 +7893,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3779",
@@ -7901,7 +7901,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3779",
@@ -7909,7 +7909,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3779",
@@ -8101,21 +8101,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3768",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3768",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -8123,6 +8115,14 @@
     "task_id": "lcb/3768",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3768",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -8133,7 +8133,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3764",
@@ -8165,7 +8165,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3764",
@@ -8181,7 +8181,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3764",
@@ -8237,7 +8237,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3781",
@@ -8293,7 +8293,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3705",
@@ -8309,7 +8309,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3705",
@@ -8317,7 +8317,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3786",
@@ -8509,7 +8509,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3759",
@@ -8549,7 +8549,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3759",
@@ -8613,7 +8613,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3791",
@@ -8717,7 +8717,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3788",
@@ -8741,7 +8741,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3788",
@@ -8757,7 +8757,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3788",
@@ -8765,7 +8765,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3750",
@@ -8773,7 +8773,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3750",
@@ -8789,7 +8789,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3750",
@@ -8997,21 +8997,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3817",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3817",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -9019,6 +9011,14 @@
     "task_id": "lcb/3817",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3817",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -9061,7 +9061,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3809",
@@ -9157,7 +9157,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3744",
@@ -9181,7 +9181,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3744",
@@ -9229,7 +9229,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3832",
@@ -9253,7 +9253,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3832",
@@ -9277,7 +9277,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3793",
@@ -9445,7 +9445,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3773",
@@ -9469,7 +9469,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3777",
@@ -9533,7 +9533,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3747",
@@ -9573,7 +9573,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3747",
@@ -9621,7 +9621,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3687",
@@ -9749,7 +9749,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3736",
@@ -9765,7 +9765,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3736",
@@ -9957,21 +9957,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3723",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3723",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -9979,6 +9971,14 @@
     "task_id": "lcb/3723",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3723",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -10149,21 +10149,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3778",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3778",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -10171,6 +10163,14 @@
     "task_id": "lcb/3778",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3778",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -10181,7 +10181,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3785",
@@ -10189,7 +10189,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3785",
@@ -10213,7 +10213,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3785",
@@ -10229,7 +10229,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3785",
@@ -10237,7 +10237,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3776",
@@ -10405,21 +10405,13 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3799",
     "level": "webchat_detailed",
     "medium": "webchat",
     "model": "claude",
-    "difficulty": "easy",
-    "passed": true
-  },
-  {
-    "task_id": "lcb/3799",
-    "level": "webchat_multilingual",
-    "medium": "webchat",
-    "model": "chatgpt",
     "difficulty": "easy",
     "passed": true
   },
@@ -10427,6 +10419,14 @@
     "task_id": "lcb/3799",
     "level": "webchat_multilingual",
     "medium": "webchat",
+    "model": "chatgpt",
+    "difficulty": "easy",
+    "passed": true
+  },
+  {
+    "task_id": "lcb/3799",
+    "level": "webchat_multilingual",
+    "medium": "webchat",
     "model": "claude",
     "difficulty": "easy",
     "passed": true
@@ -10437,7 +10437,7 @@
     "medium": "agentic",
     "model": "chatgpt",
     "difficulty": "hard",
-    "passed": true
+    "passed": false
   },
   {
     "task_id": "lcb/3784",
@@ -10533,7 +10533,7 @@
     "medium": "webchat",
     "model": "chatgpt",
     "difficulty": "easy",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3811",
@@ -10573,7 +10573,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3805",
@@ -10621,7 +10621,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "medium",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3765",
@@ -10637,7 +10637,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3765",
@@ -10653,7 +10653,7 @@
     "medium": "agentic",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3765",
@@ -10669,7 +10669,7 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   },
   {
     "task_id": "lcb/3765",
@@ -10685,6 +10685,6 @@
     "medium": "webchat",
     "model": "claude",
     "difficulty": "hard",
-    "passed": false
+    "passed": true
   }
 ]

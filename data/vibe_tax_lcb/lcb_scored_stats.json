@@ -1,100 +1,100 @@
 {
   "overall": {
-    "passed": 833,
+    "passed": 1021,
     "total": 1336,
-    "pass_rate": 62.4
+    "pass_rate": 76.4
   },
   "by_condition": {
     "agentic_casual": {
-      "passed": 210,
+      "passed": 254,
       "total": 334,
-      "pass_rate": 62.9
+      "pass_rate": 76.0
     },
     "agentic_terse": {
-      "passed": 233,
+      "passed": 250,
       "total": 334,
-      "pass_rate": 69.8
+      "pass_rate": 74.9
     },
     "webchat_detailed": {
-      "passed": 181,
+      "passed": 254,
       "total": 334,
-      "pass_rate": 54.2
+      "pass_rate": 76.0
     },
     "webchat_multilingual": {
-      "passed": 209,
+      "passed": 263,
       "total": 334,
-      "pass_rate": 62.6
+      "pass_rate": 78.7
     }
   },
   "by_model": {
     "chatgpt": {
-      "passed": 381,
+      "passed": 495,
       "total": 668,
-      "pass_rate": 57.0
+      "pass_rate": 74.1
     },
     "claude": {
-      "passed": 452,
+      "passed": 526,
       "total": 668,
-      "pass_rate": 67.7
+      "pass_rate": 78.7
     }
   },
   "by_difficulty": {
     "easy": {
-      "passed": 251,
+      "passed": 339,
       "total": 344,
-      "pass_rate": 73.0
+      "pass_rate": 98.5
     },
     "hard": {
-      "passed": 188,
+      "passed": 208,
       "total": 408,
-      "pass_rate": 46.1
+      "pass_rate": 51.0
     },
     "medium": {
-      "passed": 394,
+      "passed": 474,
       "total": 584,
-      "pass_rate": 67.5
+      "pass_rate": 81.2
     }
   },
   "by_condition_and_model": {
     "chatgpt|agentic_casual": {
-      "passed": 101,
+      "passed": 122,
       "total": 167,
-      "pass_rate": 60.5
+      "pass_rate": 73.1
     },
     "chatgpt|agentic_terse": {
-      "passed": 118,
+      "passed": 122,
       "total": 167,
-      "pass_rate": 70.7
+      "pass_rate": 73.1
     },
     "chatgpt|webchat_detailed": {
-      "passed": 57,
+      "passed": 121,
       "total": 167,
-      "pass_rate": 34.1
+      "pass_rate": 72.5
     },
     "chatgpt|webchat_multilingual": {
-      "passed": 105,
+      "passed": 130,
       "total": 167,
-      "pass_rate": 62.9
+      "pass_rate": 77.8
     },
     "claude|agentic_casual": {
-      "passed": 109,
+      "passed": 132,
       "total": 167,
-      "pass_rate": 65.3
+      "pass_rate": 79.0
     },
     "claude|agentic_terse": {
-      "passed": 115,
+      "passed": 128,
       "total": 167,
-      "pass_rate": 68.9
+      "pass_rate": 76.6
     },
     "claude|webchat_detailed": {
-      "passed": 124,
+      "passed": 133,
       "total": 167,
-      "pass_rate": 74.3
+      "pass_rate": 79.6
     },
     "claude|webchat_multilingual": {
-      "passed": 104,
+      "passed": 133,
       "total": 167,
-      "pass_rate": 62.3
+      "pass_rate": 79.6
     }
   }
 }
