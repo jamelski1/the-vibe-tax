@@ -1,4 +1,4 @@
-# The Vibe Tax: Prompt Style, Benchmark Saturation, and the Real Cost of How You Ask an LLM to Code
+# The Vibe Tax That Wasn't: How Benchmark Saturation and Code-Extraction Artifacts Manufacture Prompt-Style Effects
 
 *Working draft. Numbers are reproducible from the scripts and `*_stats.json` files
 in this repository; see `RESEARCH_LOG.md` for the full chronological record.*
@@ -17,16 +17,22 @@ and show that *the medium shapes the prompt*: agentic users are terse and
 reference files (21%); web-chat users are verbose and paste code/errors (54%).
 Second, we build a **realism-calibrated prompt generator** (an LLM rewriter gated
 by a real-vs-synthetic discriminator) and run a controlled experiment across
-three benchmarks of increasing difficulty. On HumanEval the effect is real but
-ceiling-suppressed; a paired test of realistic vs researcher-written prompts
-gives +3.0 pts (p=0.001) and shows that **hand-invented informal prompts
-overstate the tax**. On **LiveCodeBench** (contamination-free, 43.5% pass — real
-headroom), a purely *framing*-level manipulation yields a **significant +9.3-pt
-penalty for verbose/polite framing vs terse** on medium-difficulty problems with
-capable models (p=0.007). The direction is counterintuitive: the tax is on
-*verbosity/politeness*, not informality. Our central methodological finding is
-that **benchmark saturation and code-extraction bugs both silently hide
-prompt-style effects** — the tax cannot be sized on a saturated benchmark.
+benchmarks of increasing difficulty. Our central — and cautionary — finding is
+that **code-extraction robustness dominates the result**. Under a naive
+extractor, a purely *framing*-level manipulation on **LiveCodeBench**
+(contamination-free) appears to yield a large, significant penalty for
+verbose/polite framing vs terse (+9.3 pts, p=0.007, capable models). **This
+effect is an artifact.** Polite/verbose prompts elicit more explanation-after-code
+prose; with no code fences, an unfenced extractor feeds that prose to the
+interpreter and fails correct code — asymmetrically, hitting the polite condition
+hardest (compile-rate terse 88% vs detailed 73%). With a robust extractor the
+effect **vanishes** (paired Δ=0.0, p=1.0 on medium): **holding the problem
+identical, how you phrase the request — terse, casual, polite, verbose, or in
+another language — has no measurable effect on correctness; problem difficulty
+does.** We further show the mirror failure — extraction turning a *real* signal
+into a 0% null (a paste condition) — establishing that both **benchmark
+saturation** and **code-extraction bugs** can manufacture *or* erase prompt-style
+effects, in either direction. The methodological lesson is the contribution.
 
 ## 1. Introduction
 
@@ -48,10 +54,12 @@ We make three contributions:
    scores how distinguishable synthetic prompts are from real ones, plus a
    generator that rewrites benchmark tasks into realistic, still-gradeable
    prompts and gates them on the discriminator (§4).
-3. **A controlled measurement across three benchmarks** showing that the tax is
-   invisible under saturation, that synthetic informal prompts overstate it, and
-   that on a non-saturated benchmark a framing manipulation produces a
-   significant, counterintuitive penalty (§5–6).
+3. **A controlled measurement showing the "tax" is a measurement artifact.** On a
+   non-saturated benchmark, a naive extractor makes verbose/polite framing look
+   significantly worse than terse; a robust extractor erases the effect entirely.
+   How you phrase a complete request does not tax correctness — and prompt-style
+   studies are dominated by extraction robustness and benchmark saturation, both
+   of which can manufacture or hide an effect (§5–6).
 
 ## 2. Related work
 
@@ -63,10 +71,13 @@ none contrast media under a common lens or measure a correctness tax.
 **ReCode** [Wang et al., ACL 2023] applies mechanical docstring/name/syntax
 perturbations to HumanEval; the **under-specification** literature (2024–26)
 finds informality costs roughly −11% to −15% pass@1 on HumanEval, *sometimes
-reversing*. Tone work (**Mind Your Tone**, 2025) finds *rude* prompts can beat
-polite ones on accuracy — consistent with our verbosity/politeness finding.
-Our novelty: the two-medium characterization, the prevalence-calibrated
-conditions, and the demonstration that benchmark saturation hides the effect.
+reversing*. Tone work (**Mind Your Tone**, 2025) reports *rude* prompts can beat
+polite ones on accuracy — an effect in the same family we test; we find no such
+framing effect once code is extracted robustly, which raises the question of how
+much of the tone literature is scorer-dependent. Our novelty: the two-medium
+characterization, the prevalence-calibrated conditions, and the demonstration
+that both benchmark saturation and code-extraction robustness can manufacture or
+erase a prompt-style effect.
 
 ## 3. The Vibe Spectrum: what real prompts look like
 
@@ -151,64 +162,70 @@ comparison (calibrated v3 vs researcher-written v2) gives a paired
 *better* than researcher-written ones**: hand-invented informality ("yo so
 like…") is out-of-distribution for RLHF'd models and *overstates* the tax.
 
-**LiveCodeBench reveals the effect.** Overall pass is **43.5%** (medium 52.2%,
-hard 31.0%; Claude 59.7 / ChatGPT 58.1 / Codestral 12.7) — real headroom. Four
-conditions vary only the *framing* around an identical problem statement:
+**LiveCodeBench: the "effect" is an extraction artifact.** On LCB (functional,
+contamination-free; 167 problems: 43 easy / 73 medium / 51 hard) four conditions
+vary only the *framing* around an identical problem statement. Under a **naive**
+extractor the result looked striking — a significant terse-beats-polite penalty:
 
-| Framing (wrapper around identical problem) | overall | medium | hard |
-|--------------------------------------------|--------:|-------:|-----:|
-| terse | 46.0 | 55.3 | 32.7 |
-| casual | 44.1 | 53.4 | 30.7 |
-| multilingual (Chinese wrapper) | 43.8 | 53.4 | 30.1 |
-| detailed / polite | 40.1 | 46.6 | 30.7 |
+| terse vs … (naive extractor) | all | capable models | capable × medium |
+|------------------------------|----:|---------------:|-----------------:|
+| detailed / polite | +5.9 (p=.012) | +9.3 (p=.007) | +13.0 (p=.007) |
+| casual | +1.9 (n.s.) | +3.2 (n.s.) | — |
+| multilingual | +2.2 (n.s.) | +3.6 (n.s.) | — |
 
-Paired McNemar, **terse vs detailed**:
+But the system prompt requests plain Python **without fences**, so conversational
+replies are *code followed by prose* ("…This checks every adjacent pair"). The
+naive extractor fed that prose to the interpreter, failing correct code. The
+polite/verbose framing produces more explain-after-code, so it was penalized
+hardest — compile-rate **terse 88% vs detailed 73%**, a ~15-pt asymmetry that *is*
+the reported effect. With a **robust** extractor (trim trailing lines until the
+source parses, target still defined; cannot inflate correctness) the effect
+disappears:
 
-| Slice | Δ | p |
-|-------|--:|--:|
-| All | +5.9 | **0.012** |
-| Medium | +8.7 | **0.009** |
-| Capable models (ChatGPT+Claude) | +9.3 | **0.007** |
-| Capable × medium | +13.0 | **0.007** |
-| Hard | +2.0 | 0.677 (n.s.) |
+| Framing (robust extractor) | overall | easy | medium | hard |
+|----------------------------|--------:|-----:|-------:|-----:|
+| terse | 74.9 | 98.8 | 80.1 | 47.1 |
+| casual | 76.0 | 95.3 | 80.1 | 53.9 |
+| detailed / polite | 76.0 | 100.0 | 80.1 | 50.0 |
+| multilingual (ZH) | 78.7 | 100.0 | 84.2 | 52.9 |
 
-**Verbose/polite framing significantly underperforms terse** — but only in a
-*Goldilocks zone*: medium-difficulty problems and capable models. On **hard**
-problems every framing collapses to ~30% (difficulty dominates); on **HumanEval**
-the ceiling hid it entirely.
+| terse vs … (robust extractor) | all | medium | capable × medium |
+|-------------------------------|----:|-------:|-----------------:|
+| detailed / polite | −1.2 (p=.585) | **0.0 (p=1.000)** | **0.0 (p=1.000)** |
+| casual | −1.2 (p=.541) | 0.0 (n.s.) | 0.0 (n.s.) |
+| multilingual | −3.9 (p=.060) | −4.1 (n.s.) | −4.1 (n.s.) |
 
-**Pairwise: it is politeness specifically.** Running terse against *each* other
-framing (not just detailed) isolates the driver:
-
-| terse vs … | Δ (all) | p | Δ (capable) | p |
-|------------|--------:|--:|------------:|--:|
-| detailed / polite | +5.9 | **0.012** | +9.3 | **0.007** |
-| casual | +1.9 | 0.419 (n.s.) | +3.2 | 0.332 (n.s.) |
-| multilingual (ZH) | +2.2 | 0.396 (n.s.) | +3.6 | 0.306 (n.s.) |
-
-Terse vs **casual** and terse vs **multilingual** are **null in every slice**;
-only the polite/verbose wrapper is significant. So the effect is not a penalty on
-informality (casual ≈ terse) or on language (Chinese ≈ terse) — it is
-specifically **politeness/verbosity**. This is the sharpest form of the central
-claim.
+**Detailed ties terse; every comparison is null** (discordant cells near-symmetric:
+terse>detailed 13, detailed>terse 17). The entire +9.3-pt "politeness tax" was the
+extractor. Correctness on LCB is governed by **difficulty** (easy ~98%, medium
+~81%, hard ~51%), not by how the request is phrased.
 
 ## 7. Discussion
 
 Three claims:
 
-1. **The tax is on verbosity/politeness, not informality.** Terse "vibe" framing
-   *beats* polite detailed framing (+9.3 pts, p=0.007, capable models),
-   consistent with tone-effect literature. Extra conversational scaffolding
-   appears to dilute focus on demanding problems.
-2. **Saturation hides prompt-style effects.** The same underlying phenomenon is
-   +3 pts (ceiling-crushed) on HumanEval and +9 pts (clear) on LiveCodeBench.
-   Sizing a prompt-style effect on a saturated benchmark is not possible; a
-   "Goldilocks" difficulty is required — enough headroom to escape the ceiling,
-   not so much the model floors out.
-3. **Method choices silently distort these studies.** Both benchmark saturation
-   and code-extraction bugs can turn a real effect into a null (or a null into
-   an artifact). Prompt-style research needs de-saturated benchmarks, paired
-   within-problem designs, and paste-robust scoring.
+1. **There is no framing/register tax.** Holding the problem identical, phrasing a
+   request tersely, casually, politely, verbosely, or in another language does not
+   change correctness (paired Δ≈0, p≈1 on the measurable slice). Correctness is
+   governed by problem difficulty. The widely assumed intuition that polite or
+   verbose "vibe" prompting costs correctness is not supported once code is
+   extracted correctly. (This is scoped to *framing* — varying the wrapper around
+   a *complete* problem — and does not speak to genuine under-specification, where
+   the model is given less information; see §8.)
+2. **Code-extraction robustness dominates the measured result — in both
+   directions.** A naive unfenced extractor manufactured a significant +9-pt
+   "politeness tax" out of nothing, by asymmetrically failing the verbose
+   condition's explanation-after-code; the same class of bug elsewhere erased a
+   *real* signal, scoring a paste condition at 0%. Extraction can both create and
+   destroy prompt-style effects. Any such study without a paste-/prose-robust,
+   compile-checked extractor is reporting its scorer, not the model.
+3. **Benchmark saturation compounds the hazard.** At ~90% (HumanEval) there is no
+   room to measure anything; de-saturated benchmarks are necessary to test for an
+   effect at all. But de-saturation is not sufficient — LCB has headroom and the
+   framing effect is still null; the naive extractor nonetheless produced a
+   confident false positive there. Prompt-style research needs de-saturated
+   benchmarks, paired within-problem designs, **and** robust scoring; the last is
+   what decided this result.
 
 ## 8. Limitations
 
@@ -217,33 +234,41 @@ Three claims:
 - **Agentic corpus is ~163 committers**, not a random developer sample (its
   rates are stable across the scale-up, but style skews to power users). Web-chat
   corpora are 2023-era (GPT-3.5/4).
+- **Scope: framing, not under-specification.** We vary the *wrapper* around a
+  *complete* problem and find no effect. We do **not** test genuine
+  under-specification (giving the model less information) on a de-saturated
+  benchmark, nor the paste/buggy-code conditions (which need correct-then-mutate,
+  as LCB has no canonical solutions). A real correctness cost could still exist on
+  those axes — that is the open positive-result thread. "No tax" means *how you
+  phrase a complete request does not tax correctness.*
 - **LiveCodeBench framings are deterministic mock wrappers** (clean minimal
-  pairs); LLM-rewritten framings are future work (likely same direction). The
-  *same* four wrappers are applied to HumanEval as a matched pair (the "HE4"
-  set), holding the problem body constant so framing is isolated from
-  specification detail — removing a confound present in the earlier
-  six-condition HumanEval runs (where terse/casual/detailed also differed in
-  spec level).
-- **Difficulty coverage.** The headline LCB run is medium+hard; an easy slice is
-  added for completeness (expected near-ceiling, like HumanEval), which completes
-  the Goldilocks curve rather than changing the conclusion.
-- **Paste conditions not yet ported to LCB** (they need correct-then-mutate, as
-  LCB has no canonical solutions).
-- **n=124 LCB problems** (medium+hard); a larger pull would tighten hard-problem
-  estimates. Codestral sits near the floor on hard problems and adds noise; the
-  capable-model slice is the cleaner read.
+  pairs). LLM-rewritten framings are a possible follow-up, but there is now no
+  effect for added naturalness to reduce. The *same* four wrappers on HumanEval
+  (the "HE4" matched set) hold the problem body constant, isolating framing from
+  specification detail (a confound in the earlier six-condition HumanEval runs)
+  — and land, as expected, flat at the ceiling (~97%).
+- **n=167 LCB problems** (43 easy / 73 medium / 51 hard). The reported LCB numbers
+  are the two capable models (ChatGPT + Claude); Codestral was dropped in the
+  easy re-run and is optional to restore — it floors on hard, adds noise, and
+  cannot change a null.
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
 
 ## 9. Conclusion
 
-Whether informal prompting taxes LLM code correctness depends entirely on *where*
-you measure it. On saturated benchmarks the effect is real but invisible, and
-researcher-invented informal prompts overstate it. On a hard, contamination-free
-benchmark with headroom, a controlled framing manipulation reveals a significant,
-counterintuitive penalty: **verbose, polite framing costs ~9 points against terse
-framing on medium-difficulty problems** — the vibe tax is a *politeness* tax, and
-it only shows when the benchmark lets it.
+The intuition behind the "vibe tax" — that casual or polite phrasing costs
+correctness — does not survive honest measurement. Holding the problem identical
+and varying only how the request is framed produces **no** correctness difference
+on a contamination-free benchmark with headroom; a confident, significant
++9-point "politeness tax" appeared only under a naive code extractor and vanished
+once extraction was fixed. What determines whether an LLM solves a problem is the
+problem's difficulty, not the register of the ask. The durable lesson is
+methodological: prompt-style measurements are dominated by benchmark saturation
+and code-extraction robustness, either of which can manufacture or erase an
+effect — so the finding a study reports may be a property of its scorer. The open
+question a real vibe tax might yet answer is not about *phrasing* but about
+*information*: whether genuinely under-specified requests cost correctness. That
+is where to look next.
 
 ## Reproducibility
 

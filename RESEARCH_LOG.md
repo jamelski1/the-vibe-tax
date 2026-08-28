@@ -272,6 +272,41 @@ medium effect; no paste premium; language tax only for the weak model
       meaningful accuracy-toward-50% signal.
 - [ ] Re-run W3 with the failing-assert line elided (it currently leaks one test).
 
+## Phase 12 — the "politeness tax" was a code-extraction artifact (result reversed)
+
+Advisor asked for 4 things: (1) HumanEval with the same 4 deterministic wrappers
+as LCB (the "HE4" matched set), (2) easy LCB problems, (3) an RQ→metric map,
+(4) pairwise McNemar (terse vs casual / multilingual, not just detailed).
+
+- **(4) pairwise** first showed a clean story: terse−detailed significant
+  (+9.3 capable, +13.0 capable×medium, p<0.01), terse−casual and terse−multilingual
+  null → read as "politeness/verbosity tax, not informality." Committed as such.
+- **(1) HE4**: all four framings ≈97% on saturated HumanEval — flat (expected).
+- **(2) easy LCB**: adding easy surfaced the bug. Easy showed terse 90.7% vs
+  detailed 55.8% — a 35-pt gap at the ceiling, which is impossible for a real
+  effect. Inspecting the "failures": they contained **correct code followed by a
+  prose explanation**. The system prompt bans fences, so the LCB extractor fed
+  code+prose to `exec()` → `SyntaxError` on correct code. Polite/detailed framing
+  elicits more explain-after-code, so it was penalized hardest: compile-rate
+  terse 88% vs detailed 73% (a ~15-pt asymmetry = the whole "effect").
+- **Fix**: `score_lcb.py :: _trim_to_compilable` — trim trailing lines until the
+  source parses and still defines the target; cannot inflate correctness.
+- **Re-scored result (robust extractor, capable models)**: terse 74.9 / casual
+  76.0 / detailed 76.0 / multilingual 78.7 — **flat**. Paired McNemar terse vs
+  detailed: medium **Δ=0.0, p=1.000**; all pairs null. The +9.3 was entirely the
+  extractor.
+- **Conclusion reversed**: there is **no framing/register tax** — how you phrase a
+  *complete* request (terse/casual/polite/verbose/multilingual) does not change
+  correctness; difficulty does. The paper's contribution becomes methodological:
+  extraction robustness (and saturation) can *manufacture or erase* prompt-style
+  effects — caught here in both directions (v2 error-paste: real signal → 0% null;
+  LCB framing: true null → false +9-pt effect). Docs (PAPER, RESULTS, RQ map)
+  rewritten to match.
+- **Scope guard**: this tests *framing*, not *under-specification* (giving the
+  model less information) or paste/buggy-code on LCB — the open positive-result
+  threads. Also: Codestral was dropped in the easy re-run (2-model numbers);
+  restoring it via the `seed_lcb_progress.py` merge won't change a null.
+
 ## Standing caveats (carry into any writeup)
 
 - Agentic corpus = ~163 committers, not a random developer sample (style skew,
