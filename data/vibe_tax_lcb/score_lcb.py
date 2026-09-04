@@ -32,6 +32,9 @@ RESPONSES = os.getenv("LCB_RESPONSES", os.path.join(SCRIPT_DIR, "lcb_v3_response
 OUT = os.path.join(SCRIPT_DIR, "lcb_scored.json")
 STATS = os.path.join(SCRIPT_DIR, "lcb_scored_stats.json")
 TIMEOUT = 8
+# For the `with_tests` experiment: score on PRIVATE tests only, so a model that
+# was shown the public tests can't pass by hardcoding their outputs.
+PRIVATE_ONLY = os.getenv("LCB_PRIVATE_ONLY", "").lower() in ("1", "true", "yes")
 
 _IMPORTS = ("from typing import *\nimport collections, math, heapq, bisect, itertools, functools, re\n"
             "from collections import *\nfrom math import *\nfrom functools import *\n")
@@ -147,7 +150,7 @@ def passes(code, entry, tests):
 
 
 def sample_tests(rec, k):
-    pub = rec.get("public_tests", [])
+    pub = [] if PRIVATE_ONLY else rec.get("public_tests", [])
     priv = rec.get("private_tests", [])
     if len(pub) + len(priv) <= k:
         return pub + priv
@@ -174,7 +177,8 @@ def run(max_tests):
         ok = False
         if rec:
             code = extract_solution(r.get("completion"), r["entry_point"])
-            ok = passes(code, r["entry_point"], sample_tests(rec, max_tests))
+            tl = sample_tests(rec, max_tests)
+            ok = passes(code, r["entry_point"], tl) if tl else False  # no tests -> not a pass
         scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model")}
                       | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok})
         if (i + 1) % 100 == 0:

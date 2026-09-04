@@ -1,0 +1,82 @@
+{
+  "by_difficulty_capable": {
+    "easy": {
+      "passed": 339,
+      "total": 344,
+      "pass_rate": 98.5
+    },
+    "hard": {
+      "passed": 208,
+      "total": 408,
+      "pass_rate": 51.0
+    },
+    "medium": {
+      "passed": 474,
+      "total": 584,
+      "pass_rate": 81.2
+    }
+  },
+  "by_topic_capable": {
+    "simulation_geometry": {
+      "passed": 33,
+      "total": 40,
+      "pass_rate": 82.5
+    },
+    "greedy_array": {
+      "passed": 418,
+      "total": 520,
+      "pass_rate": 80.4
+    },
+    "string": {
+      "passed": 259,
+      "total": 328,
+      "pass_rate": 79.0
+    },
+    "intervals_sorting": {
+      "passed": 68,
+      "total": 88,
+      "pass_rate": 77.3
+    },
+    "other": {
+      "passed": 37,
+      "total": 48,
+      "pass_rate": 77.1
+    },
+    "graph": {
+      "passed": 58,
+      "total": 80,
+      "pass_rate": 72.5
+    },
+    "math_number": {
+      "passed": 34,
+      "total": 48,
+      "pass_rate": 70.8
+    },
+    "dynamic_programming": {
+      "passed": 114,
+      "total": 184,
+      "pass_rate": 62.0
+    }
+  },
+  "topic_counts": {
+    "dynamic_programming": 23,
+    "graph": 10,
+    "greedy_array": 65,
+    "intervals_sorting": 11,
+    "math_number": 6,
+    "other": 6,
+    "simulation_geometry": 5,
+    "string": 41
+  },
+  "always_solved_n": 34,
+  "never_solved_n": 15,
+  "never_solved_by_difficulty": {
+    "hard": 9,
+    "medium": 6
+  },
+  "failure_modes_capable": {
+    "wrong_logic": 315,
+    "no_usable_code": 0,
+    "wrong_logic_pct": 100.0
+  }
+}
