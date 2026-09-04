@@ -29,8 +29,8 @@ from collections import defaultdict
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TESTS = os.getenv("LCB_TESTS", os.path.join(SCRIPT_DIR, "lcb_tests.jsonl"))
 RESPONSES = os.getenv("LCB_RESPONSES", os.path.join(SCRIPT_DIR, "lcb_v3_responses.json"))
-OUT = os.path.join(SCRIPT_DIR, "lcb_scored.json")
-STATS = os.path.join(SCRIPT_DIR, "lcb_scored_stats.json")
+OUT = os.getenv("LCB_SCORED_OUT", os.path.join(SCRIPT_DIR, "lcb_scored.json"))
+STATS = os.getenv("LCB_SCORED_STATS", os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"))
 TIMEOUT = 8
 # For the `with_tests` experiment: score on PRIVATE tests only, so a model that
 # was shown the public tests can't pass by hardcoding their outputs.
