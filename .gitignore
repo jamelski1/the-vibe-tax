@@ -26,6 +26,6 @@ lcb_v3_responses_3model.json
 # HE4 (4-condition HumanEval) local run artifacts — need API keys; the
 # committed he4_prompts.json (deterministic) + he4_scored_stats.json aggregate
 # are enough to reproduce/inspect.
-he4_responses.json
+# he4_responses.json is intentionally committed (used by build_breakdown.py)
 he4_progress.json
 he4_run_stats.json

@@ -112,8 +112,8 @@ readme = [
  ("Tabs", 13, True),
  ("• LCB — one row per (problem × model). difficulty, topic, the problem, PASS/FAIL, the model's code.", 11, False),
  ("• LCB by problem — one row per problem: how many of the 12 attempts (4 framings × 3 models) solved it.", 11, False),
- ("• HumanEval — base HumanEval tests (saturated; ~all pass). Model code shown.", 11, False),
- ("• HumanEval+ — same problems, EvalPlus edge-case tests (harder). base vs plus pass shown.", 11, False),
+ ("• HumanEval — HE4 set: the SAME 4 framings as LCB, base HumanEval tests (saturated; ~all pass). Model code + passed /4.", 11, False),
+ ("• HumanEval+ — v3 set, EvalPlus edge-case tests (harder). base vs plus pass shown. (HE4 has no edge-test scoring.)", 11, False),
  ("", 10, False),
  ("Key columns", 13, True),
  ("• result / PASS-FAIL: did the model's code pass the graded tests for that problem.", 11, False),
@@ -125,8 +125,9 @@ readme = [
  ("• Difficulty drives success: easy ~99%, medium ~81%, hard ~51%. Dynamic programming is the weakest topic.", 11, False),
  ("• HumanEval is saturated (~97%) — few failures to see there; LCB is where the signal is.", 11, False),
  ("", 10, False),
- ("Sources: data/vibe_tax_lcb/lcb_scored.json + lcb_v3_responses.json + lcb_problems.jsonl;", 9, False),
- ("data/vibe_tax_v3/vibe_tax_v3_scored.json + _plus_scored.json + _responses.json. Numbers are pass@1, temp 0.", 9, False),
+ ("Sources: LCB tabs = data/vibe_tax_lcb/lcb_scored.json + lcb_v3_responses.json + lcb_problems.jsonl;", 9, False),
+ ("HumanEval tab = data/vibe_tax_v2/he4_scored.json + he4_responses.json (HE4, 4 framings);", 9, False),
+ ("HumanEval+ tab = data/vibe_tax_v3/vibe_tax_v3_plus_scored.json + _responses.json. Numbers are pass@1, temp 0.", 9, False),
 ]
 for i,(txt,sz,bold) in enumerate(readme,1):
     c = ws.cell(i,1,txt); c.font = Font(name="Arial", size=sz, bold=bold)
@@ -187,38 +188,38 @@ for row in ws.iter_rows(min_row=2, min_col=9, max_col=9):
         if cell.value=="Always": cell.fill=PASS_FILL; cell.font=PASS_FONT
         elif cell.value=="Never": cell.fill=FAIL_FILL; cell.font=FAIL_FONT
 
-# ============ HumanEval + HumanEval+ ============
+# ============ HumanEval (HE4, 4-condition matched set) ============
 he_probs={}
 for l in open(os.path.join(ROOT,"data/HumanEval.jsonl/human-eval-v2-20210705.jsonl")):
     d=json.loads(l); he_probs[d["task_id"]]=d
+
+# HE4: the same 4 deterministic wrappers as LCB (terse/casual/detailed/multilingual)
+he4_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/vibe_tax_v2/he4_responses.json")}
+he4_pass={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v2/he4_scored.json")}
+he4_cnt=defaultdict(lambda:[0,0])
+for (t,l,m),p in he4_pass.items():
+    he4_cnt[(t,m)][0]+=int(bool(p)); he4_cnt[(t,m)][1]+=1
+
+rows=[]
+for tid,model in sorted({(t,m) for (t,l,m) in he4_pass if l==REP}):
+    pv=he4_pass.get((tid,REP,model))
+    if pv is None: continue
+    k,n=he4_cnt[(tid,model)]
+    comp=he4_resp.get((tid,REP,model),{}).get("completion")
+    ep=he_probs.get(tid,{}).get("entry_point","")
+    rows.append([tid,ep,model,"PASS" if pv else "FAIL",f"{k}/{n}",
+                 clip(he_probs.get(tid,{}).get("prompt","")),clip(comp)])
+rows.sort(key=lambda r:(r[3]!="FAIL", r[0], r[2]))
+ws=wb.create_sheet("HumanEval")
+write_rows(ws, ["task_id","entry_point","model","result (terse)","passed /4 (all framings)","problem (spec)","model_solution"],
+           rows, [12,26,10,13,20,70,80], result_cols=(4,))
+
+# ============ HumanEval+ (v3 dataset — HE4 has no edge-test scoring) ============
 v3_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/vibe_tax_v3/vibe_tax_v3_responses.json")}
 v3_base={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v3/vibe_tax_v3_scored.json")}
 v3_plus={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v3/vibe_tax_v3_plus_scored.json")}
 
-def he_rows(passed_map, second_map=None):
-    rows=[]
-    keys=sorted({(t,m) for (t,l,m) in v3_resp if l==REP})
-    for tid,model in keys:
-        pv=passed_map.get((tid,REP,model))
-        if pv is None: continue
-        comp=v3_resp.get((tid,REP,model),{}).get("completion")
-        ep=he_probs.get(tid,{}).get("entry_point","")
-        base=[tid,ep,model,"PASS" if pv else "FAIL"]
-        if second_map is not None:
-            sv=second_map.get((tid,REP,model))
-            base.append("PASS" if sv else "FAIL")
-        base += [clip(he_probs.get(tid,{}).get("prompt","")), clip(comp)]
-        rows.append(base)
-    rows.sort(key=lambda r:(r[3]!="FAIL", r[0], r[2]))
-    return rows
-
-ws=wb.create_sheet("HumanEval")
-write_rows(ws, ["task_id","entry_point","model","result (terse)","problem (spec)","model_solution"],
-           he_rows(v3_base), [12,26,10,13,70,80], result_cols=(4,))
-
 ws=wb.create_sheet("HumanEval+")
-rows=he_rows(v3_plus, second_map=None)
-# rebuild with base vs plus both
 rows=[]
 for tid,model in sorted({(t,m) for (t,l,m) in v3_resp if l==REP}):
     b=v3_base.get((tid,REP,model)); pl=v3_plus.get((tid,REP,model))
