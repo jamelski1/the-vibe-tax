@@ -114,6 +114,7 @@ readme = [
  ("• LCB by problem — one row per problem: how many of the 12 attempts (4 framings × 3 models) solved it.", 11, False),
  ("• HumanEval — HE4 set: the SAME 4 framings as LCB, base HumanEval tests (saturated; ~all pass). Model code + passed /4.", 11, False),
  ("• HumanEval+ — v3 set, EvalPlus edge-case tests (harder). base vs plus pass shown. (HE4 has no edge-test scoring.)", 11, False),
+ ("• GPT-5.6 Failures — every problem×framing the GPT-5.6 ablation failed (148), flagged REGRESSION where GPT-5.4 had passed.", 11, False),
  ("", 10, False),
  ("Key columns", 13, True),
  ("• result / PASS-FAIL: did the model's code pass the graded tests for that problem.", 11, False),
@@ -230,6 +231,37 @@ for tid,model in sorted({(t,m) for (t,l,m) in v3_resp if l==REP}):
 rows.sort(key=lambda r:(r[4]!="FAIL", r[0], r[2]))
 write_rows(ws, ["task_id","entry_point","model","base result","plus result (edge tests)","problem (spec)","model_solution"],
            rows, [12,26,10,12,16,70,80], result_cols=(4,5))
+
+# ============ GPT-5.6 Failures (ablation) ============
+g56_path = os.path.join(ROOT, "data/vibe_tax_lcb/lcb_v3_gpt56_scored.json")
+if os.path.exists(g56_path):
+    g56 = json.load(open(g56_path, encoding="utf-8"))
+    base54 = {(x["task_id"], x["level"]): x["passed"]
+              for x in lcb_scored if x.get("model") == "chatgpt"}
+    model_id = next((x.get("model_id") for x in g56), "gpt-5.6")
+    rows = []
+    for x in g56:
+        if x["passed"]:
+            continue
+        tid = x["task_id"]; p = probs.get(tid, {})
+        was_ok_54 = base54.get((tid, x["level"]))
+        flag = "REGRESSION (5.4 passed)" if was_ok_54 is True else "also failed by 5.4"
+        rows.append([tid, x["difficulty"], p.get("topic", ""), p.get("entry_point", ""),
+                     x["level"], "FAIL", flag, clip(p.get("question_content", ""))])
+    order = {"hard": 0, "medium": 1, "easy": 2}
+    rows.sort(key=lambda r: (order.get(r[1], 3), r[6] != "REGRESSION (5.4 passed)", r[0], r[4]))
+    ws = wb.create_sheet("GPT-5.6 Failures")
+    write_rows(ws,
+        [f"task_id", "difficulty", "topic", "method", "condition (framing)",
+         f"{model_id} result", "vs GPT-5.4", "problem_statement"],
+        rows, [11, 9, 18, 26, 22, 14, 24, 80], result_cols=(6,))
+    # color the regression flag
+    for row in ws.iter_rows(min_row=2, min_col=7, max_col=7):
+        for cell in row:
+            if str(cell.value).startswith("REGRESSION"):
+                cell.fill = FAIL_FILL; cell.font = FAIL_FONT
+    print(f"GPT-5.6 Failures tab: {len(rows)} failing cells "
+          f"({sum(1 for r in rows if r[6].startswith('REGRESSION'))} regressions)")
 
 wb.save(OUT)
 print("wrote", OUT)
