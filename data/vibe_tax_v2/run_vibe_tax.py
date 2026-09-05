@@ -81,6 +81,14 @@ def setup_logging():
 log = setup_logging()
 
 
+# Exact model id per provider — stamped into every record for reproducibility.
+MODEL_ID = {"openai": OPENAI_MODEL, "anthropic": ANTHROPIC_MODEL, "codestral": CODESTRAL_MODEL}
+
+# Optional: run only a subset of providers, e.g. ONLY_MODELS=chatgpt for a
+# single-model ablation (leave unset to run every provider with a key).
+ONLY_MODELS = {m.strip().lower() for m in os.getenv("ONLY_MODELS", "").split(",") if m.strip()}
+
+
 def make_clients():
     clients = {}
     if os.getenv("OPENAI_API_KEY"):
@@ -96,6 +104,9 @@ def make_clients():
             api_key=os.getenv("CODESTRAL_API_KEY"), base_url=CODESTRAL_BASE_URL))
     else:
         log.warning("CODESTRAL_API_KEY not set -- Codestral skipped.")
+    if ONLY_MODELS:
+        clients = {k: v for k, v in clients.items() if k in ONLY_MODELS}
+        log.info("ONLY_MODELS=%s -> running: %s", sorted(ONLY_MODELS), list(clients))
     return clients
 
 
@@ -155,6 +166,7 @@ def run():
                     "level": entry["condition"],       # scorer-compatible field
                     "medium": entry["medium"],
                     "model": model_name,
+                    "model_id": MODEL_ID[api_type],    # exact model string, for reproducibility
                     "prompt_text": entry["prompt"],
                     "completion": completion,
                     "error": None,
@@ -172,6 +184,7 @@ def run():
                     "level": entry["condition"],
                     "medium": entry["medium"],
                     "model": model_name,
+                    "model_id": MODEL_ID[api_type],
                     "prompt_text": entry["prompt"],
                     "completion": None,
                     "error": str(e),

@@ -179,7 +179,7 @@ def run(max_tests):
             code = extract_solution(r.get("completion"), r["entry_point"])
             tl = sample_tests(rec, max_tests)
             ok = passes(code, r["entry_point"], tl) if tl else False  # no tests -> not a pass
-        scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model")}
+        scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model", "model_id")}
                       | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok})
         if (i + 1) % 100 == 0:
             print(f"  scored {i+1}/{len(responses)}", flush=True)
