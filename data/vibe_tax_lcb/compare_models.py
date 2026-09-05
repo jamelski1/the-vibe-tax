@@ -87,6 +87,29 @@ def run(baseline, new, model):
     print()
     show("REGRESSIONS (baseline passed → new fails)", c_only)
 
+    # ---- per-problem view: aggregate across framings to separate signal from noise ----
+    # A flip in ALL framings of a problem is a robust capability change; a flip in
+    # just 1 framing is likely temperature/sampling noise.
+    by_task = defaultdict(lambda: {"a": 0, "b": 0, "n": 0, "diff": None})
+    for (tid, lvl) in keys:
+        t = by_task[tid]
+        t["a"] += A[(tid, lvl)]["passed"]; t["b"] += B[(tid, lvl)]["passed"]
+        t["n"] += 1; t["diff"] = A[(tid, lvl)].get("difficulty")
+    improved = [t for t, v in by_task.items() if v["b"] > v["a"]]
+    regressed = [t for t, v in by_task.items() if v["b"] < v["a"]]
+    same = [t for t, v in by_task.items() if v["b"] == v["a"]]
+    robust_gain = [t for t, v in by_task.items() if v["a"] == 0 and v["b"] == v["n"]]
+    robust_loss = [t for t, v in by_task.items() if v["a"] == v["n"] and v["b"] == 0]
+    print("\n" + "=" * 64)
+    print(f"PER-PROBLEM ({len(by_task)} problems, aggregating the {max(v['n'] for v in by_task.values())} framings):")
+    print(f"  improved (new solved more framings): {len(improved)}")
+    print(f"  regressed (new solved fewer)       : {len(regressed)}")
+    print(f"  unchanged                          : {len(same)}")
+    print(f"  ROBUST gain  (0/all → all framings): {len(robust_gain)}  {sorted(robust_gain)}")
+    print(f"  ROBUST loss  (all → 0 framings)    : {len(robust_loss)}  {sorted(robust_loss)}")
+    print("  (robust flips are real capability changes; single-framing flips are likely noise,")
+    print("   especially since the new model ran at temperature 1 vs the baseline's 0.)")
+
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
