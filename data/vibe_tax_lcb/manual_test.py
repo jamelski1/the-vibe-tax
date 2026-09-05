@@ -80,6 +80,18 @@ def main():
         return
     sol_cls = ns.get("Solution")
 
+    # guard: does the code actually define the method THIS problem needs?
+    inst_probe = sol_cls() if sol_cls else None
+    if getattr(inst_probe, entry, None) is None and ns.get(entry) is None:
+        defined = [m for m in dir(inst_probe) if not m.startswith("_")] if inst_probe else \
+                  [k for k, v in ns.items() if callable(v) and not k.startswith("_")]
+        print(f"!! MISMATCH: {task_id} needs a method named `{entry}`, but the pasted")
+        print(f"   code defines: {defined}")
+        print(f"   -> You're probably testing the wrong problem for this answer, or the")
+        print(f"      wrong answer for this problem. Make the task_id match the solution")
+        print(f"      (tip: `python print_prompt.py {task_id} terse` shows the right problem).")
+        return
+
     cases = rec.get("public_tests", []) + rec.get("private_tests", [])
     npass = 0
     for i, t in enumerate(cases[:MAX_SHOW]):
