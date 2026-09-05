@@ -1,6 +1,24 @@
 # Ablation: does a newer model (GPT-5.6) close the LiveCodeBench capability gap?
 
-**Exploratory capability probe**, not a controlled comparison — see the caveat.
+> ## ⚠️ THE NUMBERS BELOW ARE INVALID (token-truncation artifact) — RE-RUN REQUIRED
+>
+> The first GPT-5.6 run used `MAX_TOKENS=2048`. GPT-5.6 is a **reasoning model** that
+> spends output budget on hidden reasoning before answering, so on hard problems the
+> budget ran out and the API returned an **empty** completion → scored FAIL.
+> Diagnosis (`check_gpt56_truncation.py`): **73 of 148 failures (49%) were empty
+> completions**, including **65 of 101 hard failures (64%)** and 8 medium. These are
+> not wrong answers — the model never got to answer. Manual re-tests confirm 5.6
+> solves several of these reliably (e.g. lcb/3550, 3/3).
+>
+> **The 77.8% / +3.7pt result below is therefore a LOWER BOUND. Re-run with**
+> **`MAX_TOKENS=16000`** (reasoning models need room to think *and* answer), then
+> re-score and re-compare. This section will be rewritten with the valid numbers.
+>
+> This is a fourth measurement artifact the project has caught (after code-extraction,
+> benchmark saturation, and a test-display cap): **an output-token cap can silently
+> zero out a reasoning model on the hardest problems.**
+
+**Exploratory capability probe**, not a controlled comparison — see caveats.
 Re-run `python compare_models.py --new lcb_v3_gpt56_scored.json --model chatgpt`.
 
 ## Setup (stamped in the raw data for reproducibility)

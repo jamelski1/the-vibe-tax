@@ -59,7 +59,12 @@ CHECKPOINT_INTERVAL = 50
 # The value used is stamped into every record for reproducibility.
 _temp = os.getenv("API_TEMPERATURE", "0").strip().lower()
 TEMPERATURE = None if _temp in ("", "none", "default", "omit") else float(_temp)
-MAX_TOKENS = int(os.getenv("MAX_TOKENS", "2048"))  # reasoning models may need more
+# Output-token cap. NOTE: reasoning models (gpt-5.x, o-series) spend this budget on
+# hidden reasoning BEFORE the visible answer, so a low cap silently truncates them to
+# an empty completion on hard problems (this happened at 2048 — see
+# vibe_tax_lcb/ABLATION_gpt56.md). Default raised to 8192; set MAX_TOKENS=16000+ for
+# reasoning models on hard benchmarks.
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "8192"))
 
 # Deliberately minimal and medium-neutral: real users don't ship an elaborate
 # system prompt, and per-condition instructions live in the user prompt itself.
