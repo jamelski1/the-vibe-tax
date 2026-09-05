@@ -16,6 +16,7 @@ No API keys, no network.
 """
 
 import json
+import multiprocessing
 import os
 import sys
 
@@ -23,7 +24,31 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 from score_lcb import extract_solution, parse_input, parse_lit, eq, _IMPORTS  # reuse scorer logic
 
-MAX_SHOW = 25   # cap tests shown
+MAX_SHOW = 25    # cap tests shown
+TIMEOUT = 15     # seconds for the whole test run (kills infinite loops / TLE, like the scorer)
+
+
+def _run_tests_worker(code, entry, cases, q):
+    """Run every test in a subprocess, STREAMING results into q so a hang can be
+    detected and the last-attempted test identified."""
+    ns = {}
+    try:
+        exec(_IMPORTS + code, ns)
+    except Exception as e:
+        q.append((-1, False, "", "", f"import error: {e}")); return
+    sol_cls = ns.get("Solution")
+    for i, t in enumerate(cases):
+        q.append((i, None, None, None, None))   # "started test i" marker
+        try:
+            args = parse_input(t["input"]); expected = parse_lit(t["output"])
+            inst = sol_cls() if sol_cls else None
+            fn = getattr(inst, entry, None) or ns.get(entry)
+            got = fn(*args)
+            ok = eq(got, expected)
+        except Exception as e:
+            args = t.get("input"); expected = t.get("output")
+            got = f"EXCEPTION: {type(e).__name__}: {e}"; ok = False
+        q[-1] = (i, ok, args, expected, got)     # replace marker with result
 
 
 def load_tests():
@@ -93,36 +118,44 @@ def main():
         return
 
     cases = rec.get("public_tests", []) + rec.get("private_tests", [])
-    npass = 0
+
+    # Run all tests in a subprocess with an overall timeout, so an infinite loop
+    # or too-slow (TLE) solution can't hang the tester (the real scorer does this).
+    mgr = multiprocessing.Manager(); q = mgr.list()
+    proc = multiprocessing.Process(target=_run_tests_worker, args=(code, entry, cases, q))
+    proc.start(); proc.join(TIMEOUT)
+    timed_out = proc.is_alive()
+    if timed_out:
+        proc.kill(); proc.join(3)
+
+    results = list(q)
+    npass = sum(1 for r in results if r[1] is True)
     fails_shown = 0
-    for i, t in enumerate(cases):          # run EVERY test (like the real scorer)
-        args = parse_input(t["input"])
-        expected = parse_lit(t["output"])
-        try:
-            inst = sol_cls() if sol_cls else None
-            fn = getattr(inst, entry, None) or ns.get(entry)
-            got = fn(*args)
-            ok = eq(got, expected)
-        except Exception as e:
-            got = f"EXCEPTION: {type(e).__name__}: {e}"
-            ok = False
-        npass += ok
-        # show the first MAX_SHOW results, and ALWAYS show failures (capped)
+    for (i, ok, args, expected, got) in results:
+        if ok is None:      # a "started but not finished" marker (the hung test)
+            continue
         if i < MAX_SHOW or (not ok and fails_shown < 15):
             print(f"test {i:2d}: {'PASS' if ok else 'FAIL'}")
             if not ok:
                 fails_shown += 1
-                g = str(got)
                 print(f"         args     = {str(args)[:200]}")
                 print(f"         expected = {str(expected)[:200]}")
-                print(f"         got      = {g[:200]}")
+                print(f"         got      = {str(got)[:200]}")
+
     total = len(cases)
     print("=" * 64)
-    print(f"RESULT: {npass}/{total} tests passed"
-          + ("  -> PASSES (all tests)" if npass == total else "  -> FAILS")
-          + (f"   (results/failures capped in the display; ALL {total} were run)"
-             if total > MAX_SHOW else ""))
+    if timed_out:
+        hung = results[-1][0] if results else "?"
+        print(f"RESULT: TIMED OUT after {TIMEOUT}s on test {hung} "
+              f"({npass}/{total} passed before it hung)  -> FAILS")
+        print("  The solution has an infinite loop or is too slow (TLE) on a large input.")
+        print("  This is a REAL failure — the automated scorer kills it the same way.")
+    else:
+        print(f"RESULT: {npass}/{total} tests passed"
+              + ("  -> PASSES (all tests)" if npass == total else "  -> FAILS")
+              + (f"   (display capped; ALL {total} were run)" if total > MAX_SHOW else ""))
 
 
 if __name__ == "__main__":
+    multiprocessing.set_start_method("spawn", force=True)   # Windows-safe
     main()
