@@ -94,7 +94,8 @@ def main():
 
     cases = rec.get("public_tests", []) + rec.get("private_tests", [])
     npass = 0
-    for i, t in enumerate(cases[:MAX_SHOW]):
+    fails_shown = 0
+    for i, t in enumerate(cases):          # run EVERY test (like the real scorer)
         args = parse_input(t["input"])
         expected = parse_lit(t["output"])
         try:
@@ -106,16 +107,21 @@ def main():
             got = f"EXCEPTION: {type(e).__name__}: {e}"
             ok = False
         npass += ok
-        print(f"test {i:2d}: {'PASS' if ok else 'FAIL'}")
-        if not ok:
-            print(f"         args     = {args}")
-            print(f"         expected = {expected}")
-            print(f"         got      = {got}")
-    shown = min(len(cases), MAX_SHOW)
+        # show the first MAX_SHOW results, and ALWAYS show failures (capped)
+        if i < MAX_SHOW or (not ok and fails_shown < 15):
+            print(f"test {i:2d}: {'PASS' if ok else 'FAIL'}")
+            if not ok:
+                fails_shown += 1
+                g = str(got)
+                print(f"         args     = {str(args)[:200]}")
+                print(f"         expected = {str(expected)[:200]}")
+                print(f"         got      = {g[:200]}")
+    total = len(cases)
     print("=" * 64)
-    print(f"RESULT: {npass}/{shown} shown tests passed"
-          + ("  -> PASSES (all shown)" if npass == shown else "  -> FAILS")
-          + (f"   ({len(cases)} total tests; showing first {MAX_SHOW})" if len(cases) > MAX_SHOW else ""))
+    print(f"RESULT: {npass}/{total} tests passed"
+          + ("  -> PASSES (all tests)" if npass == total else "  -> FAILS")
+          + (f"   (results/failures capped in the display; ALL {total} were run)"
+             if total > MAX_SHOW else ""))
 
 
 if __name__ == "__main__":
