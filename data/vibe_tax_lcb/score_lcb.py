@@ -80,27 +80,40 @@ def _trim_to_compilable(code):
 
 def extract_solution(completion, entry):
     """Pull runnable code that defines `class Solution` (or the method), robust to
-    trailing prose and leading chatter. Returns the first candidate that compiles
-    AND still defines the target (so we never hand exec() a prose paragraph)."""
+    trailing prose, leading chatter, AND helper definitions (Fenwick/DSU/Segments…)
+    the model defines BEFORE `class Solution`. Returns the first candidate that
+    compiles and still defines the target. Candidates that KEEP the helpers are
+    tried first, so we don't hand exec() a Solution that references an undefined
+    helper we chopped off."""
     if not completion:
         return None
+    text = "\n".join(l for l in completion.split("\n") if not l.strip().startswith("```"))
+    blocks = re.findall(r"```(?:python|py)?\s*\n(.*?)```", completion, re.DOTALL)
+    code_blocks = [b for b in blocks if re.search(r"(?m)^\s*(?:class|def|import|from|@)\s", b)]
+
     cands = []
-    # 1) fenced code blocks that mention the class/method (highest confidence)
-    for b in re.findall(r"```(?:python|py)?\s*\n(.*?)```", completion, re.DOTALL):
+    # (B) from the FIRST top-level code construct to the end — keeps helper
+    #     classes/functions defined above `class Solution` (fixes the drop bug).
+    m = re.search(r"(?m)^(?:class|def|import|from|@)\s", text)
+    if m:
+        cands.append(text[m.start():])
+    # (A) all fenced code blocks concatenated — helper and Solution in separate blocks.
+    if code_blocks:
+        cands.append("\n\n".join(code_blocks))
+    # (C) a single block that names the target (old high-confidence path).
+    for b in blocks:
         if "class Solution" in b or f"def {entry}" in b:
             cands.append(b)
-    # 2) unfenced: slice from the class/def anchor to the end (drops leading prose)
-    text = "\n".join(l for l in completion.split("\n") if not l.strip().startswith("```"))
+    # (D) old anchor slice, last resort.
     for anchor in ("class Solution", f"def {entry}"):
         i = text.find(anchor)
         if i != -1:
             cands.append(text[i:])
-    # return the first candidate that, after trimming trailing prose, compiles
+
     for c in cands:
         t = _trim_to_compilable(c)
         if t and ("class Solution" in t or f"def {entry}" in t):
             return t
-    # last resort: the raw text (old behaviour) so we never regress to None
     return cands[0] if cands else None
 
 
