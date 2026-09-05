@@ -24,31 +24,27 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
 from score_lcb import extract_solution, parse_input, parse_lit, eq, _IMPORTS  # reuse scorer logic
 
-MAX_SHOW = 25    # cap tests shown
-TIMEOUT = 15     # seconds for the whole test run (kills infinite loops / TLE, like the scorer)
+MAX_SHOW = 25          # cap tests shown
+PER_TEST_TIMEOUT = 6   # seconds PER test — a hang on one test is skipped, the rest still run
 
 
-def _run_tests_worker(code, entry, cases, q):
-    """Run every test in a subprocess, STREAMING results into q so a hang can be
-    detected and the last-attempted test identified."""
+def _one_test_worker(code, entry, t, q):
+    """Run ONE test in its own subprocess so a hang only kills that test."""
     ns = {}
     try:
         exec(_IMPORTS + code, ns)
     except Exception as e:
-        q.append((-1, False, "", "", f"import error: {e}")); return
+        q.append((False, "", "", f"import error: {e}")); return
     sol_cls = ns.get("Solution")
-    for i, t in enumerate(cases):
-        q.append((i, None, None, None, None))   # "started test i" marker
-        try:
-            args = parse_input(t["input"]); expected = parse_lit(t["output"])
-            inst = sol_cls() if sol_cls else None
-            fn = getattr(inst, entry, None) or ns.get(entry)
-            got = fn(*args)
-            ok = eq(got, expected)
-        except Exception as e:
-            args = t.get("input"); expected = t.get("output")
-            got = f"EXCEPTION: {type(e).__name__}: {e}"; ok = False
-        q[-1] = (i, ok, args, expected, got)     # replace marker with result
+    try:
+        args = parse_input(t["input"]); expected = parse_lit(t["output"])
+        inst = sol_cls() if sol_cls else None
+        fn = getattr(inst, entry, None) or ns.get(entry)
+        got = fn(*args)
+        q.append((eq(got, expected), args, expected, got))
+    except Exception as e:
+        q.append((False, t.get("input"), t.get("output"),
+                  f"EXCEPTION: {type(e).__name__}: {e}"))
 
 
 def load_tests():
@@ -119,23 +115,26 @@ def main():
 
     cases = rec.get("public_tests", []) + rec.get("private_tests", [])
 
-    # Run all tests in a subprocess with an overall timeout, so an infinite loop
-    # or too-slow (TLE) solution can't hang the tester (the real scorer does this).
-    mgr = multiprocessing.Manager(); q = mgr.list()
-    proc = multiprocessing.Process(target=_run_tests_worker, args=(code, entry, cases, q))
-    proc.start(); proc.join(TIMEOUT)
-    timed_out = proc.is_alive()
-    if timed_out:
-        proc.kill(); proc.join(3)
-
-    results = list(q)
-    npass = sum(1 for r in results if r[1] is True)
-    fails_shown = 0
-    for (i, ok, args, expected, got) in results:
-        if ok is None:      # a "started but not finished" marker (the hung test)
-            continue
+    # Each test runs in its own subprocess with a per-test timeout, so a hang on
+    # one test is marked TIMEOUT and we CONTINUE to the rest (debugging view).
+    mgr = multiprocessing.Manager()
+    npass = timeouts = fails_shown = 0
+    for i, t in enumerate(cases):
+        q = mgr.list()
+        p = multiprocessing.Process(target=_one_test_worker, args=(code, entry, t, q))
+        p.start(); p.join(PER_TEST_TIMEOUT)
+        if p.is_alive():                       # hung on this test
+            p.kill(); p.join(2)
+            status, ok, args, expected, got = "TIMEOUT", False, t.get("input"), t.get("output"), \
+                f"(no result in {PER_TEST_TIMEOUT}s — infinite loop / too slow)"
+            timeouts += 1
+        else:
+            ok, args, expected, got = (list(q)[0] if q else (False, t.get("input"),
+                                       t.get("output"), "(no result)"))
+            status = "PASS" if ok else "FAIL"
+        npass += ok
         if i < MAX_SHOW or (not ok and fails_shown < 15):
-            print(f"test {i:2d}: {'PASS' if ok else 'FAIL'}")
+            print(f"test {i:2d}: {status}")
             if not ok:
                 fails_shown += 1
                 print(f"         args     = {str(args)[:200]}")
@@ -144,16 +143,10 @@ def main():
 
     total = len(cases)
     print("=" * 64)
-    if timed_out:
-        hung = results[-1][0] if results else "?"
-        print(f"RESULT: TIMED OUT after {TIMEOUT}s on test {hung} "
-              f"({npass}/{total} passed before it hung)  -> FAILS")
-        print("  The solution has an infinite loop or is too slow (TLE) on a large input.")
-        print("  This is a REAL failure — the automated scorer kills it the same way.")
-    else:
-        print(f"RESULT: {npass}/{total} tests passed"
-              + ("  -> PASSES (all tests)" if npass == total else "  -> FAILS")
-              + (f"   (display capped; ALL {total} were run)" if total > MAX_SHOW else ""))
+    verdict = "PASSES (all tests)" if npass == total else "FAILS"
+    extra = f" — {timeouts} test(s) TIMED OUT (infinite loop / TLE)" if timeouts else ""
+    print(f"RESULT: {npass}/{total} tests passed  -> {verdict}{extra}"
+          + (f"   (display capped; ALL {total} were run)" if total > MAX_SHOW else ""))
 
 
 if __name__ == "__main__":
