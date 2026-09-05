@@ -66,8 +66,17 @@ def main():
     ns = {}
     try:
         exec(_IMPORTS + code, ns)
+    except (SyntaxError, IndentationError) as e:
+        print(f"!! Code does not even run (parse error): {e}")
+        print("   HINT: this usually means a COPY-PASTE artifact, not a model error —")
+        print("   e.g. the model put some code OUTSIDE the ``` block and the web UI")
+        print("   flattened its indentation when you copied it. Ask the model to put")
+        print("   ALL the code in ONE Python code block, or use the block's copy button,")
+        print("   then re-paste. (In the automated pipeline the API text is exact, so")
+        print("   this doesn't happen there.)")
+        return
     except Exception as e:
-        print(f"!! Code does not even run (import/parse error): {e}")
+        print(f"!! Code does not even run (runtime error at import): {e}")
         return
     sol_cls = ns.get("Solution")
 
