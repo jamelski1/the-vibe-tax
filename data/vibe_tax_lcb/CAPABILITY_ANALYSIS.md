@@ -69,6 +69,16 @@ right function — it just computes the wrong answer on hard problems. There are
 the models don't fail because they can't write code; they fail because they can't
 *solve the problem*.
 
+**This also rules out output-token truncation for the main study.** A per-model
+check of empty completions (the signature of a reasoning model running out of
+`max_tokens` before answering) found **0 empty completions** across all three
+models — gpt-5.4 (0/173 failures, 0/105 hard), claude-opus-4-6 (0/142, 0/95), and
+codestral (0/482) — at the same `MAX_TOKENS=2048`. So the 2048 cap did not
+throttle the main models. (It *did* throttle the GPT-5.6 ablation, which is a
+heavier reasoning model — 73/148 of its failures were empty — see
+`ABLATION_gpt56.md`. That is why 5.6 needs `MAX_TOKENS=16000`, but the main study
+does not.)
+
 *Caveat:* "wrong logic" here bundles wrong-answer, runtime exceptions, and
 time-limit (efficiency) failures — we can't separate them without running the
 graded tests locally. Splitting **time-limit (correct-but-too-slow)** from
