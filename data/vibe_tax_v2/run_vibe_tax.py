@@ -53,6 +53,14 @@ CODESTRAL_BASE_URL = "https://api.mistral.ai/v1"
 API_DELAY = float(os.getenv("API_DELAY", "1.0"))
 CHECKPOINT_INTERVAL = 50
 
+# Temperature: default 0 (deterministic, as the study ran). Newer reasoning
+# models (e.g. gpt-5.6) reject temperature=0 and only allow their default — set
+# API_TEMPERATURE=none (or "default") to OMIT the parameter, or =1 explicitly.
+# The value used is stamped into every record for reproducibility.
+_temp = os.getenv("API_TEMPERATURE", "0").strip().lower()
+TEMPERATURE = None if _temp in ("", "none", "default", "omit") else float(_temp)
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "2048"))  # reasoning models may need more
+
 # Deliberately minimal and medium-neutral: real users don't ship an elaborate
 # system prompt, and per-condition instructions live in the user prompt itself.
 # The scorer's clean_completion() handles full-function or body-only replies.
@@ -112,19 +120,22 @@ def make_clients():
 
 def query(api_type, client, prompt):
     if api_type == "anthropic":
-        r = client.messages.create(
-            model=ANTHROPIC_MODEL, temperature=0, max_tokens=2048,
-            system=SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": prompt}])
+        kw = dict(model=ANTHROPIC_MODEL, max_tokens=MAX_TOKENS, system=SYSTEM_PROMPT,
+                  messages=[{"role": "user", "content": prompt}])
+        if TEMPERATURE is not None:
+            kw["temperature"] = TEMPERATURE
+        r = client.messages.create(**kw)
         return r.content[0].text
     model = OPENAI_MODEL if api_type == "openai" else CODESTRAL_MODEL
-    kwargs = dict(model=model, temperature=0,
+    kwargs = dict(model=model,
                   messages=[{"role": "system", "content": SYSTEM_PROMPT},
                             {"role": "user", "content": prompt}])
+    if TEMPERATURE is not None:
+        kwargs["temperature"] = TEMPERATURE
     if api_type == "openai":
-        kwargs["max_completion_tokens"] = 2048
+        kwargs["max_completion_tokens"] = MAX_TOKENS
     else:
-        kwargs["max_tokens"] = 2048
+        kwargs["max_tokens"] = MAX_TOKENS
     r = client.chat.completions.create(**kwargs)
     return r.choices[0].message.content
 
@@ -167,6 +178,7 @@ def run():
                     "medium": entry["medium"],
                     "model": model_name,
                     "model_id": MODEL_ID[api_type],    # exact model string, for reproducibility
+                    "temperature": TEMPERATURE,        # None = model default (omitted)
                     "prompt_text": entry["prompt"],
                     "completion": completion,
                     "error": None,
@@ -185,6 +197,7 @@ def run():
                     "medium": entry["medium"],
                     "model": model_name,
                     "model_id": MODEL_ID[api_type],
+                    "temperature": TEMPERATURE,
                     "prompt_text": entry["prompt"],
                     "completion": None,
                     "error": str(e),
@@ -212,6 +225,9 @@ def run():
         "elapsed_seconds": (datetime.now() - start).total_seconds(),
         "models": {"chatgpt": OPENAI_MODEL, "claude": ANTHROPIC_MODEL,
                    "codestral": CODESTRAL_MODEL},
+        "only_models": sorted(ONLY_MODELS) or "all",
+        "temperature": TEMPERATURE,
+        "max_tokens": MAX_TOKENS,
         "total": len(results),
         "errors": errors,
     }
