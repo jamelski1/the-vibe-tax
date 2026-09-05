@@ -42,10 +42,45 @@ regressions → **Δ +3.7 pts, p = 0.030 (significant)**.
   this is *model + temperature*, not model alone, and much of the 74/49 churn is
   sampling noise, not capability. The net +3.7 is real; the per-cell flips are not
   all real.
-- **Separate signal from noise with the per-problem view** (bottom of
-  `compare_models.py` output): a flip in **all 4 framings** of a problem is a robust
-  capability change; a flip in **1 framing** is likely temperature noise. Read the
-  ROBUST gain/loss lists there for the trustworthy changes.
+## Per-problem view — the trustworthy signal
+
+Aggregating the 4 framings per problem (167 problems) strips out single-framing
+temperature noise. This is the honest capability delta:
+
+| | count |
+|---|--:|
+| improved (5.6 solved more framings) | 34 |
+| regressed (5.6 solved fewer) | 24 |
+| unchanged | 109 |
+| **robust gain** (5.4 0/4 → 5.6 4/4) | **5** |
+| **robust loss** (5.4 4/4 → 5.6 0/4) | **4** |
+
+So once noise is removed the real generational delta on these problems is **small**:
+net +10 at the "improved" level, and only **+1 net at the robust level** (5 solid
+gains vs 4 solid losses). The headline "74 newly solved" was mostly single-framing
+churn from temperature 1.
+
+**Robust gains** (problems 5.6 solidly cracked that 5.4 couldn't touch):
+
+| task | difficulty | method |
+|------|-----------|--------|
+| lcb/3496 | medium | minNumberOfSeconds |
+| lcb/3603 | hard | findAnswer |
+| lcb/3680 | hard | countComponents |
+| lcb/3687 | hard | longestSpecialPath |
+| lcb/3776 | medium | minCost |
+
+**Robust losses** (5.4 solved every framing, 5.6 none):
+
+| task | difficulty | method |
+|------|-----------|--------|
+| lcb/3583 | hard | gcdValues |
+| lcb/3715 | medium | maximumCoins |
+| lcb/3739 | hard | distanceSum |
+| lcb/3751 | medium | maxFrequency |
+
+The gains skew slightly harder than the losses (3 hard vs 2), consistent with a
+small real improvement on the frontier — but with n=5 vs 4 it is not a strong claim.
 
 ## Does it change the study's conclusions? No.
 
