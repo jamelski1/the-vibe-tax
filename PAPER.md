@@ -202,8 +202,9 @@ disappears:
 
 **Detailed ties terse; every comparison is null** (discordant cells near-symmetric:
 terse>detailed 13, detailed>terse 17). The entire +9.3-pt "politeness tax" was the
-extractor. Correctness on LCB is governed by **difficulty** (easy ~98%, medium
-~81%, hard ~51%), not by how the request is phrased.
+extractor. Correctness on LCB is governed by **difficulty** (capable models:
+easy 98.5%, medium 87.3%, hard 60.5% after the scorer fixes of §8), not by how
+the request is phrased.
 
 **Capability is a continuum, not solved/unsolved.** Binary pass@1 ("did an attempt
 pass *all* tests?") discards how *close* the models get. Scoring at the test level
@@ -269,7 +270,7 @@ invisible in aggregate pass rates.
 | 1 | **Extraction — trailing prose.** With "no code fences," models append an explanation after the code; a naive extractor hands code+prose to the interpreter → `SyntaxError` on correct code. Polite/verbose framing elicits more explanation. | A significant **+9.3-pt "politeness tax"** (p=0.007). Entirely an artifact. | Trim to the largest compilable prefix. Effect → null. |
 | 2 | **Extraction — dropped helpers.** Models define a helper (`Fenwick`, `DSU`) *above* `class Solution`; slicing from the class drops it → `NameError`. | **11 correct solutions scored FAIL** (concentrated on hard problems). | Keep top-level definitions preceding the class. |
 | 3 | **Benchmark saturation.** At ~90% (HumanEval) there is no room to size a small effect. | A real effect reads as ~+3 pts (ceiling-crushed) and looks negligible / null. | Use a de-saturated benchmark (LiveCodeBench). |
-| 4 | **Per-problem total timeout.** One 8-second budget for *all* of a problem's tests kills a correct-but-slow solution on a many-test problem, even though each test passes. | ≥3 problems marked **"never solved"** were in fact solved (42/42, 43/43). | Per-*test* timeout (judges limit per test, not per suite). |
+| 4 | **Per-problem total timeout.** One 8-second budget for *all* of a problem's tests kills a correct-but-slow solution on a many-test problem, even though each test passes. | Problems marked **"never solved"** were in fact solved (42/42, 43/43). With #2, re-scoring cut "never solved" from **15 → 10** and raised hard-problem pass from 51% to 60.5%. | Per-*test* timeout (judges limit per test, not per suite). |
 | 5 | **Output-token cap on a reasoning model.** `max_tokens=2048` is spent on hidden reasoning before the answer; the API returns an **empty** completion on hard problems. | GPT-5.6 looked far weaker (**65/101 hard "failures" were empty**) — an invalid ablation. | Raise the budget (16k+); only the reasoning model was affected — the main study (non-reasoning models) had 0 empty completions. |
 | 6 | **Metric — binary vs partial credit.** Problem-level pass@1 is all-or-nothing. | "LCB-hard = 0/51 fully solved" reads as a capability wall. | Test-level partial credit shows the best attempt passes **97%** of hard-problem tests — imprecision, not incapacity. |
 
@@ -307,8 +308,8 @@ per-cell results, which is how five of the six were caught.
 - **n=167 LCB problems** (43 easy / 73 medium / 51 hard) × 4 framings × 3 models
   = 2,004 completions. Codestral floors on hard problems, so we read the
   capable-model slice (ChatGPT + Claude); both the full set and the capable slice
-  give the same null. (With all three models terse is if anything the *lowest*
-  framing, further ruling out a terseness advantage.)
+  give the same null. (All four framings fall within ~3 points of one another,
+  ruling out any terseness advantage.)
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
 

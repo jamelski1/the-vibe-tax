@@ -39,34 +39,35 @@ inflate correctness** (extracted code must still pass the real tests).
 
 ## Post-fix result: no framing effect
 
-Full 3-model set (ChatGPT + Claude + Codestral, n=2,004). Pass rate by condition:
+Full 3-model set (ChatGPT + Claude + Codestral, n=2,004), **re-scored with the
+fixed extractor + per-test timeout**. Pass rate by condition:
 
 | Condition (wrapper around identical problem) | overall (3 models) | capable (CG+Cl) | easy | medium | hard |
 |----------------------------------------------|-------------------:|----------------:|-----:|-------:|-----:|
-| agentic_terse | 58.7 | 74.9 | 88.4 | 60.3 | 31.4 |
-| agentic_casual | 60.1 | 76.0 | 87.6 | 60.7 | 35.9 |
-| webchat_detailed (*"Hi! Could you help… Thank you!"*) | 59.7 | 76.0 | 89.1 | 60.3 | 34.0 |
-| webchat_multilingual (Chinese wrapper) | 62.5 | 78.7 | 93.0 | 63.5 | 35.3 |
+| agentic_terse | 63.3 | 81.7 | 88.4 | 64.8 | 39.9 |
+| agentic_casual | 63.5 | 81.1 | 87.6 | 64.4 | 41.8 |
+| webchat_detailed (*"Hi! Could you help… Thank you!"*) | 63.1 | 81.1 | 89.1 | 64.8 | 38.6 |
+| webchat_multilingual (Chinese wrapper) | 66.1 | 84.1 | 93.0 | 67.1 | 41.8 |
 
-Terse is if anything the **lowest** condition, not the highest — the pre-fix
-"terse wins" ordering has fully inverted. Paired McNemar, `terse` vs each other
-framing (reproduce: `python mcnemar_lcb.py --base agentic_terse`):
+All four framings sit within ~3 points; terse, casual, and detailed are
+indistinguishable. Paired McNemar, `terse` vs each other framing (reproduce:
+`python mcnemar_lcb.py --base agentic_terse`):
 
 | terse vs … | slice | Δ (pts) | p | |
 |------------|-------|--------:|--:|--|
-| webchat_detailed | all | −1.0 | 0.511 | n.s. |
+| webchat_detailed | all | +0.2 | 1.000 | n.s. |
 | | medium | 0.0 | 1.000 | n.s. |
-| | capable models | −1.2 | 0.585 | n.s. |
-| | capable × medium | 0.0 | 1.000 | n.s. |
-| agentic_casual | all | −1.4 | 0.281 | n.s. |
-| webchat_multilingual | all | −3.8 | **0.013** | *see note* |
-| | medium | −3.2 | 0.210 | n.s. |
-| | capable models | −3.9 | 0.060 | n.s. |
+| | capable models | +0.6 | 0.845 | n.s. |
+| agentic_casual | all | −0.2 | 1.000 | n.s. |
+| | capable models | +0.6 | 0.845 | n.s. |
+| webchat_multilingual | all | −2.8 | **0.049** | *see note* |
+| | medium | −2.3 | 0.359 | n.s. |
+| | capable models | −2.4 | 0.215 | n.s. |
 
 **The framing effect is null.** terse−detailed and terse−casual are n.s. in every
-slice; before the fix terse−detailed read +5.9/+8.7/+9.3/+13.0 with p<0.01 — that
-entire signal was the extractor. The one "significant" cell (terse < multilingual,
-all −3.8, p=0.013, and easy −4.7, p=0.031) is **not robust**: it is n.s. in
+slice; before the extractor fix terse−detailed read +5.9/+8.7/+9.3/+13.0 with
+p<0.01 — that entire signal was the extractor. The one marginal cell (terse <
+multilingual, pooled `all` −2.8, p=0.049) is **not robust**: it is n.s. in
 medium, hard, capable-models, and capable×medium, and is carried by the pooled
 "all" slice (which mixes in Codestral) plus a few near-ceiling easy problems. We
 report it as a weak curiosity, not a finding — certainly not a *penalty* for
@@ -76,8 +77,8 @@ non-English, if anything the reverse.
 
 - **There is no framing/register tax.** Holding the problem identical, phrasing a
   request tersely, casually, politely, verbosely, or in another language makes no
-  difference to correctness on LCB. **Difficulty dominates** (easy ~98%, medium
-  ~81%, hard ~51%); framing does not move it.
+  difference to correctness on LCB. **Difficulty dominates** (capable models:
+  easy 98.5%, medium 87.3%, hard 60.5%); framing does not move it.
 - **The apparent tax was a measurement artifact** — the project's own thesis,
   turned on its own pipeline. We have now caught code extraction distorting a
   prompt-style result in **both** directions: it turned a *real* signal into a 0%

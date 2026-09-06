@@ -10,10 +10,12 @@ the two capable models (ChatGPT + Claude) unless noted.
 | difficulty | pass@1 | reading |
 |-----------|-------:|---------|
 | easy   | **98.5%** | essentially solved — near-perfect |
-| medium | **81.2%** | mostly solved, real misses appear |
-| hard   | **51.0%** | coin-flip — this is the frontier |
+| medium | **87.3%** | mostly solved, real misses appear |
+| hard   | **60.5%** | the frontier |
 
-A clean monotone gradient. Difficulty — not phrasing — is what governs success.
+A clean monotone gradient (capable models, re-scored with the fixed extractor +
+per-test timeout — the earlier 81.2/51.0 figures were depressed by those scorer
+artifacts). Difficulty — not phrasing — is what governs success.
 
 ## 2. Succeeds vs fails — by topic
 
@@ -41,12 +43,14 @@ number-theoretic insight.
 
 Over all 12 attempts per problem (4 framings × 3 models):
 
-- **34 problems solved 12/12** — trivial for current models (all easy/medium).
-- **15 problems solved 0/12** — genuinely beyond every model and framing.
-  - By difficulty: **9 hard, 6 medium, 0 easy.**
+- **35 problems solved 12/12** — trivial for current models (all easy/medium).
+- **10 problems solved 0/12** — genuinely beyond every model and framing
+  (down from 15 pre-fix: 5 were scorer artifacts — dropped helpers / total-timeout
+  — recovered by the fixed scorer).
+  - By difficulty: **7 hard, 3 medium, 0 easy.**
   - They cluster in **hard strings and hard combinatorics/DP**: e.g.
-    `countBalancedPermutations`, `minCostGoodCaption`, `maximumSubarrayXor`,
-    `countGoodArrays`, `maxScore`. These are contest-hard problems requiring a
+    `numberOfAlternatingGroups`, `countBalancedPermutations`, `minCostGoodCaption`.
+    These are contest-hard problems requiring a
     real algorithmic insight, not just careful coding.
 
 So the "frontier" is concrete: the models clear easy problems and most medium
@@ -116,9 +120,11 @@ The dominant reality is **partial** (120/167), which the binary metric hides
 entirely. This is a continuum-of-capability result, and it depends on measuring at
 the test level, not the problem level.
 
-(These numbers already incorporate the extractor + per-test-timeout fixes: the run
-re-executed every failed attempt, so the "never solved" count is the corrected 12,
-down from 15.)
+(These numbers incorporate the extractor + per-test-timeout fixes. This
+partial-credit run used a tight 2s-per-test cap and found 12 never-solved; the
+authoritative problem-level re-score at 6s-per-test finds **10** — the 2 extra are
+correct-but-slow medium solutions that pass with more time, itself a small
+illustration of the timeout sensitivity in §8.)
 
 ## 5. Takeaways
 
