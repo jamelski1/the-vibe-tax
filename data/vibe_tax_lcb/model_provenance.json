@@ -1,0 +1,139 @@
+{
+  "resolved_at": "2026-09-06T15:33:08.044326Z",
+  "models": [
+    {
+      "provider": "OpenAI",
+      "requested": "gpt-5.4",
+      "canonical_id": "gpt-5.4",
+      "created": "2026-03-05T06:24:12Z",
+      "owned_by": "system",
+      "cutoff_docs": "https://platform.openai.com/docs/models  (knowledge cutoff per model)",
+      "raw": {
+        "id": "gpt-5.4",
+        "created": 1772691852,
+        "object": "model",
+        "owned_by": "system",
+        "shutdown_date": null
+      }
+    },
+    {
+      "provider": "Anthropic",
+      "requested": "claude-opus-4-6",
+      "canonical_id": "claude-opus-4-6",
+      "created": "2026-02-04 00:00:00+00:00",
+      "display_name": "Claude Opus 4.6",
+      "cutoff_docs": "https://docs.anthropic.com/en/docs/about-claude/models  (training cutoff per model)",
+      "raw": {
+        "id": "claude-opus-4-6",
+        "capabilities": {
+          "batch": {
+            "supported": true
+          },
+          "citations": {
+            "supported": true
+          },
+          "code_execution": {
+            "supported": true
+          },
+          "context_management": {
+            "clear_thinking_20251015": {
+              "supported": true
+            },
+            "clear_tool_uses_20250919": {
+              "supported": true
+            },
+            "compact_20260112": {
+              "supported": true
+            },
+            "supported": true
+          },
+          "effort": {
+            "high": {
+              "supported": true
+            },
+            "low": {
+              "supported": true
+            },
+            "max": {
+              "supported": true
+            },
+            "medium": {
+              "supported": true
+            },
+            "supported": true,
+            "xhigh": {
+              "supported": false
+            }
+          },
+          "image_input": {
+            "supported": true
+          },
+          "pdf_input": {
+            "supported": true
+          },
+          "structured_outputs": {
+            "supported": true
+          },
+          "thinking": {
+            "supported": true,
+            "types": {
+              "adaptive": {
+                "supported": true
+              },
+              "enabled": {
+                "supported": true
+              }
+            }
+          }
+        },
+        "created_at": "2026-02-04 00:00:00+00:00",
+        "display_name": "Claude Opus 4.6",
+        "max_input_tokens": 1000000,
+        "max_tokens": 128000,
+        "type": "model"
+      }
+    },
+    {
+      "provider": "Mistral (Codestral)",
+      "requested": "codestral-latest",
+      "canonical_id": "codestral-latest",
+      "created": "2026-09-06T15:33:08Z",
+      "cutoff_docs": "https://docs.mistral.ai/getting-started/models/models_overview/",
+      "raw": {
+        "id": "codestral-latest",
+        "created": 1788708788,
+        "object": "model",
+        "owned_by": "mistralai",
+        "capabilities": {
+          "completion_chat": true,
+          "function_calling": true,
+          "reasoning": false,
+          "completion_fim": true,
+          "fine_tuning": false,
+          "vision": false,
+          "ocr": false,
+          "classification": false,
+          "moderation": false,
+          "audio": false,
+          "audio_transcription": false,
+          "audio_transcription_realtime": false,
+          "audio_speech": false,
+          "unified_resources": false
+        },
+        "name": "codestral-2508",
+        "description": "Our cutting-edge language model for coding released August 2025.",
+        "max_context_length": 256000,
+        "aliases": [
+          "codestral-2508",
+          "mistral-code-latest",
+          "mistral-code-fim-latest"
+        ],
+        "deprecation": null,
+        "deprecation_replacement_model": null,
+        "default_model_temperature": 0.3,
+        "billing_model_name": "codestral-2508",
+        "type": "base"
+      }
+    }
+  ]
+}
