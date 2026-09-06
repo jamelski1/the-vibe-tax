@@ -24,6 +24,7 @@ import json
 import multiprocessing
 import os
 import re
+import time
 from collections import defaultdict
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -31,7 +32,7 @@ TESTS = os.getenv("LCB_TESTS", os.path.join(SCRIPT_DIR, "lcb_tests.jsonl"))
 RESPONSES = os.getenv("LCB_RESPONSES", os.path.join(SCRIPT_DIR, "lcb_v3_responses.json"))
 OUT = os.getenv("LCB_SCORED_OUT", os.path.join(SCRIPT_DIR, "lcb_scored.json"))
 STATS = os.getenv("LCB_SCORED_STATS", os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"))
-TIMEOUT = 8
+PER_TEST_TIMEOUT = int(os.getenv("LCB_PER_TEST_TIMEOUT", "6"))  # seconds per test (not per problem)
 # For the `with_tests` experiment: score on PRIVATE tests only, so a model that
 # was shown the public tests can't pass by hardcoding their outputs.
 PRIVATE_ONLY = os.getenv("LCB_PRIVATE_ONLY", "").lower() in ("1", "true", "yes")
@@ -129,6 +130,11 @@ def eq(a, b):
 
 
 def _worker(code, entry, tests, q):
+    """Run tests in order, STREAMING one bool per test into q, and stop at the
+    first failure (early exit). Streaming lets passes() enforce a PER-TEST timeout
+    instead of one budget for the whole suite — a correct-but-slow solution on a
+    many-test problem must not be failed just because the SUM of test times exceeds
+    a single cap (LCB, like any judge, limits each test, not the total)."""
     ns = {}
     try:
         exec(_IMPORTS + code, ns)
@@ -141,25 +147,35 @@ def _worker(code, entry, tests, q):
             expected = parse_lit(t["output"])
             inst = sol_cls() if sol_cls else None
             fn = getattr(inst, entry, None) or ns.get(entry)
-            if fn is None:
-                q.append(False); return
-            got = fn(*args)
-            if not eq(got, expected):
-                q.append(False); return
+            ok = (fn is not None) and eq(fn(*args), expected)
         except Exception:
-            q.append(False); return
-    q.append(True)
+            ok = False
+        q.append(ok)
+        if not ok:
+            return                      # early exit: one failure fails the problem
 
 
 def passes(code, entry, tests):
-    if not code:
+    """True iff EVERY test passes, each within PER_TEST_TIMEOUT seconds. A wrong
+    answer fails fast; a test that hangs (infinite loop / TLE) fails on its own
+    timeout without killing the tests that already passed."""
+    if not code or not tests:
         return False
     mgr = multiprocessing.Manager(); q = mgr.list()
     p = multiprocessing.Process(target=_worker, args=(code, entry, tests, q))
-    p.start(); p.join(TIMEOUT)
-    if p.is_alive():
-        p.kill(); p.join(3); return False
-    return bool(q) and q[0]
+    p.start()
+    seen = 0; last_progress = time.time()
+    while p.is_alive():
+        n = len(q)
+        if n > seen:
+            if q[n - 1] is False:                 # newest test failed -> stop
+                p.kill(); p.join(2); return False
+            seen = n; last_progress = time.time()
+        elif time.time() - last_progress > PER_TEST_TIMEOUT:   # hung on current test
+            p.kill(); p.join(2); return False
+        time.sleep(0.02)
+    res = list(q)
+    return len(res) == len(tests) and all(res)    # all tests present and passed
 
 
 def sample_tests(rec, k):
