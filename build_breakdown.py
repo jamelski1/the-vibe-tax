@@ -123,7 +123,7 @@ readme = [
  ("", 10, False),
  ("What to look for", 13, True),
  ("• LCB failures are 100% wrong-logic: valid code, wrong answer — the model can code, not solve.", 11, False),
- ("• Difficulty drives success: easy ~99%, medium ~81%, hard ~51%. Dynamic programming is the weakest topic.", 11, False),
+ ("• Difficulty drives success (capable models): easy 98.5%, medium 87.3%, hard 60.5%. Dynamic programming is the weakest topic.", 11, False),
  ("• HumanEval is saturated (~97%) — few failures to see there; LCB is where the signal is.", 11, False),
  ("", 10, False),
  ("Sources: LCB tabs = data/vibe_tax_lcb/lcb_scored.json + lcb_v3_responses.json + lcb_problems.jsonl;", 9, False),
@@ -262,6 +262,36 @@ if os.path.exists(g56_path):
                 cell.fill = FAIL_FILL; cell.font = FAIL_FONT
     print(f"GPT-5.6 Failures tab: {len(rows)} failing cells "
           f"({sum(1 for r in rows if r[6].startswith('REGRESSION'))} regressions)")
+
+# ============ Partial Credit (cross-benchmark summary) ============
+# Test-level partial credit: fraction of a problem's tests each of the 12 attempts
+# (4 framings x 3 models) passes, aggregated per problem. Removes the binary
+# solved/not cliff. Source: data/CROSS_BENCHMARK_PARTIAL_CREDIT.md and the
+# *_partial_credit.json files. Numbers are the 3-model main study (GPT-5.4 /
+# Claude / Codestral); GPT-5.6 is a separate ablation and is excluded.
+ws = wb.create_sheet("Partial Credit")
+pc_rows = [
+    ["HumanEval",        "96.6% (93.1% raw)", "~100%",  "40/50", 50, "saturated ceiling"],
+    ["HumanEval+",       "96.1% (91.1% raw)", "~100%",  "38/50", 50, "edge tests barely move it"],
+    ["LiveCodeBench",    "81.0%",             "98.5%",  "35/167", 167, "the headroom benchmark"],
+    ["  — LCB easy",     "95.0%",             "100.0%", "26/43", 43, "essentially solved"],
+    ["  — LCB medium",   "82.8%",             "98.6%",  "9/73",  73, "mostly solved"],
+    ["  — LCB hard",     "66.7%",             "97.1%",  "0/51",  51, "0 fully solved, yet best attempt ~97% of tests"],
+]
+write_rows(ws,
+    ["benchmark / slice", "mean-attempt test-pass", "best-attempt", "fully solved", "n", "reading"],
+    pc_rows, [20, 24, 14, 13, 8, 46])
+# note rows under the table
+note_start = ws.max_row + 2
+notes = [
+    "Mean-attempt test-pass tracks benchmark headroom exactly: ~96% (HumanEval/HE+) -> 81% (LCB) -> 67% (LCB hard).",
+    "Capability is a continuum: no hard LCB problem is solved by all 12 attempts (0/51), yet the best attempt",
+    "passes ~97% of a hard problem's tests on average. Binary pass@1 hides this entirely.",
+    "HumanEval uses an assert-based approximate scorer, HE+ an output-equivalence scorer (starred means exclude a few",
+    "problems those approximations break); LCB uses the real graded tests with the fixed extractor + per-test timeout.",
+]
+for i, txt in enumerate(notes):
+    c = ws.cell(note_start + i, 1, txt); c.font = Font(name="Arial", size=9, italic=True)
 
 wb.save(OUT)
 print("wrote", OUT)
