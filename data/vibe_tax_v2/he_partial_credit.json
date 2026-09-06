@@ -1,0 +1,452 @@
+[
+  {
+    "task_id": "HumanEval/0",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/1",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/10",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 20.0,
+    "mean": 20.0,
+    "worst": 20.0
+  },
+  {
+    "task_id": "HumanEval/13",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/152",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/153",
+    "n_asserts": 9,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/155",
+    "n_asserts": 9,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/157",
+    "n_asserts": 11,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/158",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/163",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 73.3,
+    "worst": 20.0
+  },
+  {
+    "task_id": "HumanEval/18",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/22",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/24",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/25",
+    "n_asserts": 8,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/28",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/30",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/32",
+    "n_asserts": 0,
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 0.0,
+    "mean": 0.0,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/33",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/34",
+    "n_asserts": 1,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/35",
+    "n_asserts": 2,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/36",
+    "n_asserts": 8,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/37",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/39",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 66.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/4",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/40",
+    "n_asserts": 9,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/41",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 83.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/42",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/43",
+    "n_asserts": 9,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/48",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/49",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/52",
+    "n_asserts": 6,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/54",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 85.7,
+    "worst": 57.1
+  },
+  {
+    "task_id": "HumanEval/55",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/58",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/59",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/6",
+    "n_asserts": 3,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/60",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/63",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/64",
+    "n_asserts": 8,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/65",
+    "n_asserts": 5,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/66",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/67",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 75.0,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/68",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 91.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/71",
+    "n_asserts": 9,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/75",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 67.5,
+    "worst": 0.0
+  },
+  {
+    "task_id": "HumanEval/77",
+    "n_asserts": 8,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/78",
+    "n_asserts": 7,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/80",
+    "n_asserts": 8,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/9",
+    "n_asserts": 4,
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "HumanEval/96",
+    "n_asserts": 10,
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 93.3,
+    "worst": 20.0
+  }
+]
