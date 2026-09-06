@@ -263,35 +263,98 @@ if os.path.exists(g56_path):
     print(f"GPT-5.6 Failures tab: {len(rows)} failing cells "
           f"({sum(1 for r in rows if r[6].startswith('REGRESSION'))} regressions)")
 
-# ============ Partial Credit (cross-benchmark summary) ============
-# Test-level partial credit: fraction of a problem's tests each of the 12 attempts
-# (4 framings x 3 models) passes, aggregated per problem. Removes the binary
-# solved/not cliff. Source: data/CROSS_BENCHMARK_PARTIAL_CREDIT.md and the
-# *_partial_credit.json files. Numbers are the 3-model main study (GPT-5.4 /
-# Claude / Codestral); GPT-5.6 is a separate ablation and is excluded.
+# ============ Partial Credit (per-task, line-by-line) ============
+# Per-ATTEMPT test-pass rate for EVERY LCB problem, over the 12 attempts
+# (3 models x 4 framings). Source: data/vibe_tax_lcb/full_partial_credit.json.
+#   n_solved  attempts passing ALL tests   best %  best single attempt
+#   mean %    avg test-pass over 12         worst % weakest attempt
+# A passed attempt = 100% (no re-run); only FAILED attempts are executed for
+# their partial count. This lets you inspect capability as a continuum per task.
+pc = load("data/vibe_tax_lcb/full_partial_credit.json")
+by_tid = {x["task_id"]: x for x in pc}
+
+def pc_status(x):
+    if x["n_solved"] == x["n_attempts"]:
+        return "fully_solved"
+    if x["n_solved"] == 0:
+        return "never_solved"
+    return "partially_solved"
+
+rows = []
+for tid in sorted(by_tid):
+    x = by_tid[tid]
+    p = probs.get(tid, {})
+    rows.append([tid, x["difficulty"], x["topic"], p.get("entry_point", ""),
+                 pc_status(x), x["n_solved"], x["n_attempts"],
+                 x["best"], x["mean"], x["worst"], clip(p.get("question_content", ""))])
+# difficulty groups, then most-partial (lowest mean) first within each group
+order = {"easy": 0, "medium": 1, "hard": 2}
+rows.sort(key=lambda r: (order.get(r[1], 3), r[8]))
+
 ws = wb.create_sheet("Partial Credit")
-pc_rows = [
-    ["HumanEval",        "96.6% (93.1% raw)", "~100%",  "40/50", 50, "saturated ceiling"],
-    ["HumanEval+",       "96.1% (91.1% raw)", "~100%",  "38/50", 50, "edge tests barely move it"],
-    ["LiveCodeBench",    "81.0%",             "98.5%",  "35/167", 167, "the headroom benchmark"],
-    ["  — LCB easy",     "95.0%",             "100.0%", "26/43", 43, "essentially solved"],
-    ["  — LCB medium",   "82.8%",             "98.6%",  "9/73",  73, "mostly solved"],
-    ["  — LCB hard",     "66.7%",             "97.1%",  "0/51",  51, "0 fully solved, yet best attempt ~97% of tests"],
+# --- summary header computed from the per-task rows themselves ---
+from collections import defaultdict as _dd
+bd = _dd(list)
+for x in pc:
+    bd[x["difficulty"]].append(x)
+fully = sum(1 for x in pc if x["n_solved"] == x["n_attempts"])
+part = sum(1 for x in pc if 0 < x["n_solved"] < x["n_attempts"])
+never = sum(1 for x in pc if x["n_solved"] == 0)
+hdr = [
+    ("Partial Credit — capability is a continuum (per-attempt TEST-pass rate, all 167 LCB problems)", 13, True),
+    ("Each problem gets 12 attempts (3 models x 4 framings). mean = avg test-pass % over all 12; best = best single attempt.", 10, False),
+    ("A passed attempt counts as 100%; only failed attempts are re-run for their partial test count.", 10, False),
+    ("", 10, False),
+    ("difficulty   mean-attempt   best-attempt   fully-solved", 10, True),
 ]
-write_rows(ws,
-    ["benchmark / slice", "mean-attempt test-pass", "best-attempt", "fully solved", "n", "reading"],
-    pc_rows, [20, 24, 14, 13, 8, 46])
-# note rows under the table
-note_start = ws.max_row + 2
-notes = [
-    "Mean-attempt test-pass tracks benchmark headroom exactly: ~96% (HumanEval/HE+) -> 81% (LCB) -> 67% (LCB hard).",
-    "Capability is a continuum: no hard LCB problem is solved by all 12 attempts (0/51), yet the best attempt",
-    "passes ~97% of a hard problem's tests on average. Binary pass@1 hides this entirely.",
-    "HumanEval uses an assert-based approximate scorer, HE+ an output-equivalence scorer (starred means exclude a few",
-    "problems those approximations break); LCB uses the real graded tests with the fixed extractor + per-test timeout.",
+for d in ("easy", "medium", "hard"):
+    g = bd[d]
+    if g:
+        mean = round(sum(x["mean"] for x in g) / len(g), 1)
+        best = round(sum(x["best"] for x in g) / len(g), 1)
+        fs = sum(1 for x in g if x["n_solved"] == x["n_attempts"])
+        hdr.append((f"{d:8}       {mean:5}%         {best:5}%          {fs}/{len(g)}", 10, False))
+hdr += [
+    ("", 10, False),
+    (f"Totals:  fully solved {fully}  |  partially solved {part}  |  never solved {never}   (of 167)", 10, True),
+    ("NOTE: this per-task pass was run at a 2s-per-test cap (see CAPABILITY_ANALYSIS.md §4b), so it lists "
+     f"{never} never-solved; the authoritative problem-level re-score (6s cap, 'LCB by problem' tab) finds 10 — "
+     "the extras are correct-but-slow solutions. Re-run `full_partial_credit.py --timeout 6` to align.", 8, False),
+    ("", 10, False),
 ]
-for i, txt in enumerate(notes):
-    c = ws.cell(note_start + i, 1, txt); c.font = Font(name="Arial", size=9, italic=True)
+for ri, (txt, sz, bold) in enumerate(hdr, 1):
+    c = ws.cell(ri, 1, txt)
+    c.font = Font(name="Arial", size=sz, bold=bold, italic=(sz == 8))
+# --- per-task table below the header ---
+table_start = len(hdr) + 1
+headers = ["task_id", "difficulty", "topic", "method", "status",
+           "n_solved", "n_attempts", "best %", "mean %", "worst %", "problem_statement"]
+ws.append(headers)
+for r in rows:
+    ws.append(r)
+widths = [11, 9, 20, 26, 16, 9, 11, 8, 8, 8, 80]
+for i, w in enumerate(widths, 1):
+    ws.column_dimensions[get_column_letter(i)].width = w
+for row in ws.iter_rows(min_row=table_start + 1):
+    for cell in row:
+        cell.font = BASE_FONT; cell.alignment = TOP; cell.border = THIN
+        if cell.column_letter == "K":
+            cell.font = MONO
+# color the status column
+for row in ws.iter_rows(min_row=table_start + 1, min_col=5, max_col=5):
+    for cell in row:
+        if cell.value == "fully_solved":
+            cell.fill = PASS_FILL; cell.font = PASS_FONT
+        elif cell.value == "never_solved":
+            cell.fill = FAIL_FILL; cell.font = FAIL_FONT
+# style + freeze the table header row
+for c in range(1, len(headers) + 1):
+    cell = ws.cell(table_start, c); cell.fill = HEAD_FILL; cell.font = HEAD_FONT
+    cell.alignment = Alignment(vertical="center", horizontal="left")
+ws.freeze_panes = ws.cell(table_start + 1, 1)
+ws.auto_filter.ref = f"A{table_start}:{get_column_letter(len(headers))}{ws.max_row}"
+print(f"Partial Credit tab: {len(rows)} problems "
+      f"(fully {fully} / partial {part} / never {never})")
 
 wb.save(OUT)
 print("wrote", OUT)
