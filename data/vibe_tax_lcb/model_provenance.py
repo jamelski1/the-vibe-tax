@@ -110,7 +110,7 @@ def main():
     stamp = dt.datetime.utcnow().isoformat() + "Z"
     json.dump({"resolved_at": stamp, "models": out},
               open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                "model_provenance.json"), "w"), indent=2)
+                                "model_provenance.json"), "w"), indent=2, default=str)
 
     print("=" * 74)
     print(f"MODEL PROVENANCE  (resolved {stamp})")
