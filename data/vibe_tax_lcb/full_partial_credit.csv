@@ -1,0 +1,168 @@
+task_id,difficulty,topic,status,n_solved,n_attempts,best,mean,worst
+lcb/3788,easy,dynamic programming,partially_solved,7,12,100.0,70.6,11.8
+lcb/3832,easy,greedy/array,partially_solved,8,12,100.0,70.7,12.1
+lcb/3702,easy,greedy/array,partially_solved,8,12,100.0,73.5,8.8
+lcb/3621,easy,greedy/array,partially_solved,8,12,100.0,74.8,17.6
+lcb/3625,easy,simulation/geometry,partially_solved,6,12,100.0,78.8,24.2
+lcb/3773,easy,intervals/sorting,partially_solved,9,12,100.0,88.6,36.4
+lcb/3617,easy,string,partially_solved,8,12,100.0,88.7,64.7
+lcb/3676,easy,math/number,partially_solved,10,12,100.0,89.2,35.3
+lcb/3656,easy,greedy/array,partially_solved,9,12,100.0,91.2,58.8
+lcb/3644,easy,greedy/array,partially_solved,11,12,100.0,91.7,0.0
+lcb/3685,easy,greedy/array,partially_solved,11,12,100.0,91.7,0.0
+lcb/3605,easy,greedy/array,partially_solved,11,12,100.0,91.9,3.0
+lcb/3632,easy,intervals/sorting,partially_solved,8,12,100.0,94.9,84.8
+lcb/3708,easy,greedy/array,partially_solved,8,12,100.0,96.1,88.2
+lcb/3684,easy,string,partially_solved,8,12,100.0,96.8,88.2
+lcb/3705,easy,greedy/array,partially_solved,9,12,100.0,97.0,88.2
+lcb/3753,easy,string,partially_solved,11,12,100.0,97.7,72.7
+lcb/3519,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3533,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3543,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3553,easy,simulation/geometry,fully_solved,12,12,100.0,100.0,100.0
+lcb/3555,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3567,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3568,easy,math/number,fully_solved,12,12,100.0,100.0,100.0
+lcb/3600,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3606,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3610,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3612,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3616,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3626,easy,math/number,fully_solved,12,12,100.0,100.0,100.0
+lcb/3636,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3651,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3704,easy,dynamic programming,fully_solved,12,12,100.0,100.0,100.0
+lcb/3709,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3723,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3731,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3736,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3747,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3768,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3778,easy,intervals/sorting,fully_solved,12,12,100.0,100.0,100.0
+lcb/3799,easy,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3811,easy,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3817,easy,other,fully_solved,12,12,100.0,100.0,100.0
+lcb/3743,medium,intervals/sorting,partially_solved,2,12,100.0,37.0,0.0
+lcb/3763,medium,intervals/sorting,never_solved,0,12,50.0,37.9,0.0
+lcb/3716,medium,dynamic programming,partially_solved,1,12,100.0,48.9,0.0
+lcb/3714,medium,dynamic programming,partially_solved,3,12,100.0,57.4,0.0
+lcb/3613,medium,string,never_solved,0,12,74.4,63.0,14.0
+lcb/3795,medium,greedy/array,partially_solved,5,12,100.0,67.1,36.4
+lcb/3715,medium,greedy/array,partially_solved,8,12,100.0,67.7,2.4
+lcb/3627,medium,greedy/array,partially_solved,8,12,100.0,68.2,4.7
+lcb/3629,medium,string,partially_solved,7,12,100.0,68.3,0.0
+lcb/3591,medium,string,partially_solved,7,12,100.0,68.8,21.4
+lcb/3779,medium,greedy/array,partially_solved,8,12,100.0,73.0,0.0
+lcb/3655,medium,dynamic programming,partially_solved,4,12,100.0,74.0,39.5
+lcb/3805,medium,string,partially_solved,8,12,100.0,74.4,0.0
+lcb/3754,medium,string,partially_solved,8,12,100.0,74.8,4.8
+lcb/3776,medium,dynamic programming,never_solved,0,12,88.1,75.2,19.0
+lcb/3584,medium,string,partially_solved,5,12,100.0,75.6,20.5
+lcb/3649,medium,greedy/array,partially_solved,8,12,100.0,75.6,0.0
+lcb/3518,medium,dynamic programming,partially_solved,8,12,100.0,76.6,11.9
+lcb/3639,medium,greedy/array,partially_solved,8,12,100.0,76.6,23.8
+lcb/3722,medium,dynamic programming,partially_solved,3,12,100.0,77.0,40.5
+lcb/3566,medium,string,partially_solved,9,12,100.0,78.2,4.8
+lcb/3587,medium,graph,partially_solved,8,12,100.0,78.2,0.0
+lcb/3748,medium,intervals/sorting,partially_solved,8,12,100.0,78.3,23.3
+lcb/3677,medium,simulation/geometry,partially_solved,8,12,100.0,78.4,11.9
+lcb/3737,medium,dynamic programming,partially_solved,8,12,100.0,78.6,2.4
+lcb/3751,medium,greedy/array,partially_solved,8,12,100.0,78.6,35.7
+lcb/3647,medium,greedy/array,partially_solved,7,12,100.0,78.7,27.9
+lcb/3794,medium,other,never_solved,0,12,93.0,79.2,48.8
+lcb/3759,medium,greedy/array,partially_solved,8,12,100.0,80.4,0.0
+lcb/3785,medium,greedy/array,partially_solved,8,12,100.0,80.6,39.5
+lcb/3487,medium,dynamic programming,partially_solved,8,12,100.0,81.1,27.3
+lcb/3622,medium,greedy/array,partially_solved,6,12,100.0,81.5,31.0
+lcb/3525,medium,other,partially_solved,9,12,100.0,82.2,28.6
+lcb/3786,medium,dynamic programming,partially_solved,1,12,100.0,82.7,33.3
+lcb/3681,medium,greedy/array,partially_solved,8,12,100.0,83.3,14.0
+lcb/3720,medium,graph,partially_solved,8,12,100.0,83.5,45.5
+lcb/3496,medium,greedy/array,partially_solved,10,12,100.0,83.7,0.0
+lcb/3657,medium,intervals/sorting,partially_solved,8,12,100.0,83.9,34.9
+lcb/3559,medium,string,partially_solved,5,12,100.0,84.3,60.5
+lcb/3573,medium,string,partially_solved,10,12,100.0,85.3,11.6
+lcb/3683,medium,string,partially_solved,8,12,100.0,85.3,14.3
+lcb/3721,medium,string,partially_solved,8,12,100.0,85.3,55.8
+lcb/3534,medium,greedy/array,partially_solved,8,12,100.0,86.8,60.5
+lcb/3653,medium,dynamic programming,partially_solved,8,12,100.0,86.8,44.2
+lcb/3750,medium,greedy/array,partially_solved,10,12,100.0,86.9,19.0
+lcb/3620,medium,greedy/array,partially_solved,8,12,100.0,87.1,11.9
+lcb/3594,medium,greedy/array,partially_solved,8,12,100.0,87.8,46.5
+lcb/3793,medium,string,partially_solved,7,12,100.0,87.9,50.0
+lcb/3686,medium,dynamic programming,never_solved,0,12,95.2,88.1,42.9
+lcb/3764,medium,dynamic programming,partially_solved,8,12,100.0,88.5,64.3
+lcb/3699,medium,dynamic programming,partially_solved,8,12,100.0,88.9,66.7
+lcb/3654,medium,greedy/array,partially_solved,8,12,100.0,90.5,38.1
+lcb/3791,medium,other,partially_solved,8,12,100.0,90.5,71.4
+lcb/3607,medium,greedy/array,partially_solved,8,12,100.0,92.0,67.4
+lcb/3771,medium,string,partially_solved,8,12,100.0,92.0,53.5
+lcb/3517,medium,graph,partially_solved,10,12,100.0,93.7,62.2
+lcb/3634,medium,string,partially_solved,8,12,100.0,93.7,81.0
+lcb/3495,medium,greedy/array,partially_solved,11,12,100.0,94.4,33.3
+lcb/3502,medium,string,partially_solved,8,12,100.0,94.4,83.3
+lcb/3760,medium,greedy/array,partially_solved,6,12,100.0,95.3,81.4
+lcb/3558,medium,greedy/array,partially_solved,8,12,100.0,96.5,81.4
+lcb/3570,medium,string,partially_solved,11,12,100.0,98.1,76.7
+lcb/3528,medium,greedy/array,partially_solved,11,12,100.0,99.0,88.1
+lcb/3593,medium,greedy/array,partially_solved,11,12,100.0,99.6,95.3
+lcb/3485,medium,intervals/sorting,fully_solved,12,12,100.0,100.0,100.0
+lcb/3510,medium,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3522,medium,intervals/sorting,fully_solved,12,12,100.0,100.0,100.0
+lcb/3526,medium,simulation/geometry,fully_solved,12,12,100.0,100.0,100.0
+lcb/3540,medium,string,fully_solved,12,12,100.0,100.0,100.0
+lcb/3541,medium,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3579,medium,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3659,medium,greedy/array,fully_solved,12,12,100.0,100.0,100.0
+lcb/3809,medium,graph,fully_solved,12,12,100.0,100.0,100.0
+lcb/3682,hard,greedy/array,never_solved,0,12,72.1,7.9,0.0
+lcb/3648,hard,greedy/array,partially_solved,2,12,100.0,23.8,0.0
+lcb/3527,hard,greedy/array,never_solved,0,12,86.5,32.7,0.0
+lcb/3739,hard,math/number,partially_solved,4,12,100.0,33.3,0.0
+lcb/3604,hard,math/number,partially_solved,3,12,100.0,33.7,0.0
+lcb/3700,hard,dynamic programming,partially_solved,2,12,100.0,33.9,0.0
+lcb/3696,hard,string,partially_solved,1,12,100.0,35.3,0.0
+lcb/3762,hard,greedy/array,never_solved,0,12,81.0,36.3,0.0
+lcb/3638,hard,string,never_solved,0,12,69.8,39.3,9.3
+lcb/3701,hard,string,never_solved,0,12,90.7,43.4,2.3
+lcb/3637,hard,string,never_solved,0,12,69.8,45.5,37.2
+lcb/3717,hard,greedy/array,partially_solved,1,12,100.0,47.6,0.0
+lcb/3674,hard,greedy/array,partially_solved,1,12,100.0,59.1,0.0
+lcb/3765,hard,greedy/array,partially_solved,6,12,100.0,60.3,14.3
+lcb/3725,hard,greedy/array,partially_solved,5,12,100.0,62.7,2.4
+lcb/3789,hard,greedy/array,partially_solved,7,12,100.0,63.9,4.8
+lcb/3784,hard,string,partially_solved,2,12,100.0,66.1,0.0
+lcb/3658,hard,greedy/array,partially_solved,1,12,100.0,66.3,0.0
+lcb/3532,hard,graph,partially_solved,8,12,100.0,67.5,0.0
+lcb/3588,hard,string,partially_solved,8,12,100.0,68.8,0.0
+lcb/3688,hard,greedy/array,never_solved,0,12,81.0,69.5,26.2
+lcb/3744,hard,greedy/array,partially_solved,8,12,100.0,69.5,0.0
+lcb/3531,hard,other,partially_solved,8,12,100.0,70.7,0.0
+lcb/3733,hard,simulation/geometry,partially_solved,4,12,100.0,71.0,38.6
+lcb/3697,hard,other,partially_solved,5,12,100.0,71.5,20.9
+lcb/3646,hard,dynamic programming,partially_solved,8,12,100.0,72.0,0.0
+lcb/3562,hard,dynamic programming,partially_solved,8,12,100.0,72.2,2.4
+lcb/3551,hard,greedy/array,partially_solved,8,12,100.0,72.8,2.4
+lcb/3687,hard,graph,partially_solved,5,12,100.0,72.8,0.0
+lcb/3552,hard,string,partially_solved,4,12,100.0,74.6,7.0
+lcb/3608,hard,dynamic programming,partially_solved,8,12,100.0,74.8,0.0
+lcb/3548,hard,string,partially_solved,8,12,100.0,75.2,18.6
+lcb/3563,hard,dynamic programming,partially_solved,8,12,100.0,77.4,7.1
+lcb/3571,hard,greedy/array,partially_solved,8,12,100.0,77.4,0.0
+lcb/3680,hard,graph,partially_solved,4,12,100.0,77.4,33.3
+lcb/3783,hard,intervals/sorting,partially_solved,3,12,100.0,77.7,44.2
+lcb/3560,hard,greedy/array,partially_solved,8,12,100.0,78.7,2.3
+lcb/3575,hard,dynamic programming,partially_solved,1,12,100.0,81.3,50.0
+lcb/3535,hard,greedy/array,partially_solved,9,12,100.0,81.8,0.0
+lcb/3631,hard,string,partially_solved,7,12,100.0,81.8,0.0
+lcb/3690,hard,string,partially_solved,8,12,100.0,83.1,0.0
+lcb/3777,hard,dynamic programming,partially_solved,3,12,100.0,83.7,65.1
+lcb/3781,hard,graph,partially_solved,6,12,100.0,85.1,4.7
+lcb/3801,hard,math/number,partially_solved,4,12,100.0,85.1,38.1
+lcb/3692,hard,string,partially_solved,7,12,100.0,86.9,52.3
+lcb/3770,hard,string,partially_solved,4,12,100.0,87.0,55.8
+lcb/3675,hard,graph,partially_solved,8,12,100.0,88.7,64.3
+lcb/3550,hard,dynamic programming,partially_solved,8,12,100.0,89.9,69.8
+lcb/3603,hard,graph,partially_solved,4,12,100.0,94.3,81.0
+lcb/3580,hard,string,partially_solved,8,12,100.0,94.5,61.4
+lcb/3583,hard,intervals/sorting,partially_solved,8,12,100.0,94.9,84.6

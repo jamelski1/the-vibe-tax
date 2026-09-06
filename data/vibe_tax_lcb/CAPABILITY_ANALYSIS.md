@@ -87,6 +87,39 @@ graded tests locally. Splitting **time-limit (correct-but-too-slow)** from
 had the wrong idea." (The tests are local — `score_lcb.py` could log the failure
 reason.)
 
+## 4b. Capability is a continuum, not solved/unsolved (partial credit)
+
+Binary pass@1 ("did an attempt pass ALL tests?") throws away how *close* the models
+get. Scoring every attempt at the test level instead (`full_partial_credit.py` →
+`full_partial_credit.json`) reframes the whole picture. Across the 167 problems:
+
+| category | count |
+|----------|------:|
+| fully solved (all 12 attempts pass) | 35 |
+| **partially solved (some attempts pass / most tests pass)** | **120** |
+| never solved (0/12 attempts) | 12 |
+
+**Overall mean per-attempt test-pass rate: 81%.** By difficulty:
+
+| difficulty | mean attempt | best attempt | fully solved | never |
+|-----------|-------------:|-------------:|:-----------:|:----:|
+| easy | 95.0% | 100.0% | 26/43 | 0 |
+| medium | 82.8% | 98.6% | 9/73 | 5 |
+| **hard** | **66.7%** | **97.1%** | **0/51** | 7 |
+
+The headline: **pass@1 dramatically understates model capability on hard problems.**
+No hard problem is fully solved by all 12 attempts (0/51), which sounds like a wall
+— but the **best attempt passes 97% of a hard problem's tests on average**, and even
+the **average attempt passes 67%**. The models are not failing hard problems from
+incapability; they solve nearly the entire test suite and miss an edge case or two.
+The dominant reality is **partial** (120/167), which the binary metric hides
+entirely. This is a continuum-of-capability result, and it depends on measuring at
+the test level, not the problem level.
+
+(These numbers already incorporate the extractor + per-test-timeout fixes: the run
+re-executed every failed attempt, so the "never solved" count is the corrected 12,
+down from 15.)
+
 ## 5. Takeaways
 
 - **Solves now:** easy problems (≈99%), and most medium array/string/simulation
