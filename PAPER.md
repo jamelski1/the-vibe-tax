@@ -44,7 +44,7 @@ entirely on HumanEval, where frontier models now score ~90%+, leaving little roo
 to measure anything, and using *researcher-invented* perturbations that may not
 reflect real usage.
 
-We make three contributions:
+We make four contributions:
 
 1. **An empirical map of real coding prompts (the "vibe spectrum").** A
    multi-medium corpus (agentic vs web-chat) labeled along five axes under one
@@ -60,6 +60,11 @@ We make three contributions:
    How you phrase a complete request does not tax correctness — and prompt-style
    studies are dominated by extraction robustness and benchmark saturation, both
    of which can manufacture or hide an effect (§5–6).
+4. **A catalogue of six instrumentation pitfalls** in code-generation evaluation
+   (extraction, timeout, token budget, saturation, and metric), each shown to
+   produce a specific wrong conclusion and each with its fix — plus a test-level
+   *partial-credit* view showing capability is a continuum that pass@1 hides
+   (§6, §8).
 
 ## 2. Related work
 
@@ -200,6 +205,29 @@ terse>detailed 13, detailed>terse 17). The entire +9.3-pt "politeness tax" was t
 extractor. Correctness on LCB is governed by **difficulty** (easy ~98%, medium
 ~81%, hard ~51%), not by how the request is phrased.
 
+**Capability is a continuum, not solved/unsolved.** Binary pass@1 ("did an attempt
+pass *all* tests?") discards how *close* the models get. Scoring at the test level
+instead — the fraction of a problem's tests each of the 12 attempts passes,
+measured identically on all three benchmarks — reframes the picture:
+
+| benchmark | mean-attempt test-pass | best-attempt | fully solved |
+|-----------|-----------------------:|-------------:|:-----------:|
+| HumanEval | ~96% | ~100% | 40/50 |
+| HumanEval+ | ~96% | ~100% | 38/50 |
+| **LiveCodeBench** | **81.0%** | 98.5% | 35/167 |
+| — LCB easy / medium / **hard** | 95.0 / 82.8 / **66.7** | 100 / 98.6 / 97.1 | |
+
+Two readings. (i) **Mean-attempt test-pass rate tracks benchmark headroom
+exactly** — ~96% (HumanEval / HumanEval+) → 81% (LCB) → 67% (LCB-hard) — with the
+same models and method; only the benchmark changes. The saturation of §6 is not an
+artifact of the problem-level metric; it holds at the test level. (ii) **pass@1
+understates capability.** No hard LCB problem is solved by all 12 attempts (0/51),
+which reads as a wall — yet the **best attempt passes 97% of a hard problem's tests
+on average**, and the average attempt 67%. The models solve nearly the whole test
+suite and miss an edge case; the dominant reality is *partial* (120/167 problems),
+which binary scoring hides. (HumanEval/HumanEval+ use approximate scorers; a few
+problems break those approximations and are excluded. LCB uses the real tests.)
+
 ## 7. Discussion
 
 Three claims:
@@ -227,7 +255,36 @@ Three claims:
    benchmarks, paired within-problem designs, **and** robust scoring; the last is
    what decided this result.
 
-## 8. Limitations
+## 8. Instrumentation pitfalls: how the scorer decides the result
+
+The single most transferable lesson of this project is that **measurement choices,
+not the models, drove most of the conclusions we nearly published.** In the course
+of the study we found and fixed six distinct instrumentation issues, each of which
+produced a *specific wrong answer* before it was corrected. We catalogue them
+because every one is generic to code-generation evaluation, and several are
+invisible in aggregate pass rates.
+
+| # | pitfall | wrong conclusion it produced | fix |
+|---|---------|------------------------------|-----|
+| 1 | **Extraction — trailing prose.** With "no code fences," models append an explanation after the code; a naive extractor hands code+prose to the interpreter → `SyntaxError` on correct code. Polite/verbose framing elicits more explanation. | A significant **+9.3-pt "politeness tax"** (p=0.007). Entirely an artifact. | Trim to the largest compilable prefix. Effect → null. |
+| 2 | **Extraction — dropped helpers.** Models define a helper (`Fenwick`, `DSU`) *above* `class Solution`; slicing from the class drops it → `NameError`. | **11 correct solutions scored FAIL** (concentrated on hard problems). | Keep top-level definitions preceding the class. |
+| 3 | **Benchmark saturation.** At ~90% (HumanEval) there is no room to size a small effect. | A real effect reads as ~+3 pts (ceiling-crushed) and looks negligible / null. | Use a de-saturated benchmark (LiveCodeBench). |
+| 4 | **Per-problem total timeout.** One 8-second budget for *all* of a problem's tests kills a correct-but-slow solution on a many-test problem, even though each test passes. | ≥3 problems marked **"never solved"** were in fact solved (42/42, 43/43). | Per-*test* timeout (judges limit per test, not per suite). |
+| 5 | **Output-token cap on a reasoning model.** `max_tokens=2048` is spent on hidden reasoning before the answer; the API returns an **empty** completion on hard problems. | GPT-5.6 looked far weaker (**65/101 hard "failures" were empty**) — an invalid ablation. | Raise the budget (16k+); only the reasoning model was affected — the main study (non-reasoning models) had 0 empty completions. |
+| 6 | **Metric — binary vs partial credit.** Problem-level pass@1 is all-or-nothing. | "LCB-hard = 0/51 fully solved" reads as a capability wall. | Test-level partial credit shows the best attempt passes **97%** of hard-problem tests — imprecision, not incapacity. |
+
+Two structural observations. First, **the same class of bug distorts results in
+both directions**: extraction manufactured a false positive (#1) and erased a real
+signal (a paste condition once scored 0%). Second, **paired within-problem designs
+are robust to most of these**: a scorer artifact that hits a problem hits all four
+framings roughly equally and cancels in the McNemar test — which is why the framing
+*null* survived every fix, while the absolute *capability* numbers moved. The
+practical prescription: de-saturated benchmarks, paired designs, and a scorer that
+is prose-robust, helper-robust, per-test-timed, token-budget-adequate, and reported
+at the test level — and an adversarial habit of manually reproducing surprising
+per-cell results, which is how five of the six were caught.
+
+## 9. Limitations
 
 - **Heuristic classification** of the spectrum (regex/keyword/script-based);
   directional, not gold-standard.
@@ -255,7 +312,7 @@ Three claims:
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
 
-## 9. Conclusion
+## 10. Conclusion
 
 The intuition behind the "vibe tax" — that casual or polite phrasing costs
 correctness — does not survive honest measurement. Holding the problem identical
@@ -263,10 +320,14 @@ and varying only how the request is framed produces **no** correctness differenc
 on a contamination-free benchmark with headroom; a confident, significant
 +9-point "politeness tax" appeared only under a naive code extractor and vanished
 once extraction was fixed. What determines whether an LLM solves a problem is the
-problem's difficulty, not the register of the ask. The durable lesson is
-methodological: prompt-style measurements are dominated by benchmark saturation
-and code-extraction robustness, either of which can manufacture or erase an
-effect — so the finding a study reports may be a property of its scorer. The open
+problem's difficulty, not the register of the ask — and even "difficulty" is softer
+than pass@1 suggests: measured at the test level, the models pass ~97% of a hard
+problem's tests at best and 67% on average, so the frontier is imprecision, not
+incapacity. The durable lesson is methodological: across **six distinct
+instrumentation issues** (§8), the choices of extractor, timeout, token budget,
+benchmark, and metric each changed a headline — so the finding a study reports may
+be a property of its scorer, and a paired within-problem design plus adversarial
+manual reproduction is what separates a real effect from an artifact. The open
 question a real vibe tax might yet answer is not about *phrasing* but about
 *information*: whether genuinely under-specified requests cost correctness. That
 is where to look next.
