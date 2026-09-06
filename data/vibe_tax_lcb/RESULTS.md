@@ -6,7 +6,12 @@ we first reported (+9.3 pts, p=0.007) was a **code-extraction artifact**, not a
 real effect. This is the honest, post-fix result.
 
 **Setup:** 167 functional LiveCodeBench problems (43 easy, 73 medium, 51 hard),
-all **contamination-free** (contest_date ≥ 2024-08-01). 4 framing conditions,
+all with **contest_date ≥ 2024-08-01** (each problem post-dates its programming
+contest; range 2024-08-03 → 2025-04-05). **Contamination caveat:** the models
+used (see below) have training cutoffs *after* this window, so we do **not** claim
+the absolute pass rates are contamination-free — but the framing comparison is
+paired within-problem, so any memorization affects all four conditions equally and
+cannot bias the framing effect (the result we report). 4 framing conditions,
 scored against LCB's own tests (`score_lcb.py`). The 4 conditions differ ONLY in
 the *wrapper text* around an identical, full problem statement — so this isolates
 **framing/register**, holding the task constant. All three models (ChatGPT +
@@ -104,3 +109,32 @@ non-English, if anything the reverse.
   framings are a follow-up, but there is now no effect for them to reduce.
 - **Under-specification and paste conditions on LCB are the open positive-result
   threads** — if a real "vibe tax" exists, that is where to look, not in register.
+
+## Model provenance & contamination
+
+Run executed **2026-08-08 → 2026-08-28** (from the response timestamps). The
+requested model ids are the `run_vibe_tax.py` defaults; resolve the exact
+snapshots with `python model_provenance.py` (writes `model_provenance.json`).
+
+| model (label) | requested id | resolved snapshot | date field | training cutoff |
+|---------------|--------------|-------------------|-----------|-----------------|
+| ChatGPT (`chatgpt`) | `gpt-5.4` | `gpt-5.4-2026-03-05` | snapshot **2026-03-05** | not published; snapshot postdates all problems |
+| Claude (`claude`) | `claude-opus-4-6` | Claude Opus 4.6 | — | **May 2025** (Anthropic "training data cut-off") |
+| Codestral (`codestral`) | `codestral-latest` | dated build (resolve via API) | release **end of July 2025** | not published (≈ mid-2025) |
+
+**Two dates, don't conflate them.** `gpt-5.4-2026-03-05` and Codestral's
+"end of July 2025" are **release/snapshot** dates, not training cutoffs; only
+Anthropic's **May 2025** is an actual training-data cutoff. The cutoff is what
+governs contamination.
+
+**Contamination verdict.** The problem set (2024-08-03 → 2025-04-05) lies
+**entirely before every model's training cutoff** (Claude May 2025; GPT-5.4
+snapshot 2026-03; Codestral released 2025-07). So the **absolute** pass rates and
+the difficulty gradient may be inflated by memorization — we do not claim them as
+contamination-free. **The framing result is immune:** it is a *within-problem*
+comparison across four framings of the identical prompt, so any memorization lifts
+all four conditions equally and cannot create or hide a framing difference. What we
+report — *framing does not tax correctness* — stands regardless of contamination.
+De-contaminating the absolute rates (a strictly post-cutoff problem slice, or a
+private held-out set) is a clean follow-up for the capability numbers, not the
+framing null.

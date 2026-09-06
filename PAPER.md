@@ -20,7 +20,7 @@ by a real-vs-synthetic discriminator) and run a controlled experiment across
 benchmarks of increasing difficulty. Our central — and cautionary — finding is
 that **code-extraction robustness dominates the result**. Under a naive
 extractor, a purely *framing*-level manipulation on **LiveCodeBench**
-(contamination-free) appears to yield a large, significant penalty for
+(functional, post-contest problems) appears to yield a large, significant penalty for
 verbose/polite framing vs terse (+9.3 pts, p=0.007, capable models). **This
 effect is an artifact.** Polite/verbose prompts elicit more explanation-after-code
 prose; with no code fences, an unfenced extractor feeds that prose to the
@@ -153,9 +153,10 @@ agentic casual, web-chat detailed, web-chat code-paste, web-chat error-paste
 (with *real captured tracebacks* from bug-injected canonical solutions), and
 web-chat multilingual. **Models:** ChatGPT, Claude, Codestral (temperature 0).
 **Benchmarks of increasing difficulty:** HumanEval (base + HumanEval+ edge-case
-tests) and **LiveCodeBench** (functional, contamination-free problems dated after
-model cutoffs). All comparisons are **paired within problem** and tested with
-McNemar's test.
+tests) and **LiveCodeBench** (functional problems with `contest_date ≥ 2024-08-01`,
+so each problem post-dates its programming contest; note that the models' training
+cutoffs post-date this window — see the contamination note in §9). All comparisons
+are **paired within problem** and tested with McNemar's test.
 
 ## 6. Results
 
@@ -168,7 +169,7 @@ comparison (calibrated v3 vs researcher-written v2) gives a paired
 like…") is out-of-distribution for RLHF'd models and *overstates* the tax.
 
 **LiveCodeBench: the "effect" is an extraction artifact.** On LCB (functional,
-contamination-free; 167 problems: 43 easy / 73 medium / 51 hard) four conditions
+post-contest; 167 problems: 43 easy / 73 medium / 51 hard) four conditions
 vary only the *framing* around an identical problem statement. Under a **naive**
 extractor the result looked striking — a significant terse-beats-polite penalty:
 
@@ -312,13 +313,25 @@ per-cell results, which is how five of the six were caught.
   ruling out any terseness advantage.)
 - Approximate scorers (HumanEval+ output-equivalence; sampled test cases). The
   **paired within-problem** design controls per-problem scorer quirks.
+- **Contamination.** LCB problems carry `contest_date ≥ 2024-08-01` (range
+  2024-08-03 → 2025-04-05), which guarantees each post-dates its *contest*, not the
+  *models' training*. The models we ran (Aug 2026) — `gpt-5.4` (snapshot
+  2026-03-05), `claude-opus-4-6` (training cutoff **May 2025**), `codestral-latest`
+  (released July 2025) — all have cutoffs *after* the problem window, so the
+  **absolute** pass rates and difficulty gradient may be inflated by memorization;
+  we do not claim them contamination-free. The **framing result is unaffected**:
+  it is a within-problem comparison across four framings of the *identical* prompt,
+  so contamination lifts all conditions equally and cannot manufacture or mask a
+  framing effect. A strictly post-cutoff (or private held-out) slice would
+  de-contaminate the capability numbers; it is not needed for the framing null.
+  Exact snapshots: `model_provenance.py` → `model_provenance.json`.
 
 ## 10. Conclusion
 
 The intuition behind the "vibe tax" — that casual or polite phrasing costs
 correctness — does not survive honest measurement. Holding the problem identical
 and varying only how the request is framed produces **no** correctness difference
-on a contamination-free benchmark with headroom; a confident, significant
+on a benchmark with headroom; a confident, significant
 +9-point "politeness tax" appeared only under a naive code extractor and vanished
 once extraction was fixed. What determines whether an LLM solves a problem is the
 problem's difficulty, not the register of the ask — and even "difficulty" is softer
