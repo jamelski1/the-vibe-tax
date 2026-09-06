@@ -2,8 +2,12 @@
 
 **Why:** HumanEval(+) is saturated (~90%), so the measured tax is real but
 ceiling-suppressed (v2→v3 was +3.0 pts, McNemar p=0.001 — significant but small).
-LiveCodeBench (LCB) is **hard and contamination-free** (problems dated after model
-cutoffs), with frontier pass@1 ~30–70%. That headroom is the whole point: it lets
+LiveCodeBench (LCB) is **hard** (frontier pass@1 ~30–70%) with problems dated
+after their programming contest (contest_date ≥ 2024-08-01). *(Contamination note:
+the models we later ran have training cutoffs after this window, so LCB is not
+contamination-free for absolute rates — but the framing comparison is paired
+within-problem and unaffected; see RESULTS.md "Model provenance & contamination".)*
+That headroom is the whole point: it lets
 the tax express its true size instead of being crushed against 100%.
 
 **Status:** design only. LCB is HF-gated and firewalled in the cloud sandbox, so
@@ -112,5 +116,6 @@ metadata + the statement for prompt generation.)
 
 If v3>v2 holds on LCB with a *larger* magnitude → "researcher-written prompts
 overstate the tax, and here's its real size." If it stays ~3% with headroom →
-"the tax is genuinely small, robustly." Either is a real, contamination-free
-result — which HumanEval cannot give.
+"the tax is genuinely small, robustly." Either is a real, high-headroom
+result — which HumanEval cannot give. (The framing verdict is paired
+within-problem, so it holds regardless of contamination; see the note above.)

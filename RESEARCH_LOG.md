@@ -318,3 +318,13 @@ as LCB (the "HE4" matched set), (2) easy LCB problems, (3) an RQ→metric map,
 - HumanEval+ scorer here is an approximation (exact-equality, sampled inputs) —
   directional, not the official EvalPlus number.
 - Everything on base HumanEval sits near the ceiling for frontier models.
+- **CORRECTION — LCB is NOT "contamination-free" for absolute rates.** Earlier
+  entries called the post-2024-08 LCB slice "contamination-free"; that filter only
+  guarantees problems post-date their *contest*, not the models' *training*. The
+  models run (Aug 2026) — `gpt-5.4` (snapshot 2026-03-05), `claude-opus-4-6`
+  (training cutoff May 2025), `codestral-latest` (released Jul 2025) — all have
+  cutoffs *after* the 2024-08 → 2025-04 problem window, so absolute pass rates /
+  the difficulty gradient may be inflated by memorization. The **framing null is
+  unaffected** (paired within-problem: contamination lifts all four framings
+  equally). Exact versions in `data/vibe_tax_lcb/model_provenance.json`; full note
+  in RESULTS.md "Model provenance & contamination".
