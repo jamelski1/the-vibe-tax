@@ -1,0 +1,1672 @@
+[
+  {
+    "task_id": "lcb/3485",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3487",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 81.1,
+    "worst": 27.3
+  },
+  {
+    "task_id": "lcb/3495",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 94.4,
+    "worst": 33.3
+  },
+  {
+    "task_id": "lcb/3496",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 83.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3502",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 94.4,
+    "worst": 83.3
+  },
+  {
+    "task_id": "lcb/3510",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3517",
+    "difficulty": "medium",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 93.7,
+    "worst": 62.2
+  },
+  {
+    "task_id": "lcb/3518",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 76.6,
+    "worst": 11.9
+  },
+  {
+    "task_id": "lcb/3519",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3522",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3525",
+    "difficulty": "medium",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 82.2,
+    "worst": 28.6
+  },
+  {
+    "task_id": "lcb/3526",
+    "difficulty": "medium",
+    "topic": "simulation/geometry",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3527",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 86.5,
+    "mean": 32.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3528",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 99.0,
+    "worst": 88.1
+  },
+  {
+    "task_id": "lcb/3531",
+    "difficulty": "hard",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 70.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3532",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 67.5,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3533",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3534",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 86.8,
+    "worst": 60.5
+  },
+  {
+    "task_id": "lcb/3535",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 81.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3540",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3541",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3543",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3548",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 75.2,
+    "worst": 18.6
+  },
+  {
+    "task_id": "lcb/3550",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 89.9,
+    "worst": 69.8
+  },
+  {
+    "task_id": "lcb/3551",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 72.8,
+    "worst": 2.4
+  },
+  {
+    "task_id": "lcb/3552",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 74.6,
+    "worst": 7.0
+  },
+  {
+    "task_id": "lcb/3553",
+    "difficulty": "easy",
+    "topic": "simulation/geometry",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3555",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3558",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 96.5,
+    "worst": 81.4
+  },
+  {
+    "task_id": "lcb/3559",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 84.3,
+    "worst": 60.5
+  },
+  {
+    "task_id": "lcb/3560",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.7,
+    "worst": 2.3
+  },
+  {
+    "task_id": "lcb/3562",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 72.2,
+    "worst": 2.4
+  },
+  {
+    "task_id": "lcb/3563",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 77.4,
+    "worst": 7.1
+  },
+  {
+    "task_id": "lcb/3566",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 78.2,
+    "worst": 4.8
+  },
+  {
+    "task_id": "lcb/3567",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3568",
+    "difficulty": "easy",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3570",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 98.1,
+    "worst": 76.7
+  },
+  {
+    "task_id": "lcb/3571",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 77.4,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3573",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 85.3,
+    "worst": 11.6
+  },
+  {
+    "task_id": "lcb/3575",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 81.3,
+    "worst": 50.0
+  },
+  {
+    "task_id": "lcb/3579",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3580",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 94.5,
+    "worst": 61.4
+  },
+  {
+    "task_id": "lcb/3583",
+    "difficulty": "hard",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 94.9,
+    "worst": 84.6
+  },
+  {
+    "task_id": "lcb/3584",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 75.6,
+    "worst": 20.5
+  },
+  {
+    "task_id": "lcb/3587",
+    "difficulty": "medium",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.2,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3588",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 68.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3591",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 68.8,
+    "worst": 21.4
+  },
+  {
+    "task_id": "lcb/3593",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 99.6,
+    "worst": 95.3
+  },
+  {
+    "task_id": "lcb/3594",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 87.8,
+    "worst": 46.5
+  },
+  {
+    "task_id": "lcb/3600",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3603",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 94.3,
+    "worst": 81.0
+  },
+  {
+    "task_id": "lcb/3604",
+    "difficulty": "hard",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 3,
+    "best": 100.0,
+    "mean": 33.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3605",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 91.9,
+    "worst": 3.0
+  },
+  {
+    "task_id": "lcb/3606",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3607",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 92.0,
+    "worst": 67.4
+  },
+  {
+    "task_id": "lcb/3608",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 74.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3610",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3612",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3613",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 74.4,
+    "mean": 63.0,
+    "worst": 14.0
+  },
+  {
+    "task_id": "lcb/3616",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3617",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 88.7,
+    "worst": 64.7
+  },
+  {
+    "task_id": "lcb/3620",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 87.1,
+    "worst": 11.9
+  },
+  {
+    "task_id": "lcb/3621",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 74.8,
+    "worst": 17.6
+  },
+  {
+    "task_id": "lcb/3622",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 6,
+    "best": 100.0,
+    "mean": 81.5,
+    "worst": 31.0
+  },
+  {
+    "task_id": "lcb/3625",
+    "difficulty": "easy",
+    "topic": "simulation/geometry",
+    "n_attempts": 12,
+    "n_solved": 6,
+    "best": 100.0,
+    "mean": 78.8,
+    "worst": 24.2
+  },
+  {
+    "task_id": "lcb/3626",
+    "difficulty": "easy",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3627",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 68.2,
+    "worst": 4.7
+  },
+  {
+    "task_id": "lcb/3629",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 68.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3631",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 81.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3632",
+    "difficulty": "easy",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 94.9,
+    "worst": 84.8
+  },
+  {
+    "task_id": "lcb/3634",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 93.7,
+    "worst": 81.0
+  },
+  {
+    "task_id": "lcb/3636",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3637",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 69.8,
+    "mean": 45.5,
+    "worst": 37.2
+  },
+  {
+    "task_id": "lcb/3638",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 69.8,
+    "mean": 39.3,
+    "worst": 9.3
+  },
+  {
+    "task_id": "lcb/3639",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 76.6,
+    "worst": 23.8
+  },
+  {
+    "task_id": "lcb/3644",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 91.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3646",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 72.0,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3647",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 78.7,
+    "worst": 27.9
+  },
+  {
+    "task_id": "lcb/3648",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 2,
+    "best": 100.0,
+    "mean": 23.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3649",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 75.6,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3651",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3653",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 86.8,
+    "worst": 44.2
+  },
+  {
+    "task_id": "lcb/3654",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 90.5,
+    "worst": 38.1
+  },
+  {
+    "task_id": "lcb/3655",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 74.0,
+    "worst": 39.5
+  },
+  {
+    "task_id": "lcb/3656",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 91.2,
+    "worst": 58.8
+  },
+  {
+    "task_id": "lcb/3657",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 83.9,
+    "worst": 34.9
+  },
+  {
+    "task_id": "lcb/3658",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 66.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3659",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3674",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 59.1,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3675",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 88.7,
+    "worst": 64.3
+  },
+  {
+    "task_id": "lcb/3676",
+    "difficulty": "easy",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 89.2,
+    "worst": 35.3
+  },
+  {
+    "task_id": "lcb/3677",
+    "difficulty": "medium",
+    "topic": "simulation/geometry",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.4,
+    "worst": 11.9
+  },
+  {
+    "task_id": "lcb/3680",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 77.4,
+    "worst": 33.3
+  },
+  {
+    "task_id": "lcb/3681",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 83.3,
+    "worst": 14.0
+  },
+  {
+    "task_id": "lcb/3682",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 72.1,
+    "mean": 7.9,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3683",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 85.3,
+    "worst": 14.3
+  },
+  {
+    "task_id": "lcb/3684",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 96.8,
+    "worst": 88.2
+  },
+  {
+    "task_id": "lcb/3685",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 91.7,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3686",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 95.2,
+    "mean": 88.1,
+    "worst": 42.9
+  },
+  {
+    "task_id": "lcb/3687",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 72.8,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3688",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 81.0,
+    "mean": 69.5,
+    "worst": 26.2
+  },
+  {
+    "task_id": "lcb/3690",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 83.1,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3692",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 86.9,
+    "worst": 52.3
+  },
+  {
+    "task_id": "lcb/3696",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 35.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3697",
+    "difficulty": "hard",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 71.5,
+    "worst": 20.9
+  },
+  {
+    "task_id": "lcb/3699",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 88.9,
+    "worst": 66.7
+  },
+  {
+    "task_id": "lcb/3700",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 2,
+    "best": 100.0,
+    "mean": 33.9,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3701",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 90.7,
+    "mean": 43.4,
+    "worst": 2.3
+  },
+  {
+    "task_id": "lcb/3702",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 73.5,
+    "worst": 8.8
+  },
+  {
+    "task_id": "lcb/3704",
+    "difficulty": "easy",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3705",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 97.0,
+    "worst": 88.2
+  },
+  {
+    "task_id": "lcb/3708",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 96.1,
+    "worst": 88.2
+  },
+  {
+    "task_id": "lcb/3709",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3714",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 3,
+    "best": 100.0,
+    "mean": 57.4,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3715",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 67.7,
+    "worst": 2.4
+  },
+  {
+    "task_id": "lcb/3716",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 48.9,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3717",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 47.6,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3720",
+    "difficulty": "medium",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 83.5,
+    "worst": 45.5
+  },
+  {
+    "task_id": "lcb/3721",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 85.3,
+    "worst": 55.8
+  },
+  {
+    "task_id": "lcb/3722",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 3,
+    "best": 100.0,
+    "mean": 77.0,
+    "worst": 40.5
+  },
+  {
+    "task_id": "lcb/3723",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3725",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 62.7,
+    "worst": 2.4
+  },
+  {
+    "task_id": "lcb/3731",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3733",
+    "difficulty": "hard",
+    "topic": "simulation/geometry",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 71.0,
+    "worst": 38.6
+  },
+  {
+    "task_id": "lcb/3736",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3737",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.6,
+    "worst": 2.4
+  },
+  {
+    "task_id": "lcb/3739",
+    "difficulty": "hard",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 33.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3743",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 2,
+    "best": 100.0,
+    "mean": 37.0,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3744",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 69.5,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3747",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3748",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.3,
+    "worst": 23.3
+  },
+  {
+    "task_id": "lcb/3750",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 10,
+    "best": 100.0,
+    "mean": 86.9,
+    "worst": 19.0
+  },
+  {
+    "task_id": "lcb/3751",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 78.6,
+    "worst": 35.7
+  },
+  {
+    "task_id": "lcb/3753",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 11,
+    "best": 100.0,
+    "mean": 97.7,
+    "worst": 72.7
+  },
+  {
+    "task_id": "lcb/3754",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 74.8,
+    "worst": 4.8
+  },
+  {
+    "task_id": "lcb/3759",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 80.4,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3760",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 6,
+    "best": 100.0,
+    "mean": 95.3,
+    "worst": 81.4
+  },
+  {
+    "task_id": "lcb/3762",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 81.0,
+    "mean": 36.3,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3763",
+    "difficulty": "medium",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 50.0,
+    "mean": 37.9,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3764",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 88.5,
+    "worst": 64.3
+  },
+  {
+    "task_id": "lcb/3765",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 6,
+    "best": 100.0,
+    "mean": 60.3,
+    "worst": 14.3
+  },
+  {
+    "task_id": "lcb/3768",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3770",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 87.0,
+    "worst": 55.8
+  },
+  {
+    "task_id": "lcb/3771",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 92.0,
+    "worst": 53.5
+  },
+  {
+    "task_id": "lcb/3773",
+    "difficulty": "easy",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 9,
+    "best": 100.0,
+    "mean": 88.6,
+    "worst": 36.4
+  },
+  {
+    "task_id": "lcb/3776",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 88.1,
+    "mean": 75.2,
+    "worst": 19.0
+  },
+  {
+    "task_id": "lcb/3777",
+    "difficulty": "hard",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 3,
+    "best": 100.0,
+    "mean": 83.7,
+    "worst": 65.1
+  },
+  {
+    "task_id": "lcb/3778",
+    "difficulty": "easy",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3779",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 73.0,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3781",
+    "difficulty": "hard",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 6,
+    "best": 100.0,
+    "mean": 85.1,
+    "worst": 4.7
+  },
+  {
+    "task_id": "lcb/3783",
+    "difficulty": "hard",
+    "topic": "intervals/sorting",
+    "n_attempts": 12,
+    "n_solved": 3,
+    "best": 100.0,
+    "mean": 77.7,
+    "worst": 44.2
+  },
+  {
+    "task_id": "lcb/3784",
+    "difficulty": "hard",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 2,
+    "best": 100.0,
+    "mean": 66.1,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3785",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 80.6,
+    "worst": 39.5
+  },
+  {
+    "task_id": "lcb/3786",
+    "difficulty": "medium",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 1,
+    "best": 100.0,
+    "mean": 82.7,
+    "worst": 33.3
+  },
+  {
+    "task_id": "lcb/3788",
+    "difficulty": "easy",
+    "topic": "dynamic programming",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 70.6,
+    "worst": 11.8
+  },
+  {
+    "task_id": "lcb/3789",
+    "difficulty": "hard",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 63.9,
+    "worst": 4.8
+  },
+  {
+    "task_id": "lcb/3791",
+    "difficulty": "medium",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 90.5,
+    "worst": 71.4
+  },
+  {
+    "task_id": "lcb/3793",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 7,
+    "best": 100.0,
+    "mean": 87.9,
+    "worst": 50.0
+  },
+  {
+    "task_id": "lcb/3794",
+    "difficulty": "medium",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 0,
+    "best": 93.0,
+    "mean": 79.2,
+    "worst": 48.8
+  },
+  {
+    "task_id": "lcb/3795",
+    "difficulty": "medium",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 5,
+    "best": 100.0,
+    "mean": 67.1,
+    "worst": 36.4
+  },
+  {
+    "task_id": "lcb/3799",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3801",
+    "difficulty": "hard",
+    "topic": "math/number",
+    "n_attempts": 12,
+    "n_solved": 4,
+    "best": 100.0,
+    "mean": 85.1,
+    "worst": 38.1
+  },
+  {
+    "task_id": "lcb/3805",
+    "difficulty": "medium",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 74.4,
+    "worst": 0.0
+  },
+  {
+    "task_id": "lcb/3809",
+    "difficulty": "medium",
+    "topic": "graph",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3811",
+    "difficulty": "easy",
+    "topic": "string",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3817",
+    "difficulty": "easy",
+    "topic": "other",
+    "n_attempts": 12,
+    "n_solved": 12,
+    "best": 100.0,
+    "mean": 100.0,
+    "worst": 100.0
+  },
+  {
+    "task_id": "lcb/3832",
+    "difficulty": "easy",
+    "topic": "greedy/array",
+    "n_attempts": 12,
+    "n_solved": 8,
+    "best": 100.0,
+    "mean": 70.7,
+    "worst": 12.1
+  }
+]
