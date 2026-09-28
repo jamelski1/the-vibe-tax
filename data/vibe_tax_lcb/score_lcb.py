@@ -118,6 +118,36 @@ def extract_solution(completion, entry):
     return cands[0] if cands else None
 
 
+def resolve_callable(ns, entry):
+    """Find the `entry` implementation regardless of how the model SHAPED its code.
+
+    LCB expects `Solution().<entry>(*args)`. But a correct solution is sometimes
+    delivered in a different container — a bare module-level function, a method on a
+    RENAMED top-level class, or a method on a class nested one level inside another.
+    Those are code *smells*, not wrong answers, yet the old resolver (hardcoded
+    `ns['Solution']`) scored them FAIL. We look past the shape and bind to the actual
+    implementation. Returns a callable (bound, if a method) or None.
+
+    Order: (1) a bare module-level function named `entry`; else (2) a class exposing
+    a callable `entry`, preferring one literally named `Solution`, searching both
+    top-level classes and classes nested one level inside another class."""
+    import inspect
+    f = ns.get(entry)
+    if callable(f) and not inspect.isclass(f):
+        return f                                   # bare function shape
+    classes = [v for v in ns.values() if inspect.isclass(v)]
+    nested = [v for c in classes for v in vars(c).values() if inspect.isclass(v)]
+    cands = [c for c in (classes + nested) if callable(getattr(c, entry, None))]
+    if not cands:
+        return None
+    cands.sort(key=lambda c: c.__name__ != "Solution")   # prefer the expected name
+    try:
+        inst = cands[0]()
+    except Exception:
+        return None
+    return getattr(inst, entry, None)
+
+
 def eq(a, b):
     if isinstance(a, float) or isinstance(b, float):
         try:
@@ -140,13 +170,11 @@ def _worker(code, entry, tests, q):
         exec(_IMPORTS + code, ns)
     except Exception:
         q.append(False); return
-    sol_cls = ns.get("Solution")
+    fn = resolve_callable(ns, entry)               # shape-agnostic (class/bare/renamed/nested)
     for t in tests:
         try:
             args = parse_input(t["input"])
             expected = parse_lit(t["output"])
-            inst = sol_cls() if sol_cls else None
-            fn = getattr(inst, entry, None) or ns.get(entry)
             ok = (fn is not None) and eq(fn(*args), expected)
         except Exception:
             ok = False

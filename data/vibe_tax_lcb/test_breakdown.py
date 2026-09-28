@@ -23,7 +23,7 @@ import time
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, SCRIPT_DIR)
-from score_lcb import extract_solution, parse_input, parse_lit, eq, _IMPORTS  # noqa: E402
+from score_lcb import extract_solution, parse_input, parse_lit, eq, _IMPORTS, resolve_callable  # noqa: E402
 
 
 def _stream_worker(code, entry, cases, start, q):
@@ -32,13 +32,12 @@ def _stream_worker(code, entry, cases, start, q):
         exec(_IMPORTS + code, ns)
     except Exception:
         return
-    sol = ns.get("Solution")
+    fn = resolve_callable(ns, entry)               # shape-agnostic (class/bare/renamed/nested)
     for idx in range(start, len(cases)):
         t = cases[idx]
         try:
             args = parse_input(t["input"]); expected = parse_lit(t["output"])
-            fn = (getattr(sol(), entry, None) if sol else None) or ns.get(entry)
-            ok = bool(eq(fn(*args), expected))
+            ok = bool(fn is not None and eq(fn(*args), expected))
         except Exception:
             ok = False
         q.append((idx, ok))

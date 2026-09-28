@@ -47,7 +47,7 @@ sys.path.insert(0, SCRIPT_DIR)
 sys.path.insert(0, os.path.join(ROOT, "data", "vibe_tax_v2"))
 
 from score_lcb import (extract_solution, passes, sample_tests,      # noqa: E402
-                       parse_input, parse_lit, eq, _IMPORTS)
+                       parse_input, parse_lit, eq, _IMPORTS, resolve_callable)
 
 def out_paths(tag):
     sfx = f"_{tag}" if tag else ""
@@ -84,11 +84,10 @@ def _one_test_worker(code, entry, case, q):
         exec(_IMPORTS + code, ns)
     except Exception as e:
         q.append(("error", f"import/exec failed: {type(e).__name__}: {e}")); return
-    sol = ns.get("Solution")
     try:
         args = parse_input(case["input"])
         expected = parse_lit(case["output"])
-        fn = (getattr(sol(), entry, None) if sol else None) or ns.get(entry)
+        fn = resolve_callable(ns, entry)           # shape-agnostic (class/bare/renamed/nested)
         if fn is None:
             q.append(("error", f"no callable named {entry}")); return
         got = fn(*args)
