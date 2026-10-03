@@ -247,8 +247,31 @@ MECHANISM is established prior art; Macedo even names the prompt-phrasing link. 
 outputs without reporting extraction/instruction-following robustness per tone; our code-domain
 results show such pipelines can manufacture significant prompt-style effects → re-audit needed."*
 
-**TO VET NEXT:** Cai et al. (2025) *Does tone change the answer? Evaluating prompt [tone]* —
-cited by MYT; same cluster. MYT also cites FormatSpread.
+MYT also cites FormatSpread and **Cai et al.** (vetted below).
+
+## Cai et al. — TARGET **and** ALLY (politeness study that largely finds NULL) [PDF-VERIFIED]
+
+- Cai, Shen, Jin, Hu, Fan. *Does Tone Change the Answer? Evaluating Prompt Politeness Effects on
+  Modern LLMs: GPT, Gemini, and LLaMA.* **2026 9th Intl. Conf. on AI and Big Data (ICAIBD).**
+- **Setup:** MMMLU multiple-choice, 6 tasks (3 STEM / 3 Humanities, ~1,446 q), 3 tones
+  (Very Polite / Neutral / Very Rude), 3 models (GPT-4o mini, Gemini 2.0 Flash, Llama 4 Scout).
+- **Method [PDF-VERIFIED]:** **identical instruction to MYT** (cites it): *"Respond with only the
+  letter of the correct answer (A, B, C, or D). Do not explain."* → parse the letter.
+- **Findings (mostly NULL):** *"model-dependent and domain-specific,"* significant *"only in a
+  subset of Humanities tasks"* (rude hurts GPT & Llama; Gemini tone-insensitive); *"when
+  aggregated across tasks… tone effects diminish and largely lose statistical significance…
+  modern LLMs are broadly robust to tonal variation."* Also: *"dataset scale and coverage
+  materially influence the detection of tone effects."*
+- **TARGET:** same uncontrolled extraction regime as MYT; **no parse-rate/instruction-following
+  by tone reported** → our critique transfers (raise, don't assert; MCQ parsing is robust).
+- **ALLY:** largely null → the politeness literature is **inconsistent & converging toward
+  fragile/null** (MYT finds effects; Cai mostly doesn't). Supports our stance; we add the
+  mechanism + a code-domain null.
+- **Citable admission from inside the lit:** chose MCQ *"to reduce noise in performance
+  measurement relative to open-ended response formats"* → a politeness paper conceding that
+  **output format affects measurement** (supports our premise).
+- **Use:** cite MYT + Cai as the inconsistent/fragile tone literature; Cai's null-lean +
+  "aggregation kills significance" + the open-ended-is-noisier admission all bolster us.
 
 ## Yin et al. — direct target (cross-lingual politeness)
 
