@@ -117,11 +117,20 @@ conclusion it produced, the fix, and a citation where one exists.
 
 ## 6. Related work to cite (status noted)
 
+> Verbatim quotes + exact numbers for these live in **RELATED_WORK_NOTES.md**.
+
+- **SAFIM** — Gong et al., ICML 2024 (2403.04814). **← CLOSEST NEIGHBOR.** [PDF-VERIFIED]
+  Shows a *post-processing choice* is a **differential confound that changes comparative
+  conclusions** (CodeLLaMa-13B 16.4%→41.4% vs InCoder-6B 21.8%→25.2% under truncation) —
+  *structurally the same mechanism as our +9.3*, but on the **model-training axis**, not the
+  **prompt axis**, and framed as *revealing truth* not *fabricating a significant false
+  finding*. **Retires the "differential-vs-uniform confound" wedge; must cite & position
+  against.** Our live wedge: prompt-register axis + fabricated significance that vanishes +
+  politeness-lit critique + multi-pitfall reproducible compilation + closing-window.
 - **FormatSpread** — Sclar et al., ICLR 2024 (2310.11324). [VERIFIED]
 - **EvalPlus** — Liu et al., NeurIPS 2023 (`evalplus.sanitize`). [VERIFIED]
-- **SAFIM** — Gong et al., ICML 2024 (2403.04814). [VERIFIED]
-- **Macedo et al.** — Output Format Biases in Code Translation (2403.17214) — our closest
-  neighbor; *unidirectional* framing. [VERIFIED paper; VERIFY exact stats 4.92/31.92, venue]
+- **Macedo et al.** — Output Format Biases in Code Translation (2403.17214) — *unidirectional*
+  underestimation framing (code translation). [VERIFIED paper; VERIFY exact stats 4.92/31.92, venue]
 - **CodeTransBenchmark** (2609.20257) — "Flexible Extraction" ~53%. [VERIFY authors/venue — brand-new]
 - **LLMs Are Biased Towards Output Formats** — Long et al., NAACL 2025. [VERIFY]
 - **Mind Your Tone** — Dobariya & Kumar (2510.04950). [VERIFIED — a direct target]
