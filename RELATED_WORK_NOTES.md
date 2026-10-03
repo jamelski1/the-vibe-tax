@@ -82,12 +82,36 @@ to-double-check at camera-ready.
 - **Status:** brand-new preprint; **authors/venue UNCONFIRMED** ("Kowalczuk et al." is
   unverified). Do not cite until the paper and authorship are confirmed.
 
-## FormatSpread — prompt format sensitivity
+## FormatSpread — prompt format sensitivity (foundational cite; NOT a novelty threat)
 
 - Sclar, Choi, Tsvetkov, Suhr. *Quantifying Language Models' Sensitivity to Spurious Features
-  in Prompt Design.* ICLR 2024. arXiv:2310.11324. [SEARCH]
-- Up to **76-point** accuracy swings from semantically-equivalent format changes; rankings
-  flip; recommends reporting a **range** over formats. Backdrop for "surface form confounds."
+  in Prompt Design.* ICLR 2024. arXiv:2310.11324. [PDF-VERIFIED]
+- Up to **76-point** accuracy swing (LLaMA-2-13B); **median ~7.5 pts** across 53 tasks;
+  recommends reporting a **range**, not one format.
+
+**Verbatim quotes [PDF-VERIFIED]:**
+- *"we focus on LLM sensitivity to a quintessential class of meaning-preserving design
+  choices: prompt formatting."* (separators, casing, spacing)
+- *"fixing a formatting choice could introduce a significant confounding factor."*
+- *"Results are reported using ranking accuracy unless specified otherwise."* (ranking =
+  probability over valid options → **no free-form output, no parsing/extraction**)
+- *"here we evaluate on classification tasks."* (53 SuperNaturalInstructions: 19 MCQ + 34 class.)
+
+**Why it is NOT a threat (4 separations):**
+1. **Source of effect:** genuine *model sensitivity* (real behavior) — the **opposite** of our
+   claim (a *scoring/extraction artifact*, not behavior).
+2. **Measurement:** ranking accuracy (probabilities), **no parsing** — they deliberately
+   sidestep the extraction step; that excluded regime is exactly where we work.
+3. **Axis:** typographic format (separators/casing/spacing) vs our register/politeness/
+   verbosity/language.
+4. **Task & conclusion:** classification/MCQ, "effect is real → report a range" vs our code
+   generation, "apparent effect is null → the scorer fabricated it."
+
+**Our one-line positioning vs FormatSpread:**
+> FormatSpread shows models are genuinely sensitive to typographic format, measured via
+> parsing-free ranking accuracy on classification; we show the complementary, more insidious
+> case — in free-form code generation the *extraction step itself* can manufacture a
+> significant prompt-register effect where the model's behavior is unchanged.
 
 ## EvalPlus — the sanitize tool / weak-tests motivation
 
