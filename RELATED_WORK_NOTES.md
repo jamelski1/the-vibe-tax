@@ -158,12 +158,39 @@ MECHANISM is established prior art; Macedo even names the prompt-phrasing link. 
   ~80× tests. [SEARCH] Use for: extraction is a known required step; weak base tests pass
   wrong code (our false-positive pitfall).
 
-## Mind Your Tone — direct target (politeness)
+## Mind Your Tone — DIRECT TARGET (not a novelty threat) [PDF-VERIFIED, full paper]
 
-- Dobariya, Kumar. *Mind Your Tone: Investigating How Prompt Politeness Affects LLM Accuracy.*
-  arXiv:2510.04950 (2025). [SEARCH] Rude > polite (**84.8% vs 80.8%**) on 250 MCQ prompts,
-  ChatGPT-4o, from **raw accuracy** (no extraction control). Our result is a methodological
-  alternative explanation.
+- Dobariya, Kumar (Penn State). *Mind Your Tone: Does Tone Alter LLM Performance?* **AMCIS 2026**
+  (Americas Conf. on Information Systems). (Short version: arXiv:2510.04950.)
+- **Task:** MCQ — 50 custom (5 tones) + **570-question MMLU** subset (7 tones); 4 models
+  (ChatGPT-4o, ChatGPT-5-nano, Gemini 2.5 Flash / Flash Lite).
+- **Method [PDF-VERIFIED]:** prompt instructs *"Respond with only the letter of the correct
+  answer (A, B, C, or D). Do not explain."*; *"The response was parsed to extract the letter."*
+- **Stats are solid:** 10 runs, within-subjects, repeated-measures ANOVA + Friedman + paired
+  t-tests (Holm) + Cohen's dz + Wilcoxon. Significant tone effects, e.g. ChatGPT-5-nano spread
+  **11.12 pp** (F(6,54)=60.46, p=3.4e-22); Gemini Flash Lite **12.46 pp**. **Model-dependent**
+  (Neutral wins for ChatGPT-5-nano; Threatening for Gemini Flash; Polite for Flash Lite).
+- **The gap our critique targets:** accuracy = parse a letter from a "do not explain" response,
+  but they report **NO** parse-rate / instruction-following / exclusion policy **per tone**
+  (grep for exclude/invalid/unparse/empty/refuse → nothing). If tone shifts output conformity
+  or triggers hidden CoT, parsed-letter accuracy moves for **output-format** reasons, not
+  reasoning — they can't separate these. Model-dependence is as consistent with a conformity
+  artifact as with their "reasoning-mode routing" hypothesis.
+- **Evidentiary bridge:** Macedo Finding 3 — models ignore "output only X" instructions ~59%
+  of the time — undercuts the assumption that "do not explain" yields clean parseable output.
+
+**HONESTY GUARDRAILS (do NOT overclaim):**
+- MCQ letter-parsing is *more robust* than code extraction → **raise** the confound as an
+  uncontrolled alternative, do **not** assert MYT's effect is an artifact.
+- Their stats are reasonable; the gap is specifically *unreported extraction/conformity*, not sloppiness.
+- Tone may genuinely change reasoning; our point is only that they didn't rule out the artifact.
+
+**Framing:** *"tone→accuracy studies (MYT; Cai et al.) report significant effects from parsed
+outputs without reporting extraction/instruction-following robustness per tone; our code-domain
+results show such pipelines can manufacture significant prompt-style effects → re-audit needed."*
+
+**TO VET NEXT:** Cai et al. (2025) *Does tone change the answer? Evaluating prompt [tone]* —
+cited by MYT; same cluster. MYT also cites FormatSpread.
 
 ## Yin et al. — direct target (cross-lingual politeness)
 
