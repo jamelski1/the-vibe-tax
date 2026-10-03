@@ -61,3 +61,7 @@ citing). Full quotes/citations in `RELATED_WORK_NOTES.md`.
 - EvalPlus PDF-verified: confirms row 13 (+mis-ranking) and adds new row **G** (buggy
   ground-truths, 11%). Corrected EvalPlus cells on modes 1/2/9 → the `sanitize` tool is
   repo-only, not a paper claim.
+- Ying et al. (COMPSAC'25) vetted — a **landscape survey**, not a pitfall-coverage paper, so no
+  column added. Relevant only as framing context (a survey exists → our compilation must be a
+  focused reproducible pitfalls artifact) + one adjacent precedent (strict text-matching false
+  positives, BLEU-scope). See RELATED_WORK_NOTES.md.
