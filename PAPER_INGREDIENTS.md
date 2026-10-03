@@ -129,8 +129,21 @@ conclusion it produced, the fix, and a citation where one exists.
   politeness-lit critique + multi-pitfall reproducible compilation + closing-window.
 - **FormatSpread** — Sclar et al., ICLR 2024 (2310.11324). [VERIFIED]
 - **EvalPlus** — Liu et al., NeurIPS 2023 (`evalplus.sanitize`). [VERIFIED]
-- **Macedo et al.** — Output Format Biases in Code Translation (2403.17214) — *unidirectional*
-  underestimation framing (code translation). [VERIFIED paper; VERIFY exact stats 4.92/31.92, venue]
+- **Macedo et al.** — Output Format Biases… for Code Translation. **EMSE 2026, 31:41** (DOI
+  10.1007/s10664-025-10768-1). **← TIED-STRONGEST OVERLAP (peer-reviewed journal).** [PDF-VERIFIED]
+  Establishes the FULL chain: prompt design → output-format distribution → extraction →
+  **significant** bias that **alters benchmarking conclusions** (CA 4.92%→31.92%; α=0.05).
+  **Finding 2** = "different prompts produce different output-format distributions," and the
+  discussion explicitly flags that **stakeholder prompt *phrasing* introduces evaluation biases**
+  — i.e., it NAMES our mechanism. Retires the "we show extraction is a prompt-driven confound"
+  claim. Surviving wedge: the *register* axis specifically + fabricated-significance-that-vanishes
+  + politeness-lit correction + multi-pitfall compilation + closing-window.
+
+> **Reality check (3 uploads in):** the extraction-confound MECHANISM is established prior art
+> (SAFIM + Macedo); Macedo even names the prompt-phrasing link. The paper must lead on
+> APPLICATION (politeness correction) + COMPILATION + closing-window — NOT on discovering the
+> mechanism. Candidate framings: (A) focused politeness-correction paper; (B) reproducible
+> multi-pitfall SoK with the closing-window thesis. Venue: empirical-SE or eval/repro workshop.
 - **CodeTransBenchmark** (2609.20257) — "Flexible Extraction" ~53%. [VERIFY authors/venue — brand-new]
 - **LLMs Are Biased Towards Output Formats** — Long et al., NAACL 2025. [VERIFY]
 - **Mind Your Tone** — Dobariya & Kumar (2510.04950). [VERIFIED — a direct target]

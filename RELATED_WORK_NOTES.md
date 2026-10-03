@@ -62,18 +62,56 @@ to-double-check at camera-ready.
 
 ---
 
-## Macedo et al. — unidirectional framing (code translation)
+## Macedo et al. — STRONGEST overlap (cite prominently; peer-reviewed journal)
 
-- **Citation:** Macedo, Tian, Cogo, Adams. *Output Format Biases in the Evaluation of LLMs
-  for Code Translation.* arXiv:2403.17214. [SEARCH — verify venue/year; earlier external
-  analysis claimed "EMSE 2026 / FORGE 2024" — DO NOT use until confirmed.]
-- **Verified content [SEARCH]:** 11 instruct-tuned open LLMs, 3,820 translation pairs across
-  C/C++/Go/Java/Python; output formats = Direct / Wrapped (backticks) / Unbalanced; prompt+
-  regex reaches **Code extraction Success Rate (CSR) ~92.73%**.
-- **Framing:** extraction bias as **unidirectional underestimation** of accuracy ("models
-  look worse than they are"). **[VERIFY exact numbers "4.92% vs 31.92%" — unconfirmed.]**
-- **Our wedge:** validity (fabricated significant effect on the prompt axis) vs their
-  measurement-accuracy framing; different task (translation).
+- **Citation [PDF-VERIFIED]:** Macedo, Tian, Cogo, Adams. *Output format biases in the
+  evaluation of large language models for code translation.* **Empirical Software Engineering
+  (2026) 31:41**, DOI 10.1007/s10664-025-10768-1 (accepted 3 Nov 2025). (preprint arXiv:2403.17214)
+- **Scope:** code **translation**; 11 open + 5 closed LLMs; 3,820 pairs (C/C++/Go/Java/Python).
+  Output formats = Direct / Wrapped (backticks) / Unbalanced, × with/without additional text.
+
+**Verbatim / verified [PDF-VERIFIED]:**
+- Finding 1: *"post-processing is required to extract the source code in up to **73.64%** of
+  the outputs."* (abstract: between 26.4% and 73.7%.)
+- Prompt+regex → **CSR 92.73%**.
+- RQ3: lowest avg Computational Accuracy **4.92%** (VDE, direct compile) → highest **31.92%**
+  (CRE, controlled prompt + regex extraction). *[CONFIRMED — safe to cite.]*
+- Finding 6: *"The consideration of output formats can significantly alter the outcomes when
+  benchmarking various LLMs"* (top-ranked model flips under extraction).
+- Finding 7: filtering non-code tokens changes BLEU/CodeBLEU, *"statistically significant for
+  the majority of the models"* (**α=0.05, Cliff's Delta**).
+- **Finding 2: *"Different prompts produce different output format distributions"*** (Reference
+  89.55% Direct Code vs Vanilla 52.5% Wrapped).
+- Discussion (the dangerous one): *"Output format bias can also be influenced by the design of
+  the prompt… **Different stakeholders may phrase their prompts in various ways, and this
+  variation can introduce additional biases in model evaluation.**"*
+- Directional: *"performance of open-source LLMs may be **underestimated** if their outputs,
+  though accurate, contain additional text."*
+
+**What Macedo establishes (so we DON'T claim):** the full chain — prompt design → output-format
+distribution → extraction need → **significant** evaluation bias that **alters benchmarking
+conclusions** — AND an explicit note that stakeholder prompt *phrasing* introduces biases.
+This is the single biggest prior-art hit.
+
+**What Macedo does NOT do (our remaining, narrower wedge):**
+- "Different prompts" = **format-instruction templates** (Reference vs "output code only"
+  Vanilla), **not register/politeness/verbosity/language**.
+- Stops at *"could introduce biases"* (flagged implication); does **not** run a controlled
+  experiment that **fabricates a significant *correctness* finding (terse>polite, p<0.01) that
+  vanishes**.
+- No engagement with the **politeness/vibe literature**; code **translation**, not generation;
+  no **multi-pitfall compilation** / closing-window.
+
+**Our one-line positioning vs Macedo:**
+> Macedo shows output-format bias significantly skews code-*translation* metrics and flags that
+> prompt phrasing can bias evaluation; we instantiate that flagged risk on the **register axis**
+> and show it **fabricates a statistically significant politeness/correctness effect that is
+> actually null** — correcting the politeness-prompting literature — and package multiple such
+> pitfalls reproducibly.
+
+**Honest note:** three uploaded papers (SAFIM, FormatSpread, Macedo) — the extraction-confound
+MECHANISM is established prior art; Macedo even names the prompt-phrasing link. Lead on the
+**application (politeness correction) + compilation + closing-window**, NOT the mechanism.
 
 ## CodeTransBenchmark — verify provenance
 
