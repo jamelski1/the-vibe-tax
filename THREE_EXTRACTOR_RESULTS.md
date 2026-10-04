@@ -63,6 +63,28 @@ scoring noise.)
   `class Solution` *method* format it mostly falls back to longest-valid-substring extraction.
   Lower absolute level, same flattening of the condition asymmetry.
 
+## Is the naive extractor a strawman? (representativeness check)
+
+Not one cherry-picked implementation — several reasonable-but-naive extractors distort the result.
+Compile-rate by condition, capable models (no tests needed):
+
+| naive extractor | terse | detailed | terse − detailed |
+|-----------------|------:|---------:|-----------------:|
+| **A** first fenced block / else whole reply (our pipeline) | 88.0 | 73.4 | **+14.6** |
+| **B** first code-like line onward (HumanEval-v1 `clean_completion` style) | 71.6 | 43.1 | **+28.5** |
+| C first fenced block only | 18.3 | 30.8 | −12.5 |
+| D last fenced block only | 18.0 | 31.1 | −13.1 |
+
+- **A and B both produce the politeness tax** (+14.6, +28.5); A is our actual pipeline code, B is the
+  *published* HumanEval-lineage cleaner. So the artifact is not specific to one naive choice.
+- **C and D invert the sign** (−12.5, −13.1) with catastrophic absolute rates (~18%): the "no fences"
+  system prompt means most replies are unfenced, so fence-only extractors find nothing. This shows
+  extractor choice can swing the result **±28 pts in either direction** — the confound itself.
+- Only the robust extractors (ours, sanitize) give a **stable null**.
+- Representative, not a strawman: A = actual original code (reproduces the original compile table
+  exactly); B = published HumanEval approach; Macedo's "Vanilla Direct Evaluation" (compile raw
+  output, 4.92% CA) is the extreme naive baseline. Reproduce in a few lines from responses only.
+
 ## On MAX_TESTS=60 (does test sampling change this?)
 
 **No sampling occurs at all.** Measured over all 167 problems: tests/problem = min 33 / median 42 /
