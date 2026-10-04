@@ -142,9 +142,10 @@ lightly adapted**. Frame `sanitize` as "the widely-used EvalPlus sanitizer," not
 
 ## What's needed to finish (gaps)
 
-- **Three-extractor robustness run — DONE** (see THREE_EXTRACTOR_RESULTS.md). naive terse−detailed
-  = **+15.9 pts**; ours **+0.3**; sanitize **−2.4** → the tax is naive-extraction-specific and
-  vanishes under both robust extractors. Remaining: attach McNemar p-values (run upgraded cell 7).
+- **Three-extractor robustness run — DONE, with McNemar** (see THREE_EXTRACTOR_RESULTS.md).
+  terse−detailed: **naive +15.9 pts, p=1.6×10⁻⁷**; **ours 0.0, p=1.0**; **sanitize −2.4, p=0.27**.
+  The "politeness tax" is a naive-extraction artifact, confirmed by two independent robust
+  extractors (ours + EvalPlus `sanitize`). This is the paper's core robustness result / Fig. 1.
 - Build Fig. 1 and Fig. 2 from existing data (have the numbers).
 - Finalize Table 1 (catalogue) and Table 2 (politeness lit) — both drafted in repo docs.
 - Decide whether to include the **self-repair** positive companion (optional; strengthens "feedback

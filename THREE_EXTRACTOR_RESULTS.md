@@ -33,17 +33,22 @@ Naive: detailed is the *lowest* (the asymmetry that manufactures the tax). Ours 
 | webchat_multilingual | 65.9 | 84.4 | 69.8 |
 | **spread (max−min)** | **15.9** | **3.0** | **3.0** |
 
-**terse − detailed (the "politeness/verbosity tax"):**
+**terse − detailed (the "politeness/verbosity tax") — paired McNemar (capable models, n=1,336 records):**
 
-| extractor | terse − detailed | reading |
-|-----------|-----------------:|---------|
-| **naive** | **+15.9 pts** | large apparent tax (terse beats polite; detailed worst) |
-| **ours** | **+0.3 pts** | null |
-| **sanitize** | **−2.4 pts** | null (if anything reversed) |
+| extractor | terse − detailed | discordant pairs (terse-only / detailed-only) | McNemar p | reading |
+|-----------|-----------------:|:---------------------------------------------:|----------:|---------|
+| **naive** | **+15.9 pts** | 78 / 25 | **1.6×10⁻⁷** | large, highly significant apparent tax |
+| **ours** | **0.0 pts** | 13 / 13 | **1.000** | perfectly null |
+| **sanitize** | **−2.4 pts** | 16 / 24 | **0.268** | null (if anything reversed) |
 
-(terse − casual: naive +6.9 / ours +0.3 / sanitize −0.9. terse − multilingual: naive +7.2 / ours
-−2.7 / sanitize −3.0. Under naive, terse beats *every* other framing; under both robust extractors
-it does not.)
+Exact two-sided binomial on the discordant pairs. Under **naive**, terse beats polite at
+**p≈1.6e-7**; the *same paired comparison* is **n.s. under both robust extractors** (p=1.0 and
+p=0.27). That is the result: the "politeness tax" is a naive-extraction artifact, confirmed by two
+independent robust extractors (ours AND the EvalPlus `sanitize` algorithm).
+
+(Second run, with McNemar; pass-rates: naive terse 73.4 / casual 66.5 / detailed 57.5 / multi 66.2;
+ours 81.4 / 81.4 / 81.4 / 84.1; sanitize 66.8 / 68.0 / 69.2 / 70.1. Matches the first run within
+scoring noise.)
 
 ## Interpretation
 
