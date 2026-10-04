@@ -120,8 +120,30 @@ Datasets & Benchmarks is possible. **Not** a SOTA/leaderboard track.
 - *"Your MYT/Cai critique is speculative."* → We **raise** the confound (MCQ parsing is robust), not
   assert it; our demonstrated null is in **code**, where we control it.
 
+## Extractor baseline — run three, don't claim one (IMPORTANT rigor add)
+
+Our thesis puts our own extractor under suspicion, so **do not** rely on a bespoke extractor alone,
+and **do not** claim "we reimplemented EvalPlus." Instead run **three extractors on the same stored
+completions** and report all three:
+- (a) **naive** (the one that produced +9.3),
+- (b) **ours** (robust),
+- (c) **EvalPlus `sanitize`** — an independent, widely-used reference implementation
+  (tree-sitter AST; longest-valid-Python substring via `code_extract()`; helper preservation +
+  reachability filtering from `entry_point` via `extract_target_code_or_empty()`; handles class
+  methods & bare functions). NOTE: it is a **repo reference tool, not a formal standard** (the
+  EvalPlus paper never describes it), and it already implements most "robust" features — so our
+  extractor is **not** a novel contribution, just one of two independent robust extractors.
+
+If the +9.3 appears under (a) and **vanishes under BOTH (b) and (c)**, the result is near-conclusive
+(not a leniency quirk of our tool) — this answers the "is your extractor the real artifact?"
+objection and costs no API calls (re-score only). `sanitize` is drop-in for the **HumanEval / HE+**
+parts; it *likely* works on LCB's `class Solution` format via `entry_point` but **must be tested /
+lightly adapted**. Frame `sanitize` as "the widely-used EvalPlus sanitizer," not "the standard."
+
 ## What's needed to finish (gaps)
 
+- **Three-extractor robustness run** (naive / ours / EvalPlus `sanitize`) on the same completions —
+  the single highest-value rigor add (see above). Test `sanitize` on LCB format first.
 - Build Fig. 1 and Fig. 2 from existing data (have the numbers).
 - Finalize Table 1 (catalogue) and Table 2 (politeness lit) — both drafted in repo docs.
 - Decide whether to include the **self-repair** positive companion (optional; strengthens "feedback
