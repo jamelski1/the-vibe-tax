@@ -62,6 +62,26 @@ to-double-check at camera-ready.
 
 ---
 
+## LiveCodeBench — the benchmark we use (cite; contamination nuance) [PDF-VERIFIED]
+
+- **Citation:** Jain, Han, Gu, Li, Yan, Zhang, Wang, Solar-Lezama, Sen, Stoica. *LiveCodeBench:
+  Holistic and Contamination-Free Evaluation of Large Language Models for Code.* **ICLR 2025.**
+  (UC Berkeley / MIT / Cornell; arXiv:2403.07974.)
+- 600+ problems from LeetCode / AtCoder / Codeforces; paper snapshot **May 2023 – Aug 2024** (the
+  live dataset keeps growing — our subset runs to 2025-04, i.e. a **later release**). Also covers
+  self-repair, code execution, test-output prediction; highlights HumanEval saturation/overfitting.
+- **Their "contamination-free" is via TIME-SEGMENTATION** — evaluate each model only on problems
+  released *after its cutoff*; they detect contamination via before/after-cutoff performance gaps.
+- **Nuance for US (important + honest):** we used a FIXED window (contest_date ≥ 2024-08-01), but our
+  models (gpt-5.4, claude-opus-4-6, codestral-latest; run Aug 2026) have cutoffs *after* that window.
+  So by LCB's own methodology our problems are NOT post-cutoff → our **"contamination-window"** wording
+  is the correct application of LCB's framework, not a contradiction of it.
+- **Use:** (1) cite LCB's time-segmentation when making the contamination caveat (shows we understand
+  the benchmark's contamination model); (2) it **reinforces the closing-window thesis** — the
+  post-cutoff window shrinks for newer models, so contamination-free evaluation gets harder over time.
+- Note the irony to handle gracefully: LCB's *title* says "Contamination-Free," but that's
+  model-relative; don't quote it as if the problems are absolutely contamination-free for our 2026 models.
+
 ## Fachada et al. — practitioner exemplar (NOT a threat) [PDF-VERIFIED]
 
 - Fachada, Fernandes, Fernandes, Ferreira-Saraiva, Matos-Carvalho. *GPT-4.1 Sets the Standard in
