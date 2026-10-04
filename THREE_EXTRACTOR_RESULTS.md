@@ -58,6 +58,21 @@ it does not.)
   `class Solution` *method* format it mostly falls back to longest-valid-substring extraction.
   Lower absolute level, same flattening of the condition asymmetry.
 
+## On MAX_TESTS=60 (does test sampling change this?)
+
+No. Three reasons:
+1. **It's the paper's default.** `score_lcb.py` uses `--max-tests 60`; `sample_tests` is deterministic
+   (all public + strided private). The notebook scores the same way as the canonical pipeline.
+2. **The artifact is extraction-driven, hence test-count-independent.** Naive fails on detailed via
+   trailing-prose SyntaxError *before any test runs* — a non-parsing completion fails on test #1 or
+   #1000 alike. The gap comes from *how many completions extract at all*, not from how many tests run.
+   The **compile-rate** result above uses **zero tests** (`ast.parse` only) and shows the same
+   asymmetry — proof it is not a test-sampling effect.
+3. **Test count affects only absolute level, uniformly.** More tests = slightly stricter, but it only
+   touches code that already extracted + compiled, hitting all extractors/conditions ~equally → the
+   terse−detailed delta is stable.
+   *(Optional bulletproofing: re-run with MAX_TESTS=10000 (all tests); expect the same pattern.)*
+
 ## Status / next
 
 - These are the **capable-model** numbers (ChatGPT + Claude), MAX_TESTS=60, full set (1,336 records
