@@ -142,8 +142,9 @@ lightly adapted**. Frame `sanitize` as "the widely-used EvalPlus sanitizer," not
 
 ## What's needed to finish (gaps)
 
-- **Three-extractor robustness run** (naive / ours / EvalPlus `sanitize`) on the same completions —
-  the single highest-value rigor add (see above). Test `sanitize` on LCB format first.
+- **Three-extractor robustness run — DONE** (see THREE_EXTRACTOR_RESULTS.md). naive terse−detailed
+  = **+15.9 pts**; ours **+0.3**; sanitize **−2.4** → the tax is naive-extraction-specific and
+  vanishes under both robust extractors. Remaining: attach McNemar p-values (run upgraded cell 7).
 - Build Fig. 1 and Fig. 2 from existing data (have the numbers).
 - Finalize Table 1 (catalogue) and Table 2 (politeness lit) — both drafted in repo docs.
 - Decide whether to include the **self-repair** positive companion (optional; strengthens "feedback
