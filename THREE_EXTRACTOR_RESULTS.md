@@ -65,7 +65,13 @@ scoring noise.)
 
 ## On MAX_TESTS=60 (does test sampling change this?)
 
-No. Three reasons:
+**No sampling occurs at all.** Measured over all 167 problems: tests/problem = min 33 / median 42 /
+mean 40.5 / **max 44**. **0 problems exceed 60**, so `MAX_TESTS=60` runs the **complete official LCB
+test suite for every problem** (2 public + ~31–42 private). `MAX_TESTS=60` and `MAX_TESTS=10000`
+are byte-identical here — the "all-tests" confirmation run is unnecessary. Methods line: *"all 167
+problems have 33–44 tests (max 44); MAX_TESTS=60 runs every test for every problem — no sampling."*
+
+(And even if sampling did occur, three reasons it wouldn't matter:)
 1. **It's the paper's default.** `score_lcb.py` uses `--max-tests 60`; `sample_tests` is deterministic
    (all public + strided private). The notebook scores the same way as the canonical pipeline.
 2. **The artifact is extraction-driven, hence test-count-independent.** Naive fails on detailed via
