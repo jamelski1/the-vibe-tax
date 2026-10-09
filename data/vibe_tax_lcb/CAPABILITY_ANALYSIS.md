@@ -88,8 +88,24 @@ time-limit (efficiency) failures — we can't separate them without running the
 graded tests locally. Splitting **time-limit (correct-but-too-slow)** from
 **wrong-answer (incorrect algorithm)** is a valuable follow-up: it distinguishes
 "the model had the right idea but an inefficient implementation" from "the model
-had the wrong idea." (The tests are local — `score_lcb.py` could log the failure
-reason.)
+had the wrong idea." *(Done: `score_lcb.py` now logs a per-completion `reason` —
+`wrong_answer` / `runtime_error` / `timeout` / `compile_error` / `no_target` /
+`missing_library` — so re-scoring produces this split directly. Re-run to populate
+the real numbers here.)*
+
+*Environment caveat (library availability — the Fachada point).* Exactly **8**
+capable-model completions — both from **Claude**, on 2 problems (`lcb/3527`,
+`lcb/3717`), **balanced 2/2/2/2 across the four register conditions** — `import
+sortedcontainers`, a standard competitive-programming library the real
+LCB/LeetCode judge provides but which is **not** in the stdlib. If the scoring
+environment lacks it, those 8 fail with an `ImportError` that is an *environment*
+failure, not a reasoning failure — so the "100% wrong logic" figure above holds
+only when `sortedcontainers` is installed (`pip install sortedcontainers` before
+scoring). `score_lcb.py` now tags these `missing_library` (not `compile_error`)
+and prints a loud warning so they can never be silently miscounted as model
+failures. Because the 8 are balanced across conditions, they do **not** affect the
+register/extraction comparison; they only touch the absolute capability numbers.
+It is the only third-party dependency across all 2,004 completions.
 
 ## 4b. Capability is a continuum, not solved/unsolved (partial credit)
 

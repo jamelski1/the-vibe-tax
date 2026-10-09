@@ -162,13 +162,16 @@ def eq(a, b):
 # Failure-reason taxonomy (the `reason` field on every scored record).
 # "pass" on success; otherwise exactly one of these, resolved at the FIRST failing
 # stage so a completion is attributed to how it first fails:
-#   no_code       extraction returned nothing (no usable code in the reply)
-#   compile_error extracted code does not exec (SyntaxError / import-time error)
-#   no_target     code execs but no `entry` callable is resolvable (shape mismatch)
-#   runtime_error a test call raised an exception (not a timeout)   -> SEMANTIC
-#   wrong_answer  a test call returned a value != expected          -> SEMANTIC
-#   timeout       a test exceeded PER_TEST_TIMEOUT (TLE / hang)     -> SEMANTIC (efficiency)
-#   no_tests      the problem carried no usable tests (scoring gap, not the model)
+#   no_code        extraction returned nothing (no usable code in the reply)
+#   compile_error  extracted code does not exec (SyntaxError / import-time error)
+#   missing_library an import failed because the package is absent from the scoring
+#                  env (e.g. sortedcontainers, which the real LCB/LeetCode judge
+#                  provides) -> ENVIRONMENT, not a model failure; install & re-score
+#   no_target      code execs but no `entry` callable is resolvable (shape mismatch)
+#   runtime_error  a test call raised an exception (not a timeout)   -> SEMANTIC
+#   wrong_answer   a test call returned a value != expected          -> SEMANTIC
+#   timeout        a test exceeded PER_TEST_TIMEOUT (TLE / hang)     -> SEMANTIC (efficiency)
+#   no_tests       the problem carried no usable tests (scoring gap, not the model)
 # The three SEMANTIC reasons are the "code ran, output wrong/slow" bucket that
 # CAPABILITY_ANALYSIS.md previously lumped as "wrong logic"; splitting them
 # separates "wrong idea" (wrong_answer) from "right idea, too slow" (timeout).
@@ -185,6 +188,8 @@ def _worker(code, entry, tests, q):
     ns = {}
     try:
         exec(_IMPORTS + code, ns)
+    except (ImportError, ModuleNotFoundError) as e:
+        q.append(("missing_library", getattr(e, "name", None) or str(e))); return
     except Exception as e:
         q.append(("compile_error", type(e).__name__)); return
     fn = resolve_callable(ns, entry)               # shape-agnostic (class/bare/renamed/nested)
@@ -195,6 +200,8 @@ def _worker(code, entry, tests, q):
             args = parse_input(t["input"])
             expected = parse_lit(t["output"])
             ok = eq(fn(*args), expected)
+        except (ImportError, ModuleNotFoundError) as e:                 # import inside a method
+            q.append(("missing_library", getattr(e, "name", None) or str(e))); return
         except Exception as e:
             q.append(("runtime_error", type(e).__name__)); return   # semantic: exception
         if not ok:
@@ -203,14 +210,15 @@ def _worker(code, entry, tests, q):
 
 
 def grade(code, entry, tests):
-    """Return (passed, reason). passed iff EVERY test passes within PER_TEST_TIMEOUT
-    seconds each; reason is "pass" or the first failing stage (see taxonomy above).
-    A wrong answer fails fast; a test that hangs (infinite loop / TLE) fails on its
-    own timeout without killing the tests that already passed."""
+    """Return (passed, reason, detail). passed iff EVERY test passes within
+    PER_TEST_TIMEOUT seconds each; reason is "pass" or the first failing stage (see
+    taxonomy above); detail carries the exception type / missing module name where
+    relevant, else "". A wrong answer fails fast; a test that hangs (infinite loop /
+    TLE) fails on its own timeout without killing the tests that already passed."""
     if not code:
-        return (False, "no_code")
+        return (False, "no_code", "")
     if not tests:
-        return (False, "no_tests")
+        return (False, "no_tests", "")
     mgr = multiprocessing.Manager(); q = mgr.list()
     p = multiprocessing.Process(target=_worker, args=(code, entry, tests, q))
     p.start()
@@ -219,17 +227,17 @@ def grade(code, entry, tests):
         n = len(q)
         if n > seen:
             if q[n - 1][0] != "pass":             # newest test failed -> stop
-                reason = q[n - 1][0]
-                p.kill(); p.join(2); return (False, reason)
+                reason, detail = q[n - 1]
+                p.kill(); p.join(2); return (False, reason, detail)
             seen = n; last_progress = time.time()
         elif time.time() - last_progress > PER_TEST_TIMEOUT:   # hung on current test
-            p.kill(); p.join(2); return (False, "timeout")      # semantic: efficiency/hang
+            p.kill(); p.join(2); return (False, "timeout", "")  # semantic: efficiency/hang
         time.sleep(0.02)
     res = list(q)
     if res and res[-1][0] != "pass":              # process ended on a recorded failure
-        return (False, res[-1][0])
+        return (False, res[-1][0], res[-1][1])
     passed = len(res) == len(tests) and all(x[0] == "pass" for x in res)
-    return (passed, "pass" if passed else "incomplete")
+    return (passed, "pass" if passed else "incomplete", "")
 
 
 def passes(code, entry, tests):
@@ -263,13 +271,14 @@ def run(max_tests):
     for i, r in enumerate(responses):
         rec = tests_by_id.get(r["task_id"])
         if not rec:
-            ok, reason = False, "no_problem_tests"
+            ok, reason, detail = False, "no_problem_tests", ""
         else:
             code = extract_solution(r.get("completion"), r["entry_point"])
             tl = sample_tests(rec, max_tests)
-            ok, reason = grade(code, r["entry_point"], tl) if tl else (False, "no_tests")
+            ok, reason, detail = grade(code, r["entry_point"], tl) if tl else (False, "no_tests", "")
         scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model", "model_id")}
-                      | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok, "reason": reason})
+                      | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok,
+                         "reason": reason, "reason_detail": detail})
         if (i + 1) % 100 == 0:
             print(f"  scored {i+1}/{len(responses)}", flush=True)
 
@@ -302,12 +311,15 @@ def run(max_tests):
     # Failure-reason taxonomy: overall, and (failures only) by condition — capable
     # models — so the syntax-vs-semantic split can be read per register.
     SEMANTIC = {"wrong_answer", "runtime_error", "timeout"}
+    EXTRACTION = {"no_code", "compile_error", "no_target"}
+    ENVIRONMENT = {"missing_library", "no_tests", "no_problem_tests"}
     stats["reason_counts"] = reason_breakdown(scored)
     fails = [x for x in scored if not x["passed"]]
     stats["failure_reasons"] = reason_breakdown(fails)
     stats["semantic_vs_other"] = {
         "semantic (wrong_answer/runtime_error/timeout)": sum(x["reason"] in SEMANTIC for x in fails),
-        "extraction/other": sum(x["reason"] not in SEMANTIC for x in fails),
+        "extraction (no_code/compile_error/no_target)": sum(x["reason"] in EXTRACTION for x in fails),
+        "environment (missing_library/no_tests)": sum(x["reason"] in ENVIRONMENT for x in fails),
     }
     cap_fail = defaultdict(list)
     for x in fails:
@@ -330,7 +342,16 @@ def run(max_tests):
         print(f"  {k:16s} {v}")
     sv = stats["semantic_vs_other"]
     print(f"  -> semantic (ran, wrong/slow): {sv['semantic (wrong_answer/runtime_error/timeout)']}"
-          f" | extraction/other: {sv['extraction/other']}")
+          f" | extraction: {sv['extraction (no_code/compile_error/no_target)']}"
+          f" | environment: {sv['environment (missing_library/no_tests)']}")
+    ml = [x for x in scored if x["reason"] == "missing_library"]
+    if ml:
+        mods = sorted({x.get("reason_detail", "") for x in ml})
+        print("!" * 60)
+        print(f"WARNING: {len(ml)} completions failed on a MISSING LIBRARY, not on correctness.")
+        print("  These are environment failures the real LCB/LeetCode judge would not hit.")
+        print("  Install the package(s) and re-score, e.g.:  pip install sortedcontainers")
+        print("!" * 60)
 
 
 if __name__ == "__main__":
