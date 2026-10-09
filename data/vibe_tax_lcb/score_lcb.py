@@ -255,9 +255,21 @@ def sample_tests(rec, k):
     return pub + (priv[::stride][:need] if need else [])
 
 
-def run(max_tests):
+def run(max_tests, models=None):
     tests_by_id = {r["task_id"]: r for r in (json.loads(l) for l in open(TESTS, encoding="utf-8"))}
     responses = json.load(open(RESPONSES, encoding="utf-8"))
+    out, stats_out = OUT, STATS
+    if models:
+        keep = set(models)
+        responses = [r for r in responses if r.get("model") in keep]
+        # write to distinct, clearly-named files so the all-models run is not overwritten
+        tag = "_" + "-".join(sorted(keep))
+        if out == os.path.join(SCRIPT_DIR, "lcb_scored.json"):
+            out = os.path.join(SCRIPT_DIR, f"lcb_scored{tag}.json")
+        if stats_out == os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"):
+            stats_out = os.path.join(SCRIPT_DIR, f"lcb_scored_stats{tag}.json")
+        print(f"restricted to models {sorted(keep)} -> {len(responses)} completions")
+        print(f"writing {out} and {stats_out}")
     # difficulty isn't carried on the response records — pull it from the problem file
     diff_by_id = {}
     probs_path = os.path.join(SCRIPT_DIR, "lcb_problems.jsonl")
@@ -282,7 +294,7 @@ def run(max_tests):
         if (i + 1) % 100 == 0:
             print(f"  scored {i+1}/{len(responses)}", flush=True)
 
-    json.dump(scored, open(OUT, "w", encoding="utf-8"), indent=2)
+    json.dump(scored, open(out, "w", encoding="utf-8"), indent=2)
 
     def rate(items):
         n = len(items); k = sum(x["passed"] for x in items)
@@ -327,7 +339,7 @@ def run(max_tests):
             cap_fail[x["level"]].append(x)
     stats["failure_reasons_by_condition_capable"] = {
         k: reason_breakdown(v) for k, v in sorted(cap_fail.items())}
-    json.dump(stats, open(STATS, "w", encoding="utf-8"), indent=2)
+    json.dump(stats, open(stats_out, "w", encoding="utf-8"), indent=2)
 
     print("=" * 60)
     print(f"LCB overall: {stats['overall']['pass_rate']}%  (n={stats['overall']['total']})")
@@ -358,5 +370,7 @@ if __name__ == "__main__":
     multiprocessing.set_start_method("spawn", force=True)
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-tests", type=int, default=60, help="max test cases per problem")
+    ap.add_argument("--models", nargs="*", default=None,
+                    help="restrict to these model names (e.g. --models chatgpt claude); default: all")
     a = ap.parse_args()
-    run(a.max_tests)
+    run(a.max_tests, models=a.models)
