@@ -300,3 +300,50 @@ MYT also cites FormatSpread and **Cai et al.** (vetted below).
   arXiv:2402.14531. [SEARCH] EN/ZH/JP; impolite often hurts; over-politeness no clear gain;
   best level is language-dependent. Our multilingual condition speaks to this; raw-accuracy,
   no extraction control.
+
+## Ouédraogo et al. — STRONG overlap #2 (cite prominently; test-gen analog of Macedo) [PDF-VERIFIED]
+
+- **Citation [PDF-VERIFIED]:** Ouédraogo, Kaboré, Li, Tian, Koyuncu, Klein, Lo, Bissyandé.
+  *Prompt engineering in LLMs for automated unit test generation: A large-scale study.*
+  **Empirical Software Engineering (2026) 31:103**, DOI 10.1007/s10664-026-10840-4
+  (received 31 Mar 2025, accepted 3 Mar 2026, online 28 Mar 2026). (Univ. Luxembourg et al.)
+- **Scope:** JUnit **test** generation (Java); 4 LLMs (GPT-3.5, GPT-4, Mistral 7B, Mixtral 8x7B),
+  **5 prompting techniques** (ZSL, FSL, CoT, ToT, GToT), Defects4J/SF110/CMD, 216,300 test cases.
+
+**Why it matters to us — it makes code extraction an EXPLICIT, measured precondition, exactly as
+we argue, and finds prompting changes extractability [PDF-VERIFIED]:**
+- Introduces **MSR** (Match Success Rate) and **CSR** (Code Extraction Success Rate) metrics to
+  "decouple format and extractability from later concerns of syntax, compilation, and execution."
+- Rationale (verbatim): *"LLM outputs often interleave code with natural language (e.g.,
+  explanations, caveats, reformatted snippets). This interleaving can bias downstream compilation-
+  or execution-based metrics if extraction is not controlled."* ← our exact mechanism.
+- **Summary RQ1 (verbatim):** *"Prompt engineering strongly influences extractability of
+  LLM-generated test suites."*
+- **Finding 5 (verbatim):** *"Explicit delimiters improve extraction by structuring LLM outputs,
+  but all LLMs exhibit inconsistencies in following formatting instructions ... making automated
+  extraction challenging."* (MSR 16–25%, CSR 15–24% even WITH delimiters.)
+- **Critique of prior work (verbatim):** *"Existing studies on LLM-based test generation ...
+  typically report results on syntactic correctness, compilability, coverage, or fault detection
+  once code has been extracted, without explicitly assessing the reliability of that extraction
+  step ... leaving output format and extractability unexamined."* ← same critique we make.
+- **Lineage:** explicitly *"adapt the MSR/CSR framework of Macedo et al. (2024), originally
+  proposed for code translation, to JUnit test generation."* So: Macedo (translation) →
+  Ouédraogo (test-gen) → us (functional code-gen, register axis). Extraction method:
+  delimiter-first, then JUnit-shape fallback; "select the longest candidate that satisfies the
+  JUnit shape" — a robust, multi-candidate extractor like ours.
+
+**Novelty assessment (honest — this RAISES THE BAR):**
+- This is a SECOND peer-reviewed EMSE paper (with Macedo) establishing that (a) prompting affects
+  extractability and (b) prior work ignores the extraction step and is thereby biased. We can **no
+  longer** claim "nobody treats extraction as a confound." Cite BOTH as establishing the problem.
+- It does **NOT** do our distinctive things: (1) its axis is **reasoning/prompting *technique***
+  (ZSL/CoT/ToT/GToT), not **register/politeness** holding the task identical; (2) it reports
+  extraction *success rates* (MSR/CSR) as descriptive metrics — it does **not** show a naive
+  extractor *fabricates a statistically significant false effect that vanishes AND reverses* under
+  robust extractors (our paired-McNemar, same-completions-opposite-conclusions result, incl. the
+  LCB-official sign reversal); (3) no engagement with the politeness literature (MYT/Cai); (4)
+  different task/domain (JUnit/Java vs functional/Python-LCB).
+- **Net:** strong ALLY, moderate threat. Two EMSE papers make the problem credible and non-niche;
+  our narrowed, still-distinct contribution = **register axis + fabricated-significance-that-
+  vanishes-and-reverses + politeness-lit correction + controlled paired design + closing-window**.
+  Position with Macedo as the two closest neighbors; stand on them, not against them.
