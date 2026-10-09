@@ -159,36 +159,58 @@ def eq(a, b):
     return a == b
 
 
+# Failure-reason taxonomy (the `reason` field on every scored record).
+# "pass" on success; otherwise exactly one of these, resolved at the FIRST failing
+# stage so a completion is attributed to how it first fails:
+#   no_code       extraction returned nothing (no usable code in the reply)
+#   compile_error extracted code does not exec (SyntaxError / import-time error)
+#   no_target     code execs but no `entry` callable is resolvable (shape mismatch)
+#   runtime_error a test call raised an exception (not a timeout)   -> SEMANTIC
+#   wrong_answer  a test call returned a value != expected          -> SEMANTIC
+#   timeout       a test exceeded PER_TEST_TIMEOUT (TLE / hang)     -> SEMANTIC (efficiency)
+#   no_tests      the problem carried no usable tests (scoring gap, not the model)
+# The three SEMANTIC reasons are the "code ran, output wrong/slow" bucket that
+# CAPABILITY_ANALYSIS.md previously lumped as "wrong logic"; splitting them
+# separates "wrong idea" (wrong_answer) from "right idea, too slow" (timeout).
+
+
 def _worker(code, entry, tests, q):
-    """Run tests in order, STREAMING one bool per test into q, and stop at the
-    first failure (early exit). Streaming lets passes() enforce a PER-TEST timeout
-    instead of one budget for the whole suite — a correct-but-slow solution on a
-    many-test problem must not be failed just because the SUM of test times exceeds
-    a single cap (LCB, like any judge, limits each test, not the total)."""
+    """Run tests in order, STREAMING one (status, detail) tuple per test into q, and
+    stop at the first failure (early exit). `status` is "pass" or a failure reason
+    from the taxonomy above; `detail` carries the exception type where relevant.
+    Streaming lets grade() enforce a PER-TEST timeout instead of one budget for the
+    whole suite — a correct-but-slow solution on a many-test problem must not be
+    failed just because the SUM of test times exceeds a single cap (LCB, like any
+    judge, limits each test, not the total)."""
     ns = {}
     try:
         exec(_IMPORTS + code, ns)
-    except Exception:
-        q.append(False); return
+    except Exception as e:
+        q.append(("compile_error", type(e).__name__)); return
     fn = resolve_callable(ns, entry)               # shape-agnostic (class/bare/renamed/nested)
+    if fn is None:
+        q.append(("no_target", "")); return
     for t in tests:
         try:
             args = parse_input(t["input"])
             expected = parse_lit(t["output"])
-            ok = (fn is not None) and eq(fn(*args), expected)
-        except Exception:
-            ok = False
-        q.append(ok)
+            ok = eq(fn(*args), expected)
+        except Exception as e:
+            q.append(("runtime_error", type(e).__name__)); return   # semantic: exception
         if not ok:
-            return                      # early exit: one failure fails the problem
+            q.append(("wrong_answer", "")); return                  # semantic: wrong output
+        q.append(("pass", ""))
 
 
-def passes(code, entry, tests):
-    """True iff EVERY test passes, each within PER_TEST_TIMEOUT seconds. A wrong
-    answer fails fast; a test that hangs (infinite loop / TLE) fails on its own
-    timeout without killing the tests that already passed."""
-    if not code or not tests:
-        return False
+def grade(code, entry, tests):
+    """Return (passed, reason). passed iff EVERY test passes within PER_TEST_TIMEOUT
+    seconds each; reason is "pass" or the first failing stage (see taxonomy above).
+    A wrong answer fails fast; a test that hangs (infinite loop / TLE) fails on its
+    own timeout without killing the tests that already passed."""
+    if not code:
+        return (False, "no_code")
+    if not tests:
+        return (False, "no_tests")
     mgr = multiprocessing.Manager(); q = mgr.list()
     p = multiprocessing.Process(target=_worker, args=(code, entry, tests, q))
     p.start()
@@ -196,14 +218,23 @@ def passes(code, entry, tests):
     while p.is_alive():
         n = len(q)
         if n > seen:
-            if q[n - 1] is False:                 # newest test failed -> stop
-                p.kill(); p.join(2); return False
+            if q[n - 1][0] != "pass":             # newest test failed -> stop
+                reason = q[n - 1][0]
+                p.kill(); p.join(2); return (False, reason)
             seen = n; last_progress = time.time()
         elif time.time() - last_progress > PER_TEST_TIMEOUT:   # hung on current test
-            p.kill(); p.join(2); return False
+            p.kill(); p.join(2); return (False, "timeout")      # semantic: efficiency/hang
         time.sleep(0.02)
     res = list(q)
-    return len(res) == len(tests) and all(res)    # all tests present and passed
+    if res and res[-1][0] != "pass":              # process ended on a recorded failure
+        return (False, res[-1][0])
+    passed = len(res) == len(tests) and all(x[0] == "pass" for x in res)
+    return (passed, "pass" if passed else "incomplete")
+
+
+def passes(code, entry, tests):
+    """Backward-compatible boolean wrapper around grade()."""
+    return grade(code, entry, tests)[0]
 
 
 def sample_tests(rec, k):
@@ -231,13 +262,14 @@ def run(max_tests):
     scored = []
     for i, r in enumerate(responses):
         rec = tests_by_id.get(r["task_id"])
-        ok = False
-        if rec:
+        if not rec:
+            ok, reason = False, "no_problem_tests"
+        else:
             code = extract_solution(r.get("completion"), r["entry_point"])
             tl = sample_tests(rec, max_tests)
-            ok = passes(code, r["entry_point"], tl) if tl else False  # no tests -> not a pass
+            ok, reason = grade(code, r["entry_point"], tl) if tl else (False, "no_tests")
         scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model", "model_id")}
-                      | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok})
+                      | {"difficulty": diff_by_id.get(r["task_id"]), "passed": ok, "reason": reason})
         if (i + 1) % 100 == 0:
             print(f"  scored {i+1}/{len(responses)}", flush=True)
 
@@ -253,6 +285,12 @@ def run(max_tests):
             d[x.get(key)].append(x)
         return {str(k): rate(v) for k, v in sorted(d.items(), key=lambda kv: str(kv[0]))}
 
+    def reason_breakdown(items):
+        d = defaultdict(int)
+        for x in items:
+            d[x["reason"]] += 1
+        return dict(sorted(d.items(), key=lambda kv: -kv[1]))
+
     stats = {"overall": rate(scored), "by_condition": grp("level"),
              "by_model": grp("model"), "by_difficulty": grp("difficulty"),
              "by_condition_and_model": {f"{x['model']}|{x['level']}": None for x in scored}}
@@ -260,6 +298,23 @@ def run(max_tests):
     for x in scored:
         cm[f"{x['model']}|{x['level']}"].append(x)
     stats["by_condition_and_model"] = {k: rate(v) for k, v in sorted(cm.items())}
+
+    # Failure-reason taxonomy: overall, and (failures only) by condition — capable
+    # models — so the syntax-vs-semantic split can be read per register.
+    SEMANTIC = {"wrong_answer", "runtime_error", "timeout"}
+    stats["reason_counts"] = reason_breakdown(scored)
+    fails = [x for x in scored if not x["passed"]]
+    stats["failure_reasons"] = reason_breakdown(fails)
+    stats["semantic_vs_other"] = {
+        "semantic (wrong_answer/runtime_error/timeout)": sum(x["reason"] in SEMANTIC for x in fails),
+        "extraction/other": sum(x["reason"] not in SEMANTIC for x in fails),
+    }
+    cap_fail = defaultdict(list)
+    for x in fails:
+        if x["model"] in ("chatgpt", "claude"):
+            cap_fail[x["level"]].append(x)
+    stats["failure_reasons_by_condition_capable"] = {
+        k: reason_breakdown(v) for k, v in sorted(cap_fail.items())}
     json.dump(stats, open(STATS, "w", encoding="utf-8"), indent=2)
 
     print("=" * 60)
@@ -270,6 +325,12 @@ def run(max_tests):
     print("by difficulty:")
     for k, v in stats["by_difficulty"].items():
         print(f"  {k:8s} {v['pass_rate']}%")
+    print("failure reasons (all failures):")
+    for k, v in stats["failure_reasons"].items():
+        print(f"  {k:16s} {v}")
+    sv = stats["semantic_vs_other"]
+    print(f"  -> semantic (ran, wrong/slow): {sv['semantic (wrong_answer/runtime_error/timeout)']}"
+          f" | extraction/other: {sv['extraction/other']}")
 
 
 if __name__ == "__main__":
