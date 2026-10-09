@@ -1,0 +1,141 @@
+{
+  "overall": {
+    "passed": 1095,
+    "total": 1336,
+    "pass_rate": 82.0
+  },
+  "by_condition": {
+    "agentic_casual": {
+      "passed": 271,
+      "total": 334,
+      "pass_rate": 81.1
+    },
+    "agentic_terse": {
+      "passed": 273,
+      "total": 334,
+      "pass_rate": 81.7
+    },
+    "webchat_detailed": {
+      "passed": 270,
+      "total": 334,
+      "pass_rate": 80.8
+    },
+    "webchat_multilingual": {
+      "passed": 281,
+      "total": 334,
+      "pass_rate": 84.1
+    }
+  },
+  "by_model": {
+    "chatgpt": {
+      "passed": 541,
+      "total": 668,
+      "pass_rate": 81.0
+    },
+    "claude": {
+      "passed": 554,
+      "total": 668,
+      "pass_rate": 82.9
+    }
+  },
+  "by_difficulty": {
+    "easy": {
+      "passed": 339,
+      "total": 344,
+      "pass_rate": 98.5
+    },
+    "hard": {
+      "passed": 247,
+      "total": 408,
+      "pass_rate": 60.5
+    },
+    "medium": {
+      "passed": 509,
+      "total": 584,
+      "pass_rate": 87.2
+    }
+  },
+  "by_condition_and_model": {
+    "chatgpt|agentic_casual": {
+      "passed": 131,
+      "total": 167,
+      "pass_rate": 78.4
+    },
+    "chatgpt|agentic_terse": {
+      "passed": 137,
+      "total": 167,
+      "pass_rate": 82.0
+    },
+    "chatgpt|webchat_detailed": {
+      "passed": 132,
+      "total": 167,
+      "pass_rate": 79.0
+    },
+    "chatgpt|webchat_multilingual": {
+      "passed": 141,
+      "total": 167,
+      "pass_rate": 84.4
+    },
+    "claude|agentic_casual": {
+      "passed": 140,
+      "total": 167,
+      "pass_rate": 83.8
+    },
+    "claude|agentic_terse": {
+      "passed": 136,
+      "total": 167,
+      "pass_rate": 81.4
+    },
+    "claude|webchat_detailed": {
+      "passed": 138,
+      "total": 167,
+      "pass_rate": 82.6
+    },
+    "claude|webchat_multilingual": {
+      "passed": 140,
+      "total": 167,
+      "pass_rate": 83.8
+    }
+  },
+  "reason_counts": {
+    "pass": 1095,
+    "wrong_answer": 130,
+    "runtime_error": 61,
+    "timeout": 49,
+    "compile_error": 1
+  },
+  "failure_reasons": {
+    "wrong_answer": 130,
+    "runtime_error": 61,
+    "timeout": 49,
+    "compile_error": 1
+  },
+  "semantic_vs_other": {
+    "semantic (wrong_answer/runtime_error/timeout)": 240,
+    "extraction (no_code/compile_error/no_target)": 1,
+    "environment (missing_library/no_tests)": 0
+  },
+  "failure_reasons_by_condition_capable": {
+    "agentic_casual": {
+      "wrong_answer": 35,
+      "runtime_error": 17,
+      "timeout": 11
+    },
+    "agentic_terse": {
+      "wrong_answer": 35,
+      "runtime_error": 14,
+      "timeout": 12
+    },
+    "webchat_detailed": {
+      "wrong_answer": 36,
+      "runtime_error": 15,
+      "timeout": 13
+    },
+    "webchat_multilingual": {
+      "wrong_answer": 24,
+      "runtime_error": 15,
+      "timeout": 13,
+      "compile_error": 1
+    }
+  }
+}
