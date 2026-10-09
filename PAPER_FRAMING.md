@@ -33,17 +33,31 @@ a controlled code-domain null, the mechanism, a reproducible pitfalls catalogue,
 
 **Built-on (cite, do NOT claim):**
 - Extraction/output-format is a significant, conclusion-changing confound in code eval → **SAFIM**
-  (model-training axis), **Macedo** (code translation; even names the prompt-phrasing→bias link).
-- Robust/multi-candidate extraction as a technique → standard (EvalPlus `sanitize` tool, Macedo regex).
+  (model-training axis), **Macedo** (code translation; format bias flips benchmark rankings; names
+  the prompt-phrasing→bias link), **Ouédraogo** (EMSE'26 test generation; "prompt engineering
+  strongly influences extractability"; MSR/CSR make extraction an explicit precondition; adapts
+  Macedo). **Two peer-reviewed EMSE papers establish the confound — the mechanism is NOT ours.**
+- Robust/multi-candidate extraction as a technique → standard (EvalPlus `sanitize` tool, Macedo
+  regex, Ouédraogo's delimiter+shape fallback).
+
+**The axis is the cleanest differentiator (state it explicitly):** Macedo varies **output-format
+instruction templates**; Ouédraogo varies **reasoning/prompting techniques** (ZSL/CoT/ToT/GToT);
+we vary **prompt register** (terse/casual/polite/multilingual) with the task held *identical*.
+And the *dependent* quantity differs: Macedo = which model ranks highest; Ouédraogo = how often
+extraction succeeds (MSR/CSR); **us = whether polite prompts "cost correctness" — a behavioral
+claim with a p-value, which we show is a fabricated artifact that vanishes and reverses.**
 - Prompt surface choices confound evaluation; report a range → **FormatSpread**.
 - Test insufficiency / buggy ground-truth flip rankings → **EvalPlus**.
 
 **Novel (our contributions):**
 1. A **controlled, paired within-problem** experiment isolating prompt **register** (problem held
    identical) on a **de-saturated code-generation** benchmark → **no register effect on correctness**.
-2. Demonstration that a standard extractor **manufactures a significant false effect that vanishes**
-   — extraction as a **directional confound on the prompt axis** (vs. Macedo/SAFIM's model axis;
-   vs. FormatSpread's genuine-sensitivity-no-parsing).
+2. Demonstration that a standard extractor **manufactures a significant false effect that vanishes
+   AND reverses** — the SAME completions give +15.9 (naive), ~0 (ours, EvalPlus sanitize), and ~−12
+   (official LCB fence-only) under four extractors. Prior work shows extraction shifts *rankings*
+   (Macedo) or *success rates* (Ouédraogo); we show it fabricates and inverts a **behavioral
+   conclusion on the register axis** (vs. Macedo's format templates / Ouédraogo's reasoning
+   techniques; vs. FormatSpread's genuine-sensitivity-no-parsing).
 3. **Reconciliation + critique of the politeness literature**: MYT (effects) vs Cai (null), neither
    controls extraction; our controlled null + mechanism explains the inconsistency.
 4. A **reproducible catalogue** of evaluation pitfalls hit in one study, each with a minimal example

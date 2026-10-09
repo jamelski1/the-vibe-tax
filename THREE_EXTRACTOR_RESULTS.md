@@ -85,6 +85,38 @@ Compile-rate by condition, capable models (no tests needed):
   exactly); B = published HumanEval approach; Macedo's "Vanilla Direct Evaluation" (compile raw
   output, 4.92% CA) is the extreme naive baseline. Reproduce in a few lines from responses only.
 
+## LCB's OFFICIAL extractor as a 4th extractor (`extract_code`)
+
+We also ran LiveCodeBench's **own** extraction function (`lcb_runner/utils/extraction_utils.py`,
+generic/API branch, verbatim) on the same completions. It is **fence-only**: it returns the text
+between the last two ```` ``` ```` lines and **returns empty if a reply has fewer than two fence
+lines**. LCB's own prompts instruct fenced output; our system prompt says *"plain Python, no
+fences"*, so on our replies:
+
+- **~77% of capable completions return empty** (they're unfenced → scored no-code FAIL).
+- Where it fires, the fraction of fenced replies **rises with politeness** (terse ~18% → detailed
+  ~31% have ≥2 fences), so the effect **REVERSES**: a ~**−12 pt "politeness bonus"**, the opposite
+  sign to naive.
+
+This is exactly our representativeness extractors **C/D** (fence-only, ~18% absolute, −12.5/−13.1) —
+LCB's official extractor *is* a fence-only extractor. The point is not that LCB's extractor is buggy
+(it assumes fenced output, by design); it is that **an extractor's correctness is contingent on the
+prompt's output convention, and a mismatch silently corrupts the result — here in the opposite
+direction**. The same 1,336 completions therefore yield **three different answers** under four
+extractors:
+
+| extractor | terse − detailed | reading |
+|-----------|-----------------:|---------|
+| **naive** | **+15.9 pts** (p≈1.6e-7) | "politeness tax" |
+| **ours** / **EvalPlus sanitize** | **~0** (n.s.) | null |
+| **LCB official** (fence-only) | **~−12 pts** | "politeness *bonus*" (reversed) |
+
+**Caveat to carry:** our naive +15.9 magnitude is partly a consequence of the *no-fences* prompt
+convention (with fences, trailing prose sits outside the fence and naive-fenced would not choke).
+The robust extractors (ours, sanitize) are the only ones stable across *both* conventions — which is
+the paper's recommendation. (Notebook: `extract_lcb` in `The_Vibe_Tax_Three_Extractors.ipynb`; the
+compile-rate cells run all three models, the pass-rate/McNemar driver the capable slice.)
+
 ## On MAX_TESTS=60 (does test sampling change this?)
 
 **No sampling occurs at all.** Measured over all 167 problems: tests/problem = min 33 / median 42 /

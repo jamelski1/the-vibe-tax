@@ -38,9 +38,12 @@ full sketch (title, outline, novelty-vs-built-on, venue, reviewer objections). A
 ## Honest guardrails (DO NOT violate — these were hard-won)
 
 - **Do NOT claim we discovered extraction-is-a-confound.** It's established prior art — **SAFIM**
-  (ICML'24, model axis) and **Macedo** (EMSE'26, code translation; even names the prompt-phrasing
-  link). Cite and position against; our novelty is the **register axis + fabricated-significance-
-  that-vanishes + politeness-lit correction + reproducible compilation + closing-window**.
+  (ICML'24, model axis), **Macedo** (EMSE'26, code translation; names the prompt-phrasing link),
+  and **Ouédraogo** (EMSE'26, test generation; "prompt engineering strongly influences
+  extractability", adapts Macedo's MSR/CSR). TWO peer-reviewed EMSE papers now establish it — cite
+  BOTH and position against. Our novelty is the **register axis + fabricated-significance-that-
+  vanishes-AND-reverses (four extractors, incl. official LCB) + politeness-lit correction +
+  reproducible compilation + closing-window**.
 - **Say "contamination-window," NOT "contamination-free."** Models' training cutoffs postdate the
   problems; the framing result is contamination-immune by the paired design, absolute rates are not.
 - **On the politeness literature (Mind Your Tone, Cai):** RAISE the extraction confound as an
@@ -75,7 +78,7 @@ full sketch (title, outline, novelty-vs-built-on, venue, reviewer objections). A
 1. **Build Fig. 1** — compile-rate + the three-extractor McNemar panel (numbers in
    `THREE_EXTRACTOR_RESULTS.md`). Publication-quality (matplotlib, SVG/PDF).
 2. **Draft Results + Methods** around the three-extractor table and the pitfall catalogue.
-3. **Draft Related Work** from `RELATED_WORK_NOTES.md` (verified cites only; position vs SAFIM/Macedo).
+3. **Draft Related Work** from `RELATED_WORK_NOTES.md` (verified cites only; position vs SAFIM/Macedo/Ouédraogo).
 4. Optional: `MAX_TESTS=10000` confirmation (will be identical — max 44 tests); LLM-rewritten
    framings robustness run; the self-repair positive companion (`self_repair.py`).
 5. Decide venue (empirical-SE: MSR/ESEM/ICSE-SEIP, or an eval/reproducibility workshop).
