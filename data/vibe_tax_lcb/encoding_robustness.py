@@ -55,11 +55,25 @@ for c in ("agentic_terse", "agentic_casual", "webchat_detailed", "webchat_multil
 terse = {r["task_id"]: r for r in resp if r["level"] == "agentic_terse"}
 corrupt = sorted(t for t, r in terse.items() if is_mojibake(body(r["prompt_text"])))
 print("=" * 72)
-print(f"2. Problems whose STATEMENT is corrupted (seen in all conditions): {len(corrupt)} of {len(terse)}")
+print(f"2. Problems whose STATEMENT is corrupted (affect EVERY condition): {len(corrupt)} of {len(terse)}")
 print("   difficulty:", {d: sum(diff.get(t) == d for t in corrupt) for d in ("easy", "medium", "hard")})
-ex = body(terse[corrupt[0]]["prompt_text"])
-frag = re.search(r"[^\x00-\x7f]+", ex).group(0)
-print(f"   example {corrupt[0]}: {frag!r}  recovers to  {frag.encode('cp437').decode('utf-8')!r}")
+print(f"   {'task_id':10} {'difficulty':9} mangled -> recovered")
+for t in corrupt:
+    b = body(terse[t]["prompt_text"])
+    shown = []
+    for f in re.findall(r"[^\x00-\x7f]+", b)[:3]:
+        try:
+            shown.append(f"{f!r} -> {f.encode('cp437').decode('utf-8')!r}")
+        except Exception:
+            shown.append(f"{f!r} -> ?")
+    print(f"   {t:10} {str(diff.get(t)):9} {'  '.join(shown)}")
+
+# multilingual-framing corruption (Chinese -> mojibake); touches only that condition's wrapper
+CJK = re.compile(r"[一-鿿]")
+ml = {r["task_id"]: r for r in resp if r["level"] == "webchat_multilingual"}
+ml_moji = sorted(t for t, r in ml.items() if not CJK.search(r["prompt_text"]))
+print(f"\n   multilingual FRAMING corrupted (Chinese -> mojibake): {len(ml_moji)} problems "
+      f"(affects the multilingual wrapper only)")
 
 # ---- 3. HEADLINE ROBUSTNESS: terse vs detailed, all 167 vs clean 158 ----
 def extract_naive(c, entry):

@@ -114,6 +114,7 @@ FP = false positive (wrong code scored PASS); NULL = extraction returns nothing 
 | 12 | **Output-token cap truncates a bigger/reasoning model** (two sub-states) | HARNESS | `run_vibe_tax.py` `MAX_TOKENS` | Larger/reasoning models spend the budget on hidden reasoning before the visible answer, and longer solutions need more tokens | At a low cap the completion is either (a) **empty** (budget spent before any visible code) or (b) **truncated mid-code** (non-empty but syntactically incomplete → won't parse/compile). Both are false fails that hit the *more capable* models hardest. | FN (misread as incapacity) | Raise budget (16k+); flag empties **and** parse-incomplete completions separately. *65/101 hard "failures" for GPT-5.6 were empty* |
 | 13 | **Weak base tests pass subtly-wrong code** | HARNESS | HumanEval base (~7 tests) | Off-by-one / edge-case-wrong solutions | Too few tests to expose the bug | **FP** | Re-score on HumanEval+ edge tests (`score_vibe_tax_plus.py`) |
 | 14 | **Binary pass@1 hides partial correctness** | HARNESS/metric | problem-level pass@1 everywhere | Near-miss solutions (one failing edge case) | All-or-nothing collapses a 97%-of-tests attempt to "fail" | misleads | Test-level partial credit (`full_partial_credit.py`) |
+| 15 | **Prompt-encoding corruption of non-ASCII input** (UTF-8 bytes decoded as CP437: `→` → `ΓåÆ`, Chinese → `σ╕«µêæ…`) | INPUT | prompt generation/IO opened with the wrong code page | Any prompt containing non-ASCII: a non-English framing, a math symbol (→, ≤, ×), or typographic punctuation | The model receives garbled bytes instead of the intended characters; a reader never sees it in a pass-rate table | FN *(potentially)* | Force `encoding="utf-8"` end-to-end; audit for mojibake (`s.encode("cp437").decode("utf-8") != s`) and recover losslessly (`encoding_robustness.py`). **In this corpus it did NOT bite** — capable models ignored the noise and the headline was unchanged |
 
 ### The through-line for the paper
 Rows **1–3** and **10** are all *prose/selection* errors whose trigger — how much explanatory
@@ -122,7 +123,13 @@ wrapper**. That is precisely why a prose-sensitive extractor turns a *null* prom
 effect into a *significant* one (#1): the artifact is correlated with the independent variable.
 Rows **4–6** are *structure* errors (a "code smell" is not incorrectness). Rows **11–14** are
 harness/metric errors that don't touch extraction but produce the same symptom — a correct
-model scored wrong — and belong in the same cautionary catalogue.
+model scored wrong — and belong in the same cautionary catalogue. Row **15** is the
+*input-side* sibling of the whole list: where rows 1–10 corrupt how code is read *out* of the
+reply, encoding corruption garbles what the prompt puts *in*. It is the one mode here that did
+**not** bite in our corpus (capable models ignored the noise; the headline was unchanged — see
+`DATA_NOTES.md`), which is itself the point: an input artifact of the same family that happens
+to be harmless is still worth checking for, because you cannot know it is harmless until you
+audit it. Non-English prompts are most exposed (a whole non-ASCII prompt vs. a stray symbol).
 
 ### Diagnostics that caught them (put these in §7)
 1. **Extraction/compile-rate by condition** — if it correlates with your manipulation, it's an
