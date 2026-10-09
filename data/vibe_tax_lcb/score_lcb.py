@@ -259,17 +259,21 @@ def run(max_tests, models=None):
     tests_by_id = {r["task_id"]: r for r in (json.loads(l) for l in open(TESTS, encoding="utf-8"))}
     responses = json.load(open(RESPONSES, encoding="utf-8"))
     out, stats_out = OUT, STATS
+    # build an output suffix so runs with different slices/timeouts don't overwrite each other
+    tag = ""
     if models:
         keep = set(models)
         responses = [r for r in responses if r.get("model") in keep]
-        # write to distinct, clearly-named files so the all-models run is not overwritten
-        tag = "_" + "-".join(sorted(keep))
+        tag += "_" + "-".join(sorted(keep))
+        print(f"restricted to models {sorted(keep)} -> {len(responses)} completions")
+    if PER_TEST_TIMEOUT != 6:                     # non-default per-test timeout -> name it
+        tag += f"_t{PER_TEST_TIMEOUT}"
+    if tag:
         if out == os.path.join(SCRIPT_DIR, "lcb_scored.json"):
             out = os.path.join(SCRIPT_DIR, f"lcb_scored{tag}.json")
         if stats_out == os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"):
             stats_out = os.path.join(SCRIPT_DIR, f"lcb_scored_stats{tag}.json")
-        print(f"restricted to models {sorted(keep)} -> {len(responses)} completions")
-        print(f"writing {out} and {stats_out}")
+        print(f"per-test timeout = {PER_TEST_TIMEOUT}s  ->  writing {out} and {stats_out}")
     # difficulty isn't carried on the response records — pull it from the problem file
     diff_by_id = {}
     probs_path = os.path.join(SCRIPT_DIR, "lcb_problems.jsonl")
@@ -372,5 +376,11 @@ if __name__ == "__main__":
     ap.add_argument("--max-tests", type=int, default=60, help="max test cases per problem")
     ap.add_argument("--models", nargs="*", default=None,
                     help="restrict to these model names (e.g. --models chatgpt claude); default: all")
+    ap.add_argument("--per-test-timeout", type=int, default=PER_TEST_TIMEOUT,
+                    help="seconds allowed per test before it counts as a timeout (default 6). "
+                         "Raise it to see how many 'timeout' failures are genuinely slow vs. near the cap.")
     a = ap.parse_args()
+    # grade() reads the module global PER_TEST_TIMEOUT in the PARENT process (the spawned worker
+    # does not use it), so reassigning it here before run() takes effect.
+    PER_TEST_TIMEOUT = a.per_test_timeout
     run(a.max_tests, models=a.models)
