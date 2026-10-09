@@ -54,6 +54,15 @@ citing). Full quotes/citations in `RELATED_WORK_NOTES.md`.
   `RELATED_WORK_NOTES.md` first.
 - This matrix covers only papers vetted so far (SAFIM, Macedo, FormatSpread, EvalPlus). Add columns
   as new papers come in.
+- **Ouédraogo et al. (EMSE'26) [PDF-VERIFIED]** — no full column added: its coverage is at the
+  *framing* level, not per-structural-mode. It reinforces **rows 1–2** (trailing/leading prose →
+  extraction need: "LLM outputs often interleave code with natural language ... can bias downstream
+  ... metrics if extraction is not controlled") and the **meta-claim** that prior work "leav[es]
+  output format and extractability unexamined." It introduces MSR/CSR as explicit extraction
+  metrics and finds "prompt engineering strongly influences extractability," but does NOT cover the
+  specific structural/assembly/harness modes (rows 3–14) or demonstrate a fabricated-significant
+  effect. Treat it like Macedo for rows 1–2 (✓ established) and as a second prior-art anchor for
+  "extraction is a prompt-sensitive confound." Full quotes in `RELATED_WORK_NOTES.md`.
 
 ## Changelog
 - Initial matrix: SAFIM, Macedo, FormatSpread (all PDF-verified), EvalPlus (search). Token-cap
@@ -65,3 +74,7 @@ citing). Full quotes/citations in `RELATED_WORK_NOTES.md`.
   column added. Relevant only as framing context (a survey exists → our compilation must be a
   focused reproducible pitfalls artifact) + one adjacent precedent (strict text-matching false
   positives, BLEU-scope). See RELATED_WORK_NOTES.md.
+- Ouédraogo et al. (EMSE'26) vetted — strong-overlap #2 (with Macedo). Framing-level coverage of
+  rows 1–2 + the "prior work ignores extraction" meta-claim; adapts Macedo's MSR/CSR to test
+  generation. Note added above (no full column). Raises the bar: the extraction confound is now
+  established by TWO peer-reviewed EMSE papers — cite both, claim neither.
