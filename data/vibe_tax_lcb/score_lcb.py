@@ -61,18 +61,25 @@ def parse_input(inp):
 
 
 def _trim_to_compilable(code):
-    """Drop trailing lines until the source parses. Conversational replies put a
+    """Drop trailing lines until the source compiles. Conversational replies put a
     prose paragraph AFTER the code ('This checks every adjacent pair...'); with no
     fences to delimit it, that prose used to be exec'd and threw SyntaxError,
     failing correct code. The polite/detailed framing elicits more explain-after-
     code, so this bug penalized it hardest — a scoring artifact, not correctness.
     We keep the largest leading prefix that is valid Python and still has the
-    class/method."""
+    class/method.
+
+    We check with compile(...,'exec'), not ast.parse: the scorer runs exec(), and a
+    few errors (a stray top-level return/break/continue/yield — e.g. a model that
+    appends `return Solution().f` as a chat-style 'here is the answer') pass
+    ast.parse but fail at compile time, so an ast.parse predicate would keep code the
+    scorer then rejects. compile() compiles without executing, so it has no side
+    effects while matching exec()'s strictness."""
     lines = code.split("\n")
     while lines:
         src = "\n".join(lines)
         try:
-            ast.parse(src)
+            compile(src, "<lcb>", "exec")
             return src
         except SyntaxError:
             lines.pop()
