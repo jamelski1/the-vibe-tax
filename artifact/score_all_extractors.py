@@ -1,7 +1,7 @@
 """Pass-rate + paired terse-vs-detailed McNemar for ALL FOUR extractors.
 
 Regenerates the paper's headline pass-rate table and the terse-vs-detailed McNemar for
-naive / ours(Sieve) / sanitize / lcb-official on the capable-model slice (ChatGPT + Claude,
+Naive / Sieve / sanitize / LCB-official on the paper's slice (GPT-5.4 + Claude Opus 4.6,
 1,336 completions). Scores each extractor's output with the same harness the paper uses
 (score_lcb.passes / sample_tests, per-test timeout, 60-test cap).
 
@@ -20,10 +20,12 @@ H = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, H)
 import extractors          # noqa: E402  (artifact-local)
 import score_lcb           # noqa: E402  (artifact-local scoring harness)
+from names import REGISTERS, REGISTER_NAME, MODELS  # noqa: E402  (paper name -> stored key)
 
 TESTS = os.getenv("LCB_TESTS", os.path.join(H, "data", "lcb_tests.jsonl"))
 MAX_TESTS = int(os.getenv("MAX_TESTS", "60"))
-CONDS = ["agentic_terse", "agentic_casual", "webchat_multilingual", "webchat_detailed"]
+CONDS = [REGISTERS[r] for r in ("terse", "casual", "multilingual", "detailed")]
+TERSE, DETAILED = REGISTERS["terse"], REGISTERS["detailed"]
 
 if not os.path.exists(TESTS):
     sys.exit(
@@ -41,9 +43,9 @@ def mcnemar_p(b, c):
 def main():
     tests_by_id = {json.loads(l)["task_id"]: json.loads(l) for l in open(TESTS, encoding="utf-8")}
     resp = [r for r in json.load(open(os.path.join(H, "data", "lcb_v3_responses.json")))
-            if r["model"] in ("chatgpt", "claude")]
+            if r["model"] in set(MODELS.values())]
     print(f"capable completions: {len(resp)} | tests for {len(tests_by_id)} problems | MAX_TESTS={MAX_TESTS}\n")
-    print(f"{'extractor':10}" + "".join(f"{c.split('_')[-1][:8]:>9}" for c in CONDS)
+    print(f"{'extractor':13}" + "".join(f"{REGISTER_NAME[c][:8]:>9}" for c in CONDS)
           + f"{'t-d':>7}{'t-only':>8}{'d-only':>8}{'McNemar p':>12}")
     for name, extract in extractors.EXTRACTORS.items():
         scored = {}
@@ -61,13 +63,13 @@ def main():
         keys = {(t, m) for (t, l, m) in scored}
         b = c = 0
         for (t, m) in keys:
-            pt, pd = scored.get((t, "agentic_terse", m)), scored.get((t, "webchat_detailed", m))
+            pt, pd = scored.get((t, TERSE, m)), scored.get((t, DETAILED, m))
             if pt is None or pd is None:
                 continue
             if pt and not pd: b += 1
             elif pd and not pt: c += 1
-        d = rate["agentic_terse"] - rate["webchat_detailed"]
-        print(f"{name:10}" + "".join(f"{rate[c]:>8.1f}%" for c in CONDS)
+        d = rate[TERSE] - rate[DETAILED]
+        print(f"{name:13}" + "".join(f"{rate[c]:>8.1f}%" for c in CONDS)
               + f"{d:>+7.1f}{b:>8}{c:>8}{mcnemar_p(b, c):>12.2g}")
 
 

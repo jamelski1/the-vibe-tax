@@ -6,12 +6,13 @@ hand to the scorer (or None / "" when it recovers nothing).
   extract_naive    - pre-fix extractor: first fenced block naming the target, else the whole
                      fence-stripped reply (trailing prose and all). Fails on unfenced
                      code+prose replies (SyntaxError). This is the artifact source.
-  extract_solution - "ours" / Sieve: trim-to-compilable, keep helpers, shape-agnostic. VERBATIM
-                     copy of score_lcb.py::extract_solution (+ _trim_to_compilable); the scoring
-                     harness imports its own copy, so the two are identical.
+  extract_sieve    - Sieve (the paper's robust extractor; called "Ours" in earlier drafts):
+                     trim-to-compilable, keep helpers, shape-agnostic. Identical to
+                     score_lcb.py::extract_sieve (+ _trim_to_compilable), which the scoring
+                     harness uses.
   extract_sanitize - EvalPlus sanitize (vendored byte-identical from evalplus/sanitize.py:
                      code_extract + tree-sitter reachability). Needs tree_sitter + tree_sitter_python.
-  extract_lcb      - LiveCodeBench official extract_code (lcb_runner/utils/extraction_utils.py,
+  extract_lcb_official - LCB-official: LiveCodeBench's own extract_code (lcb_runner/utils/extraction_utils.py,
                      generic/API branch, VERBATIM): text between the last two triple-backtick fence lines; ""
                      if fewer than 2 fence lines (unfenced replies -> empty -> no-code FAIL).
 
@@ -21,11 +22,11 @@ score_lcb.py::resolve_callable (shape-agnostic) in the scoring harness, not here
 Self-test:  python extractors.py       (runs all four on one stored reply)
 """
 from __future__ import annotations  # sanitize's type hints (Node, Generator) stay lazy,
-                                     # so naive/ours/lcb import fine without tree_sitter.
+                                     # so Naive/Sieve/LCB-official import fine without tree_sitter.
 import ast
 import re  # noqa: F401  (used by the extractors below)
 
-# ===================== ours / Sieve (verbatim from score_lcb.py) =====================
+# ===================== Sieve (identical to score_lcb.py::extract_sieve) =====================
 def _trim_to_compilable(code):
     """Drop trailing lines until the source compiles. Conversational replies put a
     prose paragraph AFTER the code ('This checks every adjacent pair...'); with no
@@ -52,8 +53,8 @@ def _trim_to_compilable(code):
     return None
 
 
-def extract_solution(completion, entry):
-    """Pull runnable code that defines `class Solution` (or the method), robust to
+def extract_sieve(completion, entry):
+    """Sieve, the paper's robust extractor. Pull runnable code that defines `class Solution` (or the method), robust to
     trailing prose, leading chatter, AND helper definitions (Fenwick/DSU/Segments…)
     the model defines BEFORE `class Solution`. Returns the first candidate that
     compiles and still defines the target. Candidates that KEEP the helpers are
@@ -295,7 +296,7 @@ def extract_sanitize(completion, entry):
 
 
 # ===================== LiveCodeBench official extract_code =====================
-def extract_lcb(completion, entry):
+def extract_lcb_official(completion, entry):
     """LiveCodeBench official extract_code (lcb_runner/utils/extraction_utils.py), generic/API
     branch, VERBATIM: text between the LAST TWO ``` fence lines; "" if < 2 fence lines. Fence-only,
     so 'no fences' replies yield nothing. `entry` is unused (the official fn does not anchor on the
@@ -309,13 +310,12 @@ def extract_lcb(completion, entry):
     return "\n".join(outputlines[indexlines[-2] + 1 : indexlines[-1]])
 
 # ===================== registry + self-test =====================
-extract_ours = extract_solution  # alias used throughout the paper ("ours" / Sieve)
-
+# keys are the code names of the paper's four scorings: Naive, Sieve, sanitize, LCB-official
 EXTRACTORS = {
     "naive": extract_naive,
-    "ours": extract_ours,
+    "sieve": extract_sieve,
     "sanitize": extract_sanitize,
-    "lcb": extract_lcb,
+    "lcb_official": extract_lcb_official,
 }
 
 if __name__ == "__main__":
@@ -337,5 +337,5 @@ if __name__ == "__main__":
                 verdict = "parses OK"
             except SyntaxError as e:
                 verdict = "SyntaxError line %s: %s  -> FAIL" % (e.lineno, e.msg)
-        print("  %-9s -> %s" % (name, verdict))
+        print("  %-12s -> %s" % (name, verdict))
 

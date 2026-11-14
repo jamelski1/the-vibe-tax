@@ -1,8 +1,8 @@
 """Table 4 (mechanism) + Fig. 1a compile-rates, recomputed from stored completions.
 
-Pulls the three extractors (naive / ours / EvalPlus sanitize) verbatim from
-The_Vibe_Tax_Three_Extractors.ipynb so the numbers come from the same code as the notebook.
-Needs only data/vibe_tax_lcb/lcb_v3_responses.json (+ tree_sitter, tree_sitter_python).
+Pulls three of the extractors (Naive / Sieve / EvalPlus sanitize) verbatim from
+The_Vibe_Tax_Four_Extractors.ipynb so the numbers come from the same code as the notebook.
+Needs only data/lcb_v3_responses.json (+ tree_sitter, tree_sitter_python).
 
 Run:  python mechanism_table.py   (needs tree_sitter; uses this folder's data/ + notebook)
 """
@@ -11,14 +11,14 @@ _H = os.path.dirname(os.path.abspath(__file__))
 from collections import defaultdict
 from scipy.stats import binomtest
 
-nb = json.load(open(os.path.join(_H, "The_Vibe_Tax_Three_Extractors.ipynb")))
-for i in (8, 10, 12, 14, 16):  # ours, naive, sanitize, lcb, compile_ok
+nb = json.load(open(os.path.join(_H, "The_Vibe_Tax_Four_Extractors.ipynb")))
+for i in (8, 10, 12, 14, 16):  # sieve, naive, sanitize, lcb_official, compile_ok
     exec("".join(nb["cells"][i]["source"]), globals())
 
 RESP = json.load(open(os.path.join(_H, "data", "lcb_v3_responses.json")))
 cap = [r for r in RESP if r["model"] in ("chatgpt", "claude")]
 CONDS = ["agentic_terse", "agentic_casual", "webchat_multilingual", "webchat_detailed"]
-EXT = {"naive": extract_naive, "ours": extract_ours, "sanitize": extract_sanitize}
+EXT = {"naive": extract_naive, "sieve": extract_sieve, "sanitize": extract_sanitize}
 
 agg = defaultdict(lambda: defaultdict(list))
 ok = {k: {} for k in EXT}
@@ -30,9 +30,9 @@ for r in cap:
         except Exception:
             code = None
         ok[k][(r["task_id"], r["model"], L)] = compile_ok(code, e)
-    ours = extract_ours(c, e) or ""
+    sieve = extract_sieve(c, e) or ""
     agg[L]["len"].append(len(c))
-    agg[L]["noncode"].append(max(0, len(c.strip()) - len(ours.strip())))
+    agg[L]["noncode"].append(max(0, len(c.strip()) - len(sieve.strip())))
     nv = extract_naive(c, e)
     agg[L]["syntax"].append(nv is not None and not compile_ok(nv, e))
     agg[L]["notarget"].append(nv is None)

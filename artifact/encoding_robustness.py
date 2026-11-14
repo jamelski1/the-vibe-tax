@@ -17,7 +17,7 @@ from math import comb
 HERE = os.path.dirname(os.path.abspath(__file__))
 resp = json.load(open(os.path.join(HERE, "data", "lcb_v3_responses.json"), encoding="utf-8"))
 scored = {(r["task_id"], r["level"], r["model"]): bool(r["passed"])
-          for r in json.load(open(os.path.join(HERE, "data", "lcb_scored.json"), encoding="utf-8"))}
+          for r in json.load(open(os.path.join(HERE, "data", "lcb_scored_sieve.json"), encoding="utf-8"))}
 diff = {json.loads(l)["task_id"]: json.loads(l).get("difficulty")
         for l in open(os.path.join(HERE, "data", "lcb_problems.jsonl"), encoding="utf-8")}
 
@@ -109,7 +109,7 @@ def discord(problem_set, mode):
                     continue
                 vt = compiles(extract_naive(rt["completion"], rt["entry_point"]))
                 vd = compiles(extract_naive(rd["completion"], rd["entry_point"]))
-            else:  # robust_pass
+            else:  # sieve_pass
                 vt, vd = scored.get((t, "agentic_terse", m)), scored.get((t, "webchat_detailed", m))
                 if vt is None or vd is None:
                     continue
@@ -125,10 +125,10 @@ print("=" * 72)
 print(f"3. Headline terse-vs-detailed, with vs without the {len(corrupt)} corrupted-spec problems")
 for label, ps in [(f"ALL {len(allp)}", allp), (f"CLEAN {len(clean)} (excl. corrupted spec)", clean)]:
     nb, nc = discord(ps, "naive_compile")
-    rb, rc = discord(ps, "robust_pass")
+    rb, rc = discord(ps, "sieve_pass")
     print(f"   {label}:")
     print(f"     NAIVE  compile-rate  b={nb:3} c={nc:3}  d={nb-nc:+3}  p={mcnemar_p(nb,nc):.2e}")
-    print(f"     ROBUST pass-rate     b={rb:3} c={rc:3}  d={rb-rc:+3}  p={mcnemar_p(rb,rc):.3f}")
+    print(f"     SIEVE  pass-rate     b={rb:3} c={rc:3}  d={rb-rc:+3}  p={mcnemar_p(rb,rc):.3f}")
 print("=" * 72)
-print("Conclusion: the naive compile-tax and the robust null are unchanged by excluding the")
+print("Conclusion: the naive compile-tax and the Sieve null are unchanged by excluding the")
 print("corrupted-spec problems -> the encoding bug does not create or hide the register effect.")

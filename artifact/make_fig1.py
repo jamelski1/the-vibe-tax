@@ -6,8 +6,8 @@
 
 Data provenance (capable models = ChatGPT + Claude; 167 problems x 2 models = 334 paired
 observations per condition; 1,336 records per extractor):
-  * Compile-rates: recomputed from data/vibe_tax_lcb/lcb_v3_responses.json with the extractors
-    in The_Vibe_Tax_Three_Extractors.ipynb (reproduced exactly on 2026-10-04).
+  * Compile-rates: recomputed from data/lcb_v3_responses.json with the extractors
+    in The_Vibe_Tax_Four_Extractors.ipynb (reproduced exactly on 2026-10-04).
   * Pass-rates + discordant counts: THREE_EXTRACTOR_RESULTS.md, "second run, with McNemar".
     Re-scoring requires the HF-gated lcb_tests.jsonl (not in repo).
 
@@ -27,25 +27,25 @@ CONDS = ["terse", "casual", "multi-\nlingual", "detailed"]  # paper names for th
 
 COMPILE = {  # % of completions whose extracted code parses AND defines the target
     "naive":    [88.0, 81.1, 77.2, 73.4],
-    "ours":     [100.0, 100.0, 100.0, 100.0],
+    "sieve":     [100.0, 100.0, 100.0, 100.0],
     "sanitize": [81.4, 84.1, 83.2, 84.1],
 }
 PASS = {  # % passing every official LCB test (MAX_TESTS=60 runs all; max 44 tests/problem)
     "naive":    [73.4, 66.5, 66.2, 57.5],
-    "ours":     [81.4, 81.4, 84.1, 81.4],
+    "sieve":     [81.4, 81.4, 84.1, 81.4],
     "sanitize": [66.8, 68.0, 70.1, 69.2],
 }
 DISCORDANT = {  # (terse-only pass, detailed-only pass) over the 334 paired observations
     "naive": (78, 25),
-    "ours": (13, 13),
+    "sieve": (13, 13),
     "sanitize": (16, 24),
 }
 
-LABEL = {"naive": "Naive", "ours": "Ours (robust)", "sanitize": "EvalPlus sanitize"}
-SHORT = {"naive": "Naive", "ours": "Ours", "sanitize": "sanitize"}
-COLOR = {"ours": "#2a78d6", "naive": "#eb6834", "sanitize": "#1baf7a"}  # validated, CVD-safe
-MARKER = {"naive": "o", "ours": "s", "sanitize": "D"}                    # secondary encoding
-ORDER = ["naive", "ours", "sanitize"]
+LABEL = {"naive": "Naive", "sieve": "Sieve", "sanitize": "EvalPlus sanitize"}
+SHORT = {"naive": "Naive", "sieve": "Sieve", "sanitize": "sanitize"}
+COLOR = {"sieve": "#2a78d6", "naive": "#eb6834", "sanitize": "#1baf7a"}  # validated, CVD-safe
+MARKER = {"naive": "o", "sieve": "s", "sanitize": "D"}                    # secondary encoding
+ORDER = ["naive", "sieve", "sanitize"]
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
 mpl.rcParams.update({
@@ -72,7 +72,7 @@ def fmt_p(p):
 
 
 def dot_panel(ax, data, title, ylim, yticks):
-    offs = {"naive": -0.18, "ours": 0.0, "sanitize": 0.18}
+    offs = {"naive": -0.18, "sieve": 0.0, "sanitize": 0.18}
     for k in ORDER:
         xs = [i + offs[k] for i in range(len(CONDS))]
         ax.plot(xs, data[k], ls="none", marker=MARKER[k], ms=5.2, mfc=COLOR[k],

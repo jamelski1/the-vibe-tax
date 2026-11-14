@@ -1,14 +1,14 @@
 """Paired terse-vs-detailed McNemar + Wald 95% CI from a per-record scored JSON.
 
-Runs OFFLINE on the shipped data/lcb_scored.json (the "ours"/Sieve verdicts, which are
-test-verified) with no gated tests needed, reproducing the paper's robust-extractor
-McNemar result and discordant counts. For the naive / sanitize / lcb columns you need a
-scored file produced by score_all_extractors.py (which needs lcb_tests.jsonl).
+Runs OFFLINE on the shipped data/lcb_scored_sieve.json (the Sieve verdicts, which are
+test-verified) with no gated tests needed, reproducing the paper's Sieve McNemar result
+and discordant counts. For the Naive / sanitize / LCB-official columns you need a scored
+file produced by score_all_extractors.py (which needs lcb_tests.jsonl).
 
 A scored JSON is a list of records with at least: task_id, level, model, passed (bool).
 
 Usage:
-  python mcnemar.py                         # uses data/lcb_scored.json, capable models
+  python mcnemar.py                         # uses data/lcb_scored_sieve.json, GPT-5.4 + Claude Opus 4.6
   python mcnemar.py path/to/scored.json
   python mcnemar.py --models chatgpt claude codestral
 """
@@ -16,8 +16,11 @@ import os, sys, json
 from math import comb, sqrt
 
 H = os.path.dirname(os.path.abspath(__file__))
-A = "agentic_terse"       # "terse"
-B = "webchat_detailed"    # "detailed"
+sys.path.insert(0, H)
+from names import REGISTERS, MODELS  # noqa: E402  (paper name -> stored key)
+
+A = REGISTERS["terse"]       # stored key "agentic_terse"
+B = REGISTERS["detailed"]    # stored key "webchat_detailed"
 
 
 def mcnemar_p(b, c):
@@ -32,8 +35,8 @@ def wald_ci(b, c, n, z=1.96):
 
 
 def main(argv):
-    path = os.path.join(H, "data", "lcb_scored.json")
-    models = {"chatgpt", "claude"}
+    path = os.path.join(H, "data", "lcb_scored_sieve.json")
+    models = set(MODELS.values())   # {"chatgpt", "claude"}
     rest = [a for a in argv]
     if "--models" in rest:
         i = rest.index("--models"); models = set(rest[i + 1:]); rest = rest[:i]

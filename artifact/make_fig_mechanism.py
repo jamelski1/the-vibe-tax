@@ -106,7 +106,7 @@ T(95, 44.5, "same completions —\nonly the extractor differs", ha="center", va=
 # ---------- F. outcomes ----------
 T(96, 78.5, "terse appears to beat polite:  +15.9 pts,  $p=1.6\\times10^{-7}$   (artifact)",
   ha="center", fontsize=7.4, color=NAIVE, weight="bold")
-T(96, 9.5, "no register effect:  0.0 pts,  $p=1.0$ (ours)   /   $-2.4$ pts,  $p=0.27$ (EvalPlus sanitize)",
+T(96, 9.5, "no register effect:  0.0 pts,  $p=1.0$ (Sieve)   /   $-2.4$ pts,  $p=0.27$ (EvalPlus sanitize)",
   ha="center", fontsize=7.4, color=OURS, weight="bold")
 
 fig.subplots_adjust(left=0.01, right=0.99, top=0.99, bottom=0.01)

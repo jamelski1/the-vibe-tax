@@ -13,7 +13,7 @@ Inputs (env-overridable):
     LCB_TESTS      lcb_tests.jsonl       (from extract_lcb_tests.py)
     LCB_RESPONSES  lcb_v3_responses.json (from run_vibe_tax.py on lcb_v3_prompts)
 Outputs:
-    lcb_scored.json / lcb_scored_stats.json
+    lcb_scored_sieve.json / lcb_scored_sieve_stats.json   (Sieve-extracted, test-scored)
 
 Usage:  python score_lcb.py [--max-tests 60]
 """
@@ -30,8 +30,8 @@ from collections import defaultdict
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 TESTS = os.getenv("LCB_TESTS", os.path.join(SCRIPT_DIR, "lcb_tests.jsonl"))
 RESPONSES = os.getenv("LCB_RESPONSES", os.path.join(SCRIPT_DIR, "lcb_v3_responses.json"))
-OUT = os.getenv("LCB_SCORED_OUT", os.path.join(SCRIPT_DIR, "lcb_scored.json"))
-STATS = os.getenv("LCB_SCORED_STATS", os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"))
+OUT = os.getenv("LCB_SCORED_OUT", os.path.join(SCRIPT_DIR, "lcb_scored_sieve.json"))
+STATS = os.getenv("LCB_SCORED_STATS", os.path.join(SCRIPT_DIR, "lcb_scored_sieve_stats.json"))
 PER_TEST_TIMEOUT = int(os.getenv("LCB_PER_TEST_TIMEOUT", "6"))  # seconds per test (not per problem)
 # For the `with_tests` experiment: score on PRIVATE tests only, so a model that
 # was shown the public tests can't pass by hardcoding their outputs.
@@ -86,8 +86,8 @@ def _trim_to_compilable(code):
     return None
 
 
-def extract_solution(completion, entry):
-    """Pull runnable code that defines `class Solution` (or the method), robust to
+def extract_sieve(completion, entry):
+    """Sieve, the paper's robust extractor. Pull runnable code that defines `class Solution` (or the method), robust to
     trailing prose, leading chatter, AND helper definitions (Fenwick/DSU/Segments…)
     the model defines BEFORE `class Solution`. Returns the first candidate that
     compiles and still defines the target. Candidates that KEEP the helpers are
@@ -276,10 +276,10 @@ def run(max_tests, models=None):
     if PER_TEST_TIMEOUT != 6:                     # non-default per-test timeout -> name it
         tag += f"_t{PER_TEST_TIMEOUT}"
     if tag:
-        if out == os.path.join(SCRIPT_DIR, "lcb_scored.json"):
-            out = os.path.join(SCRIPT_DIR, f"lcb_scored{tag}.json")
-        if stats_out == os.path.join(SCRIPT_DIR, "lcb_scored_stats.json"):
-            stats_out = os.path.join(SCRIPT_DIR, f"lcb_scored_stats{tag}.json")
+        if out == os.path.join(SCRIPT_DIR, "lcb_scored_sieve.json"):
+            out = os.path.join(SCRIPT_DIR, f"lcb_scored_sieve{tag}.json")
+        if stats_out == os.path.join(SCRIPT_DIR, "lcb_scored_sieve_stats.json"):
+            stats_out = os.path.join(SCRIPT_DIR, f"lcb_scored_sieve_stats{tag}.json")
         print(f"per-test timeout = {PER_TEST_TIMEOUT}s  ->  writing {out} and {stats_out}")
     # difficulty isn't carried on the response records — pull it from the problem file
     diff_by_id = {}
@@ -296,7 +296,7 @@ def run(max_tests, models=None):
         if not rec:
             ok, reason, detail = False, "no_problem_tests", ""
         else:
-            code = extract_solution(r.get("completion"), r["entry_point"])
+            code = extract_sieve(r.get("completion"), r["entry_point"])
             tl = sample_tests(rec, max_tests)
             ok, reason, detail = grade(code, r["entry_point"], tl) if tl else (False, "no_tests", "")
         scored.append({k: r.get(k) for k in ("task_id", "level", "medium", "model", "model_id")}
