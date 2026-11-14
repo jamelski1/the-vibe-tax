@@ -11,7 +11,7 @@ prompts, we collect how people *actually* prompt — to calibrate or sanity-chec
 the synthetic spectrum.
 
 **→ See [`VIBE_SPECTRUM.md`](VIBE_SPECTRUM.md) for the taxonomy, distributions,
-and what they mean for the Vibe Tax study.**
+and what they mean for the Politeness Tax study.**
 
 Scripts:
 - `crawl_real_prompts.py` — harvest the **agentic-CLI** corpus from committed
@@ -123,7 +123,7 @@ English-keyword-only gate.
 - Real prompts skew terse and informal: `"commit changes"`, `"Fix the
   network"`, `"Run the agent task"`, alongside fuller asks like `"change nvim
   config so that suggestions dont come up automatically but some keypress like
-  ctrl + space"`. This supports the vibe-tax premise that real prompts live
+  ctrl + space"`. This supports the politeness-tax premise that real prompts live
   toward the informal end of the spectrum.
 
 ## Provenance & ethics

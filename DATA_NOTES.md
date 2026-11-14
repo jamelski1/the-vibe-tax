@@ -2,7 +2,7 @@
 
 Audit-trail for data-quality issues found during analysis, each with the check that shows it
 does or does not affect the headline. Reproduce everything with
-`python data/vibe_tax_lcb/encoding_robustness.py` (reads only committed files; no model calls).
+`python data/politeness_tax_lcb/encoding_robustness.py` (reads only committed files; no model calls).
 
 ## 1. A prompt-encoding bug (UTF-8 bytes decoded as CP437)
 

@@ -1,8 +1,8 @@
 """Table 4 (mechanism) + Fig. 1a compile-rates, recomputed from stored completions.
 
 Pulls the three extractors (naive / ours / EvalPlus sanitize) verbatim from
-The_Vibe_Tax_Three_Extractors.ipynb so the numbers come from the same code as the notebook.
-Needs only data/vibe_tax_lcb/lcb_v3_responses.json (+ tree_sitter, tree_sitter_python).
+The_Politeness_Tax_Three_Extractors.ipynb so the numbers come from the same code as the notebook.
+Needs only data/politeness_tax_lcb/lcb_v3_responses.json (+ tree_sitter, tree_sitter_python).
 
 Run from the repo root:  python figures/mechanism_table.py
 """
@@ -10,11 +10,11 @@ import json, re, statistics as st
 from collections import defaultdict
 from scipy.stats import binomtest
 
-nb = json.load(open("The_Vibe_Tax_Three_Extractors.ipynb"))
+nb = json.load(open("The_Politeness_Tax_Three_Extractors.ipynb"))
 for i in (8, 10, 12, 14, 16):  # ours, naive, sanitize, lcb, compile_ok
     exec("".join(nb["cells"][i]["source"]), globals())
 
-RESP = json.load(open("data/vibe_tax_lcb/lcb_v3_responses.json"))
+RESP = json.load(open("data/politeness_tax_lcb/lcb_v3_responses.json"))
 cap = [r for r in RESP if r["model"] in ("chatgpt", "claude")]
 CONDS = ["agentic_terse", "agentic_casual", "webchat_multilingual", "webchat_detailed"]
 EXT = {"naive": extract_naive, "ours": extract_ours, "sanitize": extract_sanitize}

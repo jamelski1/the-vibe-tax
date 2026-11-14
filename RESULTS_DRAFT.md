@@ -146,7 +146,7 @@ regenerate with `python figures/make_fig1.py`.
 
 1. **Two different "naive" headline numbers exist in the repo. Pick one and use it everywhere.**
    `PAPER_FRAMING.md` (one-sentence contribution, Section 4 outline) and
-   `data/vibe_tax_lcb/RESULTS.md` report the *original* pre-fix pipeline: **+9.3 pts, p = 0.007**
+   `data/politeness_tax_lcb/RESULTS.md` report the *original* pre-fix pipeline: **+9.3 pts, p = 0.007**
    (capable models), with the robust null as **+0.6, p = 0.845**. `THREE_EXTRACTOR_RESULTS.md`
    reports the notebook's re-implemented naive extractor: **+15.9, p = 1.6 x 10^-7**, robust
    **0.0, p = 1.0**. This draft uses the three-extractor numbers because they come from one

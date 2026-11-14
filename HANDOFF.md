@@ -1,4 +1,4 @@
-# HANDOFF — The Vibe Tax / extraction-artifacts paper
+# HANDOFF — The Politeness Tax / extraction-artifacts paper
 
 Single entry point for continuing this project (e.g. in Claude Cowork). Everything is committed to
 GitHub; start by reading this, then the files in **Key files** below.
@@ -61,10 +61,10 @@ full sketch (title, outline, novelty-vs-built-on, venue, reviewer objections). A
 - `EXTRACTION_PITFALLS.md` — the failure-mode catalogue (per-mode code + fix).
 - `PAPER_EXTRACTION.md` — an earlier full draft (predates the framing decision; mine for prose).
 - `PAPER_INGREDIENTS.md` — the candidate-contents inventory.
-- Notebooks: `The_Vibe_Tax_Three_Extractors.ipynb` (the robustness result),
-  `The_Vibe_Tax_Extractor_Explained.ipynb` (glass-box walkthrough),
-  `The_Vibe_Tax_Extractor_Standalone.ipynb`, `The_Vibe_Tax_Pipeline.ipynb`.
-- Code: `data/vibe_tax_lcb/score_lcb.py` (the scorer/extractor), `self_repair.py`,
+- Notebooks: `The_Politeness_Tax_Three_Extractors.ipynb` (the robustness result),
+  `The_Politeness_Tax_Extractor_Explained.ipynb` (glass-box walkthrough),
+  `The_Politeness_Tax_Extractor_Standalone.ipynb`, `The_Politeness_Tax_Pipeline.ipynb`.
+- Code: `data/politeness_tax_lcb/score_lcb.py` (the scorer/extractor), `self_repair.py`,
   `model_provenance.py`. Data: `lcb_v3_responses.json`, `lcb_scored.json`, `lcb_problems.jsonl`.
 
 ## Reproducibility notes

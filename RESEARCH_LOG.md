@@ -1,4 +1,4 @@
-# The Vibe Tax — research log
+# The Politeness Tax — research log
 
 A single running record of what we did, what we found, and why we made each
 decision. Newest entries at the bottom. Numbers link to committed stats files;
@@ -70,9 +70,9 @@ spectrum")?
 web-chat users paste. Robust across both web-chat datasets; error-paste and
 language mix are population-, not medium-, driven.
 
-## Phase 5 — Vibe Tax v2 experiment
+## Phase 5 — Politeness Tax v2 experiment
 
-- Built `data/vibe_tax_v2/`: 6 conditions per problem, each pegged to a measured
+- Built `data/politeness_tax_v2/`: 6 conditions per problem, each pegged to a measured
   real prompting mode with its prevalence (agentic terse/casual; web-chat
   detailed / code-paste / **error-paste with real captured tracebacks** /
   multilingual). Bug injection mutates canonical solutions, verified to fail
@@ -95,7 +95,7 @@ body extractor). Fixing it took several rounds:
 **Lesson:** for prompt-style studies, code extraction can swing a condition by
 90+ points. Any tax number is meaningless without a paste-robust scorer.
 
-### v2 result (base HumanEval, `vibe_tax_scored_stats.json`)
+### v2 result (base HumanEval, `politeness_tax_scored_stats.json`)
 
 All conditions **93–99%**; agentic 96.3% ≈ web-chat 96.2%. Small tax, only at
 the extreme (agentic_terse/L5 vibe = 93.3% vs agentic_casual/L3 = 99.3%). No
@@ -105,7 +105,7 @@ medium effect; no paste premium; language tax only for the weak model
 
 ## Phase 6 — Harder benchmark: HumanEval+ re-score (no new API calls)
 
-- `score_vibe_tax_plus.py` re-scored the same 822 completions against HumanEval+
+- `score_politeness_tax_plus.py` re-scored the same 822 completions against HumanEval+
   edge-case tests (approximate harness: output-equivalence, ~60 inputs/problem).
 - Overall 96.2% → **88.7%** (−7.5); condition ranking *changed*.
 - **error_paste fell from mid-pack to lowest** (95.5 → 83.8, −11.7). Validated
@@ -148,11 +148,11 @@ medium effect; no paste premium; language tax only for the weak model
 
 ## Phase 8 — Calibrated generator (v3)
 
-- `data/vibe_tax_v3/generate_calibrated_prompts.py` — rewrites each HumanEval
+- `data/politeness_tax_v3/generate_calibrated_prompts.py` — rewrites each HumanEval
   task into a realistic prompt (preserving exact function name + params so it
   stays gradeable), gated by the `RealismDiscriminator`. Pluggable backend
   (anthropic / openai / **mock** for keyless testing). Output schema = v2's, so
-  it feeds `run_vibe_tax.py` unchanged.
+  it feeds `run_politeness_tax.py` unchanged.
 - **Mock-backend demo result:** prose conditions read realistic —
   agentic_terse/casual 0.94–0.95, webchat_detailed 0.94, multilingual 0.98
   P(real) — vs the old synthetic **0.00**. Big realism gain, harness validated.
@@ -170,7 +170,7 @@ medium effect; no paste premium; language tax only for the weak model
 
 - User generated real v3 prompts (Claude backend) + ran all 3 models (822
   completions). Scored with the robust base scorer AND HumanEval+ (see
-  `data/vibe_tax_v3/RESULTS.md`).
+  `data/politeness_tax_v3/RESULTS.md`).
 - **Realistic prompts get BETTER code than researcher-written ones.** v3 ≥ v2 in
   almost every cell; clearest on HumanEval+: overall **88.7% (v2) → 91.7% (v3)**,
   +4.6 on agentic_terse, +4.5 on error_paste.
@@ -190,7 +190,7 @@ medium effect; no paste premium; language tax only for the weak model
 ## Phase 10 — LiveCodeBench port (design)
 
 - Chosen next benchmark: **LiveCodeBench** (hard + contamination-free; frontier
-  pass ~30–70% = real headroom). `data/vibe_tax_lcb/DESIGN.md` +
+  pass ~30–70% = real headroom). `data/politeness_tax_lcb/DESIGN.md` +
   `prepare_lcb.py`.
 - Scoping (probed): LCB and BigCodeBench are **HF-firewalled** in the sandbox
   (fetch locally); MBPP+ was reachable (drop-in) but too easy for real headroom.
@@ -221,7 +221,7 @@ medium effect; no paste premium; language tax only for the weak model
 - 124 functional, contamination-free (≥2024-08) LCB problems × 4 framing
   conditions × 3 models = 1,488 completions, scored by `score_lcb.py`.
 - **Real headroom:** overall 43.5% (medium 52.2%, hard 31.0%; Claude 59.7 /
-  ChatGPT 58.1 / Codestral 12.7). Full writeup: `data/vibe_tax_lcb/RESULTS.md`.
+  ChatGPT 58.1 / Codestral 12.7). Full writeup: `data/politeness_tax_lcb/RESULTS.md`.
 - **Headline (significant):** verbose/polite framing carries a real penalty vs
   terse — terse 46.0% vs detailed 40.1%, paired McNemar **p=0.012**; **+8.7 on
   medium (p=0.009)**, **+9.3 on capable models (p=0.007)**. Washed out on HARD
@@ -247,7 +247,7 @@ medium effect; no paste premium; language tax only for the weak model
   (−15% pass@1, sometimes reversed); [ReCode](https://aclanthology.org/2023.acl-long.773/)
   (mechanical docstring perturbations); [Mind Your Tone](https://arxiv.org/abs/2510.04950)
   (rude > polite on accuracy).
-- **"vibe tax"/"vibe spectrum" as terms: unclaimed.** Our defensible novelty:
+- **"politeness tax"/"vibe spectrum" as terms: unclaimed.** Our defensible novelty:
   (1) two-medium contrast under one classifier; (2) conditions pegged to
   measured prevalence; (3) error-paste with real tracebacks; (4) prevalence-
   weighted per-medium tax.
@@ -326,5 +326,5 @@ as LCB (the "HE4" matched set), (2) easy LCB problems, (3) an RQ→metric map,
   cutoffs *after* the 2024-08 → 2025-04 problem window, so absolute pass rates /
   the difficulty gradient may be inflated by memorization. The **framing null is
   unaffected** (paired within-problem: contamination lifts all four framings
-  equally). Exact versions in `data/vibe_tax_lcb/model_provenance.json`; full note
+  equally). Exact versions in `data/politeness_tax_lcb/model_provenance.json`; full note
   in RESULTS.md "Model provenance & contamination".

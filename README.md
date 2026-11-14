@@ -40,7 +40,7 @@ artifact/
   mechanism_table.py            Compile-rate table + mechanism table (no tests)
   encoding_robustness.py        CP437 encoding-defect audit + headline-robustness check (no tests)
   make_fig1.py / make_fig_mechanism.py / make_fig_encoding.py   Figure generators (-> pdf/svg/png)
-  The_Vibe_Tax_Four_Extractors.ipynb    Notebook mechanism_table.py reads the extractors from
+  The_Politeness_Tax_Four_Extractors.ipynb    Notebook mechanism_table.py reads the extractors from
   REGISTER_TEMPLATES.md         The four templates, verbatim
   ENCODING_DEFECT.md            The disclosed CP437 defect + the 9 affected problems
   RESULTS_MAP.md                Paper result -> script that regenerates it

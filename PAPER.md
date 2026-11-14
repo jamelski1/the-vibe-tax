@@ -1,4 +1,4 @@
-# The Vibe Tax That Wasn't: How Benchmark Saturation and Code-Extraction Artifacts Manufacture Prompt-Style Effects
+# The Politeness Tax That Wasn't: How Benchmark Saturation and Code-Extraction Artifacts Manufacture Prompt-Style Effects
 
 *Working draft. Numbers are reproducible from the scripts and `*_stats.json` files
 in this repository; see `RESEARCH_LOG.md` for the full chronological record.*
@@ -8,7 +8,7 @@ in this repository; see `RESEARCH_LOG.md` for the full chronological record.*
 "Vibe coding" — prompting an LLM in natural, informal language and iterating on
 what runs — is now a dominant mode of software development. A natural question
 follows: does *how* you ask cost correctness? We call any such penalty the
-**vibe tax**. Answering it requires two things prior work lacks: (1) knowing what
+**politeness tax**. Answering it requires two things prior work lacks: (1) knowing what
 real informal prompts actually look like, and (2) a benchmark with enough
 headroom to measure a small effect. We contribute both. First, we characterize
 **14,675 real coding prompts** across two media — agentic CLIs (committed Claude
@@ -328,7 +328,7 @@ per-cell results, which is how five of the six were caught.
 
 ## 10. Conclusion
 
-The intuition behind the "vibe tax" — that casual or polite phrasing costs
+The intuition behind the "politeness tax" — that casual or polite phrasing costs
 correctness — does not survive honest measurement. Holding the problem identical
 and varying only how the request is framed produces **no** correctness difference
 on a benchmark with headroom; a confident, significant
@@ -342,7 +342,7 @@ instrumentation issues** (§8), the choices of extractor, timeout, token budget,
 benchmark, and metric each changed a headline — so the finding a study reports may
 be a property of its scorer, and a paired within-problem design plus adversarial
 manual reproduction is what separates a real effect from an artifact. The open
-question a real vibe tax might yet answer is not about *phrasing* but about
+question a real politeness tax might yet answer is not about *phrasing* but about
 *information*: whether genuinely under-specified requests cost correctness. That
 is where to look next.
 

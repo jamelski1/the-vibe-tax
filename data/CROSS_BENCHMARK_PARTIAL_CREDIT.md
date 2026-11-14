@@ -16,8 +16,8 @@ models.
 | &nbsp;&nbsp;— LCB medium | 82.8% | 98.6% | 9/73 | 73 |
 | &nbsp;&nbsp;— **LCB hard** | **66.7%** | 97.1% | 0/51 | 51 |
 
-Sources: `data/vibe_tax_v2/he_partial_credit.json`,
-`he_plus_partial_credit.json`, `data/vibe_tax_lcb/full_partial_credit.json`.
+Sources: `data/politeness_tax_v2/he_partial_credit.json`,
+`he_plus_partial_credit.json`, `data/politeness_tax_lcb/full_partial_credit.json`.
 
 ## Reading it
 

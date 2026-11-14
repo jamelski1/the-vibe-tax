@@ -68,7 +68,7 @@ CODE_PASTE = re.compile(
 def _get(url, raw=False, timeout=30):
     req = urllib.request.Request(url)
     req.add_header("Accept", "application/vnd.github+json")
-    req.add_header("User-Agent", "vibe-tax-webchat-puller")
+    req.add_header("User-Agent", "politeness-tax-webchat-puller")
     if GITHUB_TOKEN and "api.github.com" in url:
         req.add_header("Authorization", f"Bearer {GITHUB_TOKEN}")
     with urllib.request.urlopen(req, timeout=timeout) as resp:

@@ -7,7 +7,7 @@ register framings wrapping an identical problem.
 
 Extractors: **naive** = the pre-fix extractor (first fenced block, else whole fence-stripped reply
 with trailing prose); **ours** = `score_lcb.py` robust extractor; **sanitize** = EvalPlus's
-`sanitize` algorithm (vendored, byte-identical functions). Reproduce: `The_Vibe_Tax_Three_Extractors.ipynb`.
+`sanitize` algorithm (vendored, byte-identical functions). Reproduce: `The_Politeness_Tax_Three_Extractors.ipynb`.
 
 ## Compile-rate by condition (needs only responses; no tests)
 
@@ -114,7 +114,7 @@ extractors:
 **Caveat to carry:** our naive +15.9 magnitude is partly a consequence of the *no-fences* prompt
 convention (with fences, trailing prose sits outside the fence and naive-fenced would not choke).
 The robust extractors (ours, sanitize) are the only ones stable across *both* conventions — which is
-the paper's recommendation. (Notebook: `extract_lcb` in `The_Vibe_Tax_Three_Extractors.ipynb`; the
+the paper's recommendation. (Notebook: `extract_lcb` in `The_Politeness_Tax_Three_Extractors.ipynb`; the
 compile-rate cells run all three models, the pass-rate/McNemar driver the capable slice.)
 
 ## On MAX_TESTS=60 (does test sampling change this?)

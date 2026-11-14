@@ -1,4 +1,4 @@
-"""Build The_Vibe_Tax_Problem_Breakdown.xlsx — per-problem/per-model success/fail
+"""Build The_Politeness_Tax_Problem_Breakdown.xlsx — per-problem/per-model success/fail
 across HumanEval, HumanEval+, and LiveCodeBench, with the model's actual code."""
 import ast, json, os, re
 import openpyxl
@@ -6,7 +6,7 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 import os as _os; ROOT = _os.path.dirname(_os.path.abspath(__file__))
-OUT = os.path.join(ROOT, "The_Vibe_Tax_Problem_Breakdown.xlsx")
+OUT = os.path.join(ROOT, "The_Politeness_Tax_Problem_Breakdown.xlsx")
 REP = "agentic_terse"            # representative condition (framing is null)
 CAP = 3000                       # max chars for long text cells
 
@@ -103,7 +103,7 @@ wb = openpyxl.Workbook()
 # ============ README ============
 ws = wb.active; ws.title = "README"
 readme = [
- ("The Vibe Tax — Problem-by-Problem Breakdown", 16, True),
+ ("The Politeness Tax — Problem-by-Problem Breakdown", 16, True),
  ("", 10, False),
  ("Per-problem, per-model success/failure across three benchmarks. One tab per benchmark.", 11, False),
  ("Framing is null (terse/casual/polite/multilingual do not differ), so each row shows the", 11, False),
@@ -126,18 +126,18 @@ readme = [
  ("• Difficulty drives success (capable models): easy 98.5%, medium 87.3%, hard 60.5%. Dynamic programming is the weakest topic.", 11, False),
  ("• HumanEval is saturated (~97%) — few failures to see there; LCB is where the signal is.", 11, False),
  ("", 10, False),
- ("Sources: LCB tabs = data/vibe_tax_lcb/lcb_scored.json + lcb_v3_responses.json + lcb_problems.jsonl;", 9, False),
- ("HumanEval tab = data/vibe_tax_v2/he4_scored.json + he4_responses.json (HE4, 4 framings);", 9, False),
- ("HumanEval+ tab = data/vibe_tax_v3/vibe_tax_v3_plus_scored.json + _responses.json. Numbers are pass@1, temp 0.", 9, False),
+ ("Sources: LCB tabs = data/politeness_tax_lcb/lcb_scored.json + lcb_v3_responses.json + lcb_problems.jsonl;", 9, False),
+ ("HumanEval tab = data/politeness_tax_v2/he4_scored.json + he4_responses.json (HE4, 4 framings);", 9, False),
+ ("HumanEval+ tab = data/politeness_tax_v3/politeness_tax_v3_plus_scored.json + _responses.json. Numbers are pass@1, temp 0.", 9, False),
 ]
 for i,(txt,sz,bold) in enumerate(readme,1):
     c = ws.cell(i,1,txt); c.font = Font(name="Arial", size=sz, bold=bold)
 ws.column_dimensions["A"].width = 110
 
 # ============ LCB ============
-lcb_scored = load("data/vibe_tax_lcb/lcb_scored.json")
-lcb_resp = {(x["task_id"],x["level"],x["model"]): x for x in load("data/vibe_tax_lcb/lcb_v3_responses.json")}
-probs = {json.loads(l)["task_id"]: json.loads(l) for l in open(os.path.join(ROOT,"data/vibe_tax_lcb/lcb_problems.jsonl"))}
+lcb_scored = load("data/politeness_tax_lcb/lcb_scored.json")
+lcb_resp = {(x["task_id"],x["level"],x["model"]): x for x in load("data/politeness_tax_lcb/lcb_v3_responses.json")}
+probs = {json.loads(l)["task_id"]: json.loads(l) for l in open(os.path.join(ROOT,"data/politeness_tax_lcb/lcb_problems.jsonl"))}
 for p in probs.values(): p["topic"] = classify(p["question_content"]+" "+p["entry_point"])
 
 # passed lookup and per-(problem,model) count across framings
@@ -195,8 +195,8 @@ for l in open(os.path.join(ROOT,"data/HumanEval.jsonl/human-eval-v2-20210705.jso
     d=json.loads(l); he_probs[d["task_id"]]=d
 
 # HE4: the same 4 deterministic wrappers as LCB (terse/casual/detailed/multilingual)
-he4_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/vibe_tax_v2/he4_responses.json")}
-he4_pass={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v2/he4_scored.json")}
+he4_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/politeness_tax_v2/he4_responses.json")}
+he4_pass={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/politeness_tax_v2/he4_scored.json")}
 he4_cnt=defaultdict(lambda:[0,0])
 for (t,l,m),p in he4_pass.items():
     he4_cnt[(t,m)][0]+=int(bool(p)); he4_cnt[(t,m)][1]+=1
@@ -216,9 +216,9 @@ write_rows(ws, ["task_id","entry_point","model","result (terse)","passed /4 (all
            rows, [12,26,10,13,20,70,80], result_cols=(4,))
 
 # ============ HumanEval+ (v3 dataset — HE4 has no edge-test scoring) ============
-v3_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/vibe_tax_v3/vibe_tax_v3_responses.json")}
-v3_base={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v3/vibe_tax_v3_scored.json")}
-v3_plus={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/vibe_tax_v3/vibe_tax_v3_plus_scored.json")}
+v3_resp={(x["task_id"],x["level"],x["model"]):x for x in load("data/politeness_tax_v3/politeness_tax_v3_responses.json")}
+v3_base={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/politeness_tax_v3/politeness_tax_v3_scored.json")}
+v3_plus={(x["task_id"],x["level"],x["model"]):x["passed"] for x in load("data/politeness_tax_v3/politeness_tax_v3_plus_scored.json")}
 
 ws=wb.create_sheet("HumanEval+")
 rows=[]
@@ -233,7 +233,7 @@ write_rows(ws, ["task_id","entry_point","model","base result","plus result (edge
            rows, [12,26,10,12,16,70,80], result_cols=(4,5))
 
 # ============ GPT-5.6 Failures (ablation) ============
-g56_path = os.path.join(ROOT, "data/vibe_tax_lcb/lcb_v3_gpt56_scored.json")
+g56_path = os.path.join(ROOT, "data/politeness_tax_lcb/lcb_v3_gpt56_scored.json")
 if os.path.exists(g56_path):
     g56 = json.load(open(g56_path, encoding="utf-8"))
     base54 = {(x["task_id"], x["level"]): x["passed"]
@@ -265,12 +265,12 @@ if os.path.exists(g56_path):
 
 # ============ Partial Credit (per-task, line-by-line) ============
 # Per-ATTEMPT test-pass rate for EVERY LCB problem, over the 12 attempts
-# (3 models x 4 framings). Source: data/vibe_tax_lcb/full_partial_credit.json.
+# (3 models x 4 framings). Source: data/politeness_tax_lcb/full_partial_credit.json.
 #   n_solved  attempts passing ALL tests   best %  best single attempt
 #   mean %    avg test-pass over 12         worst % weakest attempt
 # A passed attempt = 100% (no re-run); only FAILED attempts are executed for
 # their partial count. This lets you inspect capability as a continuum per task.
-pc = load("data/vibe_tax_lcb/full_partial_credit.json")
+pc = load("data/politeness_tax_lcb/full_partial_credit.json")
 by_tid = {x["task_id"]: x for x in pc}
 
 def pc_status(x):

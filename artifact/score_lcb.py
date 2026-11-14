@@ -11,7 +11,7 @@ Windows-compatible: uses multiprocessing (spawn) with a timeout, not SIGALRM.
 
 Inputs (env-overridable):
     LCB_TESTS      lcb_tests.jsonl       (from extract_lcb_tests.py)
-    LCB_RESPONSES  lcb_v3_responses.json (from run_vibe_tax.py on lcb_v3_prompts)
+    LCB_RESPONSES  lcb_v3_responses.json (from run_politeness_tax.py on lcb_v3_prompts)
 Outputs:
     lcb_scored_sieve.json / lcb_scored_sieve_stats.json   (Sieve-extracted, test-scored)
 

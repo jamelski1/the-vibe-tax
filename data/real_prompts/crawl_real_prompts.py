@@ -121,7 +121,7 @@ FETCH_DELAY = 0.3
 def _get(url, accept="application/vnd.github+json", timeout=30, raw=False):
     req = urllib.request.Request(url)
     req.add_header("Accept", accept)
-    req.add_header("User-Agent", "vibe-tax-prompt-crawler")
+    req.add_header("User-Agent", "politeness-tax-prompt-crawler")
     if GITHUB_TOKEN and "api.github.com" in url:
         req.add_header("Authorization", f"Bearer {GITHUB_TOKEN}")
     with urllib.request.urlopen(req, timeout=timeout) as resp:
@@ -448,7 +448,7 @@ TRIVIAL = re.compile(
 
 def run(limit, max_prompt_chars, min_prompt_chars, strict_coding, deep=False, per_repo_cap=None):
     log("=" * 60)
-    log("VIBE TAX — Real Prompt Crawler")
+    log("POLITENESS TAX — Real Prompt Crawler")
     log("=" * 60)
     log(f"Token: {'set' if GITHUB_TOKEN else 'NONE (low rate limit)'}")
 

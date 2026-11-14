@@ -30,7 +30,7 @@ Data (auto-discovered — uses whatever is present):
   REAL       any data/real_prompts/*_corpus.json with a "prompt" field
              (real_prompts_corpus.json = agentic; webchat_*_corpus.json = chat)
   SYNTHETIC  data/HumanEval.jsonl/vibe_spectrum_data.json (5 hand-written levels)
-             + data/vibe_tax_v2/vibe_tax_prompts.json (v2 experiment conditions)
+             + data/politeness_tax_v2/politeness_tax_prompts.json (v2 experiment conditions)
 
 CLI:
     python realism_discriminator.py                 # all real corpora vs all synthetic
@@ -55,7 +55,7 @@ import re
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
 SYNTH_SPECTRUM = os.path.join(ROOT, "data", "HumanEval.jsonl", "vibe_spectrum_data.json")
-SYNTH_V2 = os.path.join(ROOT, "data", "vibe_tax_v2", "vibe_tax_prompts.json")
+SYNTH_V2 = os.path.join(ROOT, "data", "politeness_tax_v2", "politeness_tax_prompts.json")
 STATS_OUT = os.path.join(SCRIPT_DIR, "realism_discriminator_stats.json")
 
 LEVEL_KEYS = ["level_1_formal", "level_2", "level_3", "level_4", "level_5_vibe"]

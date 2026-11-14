@@ -163,7 +163,7 @@ conclusion it produced, the fix, and a citation where one exists.
 ## 8. Future work / extensions
 
 - **Self-repair** (positive-result companion; feedback vs no-feedback control). [HAVE harness]
-- **Under-specification dose-response** (the real "vibe tax"). [CAND]
+- **Under-specification dose-response** (the real "politeness tax"). [CAND]
 - **LLM-rewritten (natural) framings** vs deterministic wrappers. [CAND]
 - **Longitudinal re-run** as models improve — *empirically demonstrate the window closing*. [FUTURE — ties to the thesis]
 - De-contaminated / strictly-post-cutoff problem slice for the absolute numbers. [CAND]

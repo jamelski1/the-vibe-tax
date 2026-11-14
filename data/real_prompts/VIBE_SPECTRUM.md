@@ -2,7 +2,7 @@
 
 An empirically-grounded taxonomy of how people *actually* prompt while coding
 with an AI agent — built from real prompts harvested off public GitHub Claude
-Code transcripts. This is the foundational research that feeds the **Vibe Tax**
+Code transcripts. This is the foundational research that feeds the **Politeness Tax**
 study (which measures whether informal prompting produces worse code).
 
 The original `vibe_spectrum_data.json` modeled "vibe" as a single 1-D axis: 5
@@ -185,7 +185,7 @@ profile — casual/vague held at ~87–90%, pasting stayed negligible (~6–8%).
 
 This is the single most important finding for the study: **"vibe coding" is not
 one distribution.** Where the prompt is typed changes its formality, its length,
-its language mix, and whether it carries pasted context. Any vibe-tax measurement
+its language mix, and whether it carries pasted context. Any politeness-tax measurement
 must state which medium it is modeling.
 
 ## Replication across web-chat sources — what's a *medium* effect vs a *population* effect
@@ -220,10 +220,10 @@ code-paste gaps as medium effects, but treat **error-paste prevalence and
 language mix as population-dependent** — the error-paste arm of the study must
 name its population, and **WildChat (not LMSYS) is the source for it**.
 
-> **This design is now implemented** — see `data/vibe_tax_v2/EXPERIMENT.md` for
+> **This design is now implemented** — see `data/politeness_tax_v2/EXPERIMENT.md` for
 > the two-medium experiment built on these distributions.
 
-## What this means for the Vibe Tax study
+## What this means for the Politeness Tax study
 
 1. **Sample across all five axes, not just formality.** A faithful "vibe"
    prompt set should mix intents, registers, languages, and context modes — not

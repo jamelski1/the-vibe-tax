@@ -16,7 +16,7 @@ discriminator score is recorded as ADVISORY only (it was trained on web-chat vs
 HumanEval, so it doesn't judge leetcode-style prompts well); the hard gate is
 just "method name preserved" (gradeability).
 
-Output: lcb_v3_prompts.json (schema matches run_vibe_tax.py).
+Output: lcb_v3_prompts.json (schema matches run_politeness_tax.py).
 
 Usage:
   python generate_lcb_prompts.py --backend mock

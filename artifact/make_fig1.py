@@ -7,7 +7,7 @@
 Data provenance (capable models = ChatGPT + Claude; 167 problems x 2 models = 334 paired
 observations per condition; 1,336 records per extractor):
   * Compile-rates: recomputed from data/lcb_v3_responses.json with the extractors
-    in The_Vibe_Tax_Four_Extractors.ipynb (reproduced exactly on 2026-10-04).
+    in The_Politeness_Tax_Four_Extractors.ipynb (reproduced exactly on 2026-10-04).
   * Pass-rates + discordant counts: THREE_EXTRACTOR_RESULTS.md, "second run, with McNemar".
     Re-scoring requires the HF-gated lcb_tests.jsonl (not in repo).
 

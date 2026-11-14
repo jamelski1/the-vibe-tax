@@ -1,8 +1,8 @@
 # The Extractor Is Part of Your Benchmark: How Code-Extraction Choices Silently Distort LLM Correctness Results
 
-*Standalone draft. Companion artifacts: `data/vibe_tax_lcb/score_lcb.py`,
-`data/vibe_tax_v2/score_vibe_tax.py`, `EXTRACTION_PITFALLS.md` (failure catalogue),
-`data/vibe_tax_lcb/test_class_shape.py` (prevalence probe).*
+*Standalone draft. Companion artifacts: `data/politeness_tax_lcb/score_lcb.py`,
+`data/politeness_tax_v2/score_politeness_tax.py`, `EXTRACTION_PITFALLS.md` (failure catalogue),
+`data/politeness_tax_lcb/test_class_shape.py` (prevalence probe).*
 
 ## Abstract
 
@@ -125,7 +125,7 @@ near-misses.
 
 The extractor we converged on generates an **ordered list of candidate programs** and
 accepts the **first that both compiles and passes the tests**
-(`score_vibe_tax.py :: build_candidates`, `score_lcb.py :: extract_solution`):
+(`score_politeness_tax.py :: build_candidates`, `score_lcb.py :: extract_solution`):
 
 1. fenced code blocks that mention the target;
 2. **all** code blocks concatenated (keeps a helper split into a separate block);

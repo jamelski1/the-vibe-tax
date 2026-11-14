@@ -340,7 +340,7 @@ for cat, nums in CATEGORIES.items():
 
 def run():
     log.info("=" * 60)
-    log.info("VIBE TAX — Test Runner Started")
+    log.info("POLITENESS TAX — Test Runner Started")
     log.info("=" * 60)
 
     # Load model responses

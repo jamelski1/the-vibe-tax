@@ -71,7 +71,7 @@ SYSTEM_PROMPT = (
 # ---------------------------------------------------------------------------
 
 def setup_logging():
-    logger = logging.getLogger("vibe_tax")
+    logger = logging.getLogger("politeness_tax")
     logger.setLevel(logging.DEBUG)
 
     formatter = logging.Formatter(
@@ -258,7 +258,7 @@ def build_user_prompt(entry, level_key, entry_point):
 
 def run():
     log.info("=" * 60)
-    log.info("VIBE TAX — Model Query Run Started")
+    log.info("POLITENESS TAX — Model Query Run Started")
     log.info("=" * 60)
 
     # Load data

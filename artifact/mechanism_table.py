@@ -1,7 +1,7 @@
 """Table 4 (mechanism) + Fig. 1a compile-rates, recomputed from stored completions.
 
 Pulls three of the extractors (Naive / Sieve / EvalPlus sanitize) verbatim from
-The_Vibe_Tax_Four_Extractors.ipynb so the numbers come from the same code as the notebook.
+The_Politeness_Tax_Four_Extractors.ipynb so the numbers come from the same code as the notebook.
 Needs only data/lcb_v3_responses.json (+ tree_sitter, tree_sitter_python).
 
 Run:  python mechanism_table.py   (needs tree_sitter; uses this folder's data/ + notebook)
@@ -11,7 +11,7 @@ _H = os.path.dirname(os.path.abspath(__file__))
 from collections import defaultdict
 from scipy.stats import binomtest
 
-nb = json.load(open(os.path.join(_H, "The_Vibe_Tax_Four_Extractors.ipynb")))
+nb = json.load(open(os.path.join(_H, "The_Politeness_Tax_Four_Extractors.ipynb")))
 for i in (8, 10, 12, 14, 16):  # sieve, naive, sanitize, lcb_official, compile_ok
     exec("".join(nb["cells"][i]["source"]), globals())
 
