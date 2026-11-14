@@ -11,7 +11,7 @@ from collections import defaultdict
 from scipy.stats import binomtest
 
 nb = json.load(open("The_Vibe_Tax_Three_Extractors.ipynb"))
-for i in (8, 10, 12, 14):  # ours, naive, sanitize, compile_ok
+for i in (8, 10, 12, 14, 16):  # ours, naive, sanitize, lcb, compile_ok
     exec("".join(nb["cells"][i]["source"]), globals())
 
 RESP = json.load(open("data/vibe_tax_lcb/lcb_v3_responses.json"))
