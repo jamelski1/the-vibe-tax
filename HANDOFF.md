@@ -3,7 +3,7 @@
 Single entry point for continuing this project (e.g. in Claude Cowork). Everything is committed to
 GitHub; start by reading this, then the files in **Key files** below.
 
-- **Repo:** `jamelski1/the-vibe-tax`
+- **Repo:** the authors' research repository (name withheld for review)
 - **Branch:** `claude/blissful-hopper-dy0rvr`
 - **Read-first order:** this file → `PAPER_FRAMING.md` → `THREE_EXTRACTOR_RESULTS.md` →
   `RELATED_WORK_NOTES.md` → `PITFALL_COVERAGE.md`.
@@ -85,6 +85,6 @@ full sketch (title, outline, novelty-vs-built-on, venue, reviewer objections). A
 
 ## How to continue in Cowork
 
-Open a Cowork session connected to `jamelski1/the-vibe-tax` on branch
+Open a Cowork session connected to the authors' research repository on branch
 `claude/blissful-hopper-dy0rvr`, and start with: *"Read HANDOFF.md and PAPER_FRAMING.md, then help
 me draft the Results section / build Fig. 1."* Keep committing to the same branch.

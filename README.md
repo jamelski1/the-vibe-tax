@@ -142,5 +142,5 @@ when the 9 affected problems are excluded.
 
 ## Provenance
 
-Assembled from the research repository `jamelski1/the-vibe-tax`. The upstream HumanEval harness
+Assembled from the authors' research repository. The upstream HumanEval harness
 README that this repo was forked from is preserved as `README_humaneval_upstream.md`.
