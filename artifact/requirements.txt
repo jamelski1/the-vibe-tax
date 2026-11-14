@@ -1,0 +1,20 @@
+# Reproduction environment for the FORGE Politeness-Tax LiveCodeBench artifact.
+# Python 3.9+ (tested on 3.11 and 3.13). The core — extractors, scoring harness, the
+# offline McNemar, the encoding audit — needs only the Python standard library.
+# The extras below are needed only for the parts noted.
+
+# EvalPlus `sanitize` extractor (extract_sanitize) and mechanism_table.py:
+tree_sitter>=0.21
+tree_sitter_python>=0.21
+
+# Statistics in mechanism_table.py and the figure scripts:
+scipy>=1.10
+
+# Figure generation (make_fig1.py, make_fig_mechanism.py, make_fig_encoding.py):
+matplotlib>=3.7
+# fig_encoding.py renders Chinese glyphs; install a CJK font (e.g. WenQuanYi Zen Hei /
+# fonts-wqy-zenhei) or it falls back to tofu boxes for the Chinese example only.
+
+# NOT a pip package: lcb_tests.jsonl (LiveCodeBench official test cases) is HF-gated and
+# not shipped. Regenerate with extract_lcb_tests.py (needs the LiveCodeBench release JSONLs
+# from Hugging Face: livecodebench/code_generation_lite). See README "What is NOT included".
