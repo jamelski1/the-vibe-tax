@@ -13,7 +13,7 @@ in four register templates; only the surrounding words differ. The finding:
 - A **standard-but-naive** code extractor produces a large, highly significant "politeness tax"
   (terse beats detailed by **+15.9 points**, paired McNemar p ≈ 1.6×10⁻⁷).
 - That effect is a **scoring artifact, not model behavior**: it **vanishes** under two independent
-  robust extractors (ours/"Sieve" 0.0, p=1.0; EvalPlus `sanitize` −2.4, p=0.27) and **reverses**
+  robust extractors (Sieve 0.0, p=1.0; EvalPlus `sanitize` −2.4, p=0.27) and **reverses**
   under LiveCodeBench's own fence-only extractor (~−12 points). Same 1,336 replies, four extractors,
   three opposite conclusions.
 - Mechanism: polite/detailed prompts elicit more trailing prose; the naive extractor feeds code +
@@ -29,8 +29,9 @@ model, Codestral; the paper's slice is the 1,336 capable-model replies.)
 ```
 artifact/
   extractors.py                 The FOUR extractors as one runnable module:
-                                  extract_naive, extract_ours (Sieve), extract_sanitize, extract_lcb
-  score_lcb.py                  Scoring harness: extraction -> exec -> per-test run, 60-test cap,
+                                  extract_naive, extract_sieve, extract_sanitize, extract_lcb_official
+  names.py                      Paper name <-> code/data key (extractors, registers, models)
+  score_lcb.py                  Scoring harness: Sieve extraction -> exec -> per-test run, 60-test cap,
                                   per-test timeout, pass/compile determination, failure-reason log
   extract_lcb_tests.py          Regenerates the (HF-gated) lcb_tests.jsonl from the LCB release
   generate_lcb_prompts.py       Prompt generation + the four register templates (_mock)
@@ -39,7 +40,7 @@ artifact/
   mechanism_table.py            Compile-rate table + mechanism table (no tests)
   encoding_robustness.py        CP437 encoding-defect audit + headline-robustness check (no tests)
   make_fig1.py / make_fig_mechanism.py / make_fig_encoding.py   Figure generators (-> pdf/svg/png)
-  The_Vibe_Tax_Three_Extractors.ipynb   Notebook the figure/table scripts read the extractors from
+  The_Vibe_Tax_Four_Extractors.ipynb    Notebook mechanism_table.py reads the extractors from
   REGISTER_TEMPLATES.md         The four templates, verbatim
   ENCODING_DEFECT.md            The disclosed CP437 defect + the 9 affected problems
   RESULTS_MAP.md                Paper result -> script that regenerates it
@@ -48,14 +49,32 @@ artifact/
     lcb_v3_responses.json              All 2,004 raw replies as stored (3 models x 167 x 4)
     lcb_v3_responses_capable.json      The 1,336 capable-model slice (chatgpt + claude)
     lcb_problems.jsonl                 Problem statements + metadata (entry_point, difficulty, date)
-    lcb_scored.json                    Per-reply "ours"/Sieve verdict (test-verified pass/fail)
-    lcb_scored_stats.json              Aggregate stats, all models
-    lcb_scored_stats_chatgpt-claude.json   Aggregate stats + failure-reason split, capable slice
+    lcb_scored_sieve.json              Per-reply Sieve verdict (test-verified pass/fail)
+    lcb_scored_sieve_stats.json        Aggregate Sieve stats, all three models
+    lcb_scored_sieve_stats_chatgpt-claude.json   Aggregate Sieve stats + failure-reason split, the paper's slice
 ```
 
 A record in `lcb_v3_responses.json` has: `task_id`, `entry_point`, `level` (the condition key:
 `agentic_terse` / `agentic_casual` / `webchat_detailed` / `webchat_multilingual`), `model`,
 `prompt_text` (the wrapped prompt as sent), `completion` (the raw reply), and metadata.
+
+## Paper name ↔ code name
+
+Names in the code match the paper. The stored replies keep the keys they were collected under,
+so the raw data is untouched; `artifact/names.py` holds the same mapping for scripts.
+
+| In the paper | In the code / data |
+|---|---|
+| **Naive** scoring | `extract_naive` · `EXTRACTORS["naive"]` |
+| **Sieve** (called "Ours" in earlier drafts) | `extract_sieve` · `EXTRACTORS["sieve"]` · the harness `score_lcb.py` applies it · outputs `data/lcb_scored_sieve*.json` |
+| **sanitize** (EvalPlus) | `extract_sanitize` · `EXTRACTORS["sanitize"]` |
+| **LCB-official** | `extract_lcb_official` · `EXTRACTORS["lcb_official"]` |
+| register **terse** | reply field `level == "agentic_terse"` |
+| register **casual** | `level == "agentic_casual"` |
+| register **detailed** (polite) | `level == "webchat_detailed"` |
+| register **multilingual** (Chinese template) | `level == "webchat_multilingual"` |
+| **GPT-5.4** | reply field `model == "chatgpt"` |
+| **Claude Opus 4.6** | `model == "claude"` |
 
 ## Reproduce
 
@@ -63,13 +82,13 @@ A record in `lcb_v3_responses.json` has: `task_id`, `entry_point`, `level` (the 
 cd artifact
 python -m pip install -r requirements.txt      # tree_sitter, scipy, matplotlib (see notes below)
 
-# 1. Sanity: the four extractors on one real reply (naive FAILs, ours/sanitize pass, LCB empty)
+# 1. Sanity: the four extractors on one real reply (Naive FAILs, Sieve/sanitize pass, LCB-official empty)
 python extractors.py
 
 # 2. Compile-rate + mechanism tables, all from stored replies (NO gated tests needed)
 python mechanism_table.py
 
-# 3. The robust-extractor McNemar result, offline from the shipped "ours" verdicts
+# 3. The Sieve McNemar result, offline from the shipped Sieve verdicts
 python mcnemar.py                              # n=334, terse-detailed +0.6 pts, p=0.845 (null)
 
 # 4. Encoding-defect audit + headline robustness excluding the 9 corrupted problems
@@ -102,9 +121,9 @@ LCB_TESTS=lcb_tests.jsonl python score_all_extractors.py
    gated** (hundreds of MB) and not redistributed here. Regenerate it with `extract_lcb_tests.py`,
    which reads the cached LiveCodeBench release files from Hugging Face
    (`livecodebench/code_generation_lite`) and needs Hugging Face access. **All compile-level results,
-   the mechanism table, the encoding audit, the offline robust McNemar, and the figures reproduce
-   WITHOUT it**; only the pass-rate table needs it. The frozen pass/fail verdicts for the "ours"
-   extractor are shipped in `data/lcb_scored.json`, so downstream analysis is reproducible offline.
+   the mechanism table, the encoding audit, the offline Sieve McNemar, and the figures reproduce
+   WITHOUT it**; only the pass-rate table needs it. The frozen pass/fail verdicts for Sieve
+   are shipped in `data/lcb_scored_sieve.json`, so downstream analysis is reproducible offline.
 2. **Model API access to regenerate the raw replies.** The 1,336 replies are shipped as stored, so
    you do not need this to reproduce the analysis. You would only need it to re-query the models —
    e.g. to regenerate prompts with the CP437 encoding defect fixed (see `ENCODING_DEFECT.md`). The
