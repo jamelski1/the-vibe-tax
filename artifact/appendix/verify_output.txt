@@ -1,0 +1,358 @@
+Stored replies: 2004 | capable-model slice: 1336 | python 3.13.18
+
+====================================================================================================
+PITFALL 1. Trailing prose after unfenced code
+====================================================================================================
+lcb/3747 | GPT-5.4 | detailed register | easy | reply: 379 chars, 14 lines
+last 4 lines of the reply:
+   |         return ans
+   | This checks every adjacent pair, including the circular pair formed by the last and first elements using modulo.
+   | Time complexity: O(n)
+   | Space complexity: O(1)
+  Naive         extracts 379 chars; SyntaxError: invalid syntax (line 11 of the extracted text)
+  Sieve         extracts 220 chars; compiles
+                example 1: returns 3, statement says 3 -> matches
+                example 2: returns 5, statement says 5 -> matches
+  sanitize      extracts 219 chars; compiles
+                example 1: returns 3, statement says 3 -> matches
+                example 2: returns 5, statement says 5 -> matches
+  LCB-official  extracts 0 chars; nothing extracted
+stored Sieve verdict (official tests): PASS
+
+====================================================================================================
+PITFALL 2. Leading prose before code
+====================================================================================================
+lcb/3535 | Claude Opus 4.6 | casual register | hard | reply: 2246 chars, 64 lines
+lines 1-31 are prose; the code starts on line 32 and runs to the last line
+line 1: Looking at this problem, I need to count pairs (arr1, arr2) where:
+fence lines in the reply: 0
+  Naive         extracts 2246 chars; SyntaxError: invalid syntax (line 1 of the extracted text)
+  Sieve         extracts 1020 chars; compiles
+                example 1: returns 4, statement says 4 -> matches
+                example 2: returns 126, statement says 126 -> matches
+  sanitize      extracts 1021 chars; compiles
+                example 1: returns 4, statement says 4 -> matches
+                example 2: returns 126, statement says 126 -> matches
+  LCB-official  extracts 0 chars; nothing extracted
+stored Sieve verdict (official tests): PASS
+
+====================================================================================================
+PITFALL 3. Buggy snippet quoted first in "fix my error"
+====================================================================================================
+HumanEval/52 (below_threshold) | GPT-5.4 | error-paste ("fix my error") | reply: 1186 chars, 44 lines | stored in politeness_tax_responses.json
+lines of the reply that start a `def below_threshold`: [9, 19, 37]
+  the first def (reply line 9), run standalone against the official tests: AssertionError
+  the last def (reply line 37), run standalone against the official tests: passes the tests
+first scorer (run_tests.py):
+  clean_completion keeps, as the function body, text starting: '    for e in l:' / '        if e < t:'
+  strategy 1, prompt + body: SyntaxError: invalid syntax, line 15 of the assembled program
+  strategy 2, standalone:    IndentationError: unexpected indent, line 3 of the assembled program
+current scorer (score_politeness_tax.run_one, last `def` first): PASS
+stored verdict, current scorer: PASS
+all 74 error-paste replies of the two capable models: first scorer passes 0; current scorer (stored) passes 72
+  of these, replies whose first `def` of the target fails the tests while the last one passes: 3
+
+====================================================================================================
+PITFALL 4. Helper defined above Solution dropped
+====================================================================================================
+lcb/3680 | GPT-5.4 | terse register | hard | reply: 1488 chars, 63 lines
+top-level definitions in the reply, in order: ['ClassDef DSU', 'ClassDef Solution']
+pre-fix extractor (slice from the `class Solution` anchor):
+  extracts 984 chars; first line: 'class Solution:'; contains 'class DSU': False; compiles
+  example 1: NameError: name 'DSU' is not defined
+  example 2: NameError: name 'DSU' is not defined
+Sieve (current extractor):
+  extracts 1488 chars; first line: 'from math import gcd'; contains 'class DSU': True; compiles
+  example 1: returns 4, statement says 4 -> matches
+  example 2: returns 2, statement says 2 -> matches
+stored verdict, scoring run made with the pre-fix extractor: FAIL
+stored verdict, current Sieve run (official tests):          PASS
+replies in the 1,336 where the pre-fix extractor drops a definition placed above Solution: 10
+
+====================================================================================================
+PITFALL 5. Code split across several fenced blocks
+====================================================================================================
+lcb/3789 | Claude Opus 4.6 | terse register | hard | reply: 4250 chars, 88 lines
+fenced block 1: tag 'python', 55 lines, defines Solution: True
+fenced block 2: tag 'python', 1 lines, defines Solution: False
+fenced block 2, in full: 'return base_count + max(gain)\n'
+  Naive         extracts 2297 chars; compiles
+                example 1: returns 9, statement says 9 -> matches
+                example 2: returns 12, statement says 12 -> matches
+  Sieve         extracts 2297 chars; compiles
+                example 1: returns 9, statement says 9 -> matches
+                example 2: returns 12, statement says 12 -> matches
+  sanitize      extracts 2296 chars; compiles
+                example 1: returns 9, statement says 9 -> matches
+                example 2: returns 12, statement says 12 -> matches
+  LCB-official  extracts 29 chars; SyntaxError: 'return' outside function (line 1 of the extracted text)
+  Naive         output is fenced block 1
+  Sieve         output is fenced block 1
+  sanitize      output is fenced block 1
+  LCB-official  output is fenced block 2
+stored Sieve verdict (official tests): PASS
+replies in the 1,336 with two or more fenced blocks: 26; of these, Naive and LCB-official extract different text in 23
+  replies with a helper definition in one block and Solution in another: 0
+
+====================================================================================================
+PITFALL 6. Shape mismatch: bare, nested or renamed
+====================================================================================================
+  GPT-5.4          {'method on a top-level class Solution': 668}
+  Claude Opus 4.6  {'method on a top-level class Solution': 668}
+  Codestral        {'bare top-level function': 71, 'method on a top-level class Solution': 596, 'no code extracted': 1}
+instance OUTSIDE the 1,336: lcb/3517 | Codestral | terse register | medium | reply: 1395 chars, 34 lines
+the reply, in full:
+   | Here's a Python solution to the problem:
+   | 
+   | ```python
+   | from collections import defaultdict, deque
+   | 
+   | def shortestDistanceAfterQueries(n, queries):
+   |     # Initialize the graph with the initial roads
+   |     graph = defaultdict(list)
+   |     for i in range(n - 1):
+   |         graph[i].append(i + 1)
+   | 
+   |     answer = []
+   |     for u, v in queries:
+   |         # Add the new road to the graph
+   |         graph[u].append(v)
+   | 
+   |         # Use BFS to find the shortest path from 0 to n-1
+   |         queue = deque([(0, 0)])  # (current city, current distance)
+   |         visited = set()
+   |         found = False
+   |         while queue and not found:
+   |             current_city, current_distance = queue.popleft()
+   |             if current_city == n - 1:
+   |                 answer.append(current_distance)
+   |                 found = True
+   |             elif current_city not in visited:
+   |                 visited.add(current_city)
+   |                 for neighbor in graph[current_city]:
+   |                     queue.append((neighbor, current_distance + 1))
+   | 
+   |     return answer
+   | ```
+   | 
+   | This solution uses a graph representation to keep track of the roads between cities. For each query, it adds the new road to the graph and then uses Breadth-First Search (BFS) to find the shortest path from city 0 to city n-1. The BFS ensures that the shortest path is found by exploring all possible paths level by level. The distance of the shortest path is then added to the answer list.
+after exec: 'Solution' defined: False | resolve_callable binds: shortestDistanceAfterQueries
+score_lcb.grade on the 37 official tests stored for this problem: (True, 'pass', '')
+stored verdict (official tests): PASS
+
+====================================================================================================
+PITFALL 7. Full def appended under the prompt's def
+====================================================================================================
+HumanEval/71 (triangle_area) | GPT-5.4 | casual | reply: 214 chars, 9 lines | stored in he4_responses.json
+first 3 lines of the reply: ['import math', '', 'def triangle_area(a, b, c):']
+first scorer (run_tests.py): clean_completion turns the full function into a body:
+   |     if a + b <= c or a + c <= b or b + c <= a:
+   |         return -1
+   |     
+   |     s = (a + b + c) / 2
+   |     area = math.sqrt(s * (s - a) * (s - b) * (s - c))
+   |     return round(area, 2)
+  `import math` kept in the body: False
+  strategy 1, prompt's def + that body: NameError: name 'math' is not defined
+  strategy 2, that body standalone:     IndentationError: unexpected indent, line 3 of the assembled program
+the reply appended under the prompt unchanged: passes the tests
+the reply run standalone:                      passes the tests
+current scorer (score_politeness_tax.run_one): PASS
+stored verdict, current scorer: PASS
+capable-model replies in the two files that are a clean, complete, correct function: 586
+  fail when appended under the prompt unchanged (double signature): 0
+  fail under the first scorer (both strategies):                     2
+
+====================================================================================================
+PITFALL 8. Ragged first-line indentation
+====================================================================================================
+HumanEval/35 (max_element) | Claude Opus 4.6 | casual | reply: 76 chars, 5 lines | stored in politeness_tax_responses.json
+the reply, in full, with leading spaces counted:
+    3 spaces | m = l[0]
+    4 spaces | for e in l:
+    8 spaces | if e > m:
+   12 spaces | m = e
+    4 spaces | return m
+first scorer (run_tests.py): clean_completion re-indents relative to the FIRST line:
+    4 spaces | m = l[0]
+    8 spaces | for e in l:
+   12 spaces | if e > m:
+   16 spaces | m = e
+    8 spaces | return m
+  strategy 1, prompt + body: IndentationError: unexpected indent, line 11 of the assembled program
+  strategy 2, standalone:    IndentationError: unexpected indent, line 3 of the assembled program
+current scorer, normalized_body lifts the short first line, then re-indents:
+    4 spaces | m = l[0]
+    4 spaces | for e in l:
+    8 spaces | if e > m:
+   12 spaces | m = e
+    4 spaces | return m
+  prompt + normalized body: passes the tests
+current scorer (score_politeness_tax.run_one): PASS
+stored verdict, current scorer: PASS
+bare-body replies in the two files whose first line is indented less than every later line: 41 {'claude': 41}; fail under the first scorer: 40
+
+====================================================================================================
+PITFALL 9. Fence-marker variants, unbalanced backticks
+====================================================================================================
+lcb/3785 | Claude Opus 4.6 | multilingual register | medium | reply: 1410 chars, 39 lines
+lines containing a fence marker: [(5, '```'), (7, '```'), (13, '```'), (15, '```'), (19, '```'), (21, '```')]
+fenced block 1: 'copy[i] = copy[0] + (original[i] - original[0])'
+fenced block 2: 'bounds[i][0] <= copy[0] + d[i] <= bounds[i][1]'
+fenced block 3: 'bounds[i][0] - d[i] <= copy[0] <= bounds[i][1] - d[i]'
+line on which `class Solution` starts: 27 (outside every fence)
+  Naive         extracts 1386 chars; SyntaxError: invalid syntax (line 1 of the extracted text)
+  Sieve         extracts 444 chars; compiles
+                example 1: returns 2, statement says 2 -> matches
+                example 2: returns 4, statement says 4 -> matches
+                example 3: returns 0, statement says 0 -> matches
+  sanitize      extracts 445 chars; compiles
+                example 1: returns 2, statement says 2 -> matches
+                example 2: returns 4, statement says 4 -> matches
+                example 3: returns 0, statement says 0 -> matches
+  LCB-official  extracts 53 chars; compiles
+                the extracted text does not define Solution or countArrays
+LCB-official output, in full: 'bounds[i][0] - d[i] <= copy[0] <= bounds[i][1] - d[i]'
+stored Sieve verdict (official tests): PASS
+second form, an opening fence that is never closed:
+  lcb/3733 | Claude Opus 4.6 | detailed register | hard | reply: 6555 chars, 123 lines
+  lines containing a fence marker: [(21, '```'), (96, '```'), (110, '```')]
+  LCB-official takes the text between the last two markers: 1460 chars; SyntaxError: invalid decimal literal (line 2 of the extracted text)
+  its first line: 'Wait, the walking approach could be O(n*m*max_len) which might be too slow for 500x500. Let me precompute cont'
+replies in the 1,336 with an odd number of fence markers: [('lcb/3700', 'Claude Opus 4.6', 'casual'), ('lcb/3700', 'Claude Opus 4.6', 'detailed'), ('lcb/3733', 'Claude Opus 4.6', 'detailed'), ('lcb/3701', 'Claude Opus 4.6', 'multilingual')]
+
+====================================================================================================
+PITFALL 10. Over-aggressive extraction returns nothing
+====================================================================================================
+lcb/3517 | GPT-5.4 | terse register | medium | reply: 768 chars, 30 lines
+first line of the reply: 'from typing import List' | last line: '        return ans'
+fence lines in the reply: 0
+whole reply compiles as Python: compiles
+LCB-official returns ''
+score_lcb.grade(LCB-official output) on the 37 official tests stored for this problem: (False, 'no_code', '')
+score_lcb.grade(Sieve output)        on the same tests: (True, 'pass', '')
+stored Sieve verdict (official tests): PASS
+replies in the 1,336 for which LCB-official returns the empty string: 1035
+
+====================================================================================================
+PITFALL 11. Whole-suite timeout instead of per test
+====================================================================================================
+lcb/3551 | hard | entry point maximumSubarrayXor
+stored verdicts, same stored replies, two scoring runs:
+  reply                              8 s for the whole suite    6 s per test (current)   extracted code identical
+  GPT-5.4, terse                     FAIL                       PASS                     True
+  GPT-5.4, casual                    FAIL                       PASS                     True
+  GPT-5.4, detailed                  FAIL                       PASS                     True
+  GPT-5.4, multilingual              FAIL                       PASS                     True
+  Claude Opus 4.6, terse             FAIL                       PASS                     False
+  Claude Opus 4.6, casual            FAIL                       PASS                     True
+  Claude Opus 4.6, detailed          FAIL                       PASS                     True
+  Claude Opus 4.6, multilingual      FAIL                       PASS                     True
+instance: lcb/3551 | GPT-5.4 | terse register | hard | reply: 1017 chars, 29 lines
+  example 1: returns [12, 60, 60], statement says [12, 60, 60] -> matches
+  example 2: returns [7, 14, 11, 14, 5], statement says [7, 14, 11, 14, 5] -> matches
+across the 1,336: FAIL->PASS between the two runs: 75; PASS->FAIL: 0; FAIL->PASS with byte-identical extracted code: 46
+NOT re-executed here: the official tests for this problem are gated and not on the branch.
+re-run on the two problems whose official tests ARE on the branch (old whole-suite check vs current per-test check):
+  lcb/3517 GPT-5.4          terse         whole-suite: PASS  per-test: PASS (pass)
+  lcb/3517 Claude Opus 4.6  terse         whole-suite: PASS  per-test: PASS (pass)
+  lcb/3517 GPT-5.4          casual        whole-suite: PASS  per-test: PASS (pass)
+  lcb/3517 Claude Opus 4.6  casual        whole-suite: PASS  per-test: PASS (pass)
+  lcb/3517 GPT-5.4          detailed      whole-suite: FAIL  per-test: FAIL (wrong_answer)
+  lcb/3517 Claude Opus 4.6  detailed      whole-suite: PASS  per-test: PASS (pass)
+  lcb/3517 GPT-5.4          multilingual  whole-suite: FAIL  per-test: FAIL (wrong_answer)
+  lcb/3517 Claude Opus 4.6  multilingual  whole-suite: PASS  per-test: PASS (pass)
+  lcb/3527 GPT-5.4          terse         whole-suite: FAIL  per-test: FAIL (runtime_error)
+  lcb/3527 Claude Opus 4.6  terse         whole-suite: FAIL  per-test: FAIL (missing_library)
+  lcb/3527 GPT-5.4          casual        whole-suite: FAIL  per-test: FAIL (timeout)
+  lcb/3527 Claude Opus 4.6  casual        whole-suite: FAIL  per-test: FAIL (missing_library)
+  lcb/3527 GPT-5.4          detailed      whole-suite: FAIL  per-test: FAIL (wrong_answer)
+  lcb/3527 Claude Opus 4.6  detailed      whole-suite: FAIL  per-test: FAIL (missing_library)
+  lcb/3527 GPT-5.4          multilingual  whole-suite: FAIL  per-test: FAIL (timeout)
+  lcb/3527 Claude Opus 4.6  multilingual  whole-suite: FAIL  per-test: FAIL (missing_library)
+  replies where the two checks disagree: 0
+
+====================================================================================================
+PITFALL 12. Token cap: empty or truncated mid-code
+====================================================================================================
+lcb/3700 | Claude Opus 4.6 | casual register | hard | reply: 6496 chars, 112 lines
+fence markers: [(25, '```python')] (opened, never closed)
+last 3 lines of the reply:
+   |                     # Actually let's just do inclusion properly:
+   |                     # #(v>=2) = #(pick 3 nonm with v>=2)
+   |                     # = total with v in all 3: C(lv,1)*C
+Sieve extracts 87 lines (everything from `class Solution` to the cut); compiles
+  `return` statements in the method subsequencesWithMiddleMode itself: 0
+  example 1: returns None, statement says 6 -> DOES NOT MATCH
+  example 2: returns None, statement says 4 -> DOES NOT MATCH
+  example 3: returns None, statement says 0 -> DOES NOT MATCH
+stored Sieve verdict (official tests): FAIL
+replies in the 1,336 that were cut off (open code fence, or last line a comment inside a block):
+  lcb/3700 Claude Opus 4.6  terse         6692 chars, hard, stored verdict FAIL; ends: 'r val appears >=1 time = always (since we pick 4'
+  lcb/3700 Claude Opus 4.6  casual        6496 chars, hard, stored verdict FAIL; ends: '# = total with v in all 3: C(lv,1)*C'
+  lcb/3700 Claude Opus 4.6  detailed      6704 chars, hard, stored verdict FAIL; ends: '# Arrangements: (1 m left, 1 non-m left, 2 non'
+  lcb/3696 Claude Opus 4.6  terse         5815 chars, hard, stored verdict FAIL; ends: '# For each i_mod = i%period'
+  lcb/3733 Claude Opus 4.6  detailed      6555 chars, hard, stored verdict FAIL; ends: '# alt20[d][r][c] = max run starting'
+  lcb/3701 Claude Opus 4.6  multilingual  6442 chars, hard, stored verdict FAIL; ends: ' prefix_count[v][i] + (1 if chars[i] <= v else 0'
+  lcb/3784 Claude Opus 4.6  terse         6902 chars, hard, stored verdict FAIL; ends: '#'
+empty replies in the 1,336: 0
+  longest replies, GPT-5.4: [4340, 4617, 4988, 5906, 5907, 5962] chars
+  longest replies, Claude Opus 4.6: [6555, 6630, 6692, 6704, 6902, 7091] chars
+
+====================================================================================================
+PITFALL 13. Weak tests pass subtly wrong code
+====================================================================================================
+HumanEval/55 (fib) | GPT-5.4 | detailed | reply: 275 chars, 15 lines | stored in politeness_tax_responses.json
+lines 10-11 of the reply: ['if n <= 0:', 'raise ValueError("n must be a positive integer")']
+the official base test has 5 assertions: ['assert candidate(10) == 55', 'assert candidate(1) == 1', 'assert candidate(8) == 21', 'assert candidate(11) == 89', 'assert candidate(12) == 144']
+reply run against the base test: passes the tests
+  fib(0): reference solution -> 0 | reply -> raises ValueError: n must be a positive integer
+  fib(1): reference solution -> 1 | reply -> 1
+  fib(2): reference solution -> 1 | reply -> 1
+  fib(10): reference solution -> 55 | reply -> 55
+stored verdict, base tests:       PASS
+stored verdict, HumanEval+ inputs: FAIL
+stored cells that pass the base tests and fail the HumanEval+ inputs: 65 of 822 (41 of them from the two capable models)
+
+====================================================================================================
+PITFALL 14. Binary pass@1 hides near-misses
+====================================================================================================
+lcb/3527 | GPT-5.4 | detailed register | hard | reply: 4617 chars, 180 lines
+official tests stored for this problem: 2 public + 35 private
+per-test outcomes, every test run: public 2/2 pass, private 30/35 pass, total 32/37 = 86.5%
+failing tests (0-based index, outcome): [(9, 'wrong answer'), (11, 'wrong answer'), (16, 'wrong answer'), (29, 'wrong answer'), (36, 'wrong answer')]
+score_lcb.grade on all tests:         (False, 'wrong_answer', '')
+score_lcb.grade on public tests only: (True, 'pass', '')
+stored Sieve verdict (official tests): FAIL
+same problem, same model, other registers (per-test outcomes):
+  terse         2/37 pass; first non-pass: (0, 'TypeError'); stored verdict FAIL
+  casual        3/37 pass; first non-pass: (3, 'no result within 10s'); stored verdict FAIL
+  multilingual  3/37 pass; first non-pass: (3, 'no result within 10s'); stored verdict FAIL
+
+====================================================================================================
+PITFALL 15. Non-ASCII prompt corrupted by code page
+====================================================================================================
+lcb/3540 | GPT-5.4 | multilingual register | medium | reply: 316 chars, 11 lines
+stored prompt_text, first line:    σ╕«µêæΦºúσå│Φ┐ÖΣ╕¬Θù«Θóÿ∩╝îΦ»╖σ«₧τÄ░ `Solution` τ▒╗τÜä `stringHash(s, k)` µû╣µ│ò∩╝Ü
+after cp437->utf-8 recovery:       帮我解决这个问题，请实现 `Solution` 类的 `stringHash(s, k)` 方法：
+stored statement fragment:         haracter in the English alphabet (e.g., 'a' ΓåÆ 0, 'b' ΓåÆ 1, ...,
+after recovery:                    haracter in the English alphabet (e.g., 'a' → 0, 'b' → 1, ..
+the model's reply defines the method and Sieve extracts it: compiles
+  example 1: returns 'bf', statement says 'bf' -> matches
+  example 2: returns 'i', statement says 'i' -> matches
+stored Sieve verdict (official tests): PASS
+the 1,336 stored records, (prompt_text state, completion state) -> count:
+  ('ascii', 'ascii'): 681
+  ('ascii', 'clean non-ascii'): 30
+  ('ascii', 'garbled'): 237
+  ('clean non-ascii', 'ascii'): 60
+  ('clean non-ascii', 'clean non-ascii'): 26
+  ('garbled', 'ascii'): 168
+  ('garbled', 'garbled'): 134
+collection-time checkpoint (lcb_v3_progress.json), same record, same timestamp: True
+  checkpoint prompt_text, first line: 帮我解决这个问题，请实现 `Solution` 类的 `stringHash(s, k)` 方法：
+  checkpoint prompt_text == recovered stored prompt_text: True
+  records present in both files: 1488 (same timestamps: 1488)
+  fields identical: 2148; fields that differ and become identical after cp437->utf-8 recovery: 828 {'completion': 375, 'prompt_text': 453}; fields that differ otherwise: 0
+  garbled fields in the checkpoint: 0
+  stored replies in the 1,336 that are garbled although their prompt is pure ASCII: 237
