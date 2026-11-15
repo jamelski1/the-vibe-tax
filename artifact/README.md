@@ -13,6 +13,10 @@ harness. Its first section is the worked example the paper's Mechanism section p
 3747). The source, the build script and the script that re-runs every check are in
 **[`appendix/`](appendix/)**.
 
+**The 15 Code-Extraction Fail States in LLM Benchmarks.**
+**[`fifteen-fail-states-infographic.png`](fifteen-fail-states-infographic.png)** depicts the fifteen
+pitfalls of the paper's Table II, with a one-line description and effect for each.
+
 Quick start:
 ```bash
 pip install -r requirements.txt

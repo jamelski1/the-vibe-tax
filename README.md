@@ -47,6 +47,7 @@ artifact/
   Appendix_Worked_Examples.pdf  Appendix A: one worked example per pitfall of the paper's Table II
   appendix/                     Source of that PDF: text, build script, and verify_examples.py,
                                   which re-runs every check the appendix quotes
+  fifteen-fail-states-infographic.png   Infographic: the fifteen pitfalls of Table II, one line each
   requirements.txt              Python deps
   data/
     lcb_v3_responses.json              All 2,004 raw replies as stored (3 models x 167 x 4)
