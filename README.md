@@ -44,7 +44,7 @@ artifact/
   REGISTER_TEMPLATES.md         The four templates, verbatim
   ENCODING_DEFECT.md            The disclosed CP437 defect + the 9 affected problems
   RESULTS_MAP.md                Paper result -> script that regenerates it
-  Appendix_Worked_Examples.pdf  Appendix: one worked example per pitfall of the paper's Table II
+  Appendix_Worked_Examples.pdf  Appendix A: one worked example per pitfall of the paper's Table II
   appendix/                     Source of that PDF: text, build script, and verify_examples.py,
                                   which re-runs every check the appendix quotes
   requirements.txt              Python deps

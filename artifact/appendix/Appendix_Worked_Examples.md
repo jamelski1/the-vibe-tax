@@ -1,5 +1,5 @@
 ---
-title: "Appendix: Worked Examples for the Pitfall Catalog"
+title: "Appendix A - Worked Examples for the Pitfall Catalog"
 lang: en
 ---
 
